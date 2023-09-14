@@ -37,14 +37,14 @@ $("#SocketStatus").text("Disconnected");
 		 var obj = JSON.parse(Data); 
 		 var html = '<div class="card mt-2">'+
 			'<div class="card-header">'+
-				'<h1>'+obj.Header+'</h1>'+
+				'<h1>'+obj.Header+' เวลา : '+formatDate(new Date())+'</h1>'+
 			'</div>'+
 			'<div class="card-body">'+
 				'<h5 class="card-title">'+obj.Msg+'</h5>'+
 				'<a href="#" class="btn btn-primary">รับรายการ</a>'+
 			'</div>'+
 		'</div>';  
-		$("#ContentMenu").append(html);
+		$("#ContentMenu").prepend(html);
 
 
 	 });
@@ -72,5 +72,26 @@ $("#SocketStatus").text("Disconnected");
 
 
 });
+
+
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
+function formatDate(date) {
+  return (
+    [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join('-') +
+    ' ' +
+    [
+      padTo2Digits(date.getHours()),
+      padTo2Digits(date.getMinutes()),
+      padTo2Digits(date.getSeconds()),
+    ].join(':')
+  );
+}
 </script>
 </html>
