@@ -41,13 +41,25 @@ $("#SocketStatus").text("Disconnected");
 			'</div>'+
 			'<div class="card-body">'+
 				'<h5 class="card-title">'+obj.Msg+'</h5>'+
-				'<a href="#" class="btn btn-primary">รับรายการ</a>'+
+				'<button id="BTNSend" type="button" class="btn btn-primary BTNReceive" data-header="'+obj.Header+'" data-Source="'+obj.Source+'" data-Dest="'+obj.Dest+'" data-Msg="'+obj.Msg+'" >รับรายการ</button>'+
 			'</div>'+
 		'</div>';  
 		$("#ContentMenu").prepend(html);
+	 });
 
+	 $("#ContentMenu").on("click",".BTNReceive",function(){
+		var header = $(this).attr("data-header");
+		var Source = $(this).attr("data-Source");
+		var Dest = $(this).attr("data-Dest");
+		var Msg = $(this).attr("data-Msg");
+
+		console.log(header);
+		console.log(Source);
+		console.log(Dest);
+		console.log(Msg);
 
 	 });
+	 
 
 	//  $("#Click").on("click", function () {
 	// 	 //alert("dsa");

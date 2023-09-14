@@ -51,12 +51,11 @@ $("#SocketStatus").text("Disconnected");
 
 	 });
  
-	//  socket.on("System", function (Data) {
-	// 	 console.log("From : "+Data);
-	//  });
+	 socket.on("RClient", function (Data) {
+		 console.log("From : "+Data);
+	 });
 
-	 $("#BTNSend").on("click", function () { 
-
+	 $("#BTNSend").on("click", function () {  
 		 var Title = $("#Title").val();  
 		 var text = $("#TEXTMSG").val();  
 		 if (socket.connected == true) {
