@@ -35,7 +35,7 @@ $("#SocketStatus").text("Disconnected");
 	 socket.on("RServer", function (Data) {
 		 console.log("From : "+Data); 
 		 var obj = JSON.parse(Data); 
-		 var html = '<div class="card">'+
+		 var html = '<div class="card mt-2">'+
 			'<div class="card-header">'+
 				'<h1>'+obj.Header+'</h1>'+
 			'</div>'+

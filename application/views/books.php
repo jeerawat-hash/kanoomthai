@@ -47,12 +47,13 @@ $("#SocketStatus").text("Disconnected");
 
 	 $("#BTNSend").on("click", function () { 
 
+		 var Title = $("#Title").val();  
 		 var text = $("#TEXTMSG").val();  
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": "RClient",
 				 "Dest": "RServer",
-				 "Header": text,
+				 "Header": Title,
 				 "Msg": text,
 			 });
 			 socket.emit("MSGServer", AAA);
