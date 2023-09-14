@@ -1,11 +1,3 @@
-<?php
-
-$cookie_name = "ConnectKey";
-$cookie_value = date("Y-m-d-H-i-s");
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,17 +41,17 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1
 <script>
 $(function () {
 
-var ClientName = "None";
 $("#SocketStatus").text("Disconnected");
  try {
 	
 	 const socket = io("http://203.156.9.157:8081");
 	 socket.on("connect", function () {
 		 console.log("Connected");
-		$("#SocketStatus").text("Connected"); 
+		$("#SocketStatus").text("Connected");
+
 	 });
  
-	 socket.on("<?php echo $_COOKIE[$cookie_name]; ?>", function (Data) {
+	 socket.on("RClient", function (Data) {
 		 console.log("From : "+Data);
 	 });
 
@@ -68,7 +60,7 @@ $("#SocketStatus").text("Disconnected");
 		 var text = $("#TEXTMSG").val();  
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
-				 "Source": "<?php echo $_COOKIE[$cookie_name]; ?>",
+				 "Source": "RClient",
 				 "Dest": "RServer",
 				 "Header": Title,
 				 "Msg": text,
@@ -76,7 +68,6 @@ $("#SocketStatus").text("Disconnected");
 			 socket.emit("MSGServer", AAA);
 
              $("#Title").attr("disabled",true);  
-             ClientName = Title;
             //  $("#Title").val("");  
              $("#TEXTMSG").val("");  
              swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");
