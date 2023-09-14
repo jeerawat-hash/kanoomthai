@@ -3,7 +3,7 @@ $a = shell_exec('bash /var/www/html/ManageGit.sh "/var/www/html/kanoomthai" "htt
 
 //$PayLoad = print_r( json_decode($_POST["payload"],true) );
 
-Linenotify("Pull Trigger \n http://203.156.9.157/kanoomthai/ \n".date("d-m-Y-H:i:s", filemtime('readme.rst')) ,"VfgkhIoMBtgXpAMz2bk4nTR9YXKoY2gobMNtxacLU8a");
+Linenotify("Pull Trigger \n http://203.156.9.157/kanoomthai \n".date("d-m-Y-H:i:s", filemtime('readme.rst')) ,"VfgkhIoMBtgXpAMz2bk4nTR9YXKoY2gobMNtxacLU8a");
  
 //echo date("d-m-Y-H:i:s.", filemtime('readme.rst'));
  
