@@ -10,11 +10,19 @@
 <body>
 
 <div class="container mt-3">
-  <h2 id="SocketStatus">Status</h2>
-  <div class="mt-4 p-5 bg-primary text-white rounded">
-    <h1>Jumbotron Example</h1> 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p> 
-  </div>
+  <h2 id="SocketStatus">Status</h2> 
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">SEND TEXT</div>
+        <div class="col-4">
+            <textarea id="TEXTMSG" cols="30" rows="10"></textarea>
+        </div>
+        <div class="col-4">
+            <button id="BTNSend" type="button" class="btn btn-primary">Send</button>
+        </div>
+    </div>
 </div>
 
 </body>
@@ -36,20 +44,17 @@ $("#SocketStatus").text("Disconnected");
 	// 	 console.log("From : "+Data);
 	//  });
 
-	//  $("#Click").on("click", function () {
-	// 	 //alert("dsa");
-	// 	 var Customer = $("#EmitID").val();
-	// 	 if (socket.connected == true) {
-	// 		 var AAA = JSON.stringify({
-	// 			 "Source": "System",
-	// 			 "Dest": "0616619956",
-	// 			 "Msg": "TEST",
-	// 			 "Type": "T",
-	// 			 "Remark": "User"
-	// 		 });
-	// 		 socket.emit("MSGServer", AAA);
-	// 	 }
-	//  });
+	 $("#BTNSend").on("click", function () { 
+		 var text = $("#TEXTMSG").text();
+		 if (socket.connected == true) {
+			 var AAA = JSON.stringify({
+				 "Source": "RClient",
+				 "Dest": "RServer",
+				 "Msg": text,
+			 });
+			 socket.emit("MSGServer", AAA);
+		 }
+	 });
 
  } catch (error) {
 	 console.log(error);

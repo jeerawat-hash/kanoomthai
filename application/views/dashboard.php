@@ -31,10 +31,10 @@ $("#SocketStatus").text("Disconnected");
 		$("#SocketStatus").text("Connected");
 
 	 });
- 
-	//  socket.on("System", function (Data) {
-	// 	 console.log("From : "+Data);
-	//  });
+  
+	 socket.on("RServer", function (Data) {
+		 console.log("From : "+Data);
+	 });
 
 	//  $("#Click").on("click", function () {
 	// 	 //alert("dsa");
