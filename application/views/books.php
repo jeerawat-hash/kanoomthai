@@ -15,12 +15,13 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-4">SEND TEXT</div>
+        <div class="col-4">สั่งขนม Realtime<br> ชื่อ : <input id="Title" type="text"></div>
         <div class="col-4">
+            เอาไรพิมพ์ : 
             <textarea id="TEXTMSG" cols="30" rows="10"></textarea>
         </div>
         <div class="col-4">
-            <button id="BTNSend" type="button" class="btn btn-primary">Send</button>
+            <button id="BTNSend" type="button" class="btn btn-primary">สั่งอาหาร</button>
         </div>
     </div>
 </div>
@@ -46,14 +47,12 @@ $("#SocketStatus").text("Disconnected");
 
 	 $("#BTNSend").on("click", function () { 
 
-		 var text = $("#TEXTMSG").val();
-
-         alert(text);
-
+		 var text = $("#TEXTMSG").val();  
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": "RClient",
 				 "Dest": "RServer",
+				 "Header": text,
 				 "Msg": text,
 			 });
 			 socket.emit("MSGServer", AAA);

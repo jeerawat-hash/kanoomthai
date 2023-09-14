@@ -11,11 +11,11 @@
 
 <div class="container mt-3">
   <h2 id="SocketStatus">Status</h2>
-  <div class="mt-4 p-5 bg-primary text-white rounded">
-    <h1>Jumbotron Example</h1> 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..</p> 
-  </div>
 </div>
+
+<div class="container">
+	 <div id="ContentMenu"></div>
+</div>	
 
 </body>
 
@@ -33,8 +33,20 @@ $("#SocketStatus").text("Disconnected");
 	 });
   
 	 socket.on("RServer", function (Data) {
-		 console.log("From : "+Data);
-		 console.log("From : "+Data);
+		 console.log("From : "+Data); 
+		 var obj = JSON.parse(Data); 
+		 var html = '<div class="card">'+
+			'<div class="card-header">'+
+				'<h1>'+obj.Header+'</h1>'+
+			'</div>'+
+			'<div class="card-body">'+
+				'<h5 class="card-title">'+obj.Msg+'</h5>'+
+				'<a href="#" class="btn btn-primary">รับรายการ</a>'+
+			'</div>'+
+		'</div>';  
+		$("#ContentMenu").append(html);
+
+
 	 });
 
 	//  $("#Click").on("click", function () {
