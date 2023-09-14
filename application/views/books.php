@@ -16,8 +16,7 @@
 
   สั่งขนม Realtime
   <div class="row"> 
-        <div class="col-6">
-        ชื่อ : <input id="Title" type="text">
+        <div class="col-6">ชื่อ : <input id="Title" type="text">
         </div>
         <div class="col-6">
             <button id="BTNSend" type="button" class="btn btn-primary">สั่งอาหาร</button>
@@ -28,7 +27,7 @@
         <div class="col-12 text-center"> 
             <h1>เอาไรพิมพ์</h1>
         </div> 
-        <div class="col-12"> 
+        <div class="col-12 text-center"> 
             <textarea id="TEXTMSG" cols="30" rows="10"></textarea>
         </div> 
     </div> 
