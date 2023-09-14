@@ -41,17 +41,17 @@
 <script>
 $(function () {
 
+var ClientName = "None";
 $("#SocketStatus").text("Disconnected");
  try {
 	
 	 const socket = io("http://203.156.9.157:8081");
 	 socket.on("connect", function () {
 		 console.log("Connected");
-		$("#SocketStatus").text("Connected");
-
+		$("#SocketStatus").text("Connected"); 
 	 });
  
-	 socket.on("RClient", function (Data) {
+	 socket.on(ClientName, function (Data) {
 		 console.log("From : "+Data);
 	 });
 
@@ -68,7 +68,8 @@ $("#SocketStatus").text("Disconnected");
 			 socket.emit("MSGServer", AAA);
 
              $("#Title").attr("disabled",true);  
-             $("#Title").val("");  
+             ClientName = Title;
+            //  $("#Title").val("");  
              $("#TEXTMSG").val("");  
              swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");
 		 }

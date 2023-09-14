@@ -53,6 +53,17 @@ $("#SocketStatus").text("Disconnected");
 		var Dest = $(this).attr("data-Dest");
 		var Msg = $(this).attr("data-Msg");
 
+		if (socket.connected == true) {
+			 var AAA = JSON.stringify({
+				 "Source": "Dashboard",
+				 "Dest": Dest,
+				 "Header": Title,
+				 "Msg": text,
+			 });
+			 socket.emit("MSGServer", AAA); 
+		 }
+
+
 		console.log(header);
 		console.log(Source);
 		console.log(Dest);
