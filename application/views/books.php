@@ -66,6 +66,8 @@ $("#SocketStatus").text("Disconnected");
 				 "Msg": text,
 			 });
 			 socket.emit("MSGServer", AAA);
+
+             $("#Title").attr("disabled",true);  
              $("#Title").val("");  
              $("#TEXTMSG").val("");  
              swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");

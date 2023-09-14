@@ -57,7 +57,6 @@ $("#SocketStatus").text("Disconnected");
 		console.log(Source);
 		console.log(Dest);
 		console.log(Msg);
-
 	 });
 	 
 
