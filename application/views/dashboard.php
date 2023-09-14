@@ -34,6 +34,7 @@ $("#SocketStatus").text("Disconnected");
   
 	 socket.on("RServer", function (Data) {
 		 console.log("From : "+Data);
+		 console.log("From : "+Data);
 	 });
 
 	//  $("#Click").on("click", function () {

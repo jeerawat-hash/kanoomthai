@@ -45,7 +45,11 @@ $("#SocketStatus").text("Disconnected");
 	//  });
 
 	 $("#BTNSend").on("click", function () { 
+
 		 var text = $("#TEXTMSG").text();
+
+         alert(text);
+         
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": "RClient",
