@@ -1,3 +1,11 @@
+<?php
+
+$cookie_name = "ConnectKey";
+$cookie_value = date("Y-m-d-H-i-s");
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +59,7 @@ $("#SocketStatus").text("Disconnected");
 		$("#SocketStatus").text("Connected"); 
 	 });
  
-	 socket.on(ClientName, function (Data) {
+	 socket.on("<?php echo $_COOKIE[$cookie_name]; ?>", function (Data) {
 		 console.log("From : "+Data);
 	 });
 
@@ -60,7 +68,7 @@ $("#SocketStatus").text("Disconnected");
 		 var text = $("#TEXTMSG").val();  
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
-				 "Source": "RClient",
+				 "Source": "<?php echo $_COOKIE[$cookie_name]; ?>",
 				 "Dest": "RServer",
 				 "Header": Title,
 				 "Msg": text,

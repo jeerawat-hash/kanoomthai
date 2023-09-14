@@ -56,7 +56,7 @@ $("#SocketStatus").text("Disconnected");
 		if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": "Dashboard",
-				 "Dest": header,
+				 "Dest": Source,
 				 "Header": header,
 				 "Msg": Msg,
 			 });
