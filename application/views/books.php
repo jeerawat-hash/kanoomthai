@@ -14,19 +14,21 @@
 <div class="container mt-3">
   <h2 id="SocketStatus">Status</h2> 
 
-  <div class="row">
-        <div class="col-4">สั่งขนม Realtime</div>
-        <div class="col-4">
+  สั่งขนม Realtime
+  <div class="row"> 
+        <div class="col-6">
         ชื่อ : <input id="Title" type="text">
         </div>
-        <div class="col-4">
+        <div class="col-6">
             <button id="BTNSend" type="button" class="btn btn-primary">สั่งอาหาร</button>
         </div>
     </div> 
 
     <div class="row">
-        <div class="col-12">
-            เอาไรพิมพ์ : 
+        <div class="col-12 text-center"> 
+            <h1>เอาไรพิมพ์</h1>
+        </div> 
+        <div class="col-12"> 
             <textarea id="TEXTMSG" cols="30" rows="10"></textarea>
         </div> 
     </div> 
