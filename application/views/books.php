@@ -46,10 +46,10 @@ $("#SocketStatus").text("Disconnected");
 
 	 $("#BTNSend").on("click", function () { 
 
-		 var text = $("#TEXTMSG").text();
+		 var text = $("#TEXTMSG").val();
 
          alert(text);
-         
+
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": "RClient",
