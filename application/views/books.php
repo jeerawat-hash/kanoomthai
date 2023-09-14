@@ -6,6 +6,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 <body>
 
@@ -57,6 +59,9 @@ $("#SocketStatus").text("Disconnected");
 				 "Msg": text,
 			 });
 			 socket.emit("MSGServer", AAA);
+             $("#Title").val("");  
+             $("#TEXTMSG").val("");  
+             swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");
 		 }
 	 });
 
