@@ -12,7 +12,9 @@
 
 <div class="container-fluid mt-3">
   <h2 id="SocketStatus">Status</h2> 
-  <div class="row text-center">
+
+
+  <!-- <div class="row text-center">
     <div class="col-8"> 
         <div class="row">
             <div class="col-12 text-center"> <h2>.... TableCustomer ....</h2> </div>  
@@ -157,7 +159,9 @@
             <div class="col-4">หน่วย</div>
         </div>
     </div>
-  </div> 
+  </div>  -->
+
+
 </div> 
 
 
