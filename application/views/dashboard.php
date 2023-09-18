@@ -49,8 +49,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="SaveData" >บันทึก</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+          <button type="button" class="btn btn-primary" id="SaveData">บันทึก</button>
+          <button type="button" class="btn btn-secondary" id="CloseData" data-dismiss="modal">ปิด</button>
         </div>
       </div>
     </div>
@@ -109,9 +109,9 @@
       });
 
       $("#ModalCommentCenter").find("#SaveData").on("click", function() {
-          
+
         $("#ModalCommentCenter").modal("hide");
-        
+
         if (socket.connected == true) {
           var Data = JSON.stringify({
             "Source": "Dashboard",
@@ -120,10 +120,16 @@
             "Msg": $("#ModalCommentCenter").find("#CommentTEXT").val(),
           });
           socket.emit("MSGServer", Data);
-        } 
+        }
         swal("รับรายการ : " + header, Msg, "success");
-  
-      }); 
+
+      });
+
+      $("#ModalCommentCenter").find("#CloseData").on("click", function() {
+
+        $("#ModalCommentCenter").modal("hide");
+
+      });
 
     } catch (error) {
       console.log(error);
