@@ -42,35 +42,42 @@
 $(function () {
 
 $("#SocketStatus").text("Disconnected");
+var Receive = "";
  try {
 	
 	 const socket = io("http://203.156.9.157:8081");
 	 socket.on("connect", function () {
 		 console.log("Connected");
 		$("#SocketStatus").text("Connected");
-
 	 });
  
-	 socket.on("RClient", function (Data) {
-		 console.log("From : "+Data);
-	 });
+	 //socket.on("RClient", function (Data) {
+	 //	 console.log("From : "+Data);
+	 //});
+
+	 
 
 	 $("#BTNSend").on("click", function () {  
 		 var Title = $("#Title").val();  
 		 var text = $("#TEXTMSG").val();  
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
-				 "Source": "RClient",
+				 "Source": Title,
 				 "Dest": "RServer",
 				 "Header": Title,
 				 "Msg": text,
 			 });
-			 socket.emit("MSGServer", AAA);
-
-             $("#Title").attr("disabled",true);  
-            //  $("#Title").val("");  
-             $("#TEXTMSG").val("");  
-             swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");
+		socket.emit("MSGServer", AAA); 
+             	$("#Title").attr("disabled",true);  
+            	//$("#Title").val("");  
+             	$("#TEXTMSG").val("");  
+             	swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");
+		}
+		 if(Receive == ""){
+			 Receive = Title;
+			 socket.on(Receive, function (Data) {
+			 	 console.log("From : "+Data);
+			 }); 
 		 }
 	 });
 
