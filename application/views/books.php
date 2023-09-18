@@ -58,6 +58,7 @@ var Receive = "";
 	 $("#BTNSend").on("click", function () {  
 		 var Title = $("#Title").val();  
 		 var text = $("#TEXTMSG").val();  
+         playAudio();
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": Title,
@@ -75,7 +76,7 @@ var Receive = "";
 			 socket.on(Receive, function (Data) { 
 				 var Objdata = JSON.parse(Data);
 				 console.log(Objdata); 
-                 playAudio();
+                 
 				 swal("รับออเดอร์ "+Objdata.Header+" แล้ว!",Objdata.Msg , "info");
 			 }); 
 		 }
