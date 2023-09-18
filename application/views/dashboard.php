@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -8,288 +9,190 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
+
 <body>
 
-<div class="container-fluid mt-3">
-  <h2 id="SocketStatus">Status</h2> 
+  <div class="container-fluid mt-3">
+    <h2 id="SocketStatus">Status</h2>
+
+  </div>
 
 
-  <!-- <div class="row text-center">
-    <div class="col-8"> 
-        <div class="row">
-            <div class="col-12 text-center"> <h2>.... TableCustomer ....</h2> </div>  
+
+  <div class="container">
+    <div id="ContentMenu"></div>
+  </div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="ModalCommentCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="row ">
-            <div class="col-12">
-                
-                <div class="row">
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 1</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button>                             
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 2</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 3</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 4</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 5</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 6</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 7</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 8</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 9</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-3 mt-2">
-                        <div class="card" style="width: 13rem;"> 
-                            <div class="card-body">
-                              <h5 class="card-title">โต๊ะ 10</h5>
-                              <p class="card-text">-</p>
-                              <button type="button" class="btn btn-primary position-relative">
-                                Receive
-                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-success border border-light rounded-circle"></span>
-                              </button> 
-                            </div>
-                        </div>
-                    </div> 
-                </div>
+        <div class="modal-body">
 
-            
-            </div>
+          <div class="mb-3">
+            <label for="MSGTEXT" class="form-label">เมนู</label>
+            <input type="email" class="form-control" id="MSGTEXT" placeholder="menu">
+          </div>
+          <div class="mb-3">
+            <label for="CommentTEXT" class="form-label">แนบข้อความ</label>
+            <textarea class="form-control" id="CommentTEXT" rows="3"></textarea>
+          </div>
+
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="SaveData" >บันทึก</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+        </div>
+      </div>
     </div>
-    <div class="col-4">  
-        <div class="row">
-            <div class="col-12 text-center">.... DataStock ....</div>  
-        </div> 
-        <div class="row text-center">
-            <div class="col-4">ชื่อ</div>
-            <div class="col-4">10</div>
-            <div class="col-4">หน่วย</div>
-        </div>
-    </div>
-  </div>  -->
-
-
-</div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-	 <div id="ContentMenu"></div>
-</div>
- 
-
-
-
-
-
+  </div>
 
 
 
 </body>
 
 <script>
-	
-$(function () {
+  $(function() {
 
-$("#SocketStatus").text("Disconnected");
- try {
-	
-	 const socket = io("http://203.156.9.157:8081");
-	 socket.on("connect", function () {
-		 console.log("Connected");
-		$("#SocketStatus").text("Connected");
+    $("#SocketStatus").text("Disconnected");
+    try {
 
-	 });
+      const socket = io("http://203.156.9.157:8081");
+      socket.on("connect", function() {
+        console.log("Connected");
+        $("#SocketStatus").text("Connected");
+
+      });
+
+      socket.on("RServer", function(Data) {
+        console.log("From : " + Data);
+        var obj = JSON.parse(Data);
+        var html = '<div class="card mt-2">' +
+          '<div class="card-header">' +
+          '<h1>' + obj.Header + ' เวลา : ' + formatDate(new Date()) + '</h1>' +
+          '</div>' +
+          '<div class="card-body">' +
+          '<h5 class="card-title">' + obj.Msg + '</h5>' +
+          '<button id="BTNSend" type="button" class="btn btn-primary BTNReceive" data-header="' + obj.Header + '" data-Source="' + obj.Source + '" data-Dest="' + obj.Dest + '" data-Msg="' + obj.Msg + '" >รับรายการ</button>' +
+          '</div>' +
+          '</div>';
+        $("#ContentMenu").prepend(html);
+      });
+
+
+
+      var header = "";
+      var Source = "";
+      var Dest = "";
+      var Msg = ""
+
+      $("#ContentMenu").on("click", ".BTNReceive", function() {
+
+        header = $(this).attr("data-header");
+        Source = $(this).attr("data-Source");
+        Dest = $(this).attr("data-Dest");
+        Msg = $(this).attr("data-Msg");
+
+        $("#ModalCommentCenter").modal("show");
+        $("#ModalCommentCenter").find("#ModalLongTitle").text("รายการของ " + header);
+        $("#ModalCommentCenter").find("#MSGTEXT").val(Msg);
+        
+      });
+
+      $("#ModalCommentCenter").find("#SaveData").on("click", function() {
+          
+        $("#ModalCommentCenter").modal("hide");
+        if (socket.connected == true) {
+          var Data = JSON.stringify({
+            "Source": "Dashboard",
+            "Dest": Source,
+            "Header": header,
+            "Msg": $("#ModalCommentCenter").find("#MSGTEXT").val(),
+          });
+          socket.emit("MSGServer", Data);
+        }
+        swal("รับรายการ : " + header, Msg, "success");
   
-	 socket.on("RServer", function (Data) {
-		 console.log("From : "+Data); 
-		 var obj = JSON.parse(Data); 
-		 var html = '<div class="card mt-2">'+
-			'<div class="card-header">'+
-				'<h1>'+obj.Header+' เวลา : '+formatDate(new Date())+'</h1>'+
-			'</div>'+
-			'<div class="card-body">'+
-				'<h5 class="card-title">'+obj.Msg+'</h5>'+
-				'<button id="BTNSend" type="button" class="btn btn-primary BTNReceive" data-header="'+obj.Header+'" data-Source="'+obj.Source+'" data-Dest="'+obj.Dest+'" data-Msg="'+obj.Msg+'" >รับรายการ</button>'+
-			'</div>'+
-		'</div>';  
-		$("#ContentMenu").prepend(html);
-	 });
+      });
 
-	 $("#ContentMenu").on("click",".BTNReceive",function(){
-		var header = $(this).attr("data-header");
-		var Source = $(this).attr("data-Source");
-		var Dest = $(this).attr("data-Dest");
-		var Msg = $(this).attr("data-Msg");
+      // $("#ContentMenu").on("click", ".BTNReceive", function() {
+      //   var header = $(this).attr("data-header");
+      //   var Source = $(this).attr("data-Source");
+      //   var Dest = $(this).attr("data-Dest");
+      //   var Msg = $(this).attr("data-Msg");
 
-		if (socket.connected == true) {
-			 var AAA = JSON.stringify({
-				 "Source": "Dashboard",
-				 "Dest": Source,
-				 "Header": header,
-				 "Msg": Msg,
-			 });
-			 socket.emit("MSGServer", AAA); 
-		 }
+      //   if (socket.connected == true) {
+      //     var AAA = JSON.stringify({
+      //       "Source": "Dashboard",
+      //       "Dest": Source,
+      //       "Header": header,
+      //       "Msg": Msg,
+      //     });
+      //     socket.emit("MSGServer", AAA);
+      //   }
 
-		 swal("รับรายการ : "+header, Msg, "success");
+      //   swal("รับรายการ : " + header, Msg, "success");
 
 
-		console.log(header);
-		console.log(Source);
-		console.log(Dest);
-		console.log(Msg);
-	 });
-	 
+      //   console.log(header);
+      //   console.log(Source);
+      //   console.log(Dest);
+      //   console.log(Msg);
+      // });
 
-	//  $("#Click").on("click", function () {
-	// 	 //alert("dsa");
-	// 	 var Customer = $("#EmitID").val();
-	// 	 if (socket.connected == true) {
-	// 		 var AAA = JSON.stringify({
-	// 			 "Source": "System",
-	// 			 "Dest": "0616619956",
-	// 			 "Msg": "TEST",
-	// 			 "Type": "T",
-	// 			 "Remark": "User"
-	// 		 });
-	// 		 socket.emit("MSGServer", AAA);
-	// 	 }
-	//  });
 
- } catch (error) {
-	 console.log(error);
- }
+      //  $("#Click").on("click", function () {
+      // 	 //alert("dsa");
+      // 	 var Customer = $("#EmitID").val();
+      // 	 if (socket.connected == true) {
+      // 		 var AAA = JSON.stringify({
+      // 			 "Source": "System",
+      // 			 "Dest": "0616619956",
+      // 			 "Msg": "TEST",
+      // 			 "Type": "T",
+      // 			 "Remark": "User"
+      // 		 });
+      // 		 socket.emit("MSGServer", AAA);
+      // 	 }
+      //  });
+
+    } catch (error) {
+      console.log(error);
+    }
 
 
 
 
-});
+  });
 
 
-function padTo2Digits(num) {
-  return num.toString().padStart(2, '0');
-}
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
 
-function formatDate(date) {
-  return (
-    [
-      date.getFullYear(),
-      padTo2Digits(date.getMonth() + 1),
-      padTo2Digits(date.getDate()),
-    ].join('-') +
-    ' ' +
-    [
-      padTo2Digits(date.getHours()),
-      padTo2Digits(date.getMinutes()),
-      padTo2Digits(date.getSeconds()),
-    ].join(':')
-  );
-}
+  function formatDate(date) {
+    return (
+      [
+        date.getFullYear(),
+        padTo2Digits(date.getMonth() + 1),
+        padTo2Digits(date.getDate()),
+      ].join('-') +
+      ' ' + [
+        padTo2Digits(date.getHours()),
+        padTo2Digits(date.getMinutes()),
+        padTo2Digits(date.getSeconds()),
+      ].join(':')
+    );
+  }
 </script>
+
 </html>
