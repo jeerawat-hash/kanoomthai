@@ -38,6 +38,11 @@
 
 </body>
 
+<audio id="myAudio">
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="../../sound/alert.mp3" type="audio/mpeg"> 
+</audio>
+
 <script>
 $(function () {
 
@@ -50,13 +55,7 @@ var Receive = "";
 		 console.log("Connected");
 		$("#SocketStatus").text("Connected");
 	 });
- 
-	 //socket.on("RClient", function (Data) {
-	 //	 console.log("From : "+Data);
-	 //});
-
-	 
-
+   
 	 $("#BTNSend").on("click", function () {  
 		 var Title = $("#Title").val();  
 		 var text = $("#TEXTMSG").val();  
@@ -77,6 +76,7 @@ var Receive = "";
 			 socket.on(Receive, function (Data) { 
 				 var Objdata = JSON.parse(Data);
 				 console.log(Objdata); 
+                 playAudio();
 				 swal("รับออเดอร์ "+Objdata.Header+" แล้ว!",Objdata.Msg , "info");
 			 }); 
 		 }
@@ -91,5 +91,15 @@ var Receive = "";
 
 
 });
+
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
 </script>
 </html>
