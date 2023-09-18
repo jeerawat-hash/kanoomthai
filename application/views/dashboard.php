@@ -105,65 +105,25 @@
         $("#ModalCommentCenter").modal("show");
         $("#ModalCommentCenter").find("#ModalLongTitle").text("รายการของ " + header);
         $("#ModalCommentCenter").find("#MSGTEXT").val(Msg);
-        
+        $("#ModalCommentCenter").find("#CommentTEXT").val("");
       });
 
       $("#ModalCommentCenter").find("#SaveData").on("click", function() {
           
         $("#ModalCommentCenter").modal("hide");
+        
         if (socket.connected == true) {
           var Data = JSON.stringify({
             "Source": "Dashboard",
             "Dest": Source,
             "Header": header,
-            "Msg": $("#ModalCommentCenter").find("#MSGTEXT").val(),
+            "Msg": $("#ModalCommentCenter").find("#CommentTEXT").val(),
           });
           socket.emit("MSGServer", Data);
-        }
+        } 
         swal("รับรายการ : " + header, Msg, "success");
   
-      });
-
-      // $("#ContentMenu").on("click", ".BTNReceive", function() {
-      //   var header = $(this).attr("data-header");
-      //   var Source = $(this).attr("data-Source");
-      //   var Dest = $(this).attr("data-Dest");
-      //   var Msg = $(this).attr("data-Msg");
-
-      //   if (socket.connected == true) {
-      //     var AAA = JSON.stringify({
-      //       "Source": "Dashboard",
-      //       "Dest": Source,
-      //       "Header": header,
-      //       "Msg": Msg,
-      //     });
-      //     socket.emit("MSGServer", AAA);
-      //   }
-
-      //   swal("รับรายการ : " + header, Msg, "success");
-
-
-      //   console.log(header);
-      //   console.log(Source);
-      //   console.log(Dest);
-      //   console.log(Msg);
-      // });
-
-
-      //  $("#Click").on("click", function () {
-      // 	 //alert("dsa");
-      // 	 var Customer = $("#EmitID").val();
-      // 	 if (socket.connected == true) {
-      // 		 var AAA = JSON.stringify({
-      // 			 "Source": "System",
-      // 			 "Dest": "0616619956",
-      // 			 "Msg": "TEST",
-      // 			 "Type": "T",
-      // 			 "Remark": "User"
-      // 		 });
-      // 		 socket.emit("MSGServer", AAA);
-      // 	 }
-      //  });
+      }); 
 
     } catch (error) {
       console.log(error);
