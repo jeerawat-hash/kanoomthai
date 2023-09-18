@@ -40,7 +40,7 @@
 
 <audio id="myAudio">
   <source src="horse.ogg" type="audio/ogg">
-  <source src="../../sound/alert.mp3" type="audio/mpeg"> 
+  <source src="../sound/alert.mp3" type="audio/mpeg"> 
 </audio>
 
 <script>
