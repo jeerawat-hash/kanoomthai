@@ -39,8 +39,7 @@
 </body>
 
 <audio id="myAudio">
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="../sound/alert.mp3" type="audio/mpeg"> 
+  <source src="http://203.156.9.157/kanoomthai/sound/alert.mp3" type="audio/mpeg"> 
 </audio>
 
 <script>
