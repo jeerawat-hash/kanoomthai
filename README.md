@@ -1,3 +1,2 @@
 # kanoomthai
-miniproject
-aaa
+MiniProject for DatabassClass
