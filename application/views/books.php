@@ -68,21 +68,19 @@ var Receive = "";
 				 "Msg": text,
 			 });
 		socket.emit("MSGServer", AAA); 
-             	$("#Title").attr("disabled",true);  
-            	//$("#Title").val("");  
+             	$("#Title").attr("disabled",true);   
              	$("#TEXTMSG").val("");  
              	swal("สั่งสำเร็จ!", "ส่งรายการของ "+Title+" แล้วรอมันรับแปป!", "success");
 		}
 		 if(Receive == ""){
 			 Receive = Title;
-			 socket.on(Receive, function (Data) {
-			 	 //console.log("From : "+Data);
+			 socket.on(Receive, function (Data) { 
 				 var Objdata = JSON.parse(Data);
 				 console.log(Objdata); 
-				 swal("ทดสอบ!",Objdata.Msg , "info");
- 
+				 swal("รับออเดอร์ "+Objdata.Header+" แล้ว!",Objdata.Msg , "info");
 			 }); 
 		 }
+
 	 });
 
  } catch (error) {
