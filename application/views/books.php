@@ -38,6 +38,9 @@
 
 </body>
 
+<button hidden id="Playsound" hidden type="button" >playsound</button>
+
+
 <audio id="myAudio">
   <source src="http://203.156.9.157/kanoomthai/sound/alert.mp3" type="audio/mpeg"> 
 </audio>
@@ -54,11 +57,15 @@ var Receive = "";
 		 console.log("Connected");
 		$("#SocketStatus").text("Connected");
 	 });
-   
+     
+     $("#Playsound").on("click",function(){
+        playAudio();
+     });
+
 	 $("#BTNSend").on("click", function () {  
 		 var Title = $("#Title").val();  
 		 var text = $("#TEXTMSG").val();  
-         playAudio();
+         
 		 if (socket.connected == true) {
 			 var AAA = JSON.stringify({
 				 "Source": Title,
@@ -77,6 +84,8 @@ var Receive = "";
 				 var Objdata = JSON.parse(Data);
 				 console.log(Objdata); 
                  
+                 $("#Playsound").click();
+
 				 swal("รับออเดอร์ "+Objdata.Header+" แล้ว!",Objdata.Msg , "info");
 			 }); 
 		 }
