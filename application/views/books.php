@@ -76,7 +76,11 @@ var Receive = "";
 		 if(Receive == ""){
 			 Receive = Title;
 			 socket.on(Receive, function (Data) {
-			 	 console.log("From : "+Data);
+			 	 //console.log("From : "+Data);
+				 var Objdata = JSON.parse(Data);
+				 console.log(Objdata); 
+				 swal("ทดสอบ!",Objdata.Msg , "info");
+ 
 			 }); 
 		 }
 	 });
