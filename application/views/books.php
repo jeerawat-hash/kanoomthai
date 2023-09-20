@@ -276,6 +276,62 @@
         <!-- Modal Login -->
 
 
+        <!-- Modal Goods -->
+        <div class="modal fade modalbox" id="ModalGoods" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Form Modal Example</h5>
+                        <a href="javascript:;" data-dismiss="modal">Close</a>
+                    </div>
+                    <div class="modal-body">
+                        <div class="login-form">
+                            <div class="section mt-2">
+                                <h1>Get started</h1>
+                                <h4>Fill the form to log in</h4>
+                            </div>
+                            <div class="section mt-4 mb-5">
+                                <form>
+                                    <div class="form-group basic">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="email1">E-mail</label>
+                                            <input type="email" class="form-control" id="email1" placeholder="Your e-mail">
+                                            <i class="clear-input">
+                                                <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                                            </i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group basic">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="password1">Password</label>
+                                            <input type="password" class="form-control" id="password1" placeholder="Your password">
+                                            <i class="clear-input">
+                                                <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                                            </i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-links mt-2">
+                                        <div>
+                                            <a href="#">Register Now</a>
+                                        </div>
+                                        <div><a href="#" class="text-muted">Forgot Password?</a></div>
+                                    </div>
+
+                                    <div class="mt-2">
+                                        <button type="button" class="btn btn-primary btn-block btn-lg" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Goods -->
+
 
     </div>
     <!-- * App Capsule -->
@@ -356,13 +412,30 @@
             });
 
             //#region Login
-            $("#ModalLogin").find("#BTNLogin").on("click", async function(){
+            $("#ModalLogin").find("#BTNLogin").on("click", async function() {
 
                 notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
                 await $("#ModalLogin").modal("hide");
 
             });
             //#region Login
+
+
+            $(".caroitem").on("click", async function() {
+                var ModalType = $(this).attr("data-ModalType");
+                switch (ModalType) {
+                    case "Dessert":
+
+                        $("#ModalGoods").modal("show");
+
+                        break;
+                    case "Drink":
+
+                        $("#ModalGoods").modal("show");
+
+                        break;
+                }
+            });
 
 
         });
