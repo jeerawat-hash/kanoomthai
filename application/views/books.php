@@ -16,7 +16,7 @@
     <link rel="manifest" href="http://203.156.9.157/kanoomthai/__manifest.json">
 
     <!-- Font Awsome -->
-    <link rel="stylesheet" href="../../lib/fontawsome/css/all.css">
+    <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css">
     <!-- Font Awsome -->
 </head>
 
@@ -84,7 +84,7 @@
         <div class="section mt-2">
 
             <div class="header-large-title">
-                <h1 class="title">ยินดีต้อนรับ</h1>  
+                <h1 class="title">ยินดีต้อนรับ</h1>
             </div>
 
             <!-- Carousel Menu -->
@@ -233,7 +233,7 @@
             </div>
         </div>
         <!-- Notify -->
- 
+
         <!-- Modal Login -->
         <div class="modal fade modalbox" id="ModalLogin" data-backdrop="static" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -450,7 +450,6 @@
             });
             //#region Login
 
-
             $(".caroitem").on("click", async function() {
                 var ModalType = $(this).attr("data-ModalType");
                 switch (ModalType) {
@@ -466,9 +465,25 @@
                         break;
                 }
             });
+  
+            
+            var Receive = "";
+            try { 
+                const socket = io("http://203.156.9.157:8081");
+                socket.on("connect", function() {
+                    console.log("Connected");
+                }); 
+ 
+
+            } catch (error) {
+                console.log(error);
+            }
+
 
 
         });
+ 
+
     </script>
 </body>
 
