@@ -19,12 +19,39 @@
 <body>
 
   <div class="container-fluid mt-3">
-    <h2 id="SocketStatus">Status</h2>
-
-
-    <i class="fa-regular fa-user-bounty-hunter fa-beat-fade"></i>
-
+    <!-- <h2 id="SocketStatus">Status</h2> -->
+    <div class="row">
+      <div class="col-7">
+        <table id="example" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>ชื่อลูกค้า</th>
+              <th>รอทำรายการ</th>
+              <th>ยอดสั่งซื้อ</th>
+              <th>สถานะ</th>
+              <th>ดำเนินการ</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ลุงโด้ 3 สี</td>
+              <td>1 รายการ</td>
+              <td>1 รายการ</td>
+              <td>
+                <button type="button" class="btn btn-info">ตรวจสอบ</button>
+              </td> 
+            </tr> 
+          </tbody> 
+        </table>
+      </div>
+      <div class="col-5"></div>
+    </div>
   </div>
+
+
+
+
+
 
 
 
