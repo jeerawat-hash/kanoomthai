@@ -14,6 +14,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="http://203.156.9.157/kanoomthai/assets/img/icon/3-192x192.png">
     <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/assets/css/style.css">
     <link rel="manifest" href="http://203.156.9.157/kanoomthai/__manifest.json">
+    <!-- Font Awsome -->
+    <script src="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css"></script>
+    <!-- Font Awsome -->
 </head>
 
 <style>
@@ -25,7 +28,8 @@
     .swal2-container {
         z-index: 20000 !important;
     }
-/* 
+
+    /* 
     .cart-item .in .text .detail {
         line-height: 1.2em;
         margin: 0 0 4px 0;
@@ -48,7 +52,6 @@
         font-size: 20px;
         color: #1E74FD;
     } */
-    
 </style>
 
 <body>
@@ -65,14 +68,14 @@
         <div class="left">
         </div>
         <div class="pageTitle">
-            Thai Dessert CAFE From The Hell 
+            Thai Dessert CAFE From The Hell
         </div>
         <div class="right">
-        
+
         </div>
     </div>
     <!-- * App Header -->
-  
+
     <!-- App Capsule -->
     <div id="appCapsule">
 
@@ -387,6 +390,9 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
+        <a href="javascript:;" class="item">
+            <i class="fa-duotone fa-cart-shopping fa-bounce"></i>
+        </a>
         <a href="javascript:;" class="item">
             <div class="col">
                 <ion-icon name="layers-outline" role="img" class="md hydrated" aria-label="layers outline"></ion-icon>
