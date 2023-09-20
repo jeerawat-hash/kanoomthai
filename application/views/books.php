@@ -115,10 +115,10 @@
 
         <div id="CardStatus" class="section mt-2">
             <div id="CardColor" class="card text-white mb-2 bg-warning">
-                <div class="card-header">คำสั่งซื้อ</div>
+                <div class="card-header">รายการ</div>
                 <div class="card-body">
-                    <h5 class="card-title">ปกติ</h5>
-                    <p class="card-text">ไม่มียอดค้างต้องชำระ</p>
+                    <h5 class="card-title">คำสั่งซื้อ</h5>
+                    <p class="card-text">0 รายการ</p>
                 </div>
             </div>
         </div>
