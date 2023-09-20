@@ -32,7 +32,8 @@
 
     <div class="row text-center">
       <div class="col-12">
-        <h1 id="SocketStatus">Status</h1>
+        <!-- <h1 id="SocketStatus">Status</h1> -->
+        <h1 id="SocketStatus">Thai Dessert CAFE From The Hell</h1>
       </div>
     </div>
     <div class="row">
