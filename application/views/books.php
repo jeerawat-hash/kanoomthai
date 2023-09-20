@@ -82,29 +82,29 @@
                 <input type="text" id="PayCodes" hidden disabled>
             </div>
 
-                    <!-- Carousel Menu -->
-        <div class="section full mt-3 mb-3">
-            <div class="carousel-multiple owl-carousel owl-theme">
-                <div class="item caroitem" data-ModalType="Invoice">
-                    <div class="card">
-                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
-                        <div class="card-body pt-2">
-                            <h4 class="mb-0 title">รายการขนม</h4>
+            <!-- Carousel Menu -->
+            <div class="section full mt-3 mb-3">
+                <div class="carousel-multiple owl-carousel owl-theme">
+                    <div class="item caroitem" data-ModalType="Invoice">
+                        <div class="card">
+                            <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
+                            <div class="card-body pt-2">
+                                <h4 class="mb-0 title">รายการขนม</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item caroitem" data-ModalType="Helper">
-                    <div class="card">
-                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
-                        <div class="card-body pt-2">
-                            <h4 class="mb-0 title">อื่นๆ</h4>
+                    <div class="item caroitem" data-ModalType="Helper">
+                        <div class="card">
+                            <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
+                            <div class="card-body pt-2">
+                                <h4 class="mb-0 title">อื่นๆ</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-        <!-- Carousel Menu -->
+            <!-- Carousel Menu -->
 
 
 
@@ -116,15 +116,70 @@
 
         <!-- app footer -->
         <div class="appFooter">
-            <!-- <img src="http://203.156.9.157/kanoomthai/../assets/img/logo.png" alt="icon" class="footer-logo mb-2"> -->
+            <img src="http://203.156.9.157/kanoomthai/assets/img/logo.png" alt="icon" class="footer-logo mb-2">
             <div class="footer-title">
-
+                Copyright © Mobilekit 2020. All Rights Reserved.
             </div>
+            <div>Mobilekit is PWA ready Mobile UI Kit Template.</div>
+            Great way to start your mobile websites and pwa projects.
+
+            <div class="mt-2">
+                <a href="javascript:;" class="btn btn-icon btn-sm btn-facebook">
+                    <ion-icon name="logo-facebook" role="img" class="md hydrated" aria-label="logo facebook"></ion-icon>
+                </a>
+                <a href="javascript:;" class="btn btn-icon btn-sm btn-twitter">
+                    <ion-icon name="logo-twitter" role="img" class="md hydrated" aria-label="logo twitter"></ion-icon>
+                </a>
+                <a href="javascript:;" class="btn btn-icon btn-sm btn-linkedin">
+                    <ion-icon name="logo-linkedin" role="img" class="md hydrated" aria-label="logo linkedin"></ion-icon>
+                </a>
+                <a href="javascript:;" class="btn btn-icon btn-sm btn-instagram">
+                    <ion-icon name="logo-instagram" role="img" class="md hydrated" aria-label="logo instagram"></ion-icon>
+                </a>
+                <a href="javascript:;" class="btn btn-icon btn-sm btn-whatsapp">
+                    <ion-icon name="logo-whatsapp" role="img" class="md hydrated" aria-label="logo whatsapp"></ion-icon>
+                </a>
+                <a href="#" class="btn btn-icon btn-sm btn-secondary goTop">
+                    <ion-icon name="arrow-up-outline" role="img" class="md hydrated" aria-label="arrow up outline"></ion-icon>
+                </a>
+            </div>
+
         </div>
         <!-- * app footer -->
 
     </div>
     <!-- * App Capsule -->
+
+    <!-- App Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="index.html" class="item active">
+            <div class="col">
+                <ion-icon name="home-outline" role="img" class="md hydrated" aria-label="home outline"></ion-icon>
+            </div>
+        </a>
+        <a href="app-components.html" class="item">
+            <div class="col">
+                <ion-icon name="cube-outline" role="img" class="md hydrated" aria-label="cube outline"></ion-icon>
+            </div>
+        </a>
+        <a href="page-chat.html" class="item">
+            <div class="col">
+                <ion-icon name="chatbubble-ellipses-outline" role="img" class="md hydrated" aria-label="chatbubble ellipses outline"></ion-icon>
+                <span class="badge badge-danger">5</span>
+            </div>
+        </a>
+        <a href="app-pages.html" class="item">
+            <div class="col">
+                <ion-icon name="layers-outline" role="img" class="md hydrated" aria-label="layers outline"></ion-icon>
+            </div>
+        </a>
+        <a href="javascript:;" class="item" data-toggle="modal" data-target="#sidebarPanel">
+            <div class="col">
+                <ion-icon name="menu-outline" role="img" class="md hydrated" aria-label="menu outline"></ion-icon>
+            </div>
+        </a>
+    </div>
+    <!-- App Bottom Menu -->
 
 
     <!-- ///////////// Js Files ////////////////////  -->
