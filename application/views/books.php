@@ -391,10 +391,12 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
-        <a href="javascript:;" class="item"> 
+        <a href="javascript:;" class="item">
             <div class="col">
-                <i class="fa-solid fa-cash-register fa-2xl" style="color: #000000;"></i>
-            </div> 
+                <span class="iconedbox iconedbox-lg"> 
+                    <i class="fa-solid fa-cash-register fa-2xl" style="color: #000000;"></i>
+                </span>
+            </div>
         </a>
         <a href="javascript:;" class="item">
             <div class="col">
