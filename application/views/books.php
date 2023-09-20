@@ -75,46 +75,39 @@
         <!-- Form -->
         <div class="section mt-2">
 
-            <div class="section mt-2">
-                <div class="row text-center">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h2>ตัวอย่างระบบ PWA BarCode Reader</h2>
-                    </div>
-                </div>
+            <div class="header-large-title">
+                <h1 class="title">ยินดีต้อนรับ</h1>
+                <h4 class="subtitle">คุณ ?</h4>
+                <input type="text" id="CustomerID" hidden disabled>
+                <input type="text" id="PayCodes" hidden disabled>
             </div>
 
-
-
-            <div class="section mb-5 ">
-                <div class="row text-center" id="WorkContent">
- 
-
-                    <div id="CardScanDiv" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-1">
-                        <!-- <div class="card">
-                        <div class="card-body text-center"> -->
-                        <!-- <h5 class="card-title">Barcode Reader</h5>
-                        <p class="card-text"></p> -->
-                        <div id="reader">
-                            <font color="red">ไม่รองรับ</font>
+                    <!-- Carousel Menu -->
+        <div class="section full mt-3 mb-3">
+            <div class="carousel-multiple owl-carousel owl-theme">
+                <div class="item caroitem" data-ModalType="Invoice">
+                    <div class="card">
+                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
+                        <div class="card-body pt-2">
+                            <h4 class="mb-0 title">รายการขนม</h4>
                         </div>
-                        <button class="btn btn-success" id="btnCloseScanner">ปิดกล้อง</button>
-                        <!-- </div>
-                    </div> -->
                     </div>
-
-                    <div id="CardInfoDiv" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-1">
-                        <!-- <div class="card">
-                        <div class="card-body text-center"> -->
-                        <h1 class="card-title" id="CodeResult"></h1>
-                        <p class="card-text"></p>
-                        <button class="btn btn-success" id="btnOpenScanner">เปิดใช้งานกล้อง</button>
-                        <!-- </div>
-                    </div> -->
-                    </div>
-
-
                 </div>
+                <div class="item caroitem" data-ModalType="Helper">
+                    <div class="card">
+                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
+                        <div class="card-body pt-2">
+                            <h4 class="mb-0 title">อื่นๆ</h4>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+        <!-- Carousel Menu -->
+
+
+
 
         </div>
         <!-- Form -->
@@ -179,7 +172,7 @@
         const html5QrCode = new Html5Qrcode("reader");
         const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 
-            $("#CodeResult").text("Decode :"+decodedText);
+            $("#CodeResult").text("Decode :" + decodedText);
 
             $("#CardInfoDiv").show();
             $("#CardScanDiv").hide();
@@ -210,7 +203,7 @@
         });
 
         $("#btnCloseScanner").on("click", function() {
-            
+
             $("#CodeResult").text("");
             $("#CardInfoDiv").show();
             $("#CardScanDiv").hide();
