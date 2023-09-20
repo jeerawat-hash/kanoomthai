@@ -299,12 +299,12 @@
                                         </div>
                                     </div>
                                     <div class="cart-item-footer">
-                                        <div class="stepper stepper-sm stepper-secondary">
+                                        <div class="stepper stepper-lg stepper-secondary">
                                             <a href="#" class="stepper-button stepper-down">-</a>
-                                            <input type="text" class="form-control" value="4" disabled="">
+                                            <input type="text" class="form-control" value="0" disabled="">
                                             <a href="#" class="stepper-button stepper-up">+</a>
                                         </div>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">เพิ่ม</a>
+                                        <a href="#" class="btn btn-outline-secondary btn-lg">เพิ่ม</a>
                                     </div>
                                 </div>
                             </div>
@@ -321,12 +321,12 @@
                                         </div>
                                     </div>
                                     <div class="cart-item-footer">
-                                        <div class="stepper stepper-sm stepper-secondary">
+                                        <div class="stepper stepper-lg stepper-secondary">
                                             <a href="#" class="stepper-button stepper-down">-</a>
-                                            <input type="text" class="form-control" value="6" disabled="">
+                                            <input type="text" class="form-control" value="0" disabled="">
                                             <a href="#" class="stepper-button stepper-up">+</a>
                                         </div>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">เพิ่ม</a>
+                                        <a href="#" class="btn btn-outline-secondary btn-lg">เพิ่ม</a>
                                     </div>
                                 </div>
                             </div>
