@@ -121,12 +121,12 @@
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": false,
-                // "pageLength": 10,
+                "pageLength": -1,
                 // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
                 "buttons": ["copy", "csv", "excel", "pdf", "print"],
-                dom: "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+                dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
                     "<'row'<'col-sm-12'tr>>" +
-                    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                    "<'row'<'col-sm-5'><'col-sm-7'>>",
                 columns: [{
                         "data": "ID",
                         "title": "ชื่อลูกค้า"
