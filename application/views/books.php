@@ -286,7 +286,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">GoodsModal</h5>
-                        <a href="javascript:;" data-dismiss="modal" class="btn btn-primary">ปิด</a>
+                        <a href="javascript:;" data-dismiss="modal" class="btn btn-warning">ปิด</a>
                     </div>
                     <div class="modal-body">
 
@@ -346,7 +346,7 @@
                         </div>
 
                         <div class="section mb-2">
-                            <a href="#" class="btn btn-primary btn-block btn-lg">สั่งซื้อ</a>
+                            <a href="#" class="btn btn-warning btn-block btn-lg">สั่งซื้อ</a>
 
                         </div>
 
