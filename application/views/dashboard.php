@@ -19,10 +19,11 @@
   <div class="container-fluid mt-3">
     <h2 id="SocketStatus">Status</h2>
 
+    <i class="fa-regular fa-users fa-spin"></i>
+    
   </div>
 
 
-  <i class="fa-regular fa-users fa-spin"></i>
 
 
 
