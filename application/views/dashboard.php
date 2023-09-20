@@ -19,7 +19,12 @@
 <body>
 
   <div class="container-fluid mt-3">
-    <!-- <h2 id="SocketStatus">Status</h2> -->
+
+    <div class="row">
+      <div class="col-12">
+        <h2 id="SocketStatus">Status</h2>
+      </div>
+    </div>
     <div class="row">
       <div class="col-7">
         <table id="example" class="display nowrap" style="width:100%">
@@ -29,7 +34,7 @@
               <th>รอทำรายการ</th>
               <th>ยอดสั่งซื้อ</th>
               <th>สถานะ</th>
-              <th>ดำเนินการ</th> 
+              <th>ดำเนินการ</th>
             </tr>
           </thead>
           <tbody>
@@ -39,9 +44,9 @@
               <td>1 รายการ</td>
               <td>
                 <button type="button" class="btn btn-info">ตรวจสอบ</button>
-              </td> 
-            </tr> 
-          </tbody> 
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="col-5"></div>
