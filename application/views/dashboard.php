@@ -20,6 +20,7 @@
     <h2 id="SocketStatus">Status</h2>
 
     <i class="fa-regular fa-users fa-spin"></i>
+    <i class="fa-sharp fa-regular fa-users fa-spin"></i>
     
   </div>
 
