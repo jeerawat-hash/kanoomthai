@@ -42,6 +42,7 @@
               <td>ลุงโด้ 3 สี</td>
               <td>1 รายการ</td>
               <td>1 รายการ</td>
+              <td>กำลังใช้บริการ</td>
               <td>
                 <button type="button" class="btn btn-info">ตรวจสอบ</button>
               </td>
