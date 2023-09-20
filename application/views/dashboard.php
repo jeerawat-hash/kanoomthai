@@ -208,7 +208,7 @@
         "PreOrder": i,
         "Ordered": i, 
         "Status": i,
-        "Option": i,
+        "Option": '<button type="button" class="btn btn-info">ตรวจสอบ</button>',
       });
     }
     ComsumerDatatable.clear().rows.add(Data).draw(false);
