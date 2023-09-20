@@ -335,6 +335,22 @@
                             <!-- * item -->
                         </div>
 
+                        <div class="section mt-2 mb-2">
+                            <div class="card">
+                                <ul class="listview flush transparent simple-listview">
+                                    <li>Items <span class="text-muted">$ 54.20</span></li>
+                                    <li>Shipping <span class="text-muted">$ 2.90</span></li>
+                                    <li>Tax (10%)<span class="text-muted">$ 5.70</span></li>
+                                    <li>Total<span class="text-primary font-weight-bold">$ 62.80</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section mb-2">
+                            <a href="#" class="btn btn-primary btn-block btn-lg">Order Now</a>
+
+                        </div>
+
 
 
 
