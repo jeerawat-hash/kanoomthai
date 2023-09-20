@@ -8,6 +8,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+  <!-- Font Awsome -->
+  <script src="../../lib/fontawsome/css/all.css"></script>
+  <!-- Font Awsome -->
+
+
 </head>
 <body>
 
