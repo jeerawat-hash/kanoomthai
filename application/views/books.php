@@ -281,51 +281,63 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Form Modal Example</h5>
-                        <a href="javascript:;" data-dismiss="modal">Close</a>
+                        <h5 class="modal-title">GoodsModal</h5>
+                        <a href="javascript:;" data-dismiss="modal">ปิด</a>
                     </div>
                     <div class="modal-body">
-                        <div class="login-form">
-                            <div class="section mt-2">
-                                <h1>Get started</h1>
-                                <h4>Fill the form to log in</h4>
+
+                        <div class="section mt-2">
+                            <!-- item -->
+                            <div class="card cart-item mb-2">
+                                <div class="card-body">
+                                    <div class="in">
+                                        <img src="assets/img/sample/photo/product1.jpg" alt="product" class="imaged">
+                                        <div class="text">
+                                            <h3 class="title">Organic Apple</h3>
+                                            <p class="detail">1 kg</p>
+                                            <strong class="price">$ 5.99</strong>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item-footer">
+                                        <div class="stepper stepper-sm stepper-secondary">
+                                            <a href="#" class="stepper-button stepper-down">-</a>
+                                            <input type="text" class="form-control" value="4" disabled="">
+                                            <a href="#" class="stepper-button stepper-up">+</a>
+                                        </div>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">Delete</a>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">Save it for later</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="section mt-4 mb-5">
-                                <form>
-                                    <div class="form-group basic">
-                                        <div class="input-wrapper">
-                                            <label class="label" for="email1">E-mail</label>
-                                            <input type="email" class="form-control" id="email1" placeholder="Your e-mail">
-                                            <i class="clear-input">
-                                                <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
-                                            </i>
+                            <!-- * item -->
+                            <!-- item -->
+                            <div class="card cart-item mb-2">
+                                <div class="card-body">
+                                    <div class="in">
+                                        <img src="assets/img/sample/photo/product4.jpg" alt="product" class="imaged">
+                                        <div class="text">
+                                            <h3 class="title">Beetroot</h3>
+                                            <p class="detail">1 kg</p>
+                                            <strong class="price">$ 42.99</strong>
                                         </div>
                                     </div>
-
-                                    <div class="form-group basic">
-                                        <div class="input-wrapper">
-                                            <label class="label" for="password1">Password</label>
-                                            <input type="password" class="form-control" id="password1" placeholder="Your password">
-                                            <i class="clear-input">
-                                                <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
-                                            </i>
+                                    <div class="cart-item-footer">
+                                        <div class="stepper stepper-sm stepper-secondary">
+                                            <a href="#" class="stepper-button stepper-down">-</a>
+                                            <input type="text" class="form-control" value="6" disabled="">
+                                            <a href="#" class="stepper-button stepper-up">+</a>
                                         </div>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">Delete</a>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">Save it for later</a>
                                     </div>
-
-                                    <div class="form-links mt-2">
-                                        <div>
-                                            <a href="#">Register Now</a>
-                                        </div>
-                                        <div><a href="#" class="text-muted">Forgot Password?</a></div>
-                                    </div>
-
-                                    <div class="mt-2">
-                                        <button type="button" class="btn btn-primary btn-block btn-lg" data-dismiss="modal">Close</button>
-                                    </div>
-
-                                </form>
+                                </div>
                             </div>
+                            <!-- * item -->
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>
