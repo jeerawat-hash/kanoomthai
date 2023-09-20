@@ -124,6 +124,102 @@
         </div>
 
 
+        <!-- Notify -->
+        <div class="section full mt-2 mb-2">
+            <div class="pt-2 pb-1">
+
+                <!-- ios style notification-success-->
+                <div id="notification-success" class="notification-box">
+                    <div class="notification-dialog ios-style">
+                        <div class="notification-header">
+                            <div class="in">
+                                <strong>แจ้งเตือน</strong>
+                            </div>
+                            <div class="right">
+                                <span id="Time">Time</span>
+                                <a href="#" class="close-button">
+                                    <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="notification-content">
+                            <div class="in">
+                                <h3 class="subtitle" id="title">Hello There</h3>
+                                <div class="text" id="content">
+                                    This is a simple iOS style notification.
+                                </div>
+                            </div>
+                            <div class="icon-box text-success">
+                                <ion-icon name="checkmark-circle-outline" role="img" class="md hydrated" aria-label="checkmark circle outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- * ios style notification-success -->
+
+                <!-- ios style notification-danger-->
+                <div id="notification-danger" class="notification-box">
+                    <div class="notification-dialog ios-style">
+                        <div class="notification-header">
+                            <div class="in">
+                                <strong>แจ้งเตือน</strong>
+                            </div>
+                            <div class="right">
+                                <span id="Time">Time</span>
+                                <a href="#" class="close-button">
+                                    <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="notification-content">
+                            <div class="in">
+                                <h3 class="subtitle" id="title">Hello There</h3>
+                                <div class="text" id="content">
+                                    This is a simple iOS style notification.
+                                </div>
+                            </div>
+                            <div class="icon-box text-danger">
+                                <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- * ios style notification-danger -->
+
+                <!-- ios style notification-warning-->
+                <div id="notification-warning" class="notification-box">
+                    <div class="notification-dialog ios-style">
+                        <div class="notification-header">
+                            <div class="in">
+                                <strong>แจ้งเตือน</strong>
+                            </div>
+                            <div class="right">
+                                <span id="Time">Time</span>
+                                <a href="#" class="close-button">
+                                    <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="notification-content">
+                            <div class="in">
+                                <h3 class="subtitle" id="title">Hello There</h3>
+                                <div class="text" id="content">
+                                    This is a simple iOS style notification.
+                                </div>
+                            </div>
+                            <div class="icon-box text-warning">
+                                <ion-icon name="warning" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- * ios style notification-warning -->
+
+
+            </div>
+        </div>
+        <!-- Notify -->
+
 
         <!-- app footer -->
         <div class="appFooter">
@@ -143,13 +239,13 @@
 
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
-         
+
         <a href="javascript:;" class="item">
             <div class="col">
                 <ion-icon name="layers-outline" role="img" class="md hydrated" aria-label="layers outline"></ion-icon>
             </div>
-        </a> 
- 
+        </a>
+
     </div>
     <!-- App Bottom Menu -->
 
@@ -181,9 +277,17 @@
 
     <script src="https://unpkg.com/html5-qrcode@2.2.1/html5-qrcode.min.js" type="text/javascript"></script>
 
- 
+
     <script>
-        
+
+        $(function(){
+
+            notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+            // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+            // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+
+        });
+
 
     </script>
 </body>
