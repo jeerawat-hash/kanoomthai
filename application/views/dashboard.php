@@ -60,7 +60,26 @@
           </tbody>
         </table>
       </div>
-      <div class="col-5"></div>
+      <div class="col-5">
+        <table id="StockDatatable" class="display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>สินค้า</th>
+              <th>คงเหลือ</th>
+              <th>ยอดจำหน่าย</th>
+              <th>รายได้</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ขนมครก</td>
+              <td>10 ชิ้น</td>
+              <td>5 ชิ้น</td>
+              <td>100 บาท</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -115,41 +134,73 @@
 </body>
 
 <script>
-  $(function() { 
+  $(function() {
 
     var ComsumerDatatable = $("#ComsumerDatatable").DataTable({
-                "responsive": true,
-                "lengthChange": true,
-                "autoWidth": false,
-                "pageLength": -1,
-                // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "buttons": ["copy", "csv", "excel", "pdf", "print"],
-                dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
-                    "<'row'<'col-sm-12'tr>>" +
-                    "<'row'<'col-sm-5'><'col-sm-7'>>",
-                columns: [{
-                        "data": "ID",
-                        "title": "ชื่อลูกค้า"
-                    },
-                    {
-                        "data": "PreOrder",
-                        "title": "รอทำรายการ"
-                    },
-                    {
-                        "data": "Ordered",
-                        "title": "ยอดสั่งซื้อ"
-                    }, 
-                    {
-                        "data": "Status",
-                        "title": "สถานะ"
-                    },
-                    {
-                        "data": "Option",
-                        "title": "ดำเนินการ",
-                        "className": "text-center"
-                    },
-                ]
-            });
+      "responsive": true,
+      "lengthChange": true,
+      "autoWidth": false,
+      "pageLength": -1,
+      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "buttons": ["copy", "csv", "excel", "pdf", "print"],
+      dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-5'><'col-sm-7'>>",
+      columns: [{
+          "data": "ID",
+          "title": "ชื่อลูกค้า"
+        },
+        {
+          "data": "PreOrder",
+          "title": "รอทำรายการ"
+        },
+        {
+          "data": "Ordered",
+          "title": "ยอดสั่งซื้อ"
+        },
+        {
+          "data": "Status",
+          "title": "สถานะ"
+        },
+        {
+          "data": "Option",
+          "title": "ดำเนินการ",
+          "className": "text-center"
+        },
+      ]
+    });
+
+    var StockDatatable = $("#StockDatatable").DataTable({
+      "responsive": true,
+      "lengthChange": true,
+      "autoWidth": false,
+      "pageLength": -1,
+      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "buttons": ["copy", "csv", "excel", "pdf", "print"],
+      dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
+        "<'row'<'col-sm-12'tr>>" +
+        "<'row'<'col-sm-5'><'col-sm-7'>>",
+      columns: [{
+          "data": "GoodsName",
+          "title": "สินค้า"
+        },
+        {
+          "data": "GoodsStock",
+          "title": "คงเหลือ"
+        },
+        {
+          "data": "Selled",
+          "title": "ยอดสั่งซื้อ"
+        },
+        {
+          "data": "Income",
+          "title": "รายได้"
+        }, 
+      ]
+    });
+
+
+
 
     $("#SocketStatus").text("Disconnected");
     try {
