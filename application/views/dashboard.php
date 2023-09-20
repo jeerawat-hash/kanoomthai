@@ -21,7 +21,8 @@
   <div class="container-fluid mt-3">
     <h2 id="SocketStatus">Status</h2>
 
-    <i class="fa-solid fa-user"></i>
+
+    <i class="fa-regular fa-user-bounty-hunter fa-beat-fade"></i>
 
   </div>
 
