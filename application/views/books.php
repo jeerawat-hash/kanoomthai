@@ -269,7 +269,7 @@
                                     <div class="form-group boxed">
                                         <div class="input-wrapper">
                                             <label class="label" for="Inp_CustomerName">ชื่อลูกค้า</label>
-                                            <input type="tel" class="form-control" id="Inp_CustomerName" value="" placeholder="ชื่อลูกค้า">
+                                            <input type="text" class="form-control" id="Inp_CustomerName" value="" autocomplete="off" placeholder="ชื่อลูกค้า">
                                             <i class="clear-input">
                                                 <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
                                             </i>
