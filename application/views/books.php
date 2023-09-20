@@ -85,7 +85,7 @@
             <!-- Carousel Menu -->
             <div class="section full mt-3 mb-3">
                 <div class="carousel-multiple owl-carousel owl-theme">
-                    <div class="item caroitem" data-ModalType="Invoice">
+                    <div class="item caroitem" data-ModalType="Dessert">
                         <div class="card">
                             <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
                             <div class="card-body pt-2">
@@ -93,11 +93,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item caroitem" data-ModalType="Helper">
+                    <div class="item caroitem" data-ModalType="Drink">
                         <div class="card">
                             <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
                             <div class="card-body pt-2">
-                                <h4 class="mb-0 title">อื่นๆ</h4>
+                                <h4 class="mb-0 title">รายการเครื่องดื่ม</h4>
                             </div>
                         </div>
                     </div>
