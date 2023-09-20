@@ -393,14 +393,16 @@
 
         <a href="javascript:;" class="item">
             <div class="col">
-                <span class="iconedbox iconedbox-md"> 
-                    <i class="fa-sharp fa-light fa-money-check-dollar fa-1xl" style="color: #000000;"></i>
+                <span class="iconedbox iconedbox-md">
+                    <i class="fa-sharp fa-light fa-money-check-dollar fa-2xl" style="color: #000000;"></i>
                 </span>
             </div>
         </a>
         <a href="javascript:;" class="item">
             <div class="col">
-                <ion-icon name="layers-outline" role="img" class="md hydrated" aria-label="layers outline"></ion-icon>
+                <span class="iconedbox iconedbox-md">
+                    <i class="fa-duotone fa-person-to-door fa-2xl" style="color: #000000;"></i>
+                </span>
             </div>
         </a>
 
