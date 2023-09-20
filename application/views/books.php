@@ -29,13 +29,13 @@
     .cart-item .in .text .detail {
         line-height: 1.2em;
         margin: 0 0 4px 0;
-        font-size: 20px;
+        font-size: 18px;
         color: #A1A1A2;
     }
 
     .cart-item .in .text .title {
         font-weight: 500;
-        font-size: 26px;
+        font-size: 23px;
         line-height: 1.2em;
         margin: 0 0 6px 0;
     } 
