@@ -84,10 +84,7 @@
         <div class="section mt-2">
 
             <div class="header-large-title">
-                <h1 class="title">ยินดีต้อนรับ</h1>
-                <h4 class="subtitle">คุณ ?</h4>
-                <input type="text" id="CustomerID" hidden disabled>
-                <input type="text" id="PayCodes" hidden disabled>
+                <h1 class="title">ยินดีต้อนรับ</h1>  
             </div>
 
             <!-- Carousel Menu -->
