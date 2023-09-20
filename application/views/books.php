@@ -10,10 +10,10 @@
     <title>Barcode Application</title>
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
-    <link rel="icon" type="image/png" href="http://127.0.0.1/kanoomthai/assets/img/favicon.png" sizes="32x32">
-    <link rel="apple-touch-icon" sizes="180x180" href="http://127.0.0.1/kanoomthai/assets/img/icon/3-192x192.png">
-    <link rel="stylesheet" href="http://127.0.0.1/kanoomthai/assets/css/style.css">
-    <link rel="manifest" href="http://127.0.0.1/kanoomthai/__manifest.json">
+    <link rel="icon" type="image/png" href="http://203.156.9.157/kanoomthai/assets/img/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://203.156.9.157/kanoomthai/assets/img/icon/3-192x192.png">
+    <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/assets/css/style.css">
+    <link rel="manifest" href="http://203.156.9.157/kanoomthai/__manifest.json">
 </head>
 
 <style>
@@ -42,7 +42,7 @@
         </div>
         <div class="pageTitle">
             ทดสอบระบบ
-            <!-- <img src="http://127.0.0.1/kanoomthai/../assets/img/logo.png" alt="logo" class="logo"> -->
+            <!-- <img src="http://203.156.9.157/kanoomthai/../assets/img/logo.png" alt="logo" class="logo"> -->
         </div>
         <div class="right">
             <!-- <a href="javascript:;" class="headerButton toggle-searchbox">
@@ -123,7 +123,7 @@
 
         <!-- app footer -->
         <div class="appFooter">
-            <!-- <img src="http://127.0.0.1/kanoomthai/../assets/img/logo.png" alt="icon" class="footer-logo mb-2"> -->
+            <!-- <img src="http://203.156.9.157/kanoomthai/../assets/img/logo.png" alt="icon" class="footer-logo mb-2"> -->
             <div class="footer-title">
 
             </div>
@@ -136,7 +136,7 @@
 
     <!-- ///////////// Js Files ////////////////////  -->
     <!-- Jquery -->
-    <script src="http://127.0.0.1/kanoomthai/assets/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="http://203.156.9.157/kanoomthai/assets/js/lib/jquery-3.4.1.min.js"></script>
 
     <!-- Datatable -->
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -146,16 +146,16 @@
 
 
     <!-- Bootstrap-->
-    <script src="http://127.0.0.1/kanoomthai/assets/js/lib/popper.min.js"></script>
-    <script src="http://127.0.0.1/kanoomthai/assets/js/lib/bootstrap.min.js"></script>
+    <script src="http://203.156.9.157/kanoomthai/assets/js/lib/popper.min.js"></script>
+    <script src="http://203.156.9.157/kanoomthai/assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <!-- Owl Carousel -->
-    <script src="http://127.0.0.1/kanoomthai/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="http://203.156.9.157/kanoomthai/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
-    <script src="http://127.0.0.1/kanoomthai/assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
+    <script src="http://203.156.9.157/kanoomthai/assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
     <!-- Base Js File -->
-    <script src="http://127.0.0.1/kanoomthai/assets/js/base.js"></script>
+    <script src="http://203.156.9.157/kanoomthai/assets/js/base.js"></script>
     <!-- sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.js"></script>
