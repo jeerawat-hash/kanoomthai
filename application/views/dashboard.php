@@ -37,7 +37,7 @@
     </div>
     <div class="row">
       <div class="col-7">
-        <table id="example" class="display nowrap" style="width:100%">
+        <table id="ComsumerDatatable" class="display nowrap" style="width:100%">
           <thead>
             <tr>
               <th>ชื่อลูกค้า</th>
@@ -116,6 +116,8 @@
 
 <script>
   $(function() {
+
+    $('#ComsumerDatatable').DataTable();
 
     $("#SocketStatus").text("Disconnected");
     try {
