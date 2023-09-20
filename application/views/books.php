@@ -345,7 +345,7 @@
     <script>
         $(function() {
 
-            notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+            // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // $("#DialogBasic").modal("show");
@@ -355,6 +355,14 @@
                 keyboard: false
             });
 
+            //#region Login
+            $("#ModalLogin").find("#BTNLogin").on("clicl", async function(){
+
+                notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+                await $("#ModalLogin").modal("hide");
+
+            });
+            //#region Login
 
 
         });
