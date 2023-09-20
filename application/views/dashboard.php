@@ -10,7 +10,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Font Awsome -->
-  <script src="lib/fontawsome/css/all.css"></script>
+  <style src="lib/fontawsome/css/all.css"></style>
   <!-- Font Awsome -->
 </head>
 
