@@ -31,7 +31,7 @@
 
     <!-- loader -->
     <div id="loader">
-        <div class="spinner-border text-success" role="status"></div>
+        <div class="spinner-border text-warning" role="status"></div>
     </div>
     <!-- * loader -->
 
@@ -161,7 +161,6 @@
     </div>
     <!-- App Bottom Menu -->
 
-
     <!-- ///////////// Js Files ////////////////////  -->
     <!-- Jquery -->
     <script src="http://203.156.9.157/kanoomthai/assets/js/lib/jquery-3.4.1.min.js"></script>
@@ -190,61 +189,10 @@
 
     <script src="https://unpkg.com/html5-qrcode@2.2.1/html5-qrcode.min.js" type="text/javascript"></script>
 
-
+ 
     <script>
-        $(function() {
+        
 
-
-
-
-        })
-    </script>
-
-    <script>
-        $("#CardInfoDiv").show();
-        $("#CardScanDiv").hide();
-        $("#btnReOpenCard").hide();
-        const html5QrCode = new Html5Qrcode("reader");
-        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-
-            $("#CodeResult").text("Decode :" + decodedText);
-
-            $("#CardInfoDiv").show();
-            $("#CardScanDiv").hide();
-            html5QrCode.stop();
-        };
-
-        const config = {
-            fps: 5,
-            qrbox: {
-                width: 300,
-                height: 100
-            }
-        };
-
-        $("#btnOpenScanner").on("click", function() {
-
-            $("#CardInfoDiv").hide();
-            $("#CardScanDiv").show();
-            html5QrCode.start({
-                facingMode: "environment"
-            }, config, qrCodeSuccessCallback);
-            html5QrCode.start({
-                facingMode: {
-                    exact: "environment"
-                }
-            }, config, qrCodeSuccessCallback);
-
-        });
-
-        $("#btnCloseScanner").on("click", function() {
-
-            $("#CodeResult").text("");
-            $("#CardInfoDiv").show();
-            $("#CardScanDiv").hide();
-            html5QrCode.stop();
-
-        });
     </script>
 </body>
 
