@@ -148,7 +148,7 @@
         "<'row'<'col-sm-12'tr>>" +
         "<'row'<'col-sm-5'><'col-sm-7'>>",
       columns: [{
-          "data": "ID",
+          "data": "ComsumerName",
           "title": "ชื่อลูกค้า"
         },
         {
@@ -196,9 +196,35 @@
         {
           "data": "Income",
           "title": "รายได้"
-        }, 
+        },
       ]
     });
+
+
+    var Data = []; 
+    for (var i = 0; i < 100; i++) { 
+      Data.push({
+        "ComsumerName": i,
+        "PreOrder": i,
+        "Ordered": i, 
+        "Status": i,
+        "Option": i,
+      });
+    }
+    ComsumerDatatable.clear().rows.add(Data).draw(false);
+
+
+    var Data2 = []; 
+    for (var i = 0; i < 100; i++) { 
+      Data2.push({
+        "GoodsName": i,
+        "GoodsStock": i,
+        "Selled": i,  
+        "Income": i,
+      });
+    }
+    StockDatatable.clear().rows.add(Data2).draw(false);
+
 
 
 
