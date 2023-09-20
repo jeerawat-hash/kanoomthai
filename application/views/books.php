@@ -306,7 +306,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">GoodsModal</h5>
-                        <a href="javascript:;" data-dismiss="modal" class="btn btn-primary btn-block">ปิด</a>
+                        <a href="javascript:;" data-dismiss="modal" class="btn btn-primary">ปิด</a>
                     </div>
                     <div class="modal-body">
 
