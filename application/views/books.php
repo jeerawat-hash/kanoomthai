@@ -237,6 +237,27 @@
     </div>
     <!-- * App Capsule -->
 
+    <!-- Dialog Basic -->
+    <div class="modal fade dialogbox" id="DialogBasic" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Dialog title</h5>
+                    </div>
+                    <div class="modal-body">
+                        This is a dialog message
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-inline"> 
+                            <a href="#" class="btn btn-text-primary" data-dismiss="modal">ตกลง</a>
+                            <a href="#" class="btn btn-text-secondary" data-dismiss="modal">ปิด</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Dialog Basic -->
+
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
@@ -279,16 +300,14 @@
 
 
     <script>
-
-        $(function(){
+        $(function() {
 
             notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
 
+            $("#DialogBasic").modal("show");
         });
-
-
     </script>
 </body>
 
