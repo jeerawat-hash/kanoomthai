@@ -41,7 +41,7 @@
     }
 
     .cart-item .imaged {
-        width: 100px;
+        width: 200px;
         height: auto;
     }
 </style>
