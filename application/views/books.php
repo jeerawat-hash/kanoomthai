@@ -125,7 +125,16 @@
             <div id="CardColor" class="card text-white mb-2 bg-warning">
                 <div class="card-header">รายการ</div>
                 <div class="card-body">
-                    <h5 class="card-title">คำสั่งซื้อ</h5>
+                    <h5 class="card-title">0 คำสั่งซื้อ</h5>
+                    <p class="card-text">0 รายการ</p>
+                </div>
+            </div>
+        </div>
+        <div id="CardStatus" class="section mt-2">
+            <div id="CardColor" class="card text-white mb-2 bg-warning">
+                <div class="card-header">ค่าใช้จ่าย</div>
+                <div class="card-body">
+                    <h5 class="card-title">0 บาท</h5>
                     <p class="card-text">0 รายการ</p>
                 </div>
             </div>
@@ -227,23 +236,7 @@
             </div>
         </div>
         <!-- Notify -->
-
-
-        <!-- app footer -->
-        <!-- <div class="appFooter">
-            <img src="http://203.156.9.157/kanoomthai/assets/img/logo.png" alt="icon" class="footer-logo mb-2">
-            <div class="footer-title">
-                Copyright © Mobilekit 2020. All Rights Reserved.
-            </div>
-            <div></div>
-            <div class="mt-2">
-            </div>
-
-        </div> -->
-        <!-- * app footer -->
-
-
-
+ 
         <!-- Modal Login -->
         <div class="modal fade modalbox" id="ModalLogin" data-backdrop="static" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
