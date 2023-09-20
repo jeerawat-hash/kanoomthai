@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <title>ร้านขนมไทย</title>
+    <title>Thai Dessert CAFE From The Hell</title>
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="http://203.156.9.157/kanoomthai/assets/img/favicon.png" sizes="32x32">
@@ -41,7 +41,7 @@
         <div class="left">
         </div>
         <div class="pageTitle">
-            ทดสอบระบบ
+            Thai Dessert CAFE From The Hell
             <!-- <img src="http://203.156.9.157/kanoomthai/../assets/img/logo.png" alt="logo" class="logo"> -->
         </div>
         <div class="right">
@@ -121,7 +121,7 @@
                 Copyright © Mobilekit 2020. All Rights Reserved.
             </div>
             <div></div>
-            <div class="mt-2"> 
+            <div class="mt-2">
             </div>
 
         </div>
