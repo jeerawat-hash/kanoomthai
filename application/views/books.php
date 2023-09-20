@@ -234,28 +234,71 @@
         </div>
         <!-- * app footer -->
 
-    </div>
-    <!-- * App Capsule -->
 
-    <!-- Dialog Basic -->
-    <div class="modal fade dialogbox" id="DialogBasic" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+
+        <!-- Modal Login -->
+        <div class="modal fade modalbox" id="ModalLogin" data-backdrop="static" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Dialog title</h5>
+                    <div class="modal-header text-cetner">
+                        <h5 class="modal-title">ThaiCafe from The Hell</h5>
                     </div>
                     <div class="modal-body">
-                        This is a dialog message
-                    </div>
-                    <div class="modal-footer">
-                        <div class="btn-inline"> 
-                            <a href="#" class="btn btn-text-primary" data-dismiss="modal">ตกลง</a>
-                            <a href="#" class="btn btn-text-secondary" data-dismiss="modal">ปิด</a>
+
+                        <div class="login-form">
+                            <div class="section mt-2">
+                                <h1>ระบุชื่อคุณลูกค้า</h1>
+                            </div>
+                            <div class="section mt-4 mb-5">
+
+                                <form>
+                                    <div class="form-group boxed">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="Inp_CustomerName">ชื่อลูกค้า</label>
+                                            <input type="tel" class="form-control" id="Inp_CustomerName" value="" placeholder="ชื่อลูกค้า">
+                                            <i class="clear-input">
+                                                <ion-icon name="close-circle" role="img" class="md hydrated" aria-label="close circle"></ion-icon>
+                                            </i>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-2">
+                                        <button type="button" class="btn btn-success btn-lg" id="BTNLogin">เข้าสู่ระบบ</button>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Modal Login -->
+
+
+
+    </div>
+    <!-- * App Capsule -->
+
+    <!-- Dialog Basic -->
+    <div class="modal fade dialogbox" id="DialogBasic" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dialog title</h5>
+                </div>
+                <div class="modal-body">
+                    This is a dialog message
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-inline">
+                        <a href="#" class="btn btn-text-primary" data-dismiss="modal">ตกลง</a>
+                        <a href="#" class="btn btn-text-secondary" data-dismiss="modal">ปิด</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Dialog Basic -->
 
     <!-- App Bottom Menu -->
@@ -305,8 +348,15 @@
             notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-
             $("#DialogBasic").modal("show");
+
+            $("#ModalLogin").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+            
+
+
         });
     </script>
 </body>
