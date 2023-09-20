@@ -25,7 +25,7 @@
     .swal2-container {
         z-index: 20000 !important;
     }
-
+/* 
     .cart-item .in .text .detail {
         line-height: 1.2em;
         margin: 0 0 4px 0;
@@ -47,7 +47,7 @@
         font-weight: 500;
         font-size: 20px;
         color: #1E74FD;
-    }
+    } */
     
 </style>
 
