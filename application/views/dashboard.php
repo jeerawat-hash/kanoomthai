@@ -20,9 +20,9 @@
 
   <div class="container-fluid mt-3">
 
-    <div class="row">
+    <div class="row text-center">
       <div class="col-12">
-        <h2 id="SocketStatus">Status</h2>
+        <h1 id="SocketStatus">Status</h1>
       </div>
     </div>
     <div class="row">
