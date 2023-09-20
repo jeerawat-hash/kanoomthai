@@ -38,11 +38,15 @@
         font-size: 26px;
         line-height: 1.2em;
         margin: 0 0 6px 0;
-    }
-
+    } 
     .cart-item .imaged {
         width: 200px;
         height: auto;
+    } 
+    .cart-item .in .text .price {
+        font-weight: 500;
+        font-size: 20px;
+        color: #1E74FD;
     }
 </style>
 
