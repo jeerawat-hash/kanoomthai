@@ -39,6 +39,11 @@
         line-height: 1.2em;
         margin: 0 0 6px 0;
     }
+
+    .cart-item .imaged {
+        width: 100px;
+        height: auto;
+    }
 </style>
 
 <body>
