@@ -291,7 +291,7 @@
                             <div class="card cart-item mb-2">
                                 <div class="card-body">
                                     <div class="in">
-                                        <img src="assets/img/sample/photo/product1.jpg" alt="product" class="imaged">
+                                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/product1.jpg" alt="product" class="imaged">
                                         <div class="text">
                                             <h3 class="title">Organic Apple</h3>
                                             <p class="detail">1 kg</p>
@@ -314,7 +314,7 @@
                             <div class="card cart-item mb-2">
                                 <div class="card-body">
                                     <div class="in">
-                                        <img src="assets/img/sample/photo/product4.jpg" alt="product" class="imaged">
+                                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/product4.jpg" alt="product" class="imaged">
                                         <div class="text">
                                             <h3 class="title">Beetroot</h3>
                                             <p class="detail">1 kg</p>
@@ -337,11 +337,8 @@
 
                         <div class="section mt-2 mb-2">
                             <div class="card">
-                                <ul class="listview flush transparent simple-listview">
-                                    <li>Items <span class="text-muted">$ 54.20</span></li>
-                                    <li>Shipping <span class="text-muted">$ 2.90</span></li>
-                                    <li>Tax (10%)<span class="text-muted">$ 5.70</span></li>
-                                    <li>Total<span class="text-primary font-weight-bold">$ 62.80</span></li>
+                                <ul class="listview flush transparent simple-listview"> 
+                                    <li>ยอดรวม<span class="text-primary font-weight-bold">500 บาท</span></li>
                                 </ul>
                             </div>
                         </div>
