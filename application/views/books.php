@@ -65,36 +65,16 @@
         <div class="left">
         </div>
         <div class="pageTitle">
-            Thai Dessert CAFE From The Hell
-            <!-- <img src="http://203.156.9.157/kanoomthai/../assets/img/logo.png" alt="logo" class="logo"> -->
+            Thai Dessert CAFE From The Hell 
         </div>
         <div class="right">
-            <!-- <a href="javascript:;" class="headerButton toggle-searchbox">
-                <ion-icon name="search-outline"></ion-icon>
-            </a> -->
+        
         </div>
     </div>
     <!-- * App Header -->
-
-    <!-- Search Component -->
-    <div id="search" class="appHeader">
-        <form class="search-form">
-            <div class="form-group searchbox">
-                <input type="text" class="form-control" placeholder="Search...">
-                <i class="input-icon">
-                    <ion-icon name="search-outline"></ion-icon>
-                </i>
-                <a href="javascript:;" class="ml-1 close toggle-searchbox">
-                    <ion-icon name="close-circle"></ion-icon>
-                </a>
-            </div>
-        </form>
-    </div>
-    <!-- * Search Component -->
-
+  
     <!-- App Capsule -->
     <div id="appCapsule">
-
 
         <!-- Form -->
         <div class="section mt-2">
@@ -246,7 +226,7 @@
 
 
         <!-- app footer -->
-        <div class="appFooter">
+        <!-- <div class="appFooter">
             <img src="http://203.156.9.157/kanoomthai/assets/img/logo.png" alt="icon" class="footer-logo mb-2">
             <div class="footer-title">
                 Copyright © Mobilekit 2020. All Rights Reserved.
@@ -255,7 +235,7 @@
             <div class="mt-2">
             </div>
 
-        </div>
+        </div> -->
         <!-- * app footer -->
 
 
