@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="http://203.156.9.157/kanoomthai/assets/img/icon/3-192x192.png">
     <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/assets/css/style.css">
     <link rel="manifest" href="http://203.156.9.157/kanoomthai/__manifest.json">
-        
+
     <!-- Font Awsome -->
     <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css">
     <!-- Font Awsome -->
@@ -392,7 +392,9 @@
     <div class="appBottomMenu">
 
         <a href="javascript:;" class="item">
-            <i class="fa-duotone fa-cart-shopping fa-bounce"></i>
+
+        <i class="fa-duotone fa-cart-shopping fa-bounce fa-2xl"></i>
+        
         </a>
         <a href="javascript:;" class="item">
             <div class="col">
