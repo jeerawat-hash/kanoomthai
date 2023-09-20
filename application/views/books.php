@@ -144,7 +144,7 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
          
-        <a href="app-pages.html" class="item">
+        <a href="javascript:;" class="item">
             <div class="col">
                 <ion-icon name="layers-outline" role="img" class="md hydrated" aria-label="layers outline"></ion-icon>
             </div>
