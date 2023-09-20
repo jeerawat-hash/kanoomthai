@@ -25,6 +25,20 @@
     .swal2-container {
         z-index: 20000 !important;
     }
+
+    .cart-item .in .text .detail {
+        line-height: 1.2em;
+        margin: 0 0 4px 0;
+        font-size: 20px;
+        color: #A1A1A2;
+    }
+
+    .cart-item .in .text .title {
+        font-weight: 500;
+        font-size: 26px;
+        line-height: 1.2em;
+        margin: 0 0 6px 0;
+    }
 </style>
 
 <body>
@@ -335,7 +349,7 @@
 
                         <div class="section mt-2 mb-2">
                             <div class="card">
-                                <ul class="listview flush transparent simple-listview"> 
+                                <ul class="listview flush transparent simple-listview">
                                     <li>ยอดรวม<span class="text-primary font-weight-bold">500 บาท</span></li>
                                 </ul>
                             </div>
