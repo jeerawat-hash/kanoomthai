@@ -10,8 +10,10 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Font Awsome -->
-  <style src="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css"></style>
+  <link rel="stylesheet" href="lib/fontawsome/css/all.css" />
   <!-- Font Awsome -->
+
+
 </head>
 
 <body>
@@ -20,7 +22,7 @@
     <h2 id="SocketStatus">Status</h2>
 
     <i class="fa-solid fa-user"></i>
-    
+
   </div>
 
 
