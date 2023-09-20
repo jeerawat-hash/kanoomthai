@@ -48,6 +48,7 @@
         font-size: 20px;
         color: #1E74FD;
     }
+    
 </style>
 
 <body>
@@ -305,7 +306,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">GoodsModal</h5>
-                        <a href="javascript:;" data-dismiss="modal">ปิด</a>
+                        <a href="javascript:;" data-dismiss="modal" class="btn btn-primary btn-block">ปิด</a>
                     </div>
                     <div class="modal-body">
 
