@@ -393,7 +393,7 @@
 
         <a href="javascript:;" class="item">
             <div class="col">
-                <span class="iconedbox iconedbox-lg"> 
+                <span class="iconedbox iconedbox-md"> 
                     <i class="fa-solid fa-cash-register fa-2xl" style="color: #000000;"></i>
                 </span>
             </div>
