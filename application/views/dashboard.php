@@ -115,9 +115,41 @@
 </body>
 
 <script>
-  $(function() {
+  $(function() { 
 
-    $('#ComsumerDatatable').DataTable();
+    var ComsumerDatatable = $("#ComsumerDatatable").DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                // "pageLength": 10,
+                // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                "buttons": ["copy", "csv", "excel", "pdf", "print"],
+                dom: "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                columns: [{
+                        "data": "ID",
+                        "title": "ชื่อลูกค้า"
+                    },
+                    {
+                        "data": "PreOrder",
+                        "title": "รอทำรายการ"
+                    },
+                    {
+                        "data": "Ordered",
+                        "title": "ยอดสั่งซื้อ"
+                    }, 
+                    {
+                        "data": "Status",
+                        "title": "สถานะ"
+                    },
+                    {
+                        "data": "Option",
+                        "title": "ดำเนินการ",
+                        "className": "text-center"
+                    },
+                ]
+            });
 
     $("#SocketStatus").text("Disconnected");
     try {
