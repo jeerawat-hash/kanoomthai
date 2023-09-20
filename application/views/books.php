@@ -14,8 +14,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="http://203.156.9.157/kanoomthai/assets/img/icon/3-192x192.png">
     <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/assets/css/style.css">
     <link rel="manifest" href="http://203.156.9.157/kanoomthai/__manifest.json">
+        
     <!-- Font Awsome -->
-    <script src="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css"></script>
+    <link rel="stylesheet" href="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css">
     <!-- Font Awsome -->
 </head>
 
