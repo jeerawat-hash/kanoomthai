@@ -263,7 +263,7 @@
                                     </div>
 
                                     <div class="mt-2">
-                                        <button type="button" class="btn btn-success btn-lg" id="BTNLogin">เข้าสู่ระบบ</button>
+                                        <button type="button" class="btn btn-warning btn-lg" id="BTNLogin">เริ่มสั่งอาหาร</button>
                                     </div>
                                 </form>
 
@@ -354,7 +354,7 @@
                 backdrop: 'static',
                 keyboard: false
             });
-            
+
 
 
         });
