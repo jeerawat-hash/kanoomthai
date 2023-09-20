@@ -391,10 +391,10 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
-        <a href="javascript:;" class="item">
-
-        <i class="fa-duotone fa-cart-shopping fa-bounce fa-2xl"></i>
-        
+        <a href="javascript:;" class="item"> 
+            <div class="col">
+                <i class="fa-thin fa-cash-register fa-2xl"></i>
+            </div> 
         </a>
         <a href="javascript:;" class="item">
             <div class="col">
