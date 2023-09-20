@@ -10,7 +10,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <!-- Font Awsome -->
-  <style src="lib/fontawsome/css/all.css"></style>
+  <style src="http://203.156.9.157/kanoomthai/lib/fontawsome/css/all.css"></style>
   <!-- Font Awsome -->
 </head>
 
@@ -21,7 +21,7 @@
 
     <i class="fa-regular fa-users fa-spin"></i>
     <i class="fa-sharp fa-regular fa-users fa-spin"></i>
-    
+
   </div>
 
 
