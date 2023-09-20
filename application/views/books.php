@@ -342,7 +342,7 @@
                         </div>
 
                         <div class="section mb-2">
-                            <a href="#" class="btn btn-primary btn-block btn-lg">Order Now</a>
+                            <a href="#" class="btn btn-primary btn-block btn-lg">สั่งซื้อ</a>
 
                         </div>
 
