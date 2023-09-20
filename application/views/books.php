@@ -356,7 +356,7 @@
             });
 
             //#region Login
-            $("#ModalLogin").find("#BTNLogin").on("clicl", async function(){
+            $("#ModalLogin").find("#BTNLogin").on("click", async function(){
 
                 notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
                 await $("#ModalLogin").modal("hide");
