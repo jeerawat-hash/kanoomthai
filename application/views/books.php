@@ -393,7 +393,7 @@
 
         <a href="javascript:;" class="item"> 
             <div class="col">
-                <i class="fa-thin fa-cash-register fa-3xl" style="color: #000000;"></i> 
+                <i class="fa-solid fa-cash-register fa-2xl" style="color: #000000;"></i>
             </div> 
         </a>
         <a href="javascript:;" class="item">
