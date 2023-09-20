@@ -348,7 +348,7 @@
             notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-            $("#DialogBasic").modal("show");
+            // $("#DialogBasic").modal("show");
 
             $("#ModalLogin").modal({
                 backdrop: 'static',
