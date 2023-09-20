@@ -293,9 +293,9 @@
                                     <div class="in">
                                         <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/product1.jpg" alt="product" class="imaged">
                                         <div class="text">
-                                            <h3 class="title">Organic Apple</h3>
-                                            <p class="detail">1 kg</p>
-                                            <strong class="price">$ 5.99</strong>
+                                            <h3 class="title">ขนมครก #1</h3>
+                                            <p class="detail">ขนมครก ปกติแหละ</p>
+                                            <strong class="price">5 บาท</strong>
                                         </div>
                                     </div>
                                     <div class="cart-item-footer">
@@ -304,8 +304,7 @@
                                             <input type="text" class="form-control" value="4" disabled="">
                                             <a href="#" class="stepper-button stepper-up">+</a>
                                         </div>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">Delete</a>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">Save it for later</a>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">เพิ่ม</a>
                                     </div>
                                 </div>
                             </div>
@@ -316,9 +315,9 @@
                                     <div class="in">
                                         <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/product4.jpg" alt="product" class="imaged">
                                         <div class="text">
-                                            <h3 class="title">Beetroot</h3>
-                                            <p class="detail">1 kg</p>
-                                            <strong class="price">$ 42.99</strong>
+                                            <h3 class="title">ขนมครก #2</h3>
+                                            <p class="detail">ขนมครก ปกติแหละ</p>
+                                            <strong class="price">5 บาท</strong>
                                         </div>
                                     </div>
                                     <div class="cart-item-footer">
@@ -327,8 +326,7 @@
                                             <input type="text" class="form-control" value="6" disabled="">
                                             <a href="#" class="stepper-button stepper-up">+</a>
                                         </div>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">Delete</a>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">Save it for later</a>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">เพิ่ม</a>
                                     </div>
                                 </div>
                             </div>
