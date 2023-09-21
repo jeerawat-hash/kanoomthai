@@ -20,22 +20,18 @@ class Data extends CI_Controller {
     }
     public function SignIn()
     { 
-        // $CustomerName = $_POST["CustomerName"];
-        // $TableID = $_POST["TableID"]; 
-        $CustomerName = "PP";
-        $TableID = "1"; 
+        $CustomerName = $_POST["CustomerName"];
+        $TableID = $_POST["TableID"]; 
+        // $CustomerName = "PP";
+        // $TableID = "1"; 
         $result = $this->BookingSession->CheckTableAlreadyBooked($TableID);
         if(count($result) > 0){ 
             echo "test";
             exit();
         }
         $resultSignIn = $this->BookingSession->SignInAndBookingTable($CustomerName,$TableID); //CustomerID,TableID
-
-        // print_r($resultSignIn);
-
         $CustomerInfo = $this->BookingSession->GetCustomerInformationByBookingSession($resultSignIn["BookingSessionID"]);
-        // print_r($CustomerInfo);
-
+ 
         // ///// Session Create /////
         $CusInfo["BookingSessionID"] = $CustomerInfo[0]["BookingSessionID"];
         $CusInfo["CustomerID"] = $CustomerInfo[0]["CustomerID"];
@@ -43,6 +39,14 @@ class Data extends CI_Controller {
         $CusInfo["TableID"] = $CustomerInfo[0]["TableID"];
         $CusInfo["TableName"] = $CustomerInfo[0]["TableName"];
 		$this->session->set_userdata($CusInfo);
+
+        // echo json_encode( array( 
+        //     "BookingSessionID" => $CusInfo["BookingSessionID"],
+        //     "CustomerID" => $CusInfo["CustomerID"],
+        //     "CustomerName" => $CusInfo["CustomerName"],
+        //     "TableID" => $CusInfo["TableID"],
+        //     "TableName" => $CusInfo["TableName"],
+        //  ));
         ///// Session Create /////
     }
     public function SignOut()
@@ -56,6 +60,27 @@ class Data extends CI_Controller {
         ///// Session Destroy /////
         $this->session->sess_destroy(); 
         ///// Session Destroy /////
+    }
+    public function CheckLogin()
+    {
+        $BookingSessionID = $this->session->userdata("BookingSessionID"); 
+        $CustomerID = $this->session->userdata("CustomerID"); 
+        $CustomerName = $this->session->userdata("CustomerName"); 
+        $TableID = $this->session->userdata("TableID"); 
+        $TableName = $this->session->userdata("TableName"); 
+
+        if($BookingSessionID != ""){
+            echo json_encode(array( "Status" => "Success", "Data" => array( 
+                "BookingSessionID" => $BookingSessionID,
+                "CustomerID" => $CustomerID,
+                "CustomerName" => $CustomerName,
+                "TableID" => $TableID,
+                "TableName" => $TableName,
+             )));
+        }else{
+            echo json_encode(array( "Status" => "Error", "Data" => array( )));
+        }
+ 
     }
  
     
