@@ -494,7 +494,7 @@
                         cache: false,
                         processData: false,
                         success: function(data) {
-                            $("#ModalLogin").modal("hide");
+                            $("#ModalLogin").modal("show");
                             notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
                         },
                         error: function() {}
