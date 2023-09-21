@@ -483,7 +483,7 @@
                     data.append('TableID', TableID);
 
                     await $.ajax({
-                        url: "/Data/SignIn",
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/SignIn",
                         type: "POST",
                         data: data,
                         contentType: false,
@@ -499,7 +499,7 @@
                     });
 
                     await $.ajax({
-                        url: "/Data/CheckLogin",
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
                         type: "POST", 
                         contentType: false,
                         cache: false,
