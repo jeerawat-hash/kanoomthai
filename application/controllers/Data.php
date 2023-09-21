@@ -21,9 +21,7 @@ class Data extends CI_Controller {
     public function SignIn()
     { 
         $CustomerName = $_POST["CustomerName"];
-        $TableID = $_POST["TableID"]; 
-        // $CustomerName = "PP";
-        // $TableID = "1"; 
+        $TableID = $_POST["TableID"];  
         $result = $this->BookingSession->CheckTableAlreadyBooked($TableID);
         if(count($result) > 0){ 
             echo "test";
