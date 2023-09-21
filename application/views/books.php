@@ -439,10 +439,12 @@
 
 
     <script>
+        LoadDataSelectTable();
         $("#ModalLogin").modal({
             backdrop: 'static',
             keyboard: false
         });
+        
 
         $(function() {
 
@@ -499,26 +501,7 @@
                     console.log(data);
                     var obj = JSON.parse(data);
                     if (obj.Msg == "Booking") {
-                        $.ajax({
-                            url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAvailableTable",
-                            type: "POST",
-                            contentType: false,
-                            cache: false,
-                            processData: false,
-                            success: function(data) {
-                                try {
-                                    var obj = JSON.parse(data);
-                                    console.log(obj); 
-                                    var html = "<option value=\"None\">--- กรุณาเลืิอก ---</option>";
-                                    for (let index = 0; index < obj.length; index++) {
-                                        html += "<option value=\""+obj[index].TableID+"\">"+obj[index].TableName+"</option>"; 
-                                    }
-                                    $("#Inp_Booktable").html(html);
-
-                                } catch (error) {}
-                            },
-                            error: function() {}
-                        });
+                        LoadDataSelectTable();
                     }
 
                 });
@@ -647,7 +630,34 @@
 
 
 
+
+
+
+
         });
+
+        function LoadDataSelectTable() {
+            $.ajax({
+                url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAvailableTable",
+                type: "POST",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    try {
+                        var obj = JSON.parse(data);
+                        console.log(obj);
+                        var html = "<option value=\"None\">--- กรุณาเลืิอก ---</option>";
+                        for (let index = 0; index < obj.length; index++) {
+                            html += "<option value=\"" + obj[index].TableID + "\">" + obj[index].TableName + "</option>";
+                        }
+                        $("#Inp_Booktable").html(html);
+
+                    } catch (error) {}
+                },
+                error: function() {}
+            });
+        }
     </script>
 </body>
 
