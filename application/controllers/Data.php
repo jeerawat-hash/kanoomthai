@@ -34,15 +34,15 @@ class Data extends CI_Controller {
         // print_r($resultSignIn);
 
         $CustomerInfo = $this->BookingSession->GetCustomerInformationByBookingSession($resultSignIn["BookingSessionID"]);
-        print_r($CustomerInfo);
+        // print_r($CustomerInfo);
 
         // ///// Session Create /////
-        // $CusInfo["BookingSessionID"] = $CustomerInfo[0]["BookingSessionID"];
-        // $CusInfo["CustomerID"] = $CustomerInfo[0]["CustomerID"];
-        // $CusInfo["CustomerName"] = $CustomerInfo[0]["CustomerName"];
-        // $CusInfo["TableID"] = $CustomerInfo[0]["TableID"];
-        // $CusInfo["TableName"] = $CustomerInfo[0]["TableName"];
-		// $this->session->set_userdata($CusInfo);
+        $CusInfo["BookingSessionID"] = $CustomerInfo[0]["BookingSessionID"];
+        $CusInfo["CustomerID"] = $CustomerInfo[0]["CustomerID"];
+        $CusInfo["CustomerName"] = $CustomerInfo[0]["CustomerName"];
+        $CusInfo["TableID"] = $CustomerInfo[0]["TableID"];
+        $CusInfo["TableName"] = $CustomerInfo[0]["TableName"];
+		$this->session->set_userdata($CusInfo);
         ///// Session Create /////
     }
     public function SignOut()
