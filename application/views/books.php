@@ -471,7 +471,7 @@
                                         if (obj.Status == "Success") {
                                             notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                             $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
-                                            // socket.emit("SetID", obj.Data.BookingSessionID);
+                                            socket.emit("SetID", obj.Data.BookingSessionID);
                                             $("#ModalLogin").modal("hide");
                                         } else {
                                             notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
@@ -482,7 +482,7 @@
                                 error: function() {}
                             });
                         }, 1000);
-                    } 
+                    }
 
                 });
 
@@ -498,6 +498,8 @@
                         success: function(data) {
                             $("#ModalLogin").modal("show");
                             notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
+                            $("#ModalLogin").find("#Inp_CustomerName").val("");
+                            $("#ModalLogin").find("#Inp_Booktable").val("None");
                         },
                         error: function() {}
                     });
