@@ -440,6 +440,11 @@
 
 
     <script>
+        $("#ModalLogin").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+        
         $(function() {
 
 
@@ -453,37 +458,29 @@
                     await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
                     await $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
-                        type: "POST", 
+                        type: "POST",
                         contentType: false,
                         cache: false,
                         processData: false,
                         success: function(data) {
                             try {
                                 var obj = JSON.parse(data);
-                                console.log(obj);  
-                                if(obj.Status == "Success"){
-                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ "+obj.Data[0].CustomerName, 1000);
-                                    socket.emit("SetID", obj.Data[0].BookingSessionID);
+                                console.log(obj);
+                                if (obj.Status == "Success") {
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data[0].CustomerName, 1000);
+                                    // socket.emit("SetID", obj.Data[0].BookingSessionID);
                                     $("#ModalLogin").modal("hide");
-                                }else{
+                                } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     return false;
-                                } 
+                                }
                             } catch (error) {}
                         },
                         error: function() {}
                     });
                 });
 
-                // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-                // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-                // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-                // $("#DialogBasic").modal("show");
 
-                $("#ModalLogin").modal({
-                    backdrop: 'static',
-                    keyboard: false
-                });
 
                 //#region Login
                 $("#ModalLogin").find("#BTNLogin").on("click", async function() {
@@ -513,7 +510,7 @@
                         processData: false,
                         success: function(data) {
                             try {
-                                var obj = JSON.parse(data); 
+                                var obj = JSON.parse(data);
                             } catch (error) {}
                         },
                         error: function() {}
@@ -521,29 +518,29 @@
 
                     await $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
-                        type: "POST", 
+                        type: "POST",
                         contentType: false,
                         cache: false,
                         processData: false,
                         success: function(data) {
                             try {
                                 var obj = JSON.parse(data);
-                                console.log(obj);  
-                                if(obj.Status == "Success"){
-                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ "+obj.Data[0].CustomerName, 1000);
+                                console.log(obj);
+                                if (obj.Status == "Success") {
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data[0].CustomerName, 1000);
                                     socket.emit("SetID", obj.Data[0].BookingSessionID);
                                     $("#ModalLogin").modal("hide");
-                                }else{
+                                } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     return false;
-                                } 
+                                }
                             } catch (error) {}
                         },
                         error: function() {}
                     });
 
-                    
- 
+
+
 
                 });
                 //#region Login
