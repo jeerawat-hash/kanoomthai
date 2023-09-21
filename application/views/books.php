@@ -84,7 +84,7 @@
         <div class="section mt-2">
 
             <div class="header-large-title">
-                <h1 class="title">ยินดีต้อนรับ</h1>
+                <h1 class="title" id="WelcomeTitle">ยินดีต้อนรับ</h1>
             </div>
 
             <!-- Carousel Menu -->
@@ -233,6 +233,7 @@
             </div>
         </div>
         <!-- Notify -->
+
 
         <!-- Modal Login -->
         <div class="modal fade modalbox" id="ModalLogin" data-backdrop="static" tabindex="-1" role="dialog">
@@ -469,7 +470,8 @@
                                         console.log(obj);
                                         if (obj.Status == "Success") {
                                             notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
-                                            // socket.emit("SetID", obj.Data[0].BookingSessionID);
+                                            $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
+                                            // socket.emit("SetID", obj.Data.BookingSessionID);
                                             $("#ModalLogin").modal("hide");
                                         } else {
                                             notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
@@ -552,6 +554,7 @@
                                     socket.emit("SetID", obj.Data.BookingSessionID);
                                     $("#ModalLogin").modal("hide");
                                     notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
+                                    $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     return false;
