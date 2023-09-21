@@ -18,12 +18,18 @@ class Data extends CI_Controller {
         $result = $this->Goodsitem->GetDataAllGoodsItem();
         print_r($result);
     }
-    public function InsertBookSession()
-    {
-        
-        $result = $this->BookingSession->BookingTable(1,1);
-        print_r($result);
+    public function SignIn()
+    { 
+        // $CustomerName = $_POST["CustomerName"];
+        // $TableID = $_POST["TableID"]; 
 
+        $CustomerName = "โหล";
+        $TableID = "1";
+        
+        $result = $this->BookingSession->CheckTableAlreadyBooked($TableID);
+
+        // $result = $this->BookingSession->SignInAndBookingTable($CustomerName,1); //CustomerID,TableID
+        print_r($result);
     }
     
 }

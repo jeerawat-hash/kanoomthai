@@ -8,9 +8,33 @@ class BookingSession extends CI_Model
         $this->load->library("session");
     }
 
-
-    public function BookingTable($CustomerID, $TableID)
+    public function CheckTableAlreadyBooked($TableID)
     {
+        $Query = " 
+        SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID = ?
+        ";
+        $queryTableID = $this->mysql->query($Query,array($TableID));
+        $TableID = $queryTableID->result_array();
+        return $TableID;
+    }
+
+    public function SignInAndBookingTable($CustomerName, $TableID)
+    {
+ 
+        $this->mysql->trans_start();
+        $QueryString = " 
+        INSERT INTO tbl_Customer (CustomerName, CreateDate)
+        values(?,?)
+        ";
+        $query = $this->mysql->query($QueryString, array($CustomerName, date("Y-m-d H:i:s")));
+        $Transaction = $this->mysql->trans_complete();
+ 
+        $QueryLastID = " 
+        SELECT CustomerID FROM tbl_Customer order by CustomerID desc limit 1
+        ";
+        $queryLastID = $this->mysql->query($QueryLastID);
+        $LastInsertID = $queryLastID->result_array();
+
         $this->mysql->trans_start();
         $QueryString = " 
         INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
@@ -18,7 +42,7 @@ class BookingSession extends CI_Model
         where TableID not in (SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0) 
         and TableID = ?
         ";
-        $query = $this->mysql->query($QueryString, array($CustomerID, $TableID));
+        $query = $this->mysql->query($QueryString, array($LastInsertID[0]["CustomerID"], $TableID));
         $Transaction = $this->mysql->trans_complete();
 
         $QueryLastID = " 
