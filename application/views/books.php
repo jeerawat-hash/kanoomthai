@@ -451,6 +451,28 @@
                 socket.on("connect", async function() {
                     console.log("Connected");
                     await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
+                    await $.ajax({
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
+                        type: "POST", 
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            try {
+                                var obj = JSON.parse(data);
+                                console.log(obj);  
+                                if(obj.Status == "Success"){
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ "+obj.Data[0].CustomerName, 1000);
+                                    socket.emit("SetID", obj.Data[0].BookingSessionID);
+                                    $("#ModalLogin").modal("hide");
+                                }else{
+                                    notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
+                                    return false;
+                                } 
+                            } catch (error) {}
+                        },
+                        error: function() {}
+                    });
                 });
 
                 // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
@@ -491,8 +513,7 @@
                         processData: false,
                         success: function(data) {
                             try {
-                                var obj = JSON.parse(data);
-
+                                var obj = JSON.parse(data); 
                             } catch (error) {}
                         },
                         error: function() {}
@@ -507,16 +528,21 @@
                         success: function(data) {
                             try {
                                 var obj = JSON.parse(data);
-                                console.log(obj);
-
+                                console.log(obj);  
+                                if(obj.Status == "Success"){
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ "+obj.Data[0].CustomerName, 1000);
+                                    socket.emit("SetID", obj.Data[0].BookingSessionID);
+                                    $("#ModalLogin").modal("hide");
+                                }else{
+                                    notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
+                                    return false;
+                                } 
                             } catch (error) {}
                         },
                         error: function() {}
                     });
 
-                    // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-                    // await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
-                    // await $("#ModalLogin").modal("hide");
+                    
  
 
                 });
