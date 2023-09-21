@@ -574,6 +574,15 @@
                                     $("#ModalLogin").modal("hide");
                                     notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                     $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
+                                    if (socket.connected == true) {
+                                        var PayLoad = JSON.stringify({
+                                            "Source": obj.Data.BookingSessionID,
+                                            "Dest": "AllEvent",
+                                            "Header": obj.Data.CustomerName,
+                                            "Msg": "Booking",
+                                        });
+                                        socket.emit("MSGServer", PayLoad);
+                                    }
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     return false;
