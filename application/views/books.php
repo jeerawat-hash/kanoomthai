@@ -265,9 +265,7 @@
                                         <div class="input-wrapper">
                                             <label class="label" for="city4">จอง/สั่งกลับบ้าน</label>
                                             <select class="form-control custom-select" id="Inp_Booktable">
-                                                <option value="None">--- กรุณาเลือก ---</option>
-                                                <option value="1">โต๊ะที่ 1</option>
-                                                <option value="2">สั่งกลับบ้าน</option>
+                                                <!-- <option value="None">--- กรุณาเลือก ---</option>  -->
                                             </select>
                                         </div>
                                     </div>
@@ -511,6 +509,12 @@
                                 try {
                                     var obj = JSON.parse(data);
                                     console.log(obj); 
+                                    var html = "<option value=\"None\">--- กรุณาเลืิอก ---</option>";
+                                    for (let index = 0; index < obj.length; index++) {
+                                        html += "<option value=\""+obj[index].TableID+"\">"+obj[index].TableName+"</option>"; 
+                                    }
+                                    $("#Inp_Booktable").html(html);
+
                                 } catch (error) {}
                             },
                             error: function() {}
