@@ -494,8 +494,8 @@
                         cache: false,
                         processData: false,
                         success: function(data) {
-                            notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
                             $("#ModalLogin").modal("hide");
+                            notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
                         },
                         error: function() {}
                     });
@@ -549,9 +549,9 @@
                                 var obj = JSON.parse(data);
                                 console.log(obj);
                                 if (obj.Status == "Success") {
-                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                     socket.emit("SetID", obj.Data.BookingSessionID);
                                     $("#ModalLogin").modal("hide");
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     return false;
