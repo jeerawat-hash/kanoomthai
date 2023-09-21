@@ -521,6 +521,7 @@
                             notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
                             $("#ModalLogin").find("#Inp_CustomerName").val("");
                             $("#ModalLogin").find("#Inp_Booktable").val("None");
+                            LoadDataSelectTable();
                         },
                         error: function() {}
                     });
