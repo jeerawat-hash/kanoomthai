@@ -265,9 +265,9 @@
                                             <label class="label" for="city4">จอง/สั่งกลับบ้าน</label>
                                             <select class="form-control custom-select" id="Inp_Booktable">
                                                 <option value="None">--- กรุณาเลือก ---</option>
-                                                <option value="1">โต๊ะที่ 1</option> 
-                                                <option value="2">สั่งกลับบ้าน</option> 
-                                            </select> 
+                                                <option value="1">โต๊ะที่ 1</option>
+                                                <option value="2">สั่งกลับบ้าน</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -442,51 +442,101 @@
     <script>
         $(function() {
 
-            
- 
+
+
             var Receive = "";
             try {
- 
+
                 const socket = io("http://203.156.9.157:8081");
-                socket.on("connect",async function() {
-                    console.log("Connected"); 
+                socket.on("connect", async function() {
+                    console.log("Connected");
+                    await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
                 });
 
-            // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-            // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-            // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-            // $("#DialogBasic").modal("show");
+                // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+                // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+                // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+                // $("#DialogBasic").modal("show");
 
-            $("#ModalLogin").modal({
-                backdrop: 'static',
-                keyboard: false
-            });
+                $("#ModalLogin").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
 
-            //#region Login
-            $("#ModalLogin").find("#BTNLogin").on("click", async function() {
+                //#region Login
+                $("#ModalLogin").find("#BTNLogin").on("click", async function() {
 
-                notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
-                await socket.emit("SetID", "test");
-                await $("#ModalLogin").modal("hide");
+                    var CustomerName = $("#ModalLogin").find("#Inp_CustomerName").val();
+                    var TableID = $("#ModalLogin").find("#Inp_Booktable option:selected").val();
 
-            });
-            //#region Login
+                    if (CustomerName == "") {
+                        notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
+                        return false;
+                    }
+                    if (TableID == "None") {
+                        notification('notification-danger', "แจ้งเตือน", "กรุณาทำการจอง", 1000);
+                        return false;
+                    }
 
-            $(".caroitem").on("click", async function() {
-                var ModalType = $(this).attr("data-ModalType");
-                switch (ModalType) {
-                    case "Dessert":
+                    var data = new FormData();
+                    data.append('CustomerName', CustomerName);
+                    data.append('TableID', TableID);
 
-                        $("#ModalGoods").modal("show");
+                    await $.ajax({
+                        url: "/Data/SignIn",
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            try {
+                                var obj = JSON.parse(data);
 
-                        break;
-                    case "Drink":
+                            } catch (error) {}
+                        },
+                        error: function() {}
+                    });
 
-                        $("#ModalGoods").modal("show");
+                    await $.ajax({
+                        url: "/Data/CheckLogin",
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            try {
+                                var obj = JSON.parse(data);
+                                console.log(obj);
 
-                        break;
-                }
-            });
+                            } catch (error) {}
+                        },
+                        error: function() {}
+                    });
+
+                    // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+                    // await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
+                    // await $("#ModalLogin").modal("hide");
+  
+                });
+                //#region Login
+
+                $(".caroitem").on("click", async function() {
+                    var ModalType = $(this).attr("data-ModalType");
+                    switch (ModalType) {
+                        case "Dessert":
+
+                            $("#ModalGoods").modal("show");
+
+                            break;
+                        case "Drink":
+
+                            $("#ModalGoods").modal("show");
+
+                            break;
+                    }
+                });
 
 
 
