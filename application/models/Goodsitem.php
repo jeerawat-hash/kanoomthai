@@ -11,7 +11,7 @@ class Goodsitem extends CI_Model
     public function GetDataAllGoodsItem()
 	{
 		$QueryString = " 
-        SELECT GoodsItemID,GoodsItemName,Unit,PricePerUnit,StockAmount FROM tbl_GoodsItem
+        SELECT GoodsItemID,GoodsItemName,Unit,PricePerUnit,StockAmount,Image FROM tbl_GoodsItem
         where StockAmount
         ";
 		$query = $this->mssql->query($QueryString);
