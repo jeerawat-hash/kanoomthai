@@ -448,7 +448,6 @@
 
         $(function() {
 
-
             var Receive = "";
             try {
                 const socket = io("http://203.156.9.157:8081");

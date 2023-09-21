@@ -11,7 +11,7 @@ class BookingSession extends CI_Model
     public function CheckTableAlreadyBooked($TableID)
     {
         $Query = " 
-        SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID = ?
+        SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID = ? and TableID != 21
         ";
         $queryTableID = $this->mysql->query($Query,array($TableID));
         $TableID = $queryTableID->result_array();
@@ -50,7 +50,7 @@ class BookingSession extends CI_Model
         $QueryString = " 
         INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
         SELECT ?,TableID,0 FROM tbl_Table 
-        where TableID not in (SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0) 
+        where TableID not in (SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID != 21) 
         and TableID = ?
         ";
         $query = $this->mysql->query($QueryString, array($LastInsertID[0]["CustomerID"], $TableID));
