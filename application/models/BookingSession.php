@@ -24,7 +24,7 @@ class BookingSession extends CI_Model
         FROM tbl_BookingSession a
         join tbl_Customer b on a.CustomerID = b.CustomerID
         join tbl_Table c on a.TableID = c.TableID
-        where BookingSessionID = ?
+        where a.BookingSessionID = ?
         ";
         $queryTableID = $this->mysql->query($Query,array($BookingSessionID));
         $TableID = $queryTableID->result_array();

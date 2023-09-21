@@ -53,6 +53,11 @@ class Data extends CI_Controller {
     {
         print_r($this->session->userdata());
     }
+    public function test()
+    {
+        $aa = $this->BookingSession->GetCustomerInformationByBookingSession(11);
+        print_r($aa);
+    }
     
     
 }
