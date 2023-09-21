@@ -31,9 +31,10 @@ class Data extends CI_Controller {
         }
         $resultSignIn = $this->BookingSession->SignInAndBookingTable($CustomerName,$TableID); //CustomerID,TableID
 
-        print_r($resultSignIn);
+        // print_r($resultSignIn);
 
-        // $CustomerInfo = $this->BookingSession->GetCustomerInformationByBookingSession($resultSignIn["BookingSessionID"]);
+        $CustomerInfo = $this->BookingSession->GetCustomerInformationByBookingSession($resultSignIn["BookingSessionID"]);
+        print_r($CustomerInfo);
 
         // ///// Session Create /////
         // $CusInfo["BookingSessionID"] = $CustomerInfo[0]["BookingSessionID"];
