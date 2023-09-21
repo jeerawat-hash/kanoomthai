@@ -466,7 +466,7 @@
                                     var obj = JSON.parse(data);
                                     console.log(obj);
                                     if (obj.Status == "Success") {
-                                        notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data[0].CustomerName, 1000);
+                                        notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                         // socket.emit("SetID", obj.Data[0].BookingSessionID);
                                         $("#ModalLogin").modal("hide");
                                     } else {
@@ -528,8 +528,8 @@
                                 var obj = JSON.parse(data);
                                 console.log(obj);
                                 if (obj.Status == "Success") {
-                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data[0].CustomerName, 1000);
-                                    socket.emit("SetID", obj.Data[0].BookingSessionID);
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
+                                    socket.emit("SetID", obj.Data.BookingSessionID);
                                     $("#ModalLogin").modal("hide");
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
