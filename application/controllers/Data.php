@@ -21,7 +21,7 @@ class Data extends CI_Controller {
     public function GetDataAvailableTable()
 	{
         $result = $this->BookingSession->GetDataAvailableTable();
-        print_r($result);
+        echo json_encode($result);
     }
     
     public function SignIn()
