@@ -499,6 +499,23 @@
                 socket.on("AllEvent", function(data) {
 
                     console.log(data);
+                    var obj = JSON.parse(data);
+                    if (obj.Msg == "Booking") {
+                        $.ajax({
+                            url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAvailableTable",
+                            type: "POST",
+                            contentType: false,
+                            cache: false,
+                            processData: false,
+                            success: function(data) {
+                                try {
+                                    var obj = JSON.parse(data);
+                                    console.log(obj); 
+                                } catch (error) {}
+                            },
+                            error: function() {}
+                        });
+                    }
 
                 });
 
