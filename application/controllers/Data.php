@@ -18,6 +18,12 @@ class Data extends CI_Controller {
         $result = $this->Goodsitem->GetDataAllGoodsItem();
         print_r($result);
     }
+    public function GetDataAvailableTable()
+	{
+        $result = $this->BookingSession->GetDataAvailableTable();
+        print_r($result);
+    }
+    
     public function SignIn()
     { 
         $CustomerName = $_POST["CustomerName"];
