@@ -392,14 +392,14 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
-        <a href="javascript:;" class="item">
+        <a href="javascript:;" id="BTNCheckOut" class="item">
             <div class="col">
                 <span class="iconedbox iconedbox-md">
                     <i class="fa-sharp fa-light fa-money-check-dollar fa-2xl" style="color: #000000;"></i>
                 </span>
             </div>
         </a>
-        <a href="javascript:;" class="item">
+        <a href="javascript:;" id="BTNSignOut" class="item">
             <div class="col">
                 <span class="iconedbox iconedbox-md">
                     <i class="fa-duotone fa-person-to-door fa-2xl" style="color: #000000;"></i>
@@ -481,6 +481,24 @@
 
                 });
 
+                //#region SignOut
+                $("#BTNSignOut").on("click",function(){ 
+
+                    $.ajax({
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/SignOut",
+                        type: "POST", 
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
+                            $("#ModalLogin").modal("hide");
+                        },
+                        error: function() {}
+                    });
+                     
+                });     
+                //#endregion
 
 
                 //#region Login
