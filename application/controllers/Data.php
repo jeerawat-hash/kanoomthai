@@ -48,20 +48,16 @@ class Data extends CI_Controller {
     public function SignOut()
     {  
         $BookingSessionID = $this->session->userdata("BookingSessionID"); 
+        $CustomerID = $this->session->userdata("CustomerID"); 
+        $CustomerName = $this->session->userdata("CustomerName"); 
+        $TableID = $this->session->userdata("TableID"); 
+        $TableName = $this->session->userdata("TableName"); 
         $this->BookingSession->SignOutWithBookingSessionID($BookingSessionID);
         ///// Session Destroy /////
         $this->session->sess_destroy(); 
         ///// Session Destroy /////
     }
-    public function CheckSession()
-    {
-        print_r($this->session->userdata());
-    }
-    public function test()
-    {
-        $aa = $this->BookingSession->GetCustomerInformationByBookingSession(11);
-        print_r($aa);
-    }
+ 
     
     
 }
