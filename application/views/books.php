@@ -481,8 +481,9 @@
             var Receive = "";
             try {
                 const socket = io("http://203.156.9.157:8081");
-                socket.on("connect", function() {
+                socket.on("connect",async function() {
                     console.log("Connected");
+                    await socket.emit("SetID", "test");
                 });
 
 
