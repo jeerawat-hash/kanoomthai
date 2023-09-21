@@ -29,12 +29,12 @@ class Data extends CI_Controller {
         $result = $this->BookingSession->CheckTableAlreadyBooked($TableID);
 
         if(count($result) > 0){
-
+            print_r($result);
             exit();
         }
 
 
-        // $result = $this->BookingSession->SignInAndBookingTable($CustomerName,1); //CustomerID,TableID
+        $result = $this->BookingSession->SignInAndBookingTable($CustomerName,1); //CustomerID,TableID
         print_r($result);
     }
     
