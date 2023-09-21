@@ -647,7 +647,7 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
-                        var html = "<option value=\"None\">--- กรุณาเลืิอก ---</option>";
+                        var html = "<option value=\"None\">--- กรุณาเลือก ---</option>";
                         for (let index = 0; index < obj.length; index++) {
                             html += "<option value=\"" + obj[index].TableID + "\">" + obj[index].TableName + "</option>";
                         }
