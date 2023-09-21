@@ -19,7 +19,19 @@ class Goodsitem extends CI_Model
 		$this->mssql->close();
 		return $Data;
 	}
+	public function GetDataAvailableTable()
+	{
+		$QueryString = " 
+        SELECT TableID,TableName,Description FROM tbl_Table
+        ";
+		$query = $this->mssql->query($QueryString);
+		$Data = $query->result_array();
+		$this->mssql->close();
+		return $Data;
+	}
 
+
+	
 }
 
 ?>

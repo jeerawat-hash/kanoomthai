@@ -260,6 +260,17 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group boxed">
+                                        <div class="input-wrapper">
+                                            <label class="label" for="city4">จอง/สั่งกลับบ้าน</label>
+                                            <select class="form-control custom-select" id="Inp_Booktable">
+                                                <option value="None">--- กรุณาเลือก ---</option>
+                                                <option value="1">โต๊ะที่ 1</option> 
+                                                <option value="2">สั่งกลับบ้าน</option> 
+                                            </select> 
+                                        </div>
+                                    </div>
+
                                     <div class="mt-2">
                                         <button type="button" class="btn btn-warning btn-lg" id="BTNLogin">เริ่มสั่งอาหาร</button>
                                     </div>
@@ -465,15 +476,15 @@
                         break;
                 }
             });
-  
-            
+
+
             var Receive = "";
-            try { 
+            try {
                 const socket = io("http://203.156.9.157:8081");
                 socket.on("connect", function() {
                     console.log("Connected");
-                }); 
- 
+                });
+
 
             } catch (error) {
                 console.log(error);
@@ -482,8 +493,6 @@
 
 
         });
- 
-
     </script>
 </body>
 
