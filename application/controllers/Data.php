@@ -26,6 +26,7 @@ class Data extends CI_Controller {
         $TableID = "1"; 
         $result = $this->BookingSession->CheckTableAlreadyBooked($TableID);
         if(count($result) > 0){ 
+            echo "test";
             exit();
         }
         $resultSignIn = $this->BookingSession->SignInAndBookingTable($CustomerName,$TableID); //CustomerID,TableID
