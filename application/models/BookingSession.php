@@ -17,10 +17,21 @@ class BookingSession extends CI_Model
         $TableID = $queryTableID->result_array();
         return $TableID;
     }
-
-    public function SignInAndBookingTable($CustomerName, $TableID)
+    public function GetCustomerInformationByBookingSession($BookingSessionID)
     {
- 
+        $Query = " 
+        SELECT a.BookingSessionID,a.CustomerID,b.CustomerName,c.TableID,c.TableName
+        FROM tbl_BookingSession a
+        join tbl_Customer b on a.CustomerID = b.CustomerID
+        join tbl_Table c on a.TableID = c.TableID
+        where BookingSessionID = ?
+        ";
+        $queryTableID = $this->mysql->query($Query,array($BookingSessionID));
+        $TableID = $queryTableID->result_array();
+        return $TableID;
+    }
+    public function SignInAndBookingTable($CustomerName, $TableID)
+    { 
         $this->mysql->trans_start();
         $QueryString = " 
         INSERT INTO tbl_Customer (CustomerName, CreateDate)
@@ -51,8 +62,23 @@ class BookingSession extends CI_Model
         $queryLastID = $this->mysql->query($QueryLastID);
         $LastInsertID = $queryLastID->result_array();
 
-        $Data = array("Status" => (($Transaction == true) ? 1 : 0), "InsertID" => $LastInsertID[0]["BookingSessionID"]);
+        $Data = array("Status" => (($Transaction == true) ? 1 : 0), "BookingSessionID" => $LastInsertID[0]["BookingSessionID"]);
         $this->mysql->close();
         return $Data;
     }
+    public function SignOutWithBookingSessionID($BookingSessionID)
+    {  
+        $this->mysql->trans_start();
+        $QueryString = " 
+        UPDATE tbl_BookingSession SET 
+        IsCheckOut = '1'
+        WHERE BookingSessionID = ?
+        ";
+        $query = $this->mysql->query($QueryString, array($BookingSessionID));
+        $Transaction = $this->mysql->trans_complete(); 
+        $Data = array("Status" => (($Transaction == true) ? 1 : 0));
+        $this->mysql->close();
+        return $Data;
+    }
+
 }

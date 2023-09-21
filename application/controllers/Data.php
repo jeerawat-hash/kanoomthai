@@ -20,22 +20,37 @@ class Data extends CI_Controller {
     }
     public function SignIn()
     { 
-        // $CustomerName = $_POST["CustomerName"];
-        // $TableID = $_POST["TableID"]; 
-
-        $CustomerName = "โหล";
-        $TableID = "1";
-        
+        $CustomerName = $_POST["CustomerName"];
+        $TableID = $_POST["TableID"]; 
         $result = $this->BookingSession->CheckTableAlreadyBooked($TableID);
-
-        if(count($result) > 0){
-            print_r($result);
+        if(count($result) > 0){ 
             exit();
         }
+        $resultSignIn = $this->BookingSession->SignInAndBookingTable($CustomerName,$TableID); //CustomerID,TableID
 
+        $CustomerInfo = $this->BookingSession->GetCustomerInformationByBookingSession($resultSignIn["BookingSessionID"]);
 
-        $result = $this->BookingSession->SignInAndBookingTable($CustomerName,1); //CustomerID,TableID
-        print_r($result);
+        ///// Session Create /////
+        $CusInfo["BookingSessionID"] = $CustomerInfo[0]["BookingSessionID"];
+        $CusInfo["CustomerID"] = $CustomerInfo[0]["CustomerID"];
+        $CusInfo["CustomerName"] = $CustomerInfo[0]["CustomerName"];
+        $CusInfo["TableID"] = $CustomerInfo[0]["TableID"];
+        $CusInfo["TableName"] = $CustomerInfo[0]["TableName"];
+		$this->session->set_userdata($CusInfo);
+        ///// Session Create /////
     }
+    public function SignOut()
+    {  
+        $BookingSessionID = $this->session->userdata("BookingSessionID"); 
+        $this->BookingSession->SignOutWithBookingSessionID($BookingSessionID);
+        ///// Session Destroy /////
+        $this->session->sess_destroy(); 
+        ///// Session Destroy /////
+    }
+    public function CheckSession()
+    {
+        print_r($this->session->userdata());
+    }
+    
     
 }
