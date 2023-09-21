@@ -500,8 +500,7 @@
 
                     await $.ajax({
                         url: "/Data/CheckLogin",
-                        type: "POST",
-                        data: data,
+                        type: "POST", 
                         contentType: false,
                         cache: false,
                         processData: false,
@@ -518,7 +517,8 @@
                     // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
                     // await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
                     // await $("#ModalLogin").modal("hide");
-  
+ 
+
                 });
                 //#region Login
 
