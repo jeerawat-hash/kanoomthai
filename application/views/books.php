@@ -442,6 +442,16 @@
     <script>
         $(function() {
 
+            
+ 
+            var Receive = "";
+            try {
+ 
+                const socket = io("http://203.156.9.157:8081");
+                socket.on("connect",async function() {
+                    console.log("Connected"); 
+                });
+
             // notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-danger', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
             // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
@@ -456,6 +466,7 @@
             $("#ModalLogin").find("#BTNLogin").on("click", async function() {
 
                 notification('notification-warning', "สำเร็จ", "ยินดีต้อนรับคุณ ", 1000);
+                await socket.emit("SetID", "test");
                 await $("#ModalLogin").modal("hide");
 
             });
@@ -478,13 +489,8 @@
             });
 
 
-            var Receive = "";
-            try {
-                const socket = io("http://203.156.9.157:8081");
-                socket.on("connect",async function() {
-                    console.log("Connected");
-                    await socket.emit("SetID", "test");
-                });
+
+
 
 
             } catch (error) {
