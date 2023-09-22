@@ -84,7 +84,7 @@
         <div class="section mt-2">
 
             <div class="header-large-title">
-                <h1 class="title" id="WelcomeTitle">ยินดีต้อนรับ</h1>
+                <h4 class="title" id="WelcomeTitle">ยินดีต้อนรับ</h4>
             </div>
 
             <!-- Carousel Menu -->
