@@ -89,7 +89,7 @@
 
             <!-- Carousel Menu -->
             <div class="section full mt-3 mb-3">
-                <div class="carousel-multiple owl-carousel owl-theme">
+                <div class="carousel-single owl-carousel owl-theme">
                     <div class="item caroitem" data-ModalType="RecommandMenu">
                         <div class="card">
                             <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
@@ -377,9 +377,7 @@
                         <a href="javascript:;" data-dismiss="modal" class="btn btn-warning">ปิด</a>
                     </div>
                     <div class="modal-body">
-
-                         
-
+ 
                     </div>
                 </div>
             </div>
