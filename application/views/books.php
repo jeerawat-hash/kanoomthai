@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#000000">
-    <title>Thai Dessert CAFE From The Hell</title>
+    <title>ร้านเท้งขนมไทย</title>
     <meta name="description" content="Mobilekit HTML Mobile UI Kit">
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="http://203.156.9.157/kanoomthai/assets/img/favicon.png" sizes="32x32">
@@ -69,7 +69,7 @@
         <div class="left">
         </div>
         <div class="pageTitle">
-            Thai Dessert CAFE From The Hell
+            ร้านเท้งขนมไทย
         </div>
         <div class="right">
 
