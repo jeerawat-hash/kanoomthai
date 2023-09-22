@@ -90,23 +90,23 @@
             <!-- Carousel Menu -->
             <div class="section full mt-3 mb-3">
                 <div class="carousel-multiple owl-carousel owl-theme">
-                    <div class="item caroitem" data-ModalType="Dessert">
+                    <div class="item caroitem" data-ModalType="RecommandMenu">
                         <div class="card">
                             <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
                             <div class="card-body pt-2">
-                                <h4 class="mb-0 title">รายการขนม</h4>
+                                <h4 class="mb-0 title">เมนูแนะนำ</h4>
                             </div>
                         </div>
                     </div>
 
-                    <!-- <div class="item caroitem" data-ModalType="Drink">
+                    <div class="item caroitem" data-ModalType="OrderGoods">
                         <div class="card">
                             <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
                             <div class="card-body pt-2">
-                                <h4 class="mb-0 title">รายการเครื่องดื่ม</h4>
+                                <h4 class="mb-0 title">สั่งสินค้า</h4>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
             </div>
@@ -119,18 +119,18 @@
         <!-- Form -->
 
 
-        <div id="CardStatus" class="section mt-2">
+        <div id="CardStatusPendingOrder" class="section mt-2">
             <div id="CardColor" class="card text-white mb-2 bg-warning">
-                <div class="card-header">รายการ</div>
+                <div class="card-header">รายการอยู่ระหว่างสั่งซื้อ</div>
                 <div class="card-body">
                     <h5 class="card-title">0 คำสั่งซื้อ</h5>
                     <p class="card-text">0 รายการ</p>
                 </div>
             </div>
         </div>
-        <div id="CardStatus" class="section mt-2">
+        <div id="CardStatusChange" class="section mt-2">
             <div id="CardColor" class="card text-white mb-2 bg-success">
-                <div class="card-header">ค่าใช้จ่าย</div>
+                <div class="card-header">ค่าใช้จ่ายเรียกเก็บ</div>
                 <div class="card-body">
                     <h5 class="card-title">0 บาท</h5>
                     <p class="card-text">0 รายการ</p>
@@ -284,18 +284,19 @@
         </div>
         <!-- Modal Login -->
 
-
-        <!-- Modal Goods -->
-        <div class="modal fade modalbox" id="ModalGoods" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        
+        <!-- Modal Order Goods -->
+        <div class="modal fade modalbox" id="ModalOrderGoods" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">GoodsModal</h5>
+                        <h5 class="modal-title">สั่งสินค้า</h5>
                         <a href="javascript:;" data-dismiss="modal" class="btn btn-warning">ปิด</a>
                     </div>
                     <div class="modal-body">
 
                         <div class="section mt-2">
+
                             <!-- item -->
                             <div class="card cart-item mb-2">
                                 <div class="card-body">
@@ -318,6 +319,7 @@
                                 </div>
                             </div>
                             <!-- * item -->
+
                             <!-- item -->
                             <div class="card cart-item mb-2">
                                 <div class="card-body">
@@ -340,6 +342,9 @@
                                 </div>
                             </div>
                             <!-- * item -->
+
+
+
                         </div>
 
                         <div class="section mt-2 mb-2">
@@ -352,7 +357,6 @@
 
                         <div class="section mb-2">
                             <a href="#" class="btn btn-warning btn-block btn-lg">สั่งซื้อ</a>
-
                         </div>
 
 
@@ -362,7 +366,25 @@
                 </div>
             </div>
         </div>
-        <!-- Modal Goods -->
+        <!-- Modal Recommand Goods -->
+
+        <!-- Modal Recommand Goods -->
+        <div class="modal fade modalbox" id="ModalRecommandGoods" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">เมนูแนะนำ</h5>
+                        <a href="javascript:;" data-dismiss="modal" class="btn btn-warning">ปิด</a>
+                    </div>
+                    <div class="modal-body">
+
+                         
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Recommand Goods -->
 
 
     </div>
@@ -607,14 +629,14 @@
                 $(".caroitem").on("click", async function() {
                     var ModalType = $(this).attr("data-ModalType");
                     switch (ModalType) {
-                        case "Dessert":
+                        case "RecommandMenu":
 
-                            $("#ModalGoods").modal("show");
+                            $("#ModalRecommandGoods").modal("show");
 
                             break;
-                        case "Drink":
+                        case "OrderGoods":
 
-                            $("#ModalGoods").modal("show");
+                            $("#ModalOrderGoods").modal("show");
 
                             break;
                     }
