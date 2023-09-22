@@ -241,7 +241,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-cetner">
-                        <h5 class="modal-title">ThaiCafe from The Hell</h5>
+                        <h5 class="modal-title">ร้านเท้งขนมไทย</h5>
                     </div>
                     <div class="modal-body">
 
