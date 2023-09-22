@@ -98,14 +98,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item caroitem" data-ModalType="Drink">
+
+                    <!-- <div class="item caroitem" data-ModalType="Drink">
                         <div class="card">
                             <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/d3.jpg" class="card-img-top" alt="image">
                             <div class="card-body pt-2">
                                 <h4 class="mb-0 title">รายการเครื่องดื่ม</h4>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
