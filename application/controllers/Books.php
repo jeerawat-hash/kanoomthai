@@ -23,4 +23,9 @@ class Books extends CI_Controller {
 
 		$this->load->view('books',$Header);
 	}
+	public function Logout()
+    {
+        $this->session->sess_destroy();
+        //redirect("Login");
+    } 
 }
