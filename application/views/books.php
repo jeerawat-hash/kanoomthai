@@ -458,9 +458,10 @@
 
         ItemCart.ItemAmount = 10;
         ItemCart.ItemID = "Name";
-        ObjItemCart.push(ItemCart);
 
-        console.log(ObjItemCart);
+        // ObjItemCart.push(ItemCart);
+
+        console.log(ItemCart);
         //// Init variable summary ////
 
             var Receive = "";
