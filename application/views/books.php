@@ -693,7 +693,7 @@
                             html += '<div class="text">';
                             html += '<h3 class="title">'+obj[i].GoodsItemName+'</h3>';
                             html += '<p class="detail">'+obj[i].GoodsItemName+'</p>';
-                            html += '<strong class="price">'+obj[i].PricePerUnit+' '+obj[i].Unit+'</strong>';
+                            html += '<strong class="price">'+obj[i].PricePerUnit+' ฿/'+obj[i].Unit+'</strong>';
                             html += '</div>';
                             html += '</div>';
                             html += '<div class="cart-item-footer">';
