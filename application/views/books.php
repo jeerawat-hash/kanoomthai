@@ -623,25 +623,23 @@
                             break;
                     }
                 });
-
-
+                
+                /// Trigger AddItemtoCart ///
                 $("#OrderGoodsItemForSale").on("click", ".AddCart", function() {
 
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
-                    var GoodsItemID = $(this).attr("data-GoodsItemID");
-
+                    var GoodsItemID = $(this).attr("data-GoodsItemID"); 
+                    if(GoodsItemAmount == 0){
+                        notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
+                        return false;
+                    }
+                     
                     alert(GoodsItemID + " " + GoodsItemAmount);
 
                 });
-                // $("#OrderGoodsItemForSale").find(".AddCart").on("click",function(){
+                /// Trigger AddItemtoCart ///
 
-                //     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
-                //     var GoodsItemID = $(this).attr("data-GoodsItemID");
-
-                //     alert(GoodsItemID+" "+GoodsItemAmount);
-
-
-                // }); 
+                 
 
 
 
