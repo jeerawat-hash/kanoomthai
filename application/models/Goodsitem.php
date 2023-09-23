@@ -8,11 +8,12 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
-    public function GetDataAllGoodsItem()
+    public function GetDataAllGoodsItemForSale()
 	{
 		$QueryString = " 
-        SELECT GoodsItemID,GoodsItemName,Unit,PricePerUnit,StockAmount,Image FROM tbl_GoodsItem
-        where StockAmount
+        SELECT GoodsItemID, GoodsItemName, Unit, PricePerUnit, StockAmount
+		,(case when StockAmount = 0 then '0' else '1'  end) as IsAvaliable 
+		FROM tbl_GoodsItem
         ";
 		$query = $this->mysql->query($QueryString);
 		$Data = $query->result_array();

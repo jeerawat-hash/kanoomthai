@@ -13,10 +13,10 @@ class Data extends CI_Controller {
 	{
 		echo "1";
 	}
-    public function GetDataAllGoodsItem()
+    public function GetDataAllGoodsItemForSale()
 	{
-        $result = $this->Goodsitem->GetDataAllGoodsItem();
-        print_r($result);
+        $result = $this->Goodsitem->GetDataAllGoodsItemForSale(); 
+        echo json_encode($result);
     }
     public function GetDataAvailableTable()
 	{
