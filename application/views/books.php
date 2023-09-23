@@ -448,7 +448,11 @@
             keyboard: false
         });
 
-        //// Init variable summary ////
+
+
+        $(function() {
+
+                    //// Init variable summary ////
         var ItemCart = { ItemID : "" , ItemAmount : 0 }; 
         var ObjItemCart;
 
@@ -458,8 +462,6 @@
 
         console.log(ObjItemCart);
         //// Init variable summary ////
-
-        $(function() {
 
             var Receive = "";
             try {
