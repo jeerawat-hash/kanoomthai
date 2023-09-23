@@ -478,8 +478,9 @@
 
         ObjItemCart.push(ItemCart);
 
-        console.log(ObjItemCart);
-        console.log(ItemCart);
+        console.log(ObjItemCart[0].ItemAmount);
+        console.log(ObjItemCart[0].ItemID);
+ 
         //// Init variable summary ////
 
             var Receive = "";
