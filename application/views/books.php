@@ -30,7 +30,7 @@
         z-index: 20000 !important;
     }
 
-    /* 
+    
     .cart-item .in .text .detail {
         line-height: 1.2em;
         margin: 0 0 4px 0;
@@ -43,13 +43,12 @@
         font-size: 23px;
         line-height: 1.2em;
         margin: 0 0 6px 0;
-    } 
-    
+    }  
     .cart-item .in .text .price {
         font-weight: 500;
         font-size: 20px;
         color: #1E74FD;
-    } */
+    } 
     .cart-item .imaged {
         width: 200px;
         height: auto;
