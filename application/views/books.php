@@ -674,7 +674,7 @@
                         console.log(obj);
 
                         var html = "";
-                        for (let index = 0; index < obj.length; index++) {
+                        for (let i = 0; i < obj.length; i++) {
 
                             var OperationButton = '';
                             if(obj[i].IsAvaliable == "1"){
