@@ -284,7 +284,7 @@
         </div>
         <!-- Modal Login -->
 
-        
+
         <!-- Modal Order Goods -->
         <div class="modal fade modalbox" id="ModalOrderGoods" data-backdrop="static" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -297,31 +297,10 @@
 
                         <div class="section mt-2">
 
-                            <!-- item -->
-                            <div class="card cart-item mb-2">
-                                <div class="card-body">
-                                    <div class="in">
-                                        <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/product1.jpg" alt="product" class="imaged">
-                                        <div class="text">
-                                            <h3 class="title">ขนมครก #1</h3>
-                                            <p class="detail">ขนมครก ปกติแหละ</p>
-                                            <strong class="price">5 บาท</strong>
-                                        </div>
-                                    </div>
-                                    <div class="cart-item-footer">
-                                        <div class="stepper stepper-lg stepper-secondary">
-                                            <a href="#" class="stepper-button stepper-down">-</a>
-                                            <input type="text" class="form-control" value="0" disabled="">
-                                            <a href="#" class="stepper-button stepper-up">+</a>
-                                        </div>
-                                        <a href="#" class="btn btn-outline-secondary btn-lg">เพิ่ม</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- * item -->
 
+                            <div id="OrderGoodsItemForSale"></div>
                             <!-- item -->
-                            <div class="card cart-item mb-2">
+                            <!-- <div class="card cart-item mb-2">
                                 <div class="card-body">
                                     <div class="in">
                                         <img src="http://203.156.9.157/kanoomthai/assets/img/sample/photo/product4.jpg" alt="product" class="imaged">
@@ -340,7 +319,7 @@
                                         <a href="#" class="btn btn-outline-secondary btn-lg">เพิ่ม</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- * item -->
 
 
@@ -377,7 +356,7 @@
                         <a href="javascript:;" data-dismiss="modal" class="btn btn-warning">ปิด</a>
                     </div>
                     <div class="modal-body">
- 
+
                     </div>
                 </div>
             </div>
@@ -465,7 +444,7 @@
             backdrop: 'static',
             keyboard: false
         });
-        
+
 
         $(function() {
 
@@ -628,7 +607,7 @@
                     var ModalType = $(this).attr("data-ModalType");
                     switch (ModalType) {
                         case "RecommandMenu":
-                            
+
                             $("#ModalRecommandGoods").modal("show");
 
                             break;
@@ -692,7 +671,44 @@
                 success: function(data) {
                     try {
                         var obj = JSON.parse(data);
-                        console.log(obj); 
+                        console.log(obj);
+
+                        var html = "";
+                        for (let index = 0; index < obj.length; index++) {
+
+                            var OperationButton = '';
+                            if(obj[i].IsAvaliable == "1"){
+                                OperationButton = '<a href="#" class="btn btn-outline-info btn-lg">เพิ่ม</a>';
+                            }else{
+                                OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
+                            } 
+
+                            html += '<div class="card cart-item mb-2">';
+                            html += '<div class="card-body">';
+                            html += '<div class="in">';
+                            html += '<img src="'+obj[i].Image+'" alt="product" class="imaged">';
+                            html += '<div class="text">';
+                            html += '<h3 class="title">'+obj[i].GoodsItemName+'</h3>';
+                            html += '<p class="detail">'+obj[i].GoodsItemName+'</p>';
+                            html += '<strong class="price">'+obj[i].PricePerUnit+' '+obj[i].Unit+'</strong>';
+                            html += '</div>';
+                            html += '</div>';
+                            html += '<div class="cart-item-footer">';
+                            html += '<div class="stepper stepper-lg stepper-secondary">';
+                            html += '<a href="#" class="stepper-button stepper-down">-</a>';
+                            html += '<input type="text" class="form-control" value="0" disabled="">';
+                            html += '<a href="#" class="stepper-button stepper-up">+</a>';
+                            html += '</div>';
+                            html += OperationButton;
+                            html += '</div>';
+                            html += '</div>';
+                            html += '</div>'; 
+                        }
+
+                        $("#ModalOrderGoods").find("#OrderGoodsItemForSale").html(html);
+
+
+
 
                     } catch (error) {}
                 },

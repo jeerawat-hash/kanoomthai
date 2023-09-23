@@ -11,8 +11,9 @@ class Goodsitem extends CI_Model
     public function GetDataAllGoodsItemForSale()
 	{
 		$QueryString = " 
-        SELECT GoodsItemID, GoodsItemName, Unit, PricePerUnit, StockAmount
+		SELECT GoodsItemID, GoodsItemName, Unit, PricePerUnit, StockAmount
 		,(case when StockAmount = 0 then '0' else '1'  end) as IsAvaliable 
+		,Image
 		FROM tbl_GoodsItem
         ";
 		$query = $this->mysql->query($QueryString);
