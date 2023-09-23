@@ -628,13 +628,14 @@
                     var ModalType = $(this).attr("data-ModalType");
                     switch (ModalType) {
                         case "RecommandMenu":
-
+                            
                             $("#ModalRecommandGoods").modal("show");
 
                             break;
                         case "OrderGoods":
 
-                            $("#ModalOrderGoods").modal("show");
+                            await LoadDataGoodsItemForSale();
+                            await $("#ModalOrderGoods").modal("show");
 
                             break;
                     }
@@ -674,6 +675,24 @@
                             html += "<option value=\"" + obj[index].TableID + "\">" + obj[index].TableName + "</option>";
                         }
                         $("#Inp_Booktable").html(html);
+
+                    } catch (error) {}
+                },
+                error: function() {}
+            });
+        }
+
+        function LoadDataGoodsItemForSale() {
+            $.ajax({
+                url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAllGoodsItemForSale",
+                type: "POST",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    try {
+                        var obj = JSON.parse(data);
+                        console.log(obj); 
 
                     } catch (error) {}
                 },

@@ -19,7 +19,7 @@ class Goodsitem extends CI_Model
 		$Data = $query->result_array();
 		$this->mysql->close();
 		return $Data;
-	} 
+	}
 
 
 	
