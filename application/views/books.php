@@ -678,7 +678,7 @@
 
                             var OperationButton = '';
                             if(obj[i].IsAvaliable == "1"){
-                                OperationButton = '<a href="#" class="btn btn-outline-info btn-lg">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg">เพิ่ม</a>';
                             }else{
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             } 
