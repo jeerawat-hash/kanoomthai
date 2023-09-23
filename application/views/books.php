@@ -30,7 +30,7 @@
         z-index: 20000 !important;
     }
 
-    
+
     .cart-item .in .text .detail {
         line-height: 1.2em;
         margin: 0 0 4px 0;
@@ -43,17 +43,18 @@
         font-size: 23px;
         line-height: 1.2em;
         margin: 0 0 6px 0;
-    }  
+    }
+
     .cart-item .in .text .price {
         font-weight: 500;
         font-size: 20px;
         color: #1E74FD;
-    } 
+    }
+
     .cart-item .imaged {
         width: 200px;
         height: auto;
-    } 
-    
+    }
 </style>
 
 <body>
@@ -624,15 +625,23 @@
                 });
 
 
-                $("#ModalOrderGoods").find(".AddCart").on("click",function(){
+                $("#OrderGoodsItemForSale").on("click", ".AddCart", function() {
 
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
                     var GoodsItemID = $(this).attr("data-GoodsItemID");
 
-                    alert(GoodsItemID+" "+GoodsItemAmount);
+                    alert(GoodsItemID + " " + GoodsItemAmount);
+
+                });
+                // $("#OrderGoodsItemForSale").find(".AddCart").on("click",function(){
+
+                //     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
+                //     var GoodsItemID = $(this).attr("data-GoodsItemID");
+
+                //     alert(GoodsItemID+" "+GoodsItemAmount);
 
 
-                }); 
+                // }); 
 
 
 
@@ -690,20 +699,20 @@
                         for (let i = 0; i < obj.length; i++) {
 
                             var OperationButton = '';
-                            if(obj[i].IsAvaliable == "1"){
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="'+obj[i].GoodsItemID+'">เพิ่ม</a>';
-                            }else{
+                            if (obj[i].IsAvaliable == "1") {
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '">เพิ่ม</a>';
+                            } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
-                            } 
+                            }
 
                             html += '<div class="card cart-item mb-2">';
                             html += '<div class="card-body">';
                             html += '<div class="in">';
-                            html += '<img src="'+obj[i].Image+'" alt="product" class="imaged">';
+                            html += '<img src="' + obj[i].Image + '" alt="product" class="imaged">';
                             html += '<div class="text">';
-                            html += '<h3 class="title">'+obj[i].GoodsItemName+'</h3>';
-                            html += '<p class="detail">'+obj[i].GoodsItemName+'</p>';
-                            html += '<strong class="price">'+obj[i].PricePerUnit+' ฿/'+obj[i].Unit+'</strong>';
+                            html += '<h3 class="title">' + obj[i].GoodsItemName + '</h3>';
+                            html += '<p class="detail">' + obj[i].GoodsItemName + '</p>';
+                            html += '<strong class="price">' + obj[i].PricePerUnit + ' ฿/' + obj[i].Unit + '</strong>';
                             html += '</div>';
                             html += '</div>';
                             html += '<div class="cart-item-footer">';
@@ -715,7 +724,7 @@
                             html += OperationButton;
                             html += '</div>';
                             html += '</div>';
-                            html += '</div>'; 
+                            html += '</div>';
                         }
 
                         $("#ModalOrderGoods").find("#OrderGoodsItemForSale").html(html);
