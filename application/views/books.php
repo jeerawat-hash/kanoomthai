@@ -44,15 +44,17 @@
         line-height: 1.2em;
         margin: 0 0 6px 0;
     } 
-    .cart-item .imaged {
-        width: 200px;
-        height: auto;
-    } 
+    
     .cart-item .in .text .price {
         font-weight: 500;
         font-size: 20px;
         color: #1E74FD;
     } */
+    .cart-item .imaged {
+        width: 200px;
+        height: auto;
+    } 
+    
 </style>
 
 <body>
@@ -614,6 +616,7 @@
                         case "OrderGoods":
 
                             await LoadDataGoodsItemForSale();
+                            $("#ModalOrderGoods").find(".StepperItem").val(0);
                             await $("#ModalOrderGoods").modal("show");
 
                             break;
@@ -695,9 +698,9 @@
                             html += '</div>';
                             html += '<div class="cart-item-footer">';
                             html += '<div class="stepper stepper-lg stepper-secondary">';
-                            html += '<a href="#" class="stepper-button stepper-down">-</a>';
-                            html += '<input type="text" class="form-control" value="0" disabled="">';
-                            html += '<a href="#" class="stepper-button stepper-up">+</a>';
+                            html += '<a href="#" class="stepper-button stepper-down btn-warning">-</a>';
+                            html += '<input type="text" class="form-control StepperItem" value="0" disabled="">';
+                            html += '<a href="#" class="stepper-button stepper-up btn-warning">+</a>';
                             html += '</div>';
                             html += OperationButton;
                             html += '</div>';
