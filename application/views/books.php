@@ -624,6 +624,16 @@
                 });
 
 
+                $("#ModalOrderGoods").find(".AddCart").on("click",function(){
+
+                    var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
+                    var GoodsItemID = $(this).attr("data-GoodsItemID");
+
+                    alert(GoodsItemID+" "+GoodsItemAmount);
+
+
+                }); 
+
 
 
 
@@ -681,7 +691,7 @@
 
                             var OperationButton = '';
                             if(obj[i].IsAvaliable == "1"){
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="'+obj[i].GoodsItemID+'">เพิ่ม</a>';
                             }else{
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             } 
