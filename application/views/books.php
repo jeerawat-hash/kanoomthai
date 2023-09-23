@@ -454,13 +454,14 @@
 
                     //// Init variable summary ////
         var ItemCart = { ItemID : "" , ItemAmount : 0 }; 
-        var ObjItemCart;
+        var ObjItemCart = [];
 
         ItemCart.ItemAmount = 10;
         ItemCart.ItemID = "Name";
 
-        // ObjItemCart.push(ItemCart);
+        ObjItemCart.push(ItemCart);
 
+        console.log(ObjItemCart);
         console.log(ItemCart);
         //// Init variable summary ////
 
