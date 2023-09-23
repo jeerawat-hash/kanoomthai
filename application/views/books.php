@@ -461,6 +461,11 @@
 
         ObjItemCart.push(ItemCart);
 
+        ItemCart.ItemAmount = 20;
+        ItemCart.ItemID = "Fname";
+
+        ObjItemCart.push(ItemCart);
+
         console.log(ObjItemCart);
         console.log(ItemCart);
         //// Init variable summary ////
