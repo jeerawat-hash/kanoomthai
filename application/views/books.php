@@ -330,6 +330,7 @@
                         <div class="section mt-2 mb-2">
                             <div class="card">
                                 <ul class="listview flush transparent simple-listview">
+                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold">2 รายการ</span></li>
                                     <li>ยอดรวม<span class="text-primary font-weight-bold">500 บาท</span></li>
                                 </ul>
                             </div>
