@@ -448,6 +448,16 @@
             keyboard: false
         });
 
+        //// Init variable summary ////
+        var ItemCart = { ItemID : "" , ItemAmount : 0 }; 
+        var ObjItemCart;
+
+        ItemCart.ItemAmount = 10;
+        ItemCart.ItemID = "Name";
+        ObjItemCart.push(ItemCart);
+
+        console.log(ObjItemCart);
+        //// Init variable summary ////
 
         $(function() {
 
