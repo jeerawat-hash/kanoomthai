@@ -667,7 +667,6 @@
                             ItemPrice
                         } = currentItem;
 
-                        // Check if the group already exists in the accumulator
                         if (!acc[ItemID]) {
                             acc[ItemID] = {
                                 ItemID,
@@ -675,25 +674,22 @@
                                 TotalSumPrice: 0,
                             };
                         } 
-                        // Update the sums for the current group
                         acc[ItemID].TotalItemAmount += ItemAmount*1;
                         acc[ItemID].TotalSumPrice += ItemAmount * ItemPrice; 
                         return acc;
                     }, {});
-
-                    // Convert the grouped object into an array (if needed)
+ 
                     const result = Object.values(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
-
-                    console.log(result);
-
-                    // for (var i = 0; i < GroupedItemsCart.length; i++) { 
-                    //     CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
-                    //     CartTotalPrice += GroupedItemsCart[i].TotalCost; 
-                    // }
-
-                    // $("#CartSumItem").text(CartAccusumAmount);
-                    // $("#CartSumPrice").text(CartTotalPrice);
+ 
+                    CartAccusumAmount = 0;
+                    CartTotalPrice = 0;
+                    for (var i = 0; i < GroupedItemsCart.length; i++) { 
+                        CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
+                        CartTotalPrice += GroupedItemsCart[i].TotalCost; 
+                    }
+                    $("#CartSumItem").text(CartAccusumAmount);
+                    $("#CartSumPrice").text(CartTotalPrice);
 
 
                 });
