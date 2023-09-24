@@ -637,7 +637,7 @@
                     }
                 });
 
-                /// Trigger AddItemtoCart ///
+                /// AddItemtoCart ///
                 $("#OrderGoodsItemForSale").on("click", ".AddCart", function() {
 
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
@@ -674,16 +674,23 @@
                         } 
                         return accumulator;
                     }, []);
-
-
+ 
                     console.log(GroupedItemsCart);
-
-
-
+                    $(this).parent().find(".StepperItem").val(0);
+ 
                 });
-                /// Trigger AddItemtoCart ///
+                /// AddItemtoCart ///
 
                 
+
+
+
+
+
+
+
+
+
 
 
 
