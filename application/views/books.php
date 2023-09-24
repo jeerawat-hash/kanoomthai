@@ -675,10 +675,11 @@
                         return false;
                     }
                     // var ObjItemCart = [];
-                    ItemCart.ItemID = GoodsItemID;
-                    ItemCart.ItemAmount = GoodsItemAmount;
-                    ItemCart.ItemPrice = GoodsPrice;
-                    ObjItemCart.push(ItemCart);
+                    // ItemCart.ItemID = GoodsItemID;
+                    // ItemCart.ItemAmount = GoodsItemAmount;
+                    // ItemCart.ItemPrice = GoodsPrice;
+                    // ObjItemCart.push(ItemCart);
+                    ObjItemCart.push({ ItemID : GoodsItemID, ItemAmount: GoodsItemAmount, ItemPrice: GoodsPrice});
 
                     // alert(GoodsItemID + " " + GoodsItemAmount);
                     console.log(ObjItemCart); 
