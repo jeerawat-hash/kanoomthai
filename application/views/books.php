@@ -331,21 +331,17 @@
                         <div class="section mt-2 mb-2">
                             <div class="card">
                                 <ul class="listview flush transparent simple-listview">
-                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold">
-                                            <font id="CartSumItem"></font> ชิ้น
-                                        </span></li>
-                                    <li>ยอดรวม<span class="text-primary font-weight-bold">
-                                            <font id="CartSumPrice"></font> บาท
-                                        </span></li>
+                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold"><font id="CartSumItem"></font> ชิ้น</span></li>
+                                    <li>ยอดรวม<span class="text-primary font-weight-bold"><font id="CartSumPrice"></font> บาท</span></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="section mb-2">
-                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button>
+                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button> 
                         </div>
 
-
+ 
 
                     </div>
                 </div>
@@ -465,7 +461,7 @@
             var GroupedItemsCart = [];
             var CartAccusumAmount = 0;
             var CartTotalPrice = 0;
-
+            
 
             //// Init variable summary ////
 
@@ -659,60 +655,61 @@
                         ItemAmount: GoodsItemAmount,
                         ItemPrice: GoodsPrice
                     });
-  
-                    const GroupedItemsCart = ObjItemCart.reduce((acc, currentItem) => {
+
+                    GroupedItemsCart = ObjItemCart.reduce((accumulator, currentItem) => {
                         const {
                             ItemID,
                             ItemAmount,
                             ItemPrice
-                        } = currentItem;
+                        } = currentItem; 
+                        const existingItem = accumulator.find((item) => item.ItemID === ItemID);
 
-                        if (!acc[ItemID]) {
-                            acc[ItemID] = {
+                        if (existingItem) { 
+                            existingItem.ItemAmountSum += ItemAmount*1;
+                            existingItem.TotalCost += ItemAmount * ItemPrice;
+                        } else { 
+                            accumulator.push({
                                 ItemID,
-                                TotalItemAmount: 0,
-                                TotalSumPrice: 0,
-                            };
+                                ItemAmountSum: ItemAmount*1,
+                                TotalCost: ItemAmount * ItemPrice,
+                            });
                         } 
-                        acc[ItemID].TotalItemAmount += ItemAmount*1;
-                        acc[ItemID].TotalSumPrice += ItemAmount * ItemPrice; 
-                        return acc;
-                    }, {});
- 
-                    const result = Object.values(GroupedItemsCart);
+                        return accumulator;
+                    }, []); 
+                    // console.log(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
- 
+                     
                     CartAccusumAmount = 0;
                     CartTotalPrice = 0;
-                    for (var i = 0; i < result.length; i++) { 
-                        CartAccusumAmount += result[i].ItemAmountSum;
-                        CartTotalPrice += result[i].TotalCost; 
-                    }
+                    for (var i = 0; i < GroupedItemsCart.length; i++) { 
+                        CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
+                        CartTotalPrice += GroupedItemsCart[i].TotalCost; 
+                    } 
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
-
-
+                     
+ 
                 });
                 /// AddItemtoCart ///
 
                 /// SendOrder ///
-                $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
-
+                $("#ModalOrderGoods").find("#SendOrder").on("click",async function(){
+ 
                     // var data = new FormData();
                     // data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>"); 
                     // data.append('Data', GroupedItemsCart); 
                     var data = {
-                        BookingSessionID: "<?php echo $BookingSessionID; ?>",
-                        Data: ObjItemCart
+                        BookingSessionID : "<?php echo $BookingSessionID; ?>",
+                        Data : GroupedItemsCart
                     };
 
-                    $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
+                    $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",data,function(res){
 
                         console.log(res);
 
                     });
-
-                });
+ 
+                }); 
                 /// SendOrder ///
 
 
