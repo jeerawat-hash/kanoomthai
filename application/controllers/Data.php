@@ -16,8 +16,6 @@ class Data extends CI_Controller {
     public function SendOrder()
     { 
         print_r($_POST);
-        print_r($_POST["Data"]);
-        
     }
     public function GetDataAllGoodsItemForSale()
 	{

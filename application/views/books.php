@@ -707,25 +707,7 @@
                         console.log(res);
 
                     });
-
-                    // await $.ajax({
-                    //     url: "http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",
-                    //     type: "POST",
-                    //     data: data,
-                    //     contentType: false,
-                    //     cache: false,
-                    //     processData: false,
-                    //     success: function(data) {
-                    //         try {
-                    //             // var obj = JSON.parse(data);
-                    //             // console.log(obj);
-                    //             console.log(data);
-                    //         } catch (error) {}
-                    //     },
-                    //     error: function() {}
-                    // });
-
-
+ 
                 }); 
                 /// SendOrder ///
 
