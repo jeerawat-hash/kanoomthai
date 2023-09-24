@@ -14,8 +14,8 @@ class Data extends CI_Controller {
 		echo "1";
 	}
     public function SendOrder()
-    {
-        echo json_encode($_POST);
+    { 
+        print_r($_POST);
     }
     public function GetDataAllGoodsItemForSale()
 	{

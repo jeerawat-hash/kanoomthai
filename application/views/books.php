@@ -707,8 +707,9 @@
                         processData: false,
                         success: function(data) {
                             try {
-                                var obj = JSON.parse(data);
-                                console.log(obj);
+                                // var obj = JSON.parse(data);
+                                // console.log(obj);
+                                console.log(data);
                             } catch (error) {}
                         },
                         error: function() {}
