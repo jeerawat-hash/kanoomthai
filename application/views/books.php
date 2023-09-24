@@ -338,11 +338,10 @@
                         </div>
 
                         <div class="section mb-2">
-                            <a href="#" class="btn btn-warning btn-block btn-lg">สั่งซื้อ</a>
+                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button> 
                         </div>
 
-
-
+ 
 
                     </div>
                 </div>
@@ -632,6 +631,7 @@
                         case "OrderGoods":
 
                             await LoadDataGoodsItemForSale();
+                            GroupedItemsCart = [];
                             $("#ModalOrderGoods").find(".StepperItem").val(0);
                             await $("#ModalOrderGoods").modal("show");
 
@@ -675,9 +675,8 @@
                             });
                         } 
                         return accumulator;
-                    }, []);
- 
-                    console.log(GroupedItemsCart);
+                    }, []); 
+                    // console.log(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
                      
                     for (var i = 0; i < GroupedItemsCart.length; i++) { 
@@ -687,18 +686,18 @@
 
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
-
-
+                     
  
                 });
                 /// AddItemtoCart ///
 
-                
+                /// SendOrder ///
+                $("#ModalOrderGoods").find("#SendOrder").on("click",function(){
 
+                    console.log(GroupedItemsCart);
 
-
-
-
+                }); 
+                /// SendOrder ///
 
 
 
