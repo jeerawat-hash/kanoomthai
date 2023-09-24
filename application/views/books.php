@@ -699,7 +699,7 @@
                     // data.append('Data', GroupedItemsCart); 
                     var data = {
                         BookingSessionID : "<?php echo $BookingSessionID; ?>",
-                        Data : GroupedItemsCart
+                        Data : ObjItemCart
                     };
 
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",data,function(res){
