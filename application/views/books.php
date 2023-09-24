@@ -692,9 +692,28 @@
                 /// AddItemtoCart ///
 
                 /// SendOrder ///
-                $("#ModalOrderGoods").find("#SendOrder").on("click",function(){
+                $("#ModalOrderGoods").find("#SendOrder").on("click",async function(){
+ 
+                    var data = new FormData();
+                    data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>"); 
+                    data.append('Data', GroupedItemsCart); 
 
-                    console.log(GroupedItemsCart);
+                    await $.ajax({
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            try {
+                                var obj = JSON.parse(data);
+                                console.log(obj);
+                            } catch (error) {}
+                        },
+                        error: function() {}
+                    });
+
 
                 }); 
                 /// SendOrder ///
