@@ -648,6 +648,8 @@
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
                     var GoodsItemID = $(this).attr("data-GoodsItemID");
                     var GoodsPrice = $(this).attr("data-GoodsPrice");
+                    var GoodsItemName = $(this).attr("data-GoodsItemName");
+                    
                     if (GoodsItemAmount == 0) {
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
@@ -681,7 +683,7 @@
                     }, []); 
                     // console.log(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
-                     
+                    
                     CartAccusumAmount = 0;
                     CartTotalPrice = 0;
                     for (var i = 0; i < GroupedItemsCart.length; i++) { 
@@ -690,6 +692,9 @@
                     } 
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
+
+                    notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม "+GoodsItemName+" จำนวน "+GoodsItemAmount+" ชิ้น สำเร็จ", 1000);
+
                      
  
                 });
@@ -774,7 +779,7 @@
 
                             var OperationButton = '';
                             if (obj[i].IsAvaliable == "1") {
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '">เพิ่ม</a>';
                             } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             }
