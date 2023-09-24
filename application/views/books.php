@@ -693,7 +693,7 @@
                                 TotalAmountPrice: 0,
                             };
                         } 
-                        result[itemId].TotalAmount += item.ItemAmount; 
+                        result[itemId].TotalAmount += item.ItemAmount+0; 
                         result[itemId].TotalAmountPrice += item.ItemAmount * item.ItemPrice; 
                         return result;
                     }, {});
