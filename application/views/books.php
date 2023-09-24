@@ -452,38 +452,38 @@
 
         $(function() {
 
-                    //// Init variable summary ////
-        var ItemCart = { ItemID : "" , ItemAmount : 0 }; 
+        //// Init variable summary ////
+        var ItemCart = { ItemID : 0 , ItemAmount : 0 }; 
         var ObjItemCart = [];
+        
+        // ItemCart.ItemAmount = 10;
+        // ItemCart.ItemID = "Name";
 
-        ItemCart.ItemAmount = 10;
-        ItemCart.ItemID = "Name";
+        // ObjItemCart.push(ItemCart);
 
-        ObjItemCart.push(ItemCart);
+        // ItemCart.ItemAmount = 20;
+        // ItemCart.ItemID = "Fname";
 
-        ItemCart.ItemAmount = 20;
-        ItemCart.ItemID = "Fname";
-
-        ObjItemCart.push(ItemCart);
-
-
-        ItemCart.ItemAmount = 20;
-        ItemCart.ItemID = "Fname";
-
-        ObjItemCart.push(ItemCart);
+        // ObjItemCart.push(ItemCart);
 
 
-        ItemCart.ItemAmount = 20;
-        ItemCart.ItemID = "Fname";
+        // ItemCart.ItemAmount = 20;
+        // ItemCart.ItemID = "Fname";
 
-        ObjItemCart.push(ItemCart);
+        // ObjItemCart.push(ItemCart);
 
-        // console.log(ObjItemCart[0].ItemAmount);
-        // console.log(ObjItemCart[0].ItemID);
 
-        var SummaryData = {"Data" : ObjItemCart };
+        // ItemCart.ItemAmount = 20;
+        // ItemCart.ItemID = "Fname";
+
+        // ObjItemCart.push(ItemCart);
+
+        // // console.log(ObjItemCart[0].ItemAmount);
+        // // console.log(ObjItemCart[0].ItemID);
+
+        // var SummaryData = {"Data" : ObjItemCart };
             
-        console.log(SummaryData);
+        // console.log(SummaryData);
 
         //// Init variable summary ////
 
@@ -669,17 +669,18 @@
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
                     }
-                     
-                    alert(GoodsItemID + " " + GoodsItemAmount);
+
+                    ItemCart.ItemID = GoodsItemID;
+                    ItemCart.ItemAmount = GoodsItemAmount;
+                    ObjItemCart.push(ItemCart); 
+                    
+                    alert( GoodsItemID + " " + GoodsItemAmount );
+                    alert( console.log(ObjItemCart) );
 
                 });
                 /// Trigger AddItemtoCart ///
 
-                 
-
-
-
-
+                  
 
 
             } catch (error) {
