@@ -686,17 +686,13 @@
                             ItemID,
                             ItemAmount,
                             ItemPrice
-                        } = currentItem;
-
-                        // Check if an entry with the same ItemID exists in the accumulator
+                        } = currentItem; 
                         const existingItem = accumulator.find((item) => item.ItemID === ItemID);
 
-                        if (existingItem) {
-                            // If the item already exists, update the sums
-                            existingItem.ItemAmountSum += ItemAmount;
+                        if (existingItem) { 
+                            existingItem.ItemAmountSum += ItemAmount*1;
                             existingItem.TotalCost += ItemAmount * ItemPrice;
-                        } else {
-                            // If it doesn't exist, create a new entry
+                        } else { 
                             accumulator.push({
                                 ItemID,
                                 ItemAmountSum: ItemAmount*1,
