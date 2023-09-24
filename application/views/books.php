@@ -674,7 +674,7 @@
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
                     }
-                    var ObjItemCart = [];
+                    // var ObjItemCart = [];
                     ItemCart.ItemID = GoodsItemID;
                     ItemCart.ItemAmount = GoodsItemAmount;
                     ItemCart.ItemPrice = GoodsPrice;
