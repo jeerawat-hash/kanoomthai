@@ -453,7 +453,7 @@
         $(function() {
 
         //// Init variable summary ////
-        var ItemCart = { ItemID : 0 , ItemAmount : 0 }; 
+        var ItemCart = { ItemID : 0 , ItemAmount : 0, ItemPrice : 0 }; 
         var ObjItemCart = [];
         
         // ItemCart.ItemAmount = 10;
@@ -662,9 +662,10 @@
                 
                 /// Trigger AddItemtoCart ///
                 $("#OrderGoodsItemForSale").on("click", ".AddCart", function() {
-
+                    
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
                     var GoodsItemID = $(this).attr("data-GoodsItemID"); 
+                    var GoodsPrice = $(this).attr("data-GoodsPrice"); 
                     if(GoodsItemAmount == 0){
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
@@ -672,10 +673,11 @@
 
                     ItemCart.ItemID = GoodsItemID;
                     ItemCart.ItemAmount = GoodsItemAmount;
+                    ItemCart.ItemPrice = GoodsPrice;
                     ObjItemCart.push(ItemCart); 
-                    
+
                     alert( GoodsItemID + " " + GoodsItemAmount );
-                    alert( console.log(ObjItemCart) );
+                    console.log(ObjItemCart);
 
                 });
                 /// Trigger AddItemtoCart ///
@@ -735,7 +737,7 @@
 
                             var OperationButton = '';
                             if (obj[i].IsAvaliable == "1") {
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="'+obj[i].PricePerUnit+'">เพิ่ม</a>';
                             } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             }
