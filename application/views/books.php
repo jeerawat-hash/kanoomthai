@@ -331,8 +331,8 @@
                         <div class="section mt-2 mb-2">
                             <div class="card">
                                 <ul class="listview flush transparent simple-listview">
-                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold">2 รายการ</span></li>
-                                    <li>ยอดรวม<span class="text-primary font-weight-bold">500 บาท</span></li>
+                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold"><font id="CartSumItem"></font> ชิ้น</span></li>
+                                    <li>ยอดรวม<span class="text-primary font-weight-bold"><font id="CartSumPrice"></font> บาท</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -460,6 +460,8 @@
             };
             var ObjItemCart = [];
             var GroupedItemsCart = [];
+            var CartAccusumAmount = 0;
+            var CartTotalPrice = 0;
             
 
             //// Init variable summary ////
@@ -677,6 +679,16 @@
  
                     console.log(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
+                     
+                    for (var i = 0; i < GroupedItemsCart.length; i++) { 
+                        CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
+                        CartTotalPrice += GroupedItemsCart[i].TotalCost; 
+                    }
+
+                    $("#CartSumItem").text(CartAccusumAmount);
+                    $("#CartSumPrice").text(CartTotalPrice);
+
+
  
                 });
                 /// AddItemtoCart ///
