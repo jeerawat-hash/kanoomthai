@@ -680,28 +680,8 @@
                     ItemCart.ItemPrice = GoodsPrice;
                     ObjItemCart.push(ItemCart);
 
-                    alert(GoodsItemID + " " + GoodsItemAmount);
-                    console.log(ObjItemCart);
-
-                    // Group by ItemID and calculate ItemAmount * ItemPrice
-                    var groupedItems = ObjItemCart.reduce(function(result, item) {
-                        var itemId = item.ItemID; 
-                        if (!result[itemId]) {
-                            result[itemId] = {
-                                ItemID: itemId,
-                                TotalAmount: 0,
-                                TotalAmountPrice: 0,
-                            };
-                        }
-                        result[itemId].TotalAmount += item.ItemAmount*1; 
-                        result[itemId].TotalAmountPrice += item.ItemAmount * item.ItemPrice; 
-                        return result;
-                    }, {});
-
-                    // Convert the groupedItems object back into an array if needed
-                    var groupedItemsArray = Object.values(groupedItems);
-
-                    console.log(groupedItemsArray);
+                    // alert(GoodsItemID + " " + GoodsItemAmount);
+                    console.log(ObjItemCart); 
 
                 });
                 /// Trigger AddItemtoCart ///
