@@ -632,6 +632,7 @@
 
                             await LoadDataGoodsItemForSale();
                             GroupedItemsCart = [];
+                            ObjItemCart = [];
                             $("#CartSumItem").text(0);
                             $("#CartSumPrice").text(0);
                             $("#ModalOrderGoods").find(".StepperItem").val(0);
