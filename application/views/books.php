@@ -459,35 +459,8 @@
                 ItemPrice: 0
             };
             var ObjItemCart = [];
-
-            // ItemCart.ItemAmount = 10;
-            // ItemCart.ItemID = "Name";
-
-            // ObjItemCart.push(ItemCart);
-
-            // ItemCart.ItemAmount = 20;
-            // ItemCart.ItemID = "Fname";
-
-            // ObjItemCart.push(ItemCart);
-
-
-            // ItemCart.ItemAmount = 20;
-            // ItemCart.ItemID = "Fname";
-
-            // ObjItemCart.push(ItemCart);
-
-
-            // ItemCart.ItemAmount = 20;
-            // ItemCart.ItemID = "Fname";
-
-            // ObjItemCart.push(ItemCart);
-
-            // // console.log(ObjItemCart[0].ItemAmount);
-            // // console.log(ObjItemCart[0].ItemID);
-
-            // var SummaryData = {"Data" : ObjItemCart };
-
-            // console.log(SummaryData);
+            var GroupedItemsCart = [];
+            
 
             //// Init variable summary ////
 
@@ -681,7 +654,7 @@
                         ItemPrice: GoodsPrice
                     });
 
-                    const groupedItems = ObjItemCart.reduce((accumulator, currentItem) => {
+                    GroupedItemsCart = ObjItemCart.reduce((accumulator, currentItem) => {
                         const {
                             ItemID,
                             ItemAmount,
@@ -698,12 +671,12 @@
                                 ItemAmountSum: ItemAmount*1,
                                 TotalCost: ItemAmount * ItemPrice,
                             });
-                        }
-
+                        } 
                         return accumulator;
                     }, []);
 
-                    console.log(groupedItems);
+
+                    console.log(GroupedItemsCart);
 
 
 
