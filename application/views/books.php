@@ -689,9 +689,11 @@
                         if (!result[itemId]) {
                             result[itemId] = {
                                 ItemID: itemId,
+                                TotalAmount: 0,
                                 TotalAmountPrice: 0,
                             };
                         } 
+                        result[itemId].TotalAmount += item.ItemAmount; 
                         result[itemId].TotalAmountPrice += item.ItemAmount * item.ItemPrice; 
                         return result;
                     }, {});
