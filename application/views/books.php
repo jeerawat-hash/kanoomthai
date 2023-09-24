@@ -692,8 +692,8 @@
                                 TotalAmount: 0,
                                 TotalAmountPrice: 0,
                             };
-                        } 
-                        result[itemId].TotalAmount += item.ItemAmount+0; 
+                        }
+                        result[itemId].TotalAmount += item.ItemAmount*1; 
                         result[itemId].TotalAmountPrice += item.ItemAmount * item.ItemPrice; 
                         return result;
                     }, {});
