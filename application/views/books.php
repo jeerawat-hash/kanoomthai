@@ -693,7 +693,7 @@
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
 
-                    notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม "+GoodsItemName+" จำนวน "+GoodsItemAmount+" ชิ้น สำเร็จ", 1000);
+                    notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม "+GoodsItemName+" จำนวน "+GoodsItemAmount+" ชิ้น สำเร็จ", 3000);
 
                      
  
