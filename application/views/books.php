@@ -684,7 +684,7 @@
                     console.log(ObjItemCart);
 
                     // Group by ItemID and calculate ItemAmount * ItemPrice
-                    var groupedItems = items.reduce(function(result, item) {
+                    var groupedItems = ObjItemCart.reduce(function(result, item) {
                         var itemId = item.ItemID; 
                         if (!result[itemId]) {
                             result[itemId] = {
