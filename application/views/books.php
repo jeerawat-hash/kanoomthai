@@ -699,7 +699,7 @@
                             // If it doesn't exist, create a new entry
                             accumulator.push({
                                 ItemID,
-                                ItemAmountSum: ItemAmount,
+                                ItemAmountSum: ItemAmount*1,
                                 TotalCost: ItemAmount * ItemPrice,
                             });
                         }
