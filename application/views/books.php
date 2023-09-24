@@ -673,34 +673,48 @@
                     if (GoodsItemAmount == 0) {
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
-                    } 
+                    }
 
-                    ObjItemCart.push({ ItemID : GoodsItemID, ItemAmount: GoodsItemAmount, ItemPrice: GoodsPrice});
+                    ObjItemCart.push({
+                        ItemID: GoodsItemID,
+                        ItemAmount: GoodsItemAmount,
+                        ItemPrice: GoodsPrice
+                    });
 
-                    // Group by ItemID and calculate ItemAmount * ItemPrice
-                    var groupedItems = ObjItemCart.reduce(function(result, item) {
-                        var itemId = item.ItemID; 
-                        if (!result[itemId]) {
-                            result[itemId] = {
-                                // ItemID: itemId,
-                                TotalAmount: 0,
-                                TotalAmountPrice: 0,
-                            };
+                    const groupedItems = ObjItemCart.reduce((accumulator, currentItem) => {
+                        const {
+                            ItemID,
+                            ItemAmount,
+                            ItemPrice
+                        } = currentItem;
+
+                        // Check if an entry with the same ItemID exists in the accumulator
+                        const existingItem = accumulator.find((item) => item.ItemID === ItemID);
+
+                        if (existingItem) {
+                            // If the item already exists, update the sums
+                            existingItem.ItemAmountSum += ItemAmount;
+                            existingItem.TotalCost += ItemAmount * ItemPrice;
+                        } else {
+                            // If it doesn't exist, create a new entry
+                            accumulator.push({
+                                ItemID,
+                                ItemAmountSum: ItemAmount,
+                                TotalCost: ItemAmount * ItemPrice,
+                            });
                         }
-                        result[itemId].TotalAmount += item.ItemAmount*1; 
-                        result[itemId].TotalAmountPrice += item.ItemAmount * item.ItemPrice; 
-                        return result;
-                    }, {});
 
-                    // Convert the groupedItems object back into an array if needed
-                    var groupedItemsArray = Object.values(groupedItems);
+                        return accumulator;
+                    }, []);
 
-                    console.log(ObjItemCart);
-                    console.log(groupedItemsArray);
+                    console.log(groupedItems);
+
+
 
                 });
                 /// Trigger AddItemtoCart ///
 
+                
 
 
 
