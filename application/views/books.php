@@ -656,36 +656,36 @@
                         ItemPrice: GoodsPrice
                     });
 
-                    GroupedItemsCart = ObjItemCart.reduce((accumulator, currentItem) => {
-                        const {
-                            ItemID,
-                            ItemAmount,
-                            ItemPrice
-                        } = currentItem; 
-                        const existingItem = accumulator.find((item) => item.ItemID === ItemID);
+                    // GroupedItemsCart = ObjItemCart.reduce((accumulator, currentItem) => {
+                    //     const {
+                    //         ItemID,
+                    //         ItemAmount,
+                    //         ItemPrice
+                    //     } = currentItem; 
+                    //     const existingItem = accumulator.find((item) => item.ItemID === ItemID);
 
-                        if (existingItem) { 
-                            existingItem.ItemAmountSum += ItemAmount*1;
-                            existingItem.TotalCost += ItemAmount * ItemPrice;
-                        } else { 
-                            accumulator.push({
-                                ItemID,
-                                ItemAmountSum: ItemAmount*1,
-                                TotalCost: ItemAmount * ItemPrice,
-                            });
-                        } 
-                        return accumulator;
-                    }, []); 
+                    //     if (existingItem) { 
+                    //         existingItem.ItemAmountSum += ItemAmount*1;
+                    //         existingItem.TotalCost += ItemAmount * ItemPrice;
+                    //     } else { 
+                    //         accumulator.push({
+                    //             ItemID,
+                    //             ItemAmountSum: ItemAmount*1,
+                    //             TotalCost: ItemAmount * ItemPrice,
+                    //         });
+                    //     } 
+                    //     return accumulator;
+                    // }, []); 
                     // console.log(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
                      
-                    for (var i = 0; i < GroupedItemsCart.length; i++) { 
-                        CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
-                        CartTotalPrice += GroupedItemsCart[i].TotalCost; 
-                    }
+                    // for (var i = 0; i < GroupedItemsCart.length; i++) { 
+                    //     CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
+                    //     CartTotalPrice += GroupedItemsCart[i].TotalCost; 
+                    // }
 
-                    $("#CartSumItem").text(CartAccusumAmount);
-                    $("#CartSumPrice").text(CartTotalPrice);
+                    // $("#CartSumItem").text(CartAccusumAmount);
+                    // $("#CartSumPrice").text(CartTotalPrice);
                      
  
                 });
