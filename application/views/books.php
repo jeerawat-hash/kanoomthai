@@ -452,40 +452,44 @@
 
         $(function() {
 
-        //// Init variable summary ////
-        var ItemCart = { ItemID : 0 , ItemAmount : 0, ItemPrice : 0 }; 
-        var ObjItemCart = [];
-        
-        // ItemCart.ItemAmount = 10;
-        // ItemCart.ItemID = "Name";
+            //// Init variable summary ////
+            var ItemCart = {
+                ItemID: 0,
+                ItemAmount: 0,
+                ItemPrice: 0
+            };
+            var ObjItemCart = [];
 
-        // ObjItemCart.push(ItemCart);
+            // ItemCart.ItemAmount = 10;
+            // ItemCart.ItemID = "Name";
 
-        // ItemCart.ItemAmount = 20;
-        // ItemCart.ItemID = "Fname";
+            // ObjItemCart.push(ItemCart);
 
-        // ObjItemCart.push(ItemCart);
+            // ItemCart.ItemAmount = 20;
+            // ItemCart.ItemID = "Fname";
 
-
-        // ItemCart.ItemAmount = 20;
-        // ItemCart.ItemID = "Fname";
-
-        // ObjItemCart.push(ItemCart);
+            // ObjItemCart.push(ItemCart);
 
 
-        // ItemCart.ItemAmount = 20;
-        // ItemCart.ItemID = "Fname";
+            // ItemCart.ItemAmount = 20;
+            // ItemCart.ItemID = "Fname";
 
-        // ObjItemCart.push(ItemCart);
+            // ObjItemCart.push(ItemCart);
 
-        // // console.log(ObjItemCart[0].ItemAmount);
-        // // console.log(ObjItemCart[0].ItemID);
 
-        // var SummaryData = {"Data" : ObjItemCart };
-            
-        // console.log(SummaryData);
+            // ItemCart.ItemAmount = 20;
+            // ItemCart.ItemID = "Fname";
 
-        //// Init variable summary ////
+            // ObjItemCart.push(ItemCart);
+
+            // // console.log(ObjItemCart[0].ItemAmount);
+            // // console.log(ObjItemCart[0].ItemID);
+
+            // var SummaryData = {"Data" : ObjItemCart };
+
+            // console.log(SummaryData);
+
+            //// Init variable summary ////
 
             var Receive = "";
             try {
@@ -659,14 +663,14 @@
                             break;
                     }
                 });
-                
+
                 /// Trigger AddItemtoCart ///
                 $("#OrderGoodsItemForSale").on("click", ".AddCart", function() {
-                    
+
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
-                    var GoodsItemID = $(this).attr("data-GoodsItemID"); 
-                    var GoodsPrice = $(this).attr("data-GoodsPrice"); 
-                    if(GoodsItemAmount == 0){
+                    var GoodsItemID = $(this).attr("data-GoodsItemID");
+                    var GoodsPrice = $(this).attr("data-GoodsPrice");
+                    if (GoodsItemAmount == 0) {
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
                     }
@@ -674,15 +678,33 @@
                     ItemCart.ItemID = GoodsItemID;
                     ItemCart.ItemAmount = GoodsItemAmount;
                     ItemCart.ItemPrice = GoodsPrice;
-                    ObjItemCart.push(ItemCart); 
+                    ObjItemCart.push(ItemCart);
 
-                    alert( GoodsItemID + " " + GoodsItemAmount );
+                    alert(GoodsItemID + " " + GoodsItemAmount);
                     console.log(ObjItemCart);
+
+                    // Group by ItemID and calculate ItemAmount * ItemPrice
+                    var groupedItems = items.reduce(function(result, item) {
+                        var itemId = item.ItemID; 
+                        if (!result[itemId]) {
+                            result[itemId] = {
+                                ItemID: itemId,
+                                TotalAmountPrice: 0,
+                            };
+                        } 
+                        result[itemId].TotalAmountPrice += item.ItemAmount * item.ItemPrice; 
+                        return result;
+                    }, {});
+
+                    // Convert the groupedItems object back into an array if needed
+                    var groupedItemsArray = Object.values(groupedItems);
+
+                    console.log(groupedItemsArray);
 
                 });
                 /// Trigger AddItemtoCart ///
 
-                  
+
 
 
             } catch (error) {
@@ -737,7 +759,7 @@
 
                             var OperationButton = '';
                             if (obj[i].IsAvaliable == "1") {
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="'+obj[i].PricePerUnit+'">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '">เพิ่ม</a>';
                             } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             }
