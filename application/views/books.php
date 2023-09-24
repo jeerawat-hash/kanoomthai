@@ -682,7 +682,7 @@
                     }, {});
 
                     // Convert the grouped object into an array (if needed)
-                    const result = Object.values(groupedItems);
+                    const result = Object.values(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
 
                     console.log(result);
