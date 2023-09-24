@@ -684,9 +684,9 @@
  
                     CartAccusumAmount = 0;
                     CartTotalPrice = 0;
-                    for (var i = 0; i < GroupedItemsCart.length; i++) { 
-                        CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
-                        CartTotalPrice += GroupedItemsCart[i].TotalCost; 
+                    for (var i = 0; i < result.length; i++) { 
+                        CartAccusumAmount += result[i].ItemAmountSum;
+                        CartTotalPrice += result[i].TotalCost; 
                     }
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
