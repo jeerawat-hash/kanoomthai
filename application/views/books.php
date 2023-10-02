@@ -751,6 +751,8 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
+                        $("#CardStatusPendingOrder").find("#OrderPending").text(obj.OrderPending+" คำสั่งซื้อ");
+                        $("#CardStatusPendingOrder").find("#OrderQuantity").text(obj.OrderQuantity+" รายการ");
                          
                     } catch (error) {}
                 },
