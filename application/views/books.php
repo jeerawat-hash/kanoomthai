@@ -125,8 +125,8 @@
             <div id="CardColor" class="card text-white mb-2 bg-warning">
                 <div class="card-header">รายการอยู่ระหว่างสั่งซื้อ</div>
                 <div class="card-body">
-                    <h5 class="card-title">0 คำสั่งซื้อ</h5>
-                    <p class="card-text">0 รายการ</p>
+                    <h5 class="card-title" id="OrderPending">0 คำสั่งซื้อ</h5>
+                    <p class="card-text" id="OrderQuantity">0 รายการ</p>
                 </div>
             </div>
         </div>
@@ -714,6 +714,7 @@
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",data,function(res){
 
                         console.log(res);
+                        LoadPendingOrder();
                         $("#ModalOrderGoods").modal("hide");
 
                     });
@@ -738,6 +739,24 @@
 
 
         });
+
+        function LoadPendingOrder() {
+            $.ajax({
+                url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataPendingOrderDetail",
+                type: "POST",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    try {
+                        var obj = JSON.parse(data);
+                        console.log(obj);
+                         
+                    } catch (error) {}
+                },
+                error: function() {}
+            });
+        }
 
         function LoadDataSelectTable() {
             $.ajax({
