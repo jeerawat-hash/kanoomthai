@@ -14,6 +14,19 @@ class Data extends CI_Controller {
 		echo "1";
 	}
  
+
+    
+
+    public function GetDataSaleOrderDetail()
+    { 
+        $BookingSessionID = $this->session->userdata("BookingSessionID"); 
+        $CustomerID = $this->session->userdata("CustomerID"); 
+        $CustomerName = $this->session->userdata("CustomerName"); 
+        $TableID = $this->session->userdata("TableID"); 
+        $TableName = $this->session->userdata("TableName");  
+        $result = $this->BookingSession->GetDataSaleOrderDetail($BookingSessionID);
+        echo json_encode($result);
+    }
     public function GetDataPendingOrderDetail()
     { 
         $BookingSessionID = $this->session->userdata("BookingSessionID"); 
