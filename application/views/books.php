@@ -527,6 +527,17 @@
         });
 
 
+        var TableInvoice = $('#ModalInvoice').find("#TableInvoice").DataTable({
+                    dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-5'><'col-sm-7'>>",
+                    pageLength: -1,
+                    order: [
+                        [2, 'asc'],
+                        [3, 'asc']
+                    ],
+                });
+
 
         $(function() {
 
@@ -604,16 +615,7 @@
 
                 });
  
-                var TableInvoice = $('#ModalInvoice').find("#TableInvoice").DataTable({
-                    dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
-                        "<'row'<'col-sm-12'tr>>" +
-                        "<'row'<'col-sm-5'><'col-sm-7'>>",
-                    pageLength: -1,
-                    order: [
-                        [2, 'asc'],
-                        [3, 'asc']
-                    ],
-                });
+
 
 
                 //#region CheckOut
