@@ -627,11 +627,9 @@
 
                 //#region SignOut
                 $("#ModalInvoice").find("#BTNSignOut").on("click", function() {
-
-
-
-
-
+                    $("#ModalInvoice").modal("hide");       
+                    $("#ModalInvoice").find("#TotalPrice").text(0+" บาท");
+ 
                     $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/SignOut",
                         type: "POST",
@@ -647,11 +645,7 @@
                         },
                         error: function() {}
                     });
-
-
-
-
-
+ 
                 });
                 //#endregion
 
@@ -659,6 +653,8 @@
                 //#region Login
                 $("#ModalLogin").find("#BTNLogin").on("click", async function() {
 
+                    $("#ModalInvoice").find("#TotalPrice").text(0);
+                    TableInvoice.clear();
                     var CustomerName = $("#ModalLogin").find("#Inp_CustomerName").val();
                     var TableID = $("#ModalLogin").find("#Inp_Booktable option:selected").val();
 
@@ -890,7 +886,7 @@
 
                             });
 
-                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount+" บาท");
+                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount+" บาท"); 
                         }
                   
                     } catch (error) {}
