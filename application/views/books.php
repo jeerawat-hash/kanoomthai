@@ -393,20 +393,13 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
-        <a href="javascript:;" id="BTNCheckOut" class="item">
+        <a href="javascript:;" id="BTNSignOut" class="item">
             <div class="col">
                 <span class="iconedbox iconedbox-md">
                     <i class="fa-sharp fa-light fa-money-check-dollar fa-2xl" style="color: #000000;"></i>
                 </span>
             </div>
-        </a>
-        <a href="javascript:;" id="BTNSignOut" class="item">
-            <div class="col">
-                <span class="iconedbox iconedbox-md">
-                    <i class="fa-duotone fa-person-to-door fa-2xl" style="color: #000000;"></i>
-                </span>
-            </div>
-        </a>
+        </a> 
 
     </div>
     <!-- App Bottom Menu -->
