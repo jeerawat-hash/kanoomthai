@@ -861,6 +861,9 @@
 
 
         function LoadSaleInvoice() {
+            var SumAmount = 0;
+            $("#ModalInvoice").find("#TotalPrice").text(0);
+            TableInvoice.clear();
             $.ajax({
                 url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataSaleFullInvoice",
                 type: "POST",
@@ -871,6 +874,22 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
+                        
+                        if (obj.length != 0) { 
+                            obj.forEach(function(Item) {
+
+                                TableInvoice.row.add([
+                                    Item.GoodsItemName,
+                                    Item.PricePerUnit,
+                                    Item.Amount,
+                                    Item.TotalChange + " บาท",
+                                ]).draw(false);
+                                SumAmount += parseFloat(Item.TotalChange); 
+
+                            });
+
+                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount);
+                        }
                   
                     } catch (error) {}
                 },
