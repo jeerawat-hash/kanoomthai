@@ -764,7 +764,7 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
-                        $("#CardStatusChange").find("#SalePrice").text(obj.SalePrice+" บาท");
+                        $("#CardStatusChange").find("#SalePrice").text(((obj.SalePrice == null)? 0:obj.SalePrice) +" บาท");
                         $("#CardStatusChange").find("#SaleAmount").text(obj.SaleAmount+" รายการ");
                          
                     } catch (error) {}
