@@ -45,20 +45,20 @@ class Goodsitem extends CI_Model
 		SELECT GoodsItemID, GoodsItemName, Unit, PricePerUnit, StockAmount
 		,(case when ((StockAmount - 
 		(
-			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
+			SELECT IFNULL(sum(b.Amount),0) as aa FROM tbl_GoodsOrder a
 			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
 			where a.MemberID != 9999 and b.GoodsItemID = ItemMaster.GoodsItemID group by b.GoodsItemID
 		)) = 0) then '0' else '1'  end) as IsAvaliable 
 		,Image
 		,(StockAmount - (
 			
-			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
+			SELECT IFNULL(sum(b.Amount),0) as aa FROM tbl_GoodsOrder a
 			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
 			where a.MemberID != 9999 and b.GoodsItemID = ItemMaster.GoodsItemID group by b.GoodsItemID
 			
 			)) as Used
 		,(
-			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
+			SELECT IFNULL(sum(b.Amount),0) as aa FROM tbl_GoodsOrder a
 			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
 			where a.MemberID != 9999 and b.GoodsItemID = ItemMaster.GoodsItemID group by b.GoodsItemID  
 			) as Total
