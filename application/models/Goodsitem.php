@@ -8,6 +8,36 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
+	public function InsertDataOrder($BookingSessionID,$DataItem)
+	{
+		$this->mysql->trans_start();
+        $QueryString = " 
+        INSERT INTO tbl_GoodsOrder (BookingSessionID, MemberID, CreateDate) 
+		VALUES (?, ?, ?)
+        ";
+        $query = $this->mysql->query($QueryString, array($BookingSessionID, 0, date("Y-m-d H:i:s")));
+        $Transaction = $this->mysql->trans_complete();
+ 
+        $QueryLastID = " 
+        SELECT GoodsOrderID FROM tbl_GoodsOrder order by GoodsOrderID desc limit 1
+        ";
+        $queryLastID = $this->mysql->query($QueryLastID);
+        $LastInsertID = $queryLastID->result_array();
+ 
+		$this->mysql->trans_start();
+		for ($i=0; $i < count($DataItem["Data"]); $i++) {  
+			$QueryString = " 
+			INSERT INTO tbl_GoodsOrderDetail (GoodsOrderID, GoodsItemID, Amount)
+			VALUES (?, ?, ?)
+			";
+			$query = $this->mysql->query($QueryString, array($LastInsertID[0]["GoodsOrderID"], $DataItem["Data"][$i]["ItemID"], $DataItem["Data"][$i]["ItemAmountSum"]));
+        }
+		$Transaction = $this->mysql->trans_complete();
+		 
+		$Data = array("Status" => (($Transaction == true) ? 1 : 0), "GoodsOrderID" => $LastInsertID[0]["GoodsOrderID"]);
+        $this->mysql->close();
+        return $Data;
+	}
     public function GetDataAllGoodsItemForSale()
 	{
 		$QueryString = " 

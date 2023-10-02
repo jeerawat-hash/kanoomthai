@@ -19,14 +19,9 @@ class Data extends CI_Controller {
         $CustomerID = $this->session->userdata("CustomerID"); 
         $CustomerName = $this->session->userdata("CustomerName"); 
         $TableID = $this->session->userdata("TableID"); 
-        $TableName = $this->session->userdata("TableName"); 
-
-  
-        for ($i=0; $i < count($_POST["Data"]); $i++) { 
-            echo $_POST["Data"][$i]["ItemID"]."<br>";
-        }
-
-        print_r($_POST);
+        $TableName = $this->session->userdata("TableName");  
+        $result = $this->Goodsitem->InsertDataOrder($BookingSessionID,$_POST); 
+        echo json_encode($result);
     }
     public function GetDataAllGoodsItemForSale()
 	{
