@@ -12,7 +12,7 @@ class BookingSession extends CI_Model
 	{
 		$QueryString = " 
 		select count(*) as OrderPending from tbl_GoodsOrder 
-		where BookingSessionID = ? and MemberID = 9999 
+		where BookingSessionID = ? and MemberID = 9999 and IsCancel = 0
         ";
 		$query = $this->mysql->query($QueryString,array($BookingSessionID));
 		$OrderPending = $query->result_array();
@@ -22,7 +22,7 @@ class BookingSession extends CI_Model
 			SELECT a.GoodsOrderID,a.BookingSessionID,c.GoodsItemID,c.GoodsItemName,c.Unit,c.PricePerUnit,(b.Amount * c.PricePerUnit) as TotalChange FROM tbl_GoodsOrder a
 			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID
 			join tbl_GoodsItem c on b.GoodsItemID = c.GoodsItemID 
-			where a.BookingSessionID = ? and a.MemberID = 9999
+			where a.BookingSessionID = ? and a.MemberID = 9999 and IsCancel = 0
 		)a
         ";
 		$query = $this->mysql->query($QueryString,array($BookingSessionID));
