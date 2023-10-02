@@ -975,7 +975,7 @@
 
                             var OperationButton = '';
                             if (obj[i].IsAvaliable == "1") {
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Total="' + obj[i].Total + '">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Total="' + obj[i].Used + '">เพิ่ม</a>';
                             } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             }
