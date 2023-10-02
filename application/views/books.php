@@ -485,6 +485,7 @@
                                         var obj = JSON.parse(data);
                                         console.log(obj);
                                         if (obj.Status == "Success") {
+                                            LoadPendingOrder();
                                             notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                             $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
                                             socket.emit("SetID", obj.Data.BookingSessionID);
@@ -594,6 +595,7 @@
                                 if (obj.Status == "Success") {
                                     socket.emit("SetID", obj.Data.BookingSessionID);
                                     $("#ModalLogin").modal("hide");
+                                    LoadPendingOrder();
                                     notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                     $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
                                     if (socket.connected == true) {
