@@ -619,6 +619,7 @@
                 //#region CheckOut
                 $("#BTNCheckOut").on("click", function() {
                     $("#ModalInvoice").modal("show");
+                    LoadSaleInvoice();
                 });
                 //#endregion
 
@@ -857,6 +858,25 @@
 
 
         });
+
+
+        function LoadSaleInvoice() {
+            $.ajax({
+                url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataSaleFullInvoice",
+                type: "POST",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    try {
+                        var obj = JSON.parse(data);
+                        console.log(obj);
+                  
+                    } catch (error) {}
+                },
+                error: function() {}
+            });
+        }
 
         function LoadSaleOrder() {
             $.ajax({
