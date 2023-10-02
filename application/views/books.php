@@ -275,7 +275,7 @@
                                 </div>
                                 <div class="invoice-detail mt-4">
                                     <div class="table-responsive">
-                                        <table class="table" style="width: 100%;">
+                                        <table class="table" id="TableInvoice" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <td>ชื่อ</td>
@@ -307,8 +307,8 @@
 
                                 <div class="invoice-bottom">
 
-                                    <button type="button" class="btn btn-success" id="BTNSignOut">ชำระเงิน</button>
-                                      
+                                    <button type="button" class="btn btn-success" id="BTNSignOut">ชำระเงิน/ออกจากร้าน</button>
+
                                 </div>
                             </div>
                         </div>
@@ -603,9 +603,19 @@
                     }
 
                 });
+ 
+                var TableInvoice = $('#ModalInvoice').find("#TableInvoice").DataTable({
+                    dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-5'><'col-sm-7'>>",
+                    pageLength: -1,
+                    order: [
+                        [2, 'asc'],
+                        [3, 'asc']
+                    ],
+                });
 
 
-                
                 //#region CheckOut
                 $("#BTNCheckOut").on("click", function() {
                     $("#ModalInvoice").modal("show");
@@ -613,7 +623,7 @@
                 //#endregion
 
                 //#region SignOut
-                $("#BTNSignOut").on("click", function() {
+                $("#ModalInvoice").find("#BTNSignOut").on("click", function() {
 
 
 
