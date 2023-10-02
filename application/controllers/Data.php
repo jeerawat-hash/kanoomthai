@@ -23,7 +23,7 @@ class Data extends CI_Controller {
 
   
         for ($i=0; $i < count($_POST["Data"]); $i++) { 
-            echo $items["Data"][$i]["ItemID"]."<br>";
+            echo $_POST["Data"][$i]["ItemID"]."<br>";
         }
 
         print_r($_POST);
