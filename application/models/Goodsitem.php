@@ -56,12 +56,12 @@ class Goodsitem extends CI_Model
 			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
 			where a.MemberID != 9999 and b.GoodsItemID = ItemMaster.GoodsItemID and a.IsCancel = 0 group by b.GoodsItemID
 			
-			)) as Used
+			)) as Total
 		,(
 			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
 			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
 			where a.MemberID != 9999 and b.GoodsItemID = ItemMaster.GoodsItemID and a.IsCancel = 0 group by b.GoodsItemID  
-			) as Total
+			) as Used
 		FROM tbl_GoodsItem ItemMaster
         ";
 		$query = $this->mysql->query($QueryString);
