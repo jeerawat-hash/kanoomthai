@@ -649,9 +649,14 @@
                     var GoodsItemID = $(this).attr("data-GoodsItemID");
                     var GoodsPrice = $(this).attr("data-GoodsPrice");
                     var GoodsItemName = $(this).attr("data-GoodsItemName");
+                    var Total = $(this).attr("data-Total");
                     
                     if (GoodsItemAmount == 0) {
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
+                        return false;
+                    } 
+                    if(Total < GoodsItemAmount){
+                        notification('notification-warning', "แจ้งเตือน", "จำนวนสินค้าไม่พอให้สั่งซื้อ", 1000);
                         return false;
                     }
 
@@ -800,7 +805,7 @@
 
                             var OperationButton = '';
                             if (obj[i].IsAvaliable == "1") {
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Total="'+obj[i].Total+'">เพิ่ม</a>';
                             } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             }
@@ -818,7 +823,7 @@
                             html += '<div class="cart-item-footer">';
                             html += '<div class="stepper stepper-lg stepper-secondary">';
                             html += '<a href="#" class="stepper-button stepper-down btn-warning">-</a>';
-                            html += '<input type="text" class="form-control StepperItem" value="0" max="'+obj[i].Total+'" disabled="">';
+                            html += '<input type="text" class="form-control StepperItem" value="0" disabled="">';
                             html += '<a href="#" class="stepper-button stepper-up btn-warning">+</a>';
                             html += '</div>';
                             html += OperationButton;
