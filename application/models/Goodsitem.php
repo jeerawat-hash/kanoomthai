@@ -45,8 +45,8 @@ class Goodsitem extends CI_Model
 		SELECT GoodsItemID, GoodsItemName, Unit, PricePerUnit, StockAmount
 		,(case when ((StockAmount - (SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID)) = 0) then '0' else '1'  end) as IsAvaliable 
 		,Image
-		,(StockAmount - (SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID)) as Total
-		,(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID) as Used
+		,(StockAmount - (SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID)) as Used
+		,(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID) as Total
 		FROM tbl_GoodsItem ItemMaster
         ";
 		$query = $this->mysql->query($QueryString);

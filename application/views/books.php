@@ -812,13 +812,13 @@
                             html += '<div class="text">';
                             html += '<h3 class="title">' + obj[i].GoodsItemName + '</h3>';
                             html += '<p class="detail">' + obj[i].GoodsItemName + '</p>';
-                            html += '<strong class="price">' + obj[i].PricePerUnit + ' ฿/' + obj[i].Unit + '</strong>';
+                            html += '<strong class="price">' + obj[i].PricePerUnit + ' ฿/' + obj[i].Unit + ' คงเหลือ '+obj[i].Total+' ' + obj[i].Unit + '</strong>';
                             html += '</div>';
                             html += '</div>';
                             html += '<div class="cart-item-footer">';
                             html += '<div class="stepper stepper-lg stepper-secondary">';
                             html += '<a href="#" class="stepper-button stepper-down btn-warning">-</a>';
-                            html += '<input type="text" class="form-control StepperItem" value="0" disabled="">';
+                            html += '<input type="text" class="form-control StepperItem" value="0" max="'+obj[i].Total+'" disabled="">';
                             html += '<a href="#" class="stepper-button stepper-up btn-warning">+</a>';
                             html += '</div>';
                             html += OperationButton;
