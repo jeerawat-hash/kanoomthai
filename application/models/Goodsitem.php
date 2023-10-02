@@ -15,7 +15,7 @@ class Goodsitem extends CI_Model
         INSERT INTO tbl_GoodsOrder (BookingSessionID, MemberID, CreateDate) 
 		VALUES (?, ?, ?)
         ";
-        $query = $this->mysql->query($QueryString, array($BookingSessionID, 0, date("Y-m-d H:i:s")));
+        $query = $this->mysql->query($QueryString, array($BookingSessionID, 9999, date("Y-m-d H:i:s")));
         $Transaction = $this->mysql->trans_complete();
  
         $QueryLastID = " 
