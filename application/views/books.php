@@ -520,7 +520,7 @@
                     console.log(data);
                     var obj = JSON.parse(data);
                     if (obj.Msg == "Booking") {
-                        LoadDataSelectTable();
+                        LoadDataSelectTable(); 
                     }
 
                 });
@@ -634,6 +634,8 @@
                             break;
                         case "OrderGoods":
 
+                            await LoadSaleOrder();
+                            await LoadPendingOrder();
                             await LoadDataGoodsItemForSale();
                             GroupedItemsCart = [];
                             ObjItemCart = [];
@@ -649,6 +651,8 @@
                 /// AddItemtoCart ///
                 $("#OrderGoodsItemForSale").on("click", ".AddCart", function() {
 
+                    LoadSaleOrder();
+                    LoadPendingOrder();
                     var GoodsItemAmount = $(this).parent().find(".StepperItem").val();
                     var GoodsItemID = $(this).attr("data-GoodsItemID");
                     var GoodsPrice = $(this).attr("data-GoodsPrice");
