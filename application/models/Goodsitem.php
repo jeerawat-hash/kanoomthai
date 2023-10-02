@@ -8,6 +8,7 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
+	
 	public function InsertDataOrder($BookingSessionID,$DataItem)
 	{
 		$this->mysql->trans_start();

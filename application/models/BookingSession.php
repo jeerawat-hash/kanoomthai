@@ -8,6 +8,28 @@ class BookingSession extends CI_Model
         $this->load->library("session");
     }
 
+    public function GetDataPendingOrderDetail($BookingSessionID)
+	{
+		$QueryString = " 
+		select count(*) as OrderPending from tbl_GoodsOrder 
+		where BookingSessionID = ? and MemberID = 9999 
+        ";
+		$query = $this->mysql->query($QueryString,array($BookingSessionID));
+		$OrderPending = $query->result_array();
+ 
+		$QueryString = " 
+		select count(*) as OrderQuantity from (
+			SELECT a.GoodsOrderID,a.BookingSessionID,c.GoodsItemID,c.GoodsItemName,c.Unit,c.PricePerUnit,(b.Amount * c.PricePerUnit) as TotalChange FROM tbl_GoodsOrder a
+			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID
+			join tbl_GoodsItem c on b.GoodsItemID = c.GoodsItemID 
+			where a.BookingSessionID = ? and a.MemberID = 9999
+		)a
+        ";
+		$query = $this->mysql->query($QueryString,array($BookingSessionID));
+		$OrderQuantity = $query->result_array();
+		$this->mysql->close();
+		return array("OrderPending" => $OrderPending[0]["OrderPending"],"OrderQuantity" => $OrderQuantity[0]["OrderQuantity"]);
+	}
     public function GetDataAvailableTable()
 	{
 		$QueryString = " 
