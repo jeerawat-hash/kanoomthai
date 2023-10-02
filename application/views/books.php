@@ -238,6 +238,88 @@
         <!-- Notify -->
 
 
+        <!-- Modal Invoice -->
+        <div class="modal fade modalbox" id="ModalInvoice" data-backdrop="static" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ใบแจ้งค่าใช้จ่าย</h5>
+                        <!-- <a href="javascript:;" data-dismiss="modal">Close</a> -->
+                        <a href="javascript:;" class="btn btn-danger shadowed  mr-1 mb-1" data-dismiss="modal">ปิด</a>
+
+                    </div>
+                    <div class="modal-body">
+                        <!-- Invoice -->
+                        <div class="section full mt-3">
+                            <div class="invoice">
+                                <div class="invoiceBackgroundLogo">
+                                    <img src="http://203.156.9.157/kanoomthai/assets/img/logo.png" alt="background-logo">
+                                </div>
+                                <div class="invoice-page-header">
+                                    <div class="invoice-logo">
+                                        <img src="http://203.156.9.157/kanoomthai/assets/img/logo.png" alt="logo">
+                                    </div>
+                                    <!-- <div class="invoice-id">#INVOICE34039</div> -->
+                                </div>
+                                <div class="invoice-person mt-4">
+                                    <div class="invoice-to">
+                                        <h4></h4>
+                                        <!-- <p>0616619956</p>
+                                        <p>บ้าน ที่อยู่</p> -->
+                                    </div>
+                                    <div class="invoice-from">
+                                        <h4>ร้านเท้งขนมไทยแซ่บๆ</h4>
+                                        <p>@Email</p>
+                                        <p>Address<br>-</p>
+                                    </div>
+                                </div>
+                                <div class="invoice-detail mt-4">
+                                    <div class="table-responsive">
+                                        <table class="table" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <td>ชื่อ</td>
+                                                    <td>ราคาต่อหน่วย</td>
+                                                    <td>จำนวน</td>
+                                                    <td>ยอดเงิน</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="invoice-signature mt-1">
+                                    <div class="signature-block">
+                                        <!-- Signature Here -->
+                                    </div>
+                                </div>
+
+                                <div class="invoice-total mt-4">
+                                    <ul class="listview transparent simple-listview">
+                                        <!-- <li>ยอดรวม <span class="hightext">800.00 บาท</span></li> -->
+                                        <!-- <li>ภาษีณที่จ่าย (7%)<span class="hightext">80.00 บาท</span></li> -->
+                                        <li>ยอดรวมต้องชำระ<span class="text-danger" id="TotalPrice"> บาท</span></li>
+                                    </ul>
+                                </div>
+
+                                <div class="invoice-bottom">
+
+                                    <button type="button" class="btn btn-success" id="BTNSignOut">ชำระเงิน</button>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Invoice -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Invoice -->
+
         <!-- Modal Login -->
         <div class="modal fade modalbox" id="ModalLogin" data-backdrop="static" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -331,17 +413,21 @@
                         <div class="section mt-2 mb-2">
                             <div class="card">
                                 <ul class="listview flush transparent simple-listview">
-                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold"><font id="CartSumItem"></font> ชิ้น</span></li>
-                                    <li>ยอดรวม<span class="text-primary font-weight-bold"><font id="CartSumPrice"></font> บาท</span></li>
+                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold">
+                                            <font id="CartSumItem"></font> ชิ้น
+                                        </span></li>
+                                    <li>ยอดรวม<span class="text-primary font-weight-bold">
+                                            <font id="CartSumPrice"></font> บาท
+                                        </span></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="section mb-2">
-                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button> 
+                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button>
                         </div>
 
- 
+
 
                     </div>
                 </div>
@@ -393,13 +479,13 @@
     <!-- App Bottom Menu -->
     <div class="appBottomMenu">
 
-        <a href="javascript:;" id="BTNSignOut" class="item">
+        <a href="javascript:;" id="BTNCheckOut" class="item">
             <div class="col">
                 <span class="iconedbox iconedbox-md">
                     <i class="fa-sharp fa-light fa-money-check-dollar fa-2xl" style="color: #000000;"></i>
                 </span>
             </div>
-        </a> 
+        </a>
 
     </div>
     <!-- App Bottom Menu -->
@@ -454,7 +540,7 @@
             var GroupedItemsCart = [];
             var CartAccusumAmount = 0;
             var CartTotalPrice = 0;
-            
+
 
             //// Init variable summary ////
 
@@ -513,14 +599,25 @@
                     console.log(data);
                     var obj = JSON.parse(data);
                     if (obj.Msg == "Booking") {
-                        LoadDataSelectTable(); 
+                        LoadDataSelectTable();
                     }
 
                 });
 
 
+                
+                //#region CheckOut
+                $("#BTNCheckOut").on("click", function() {
+                    $("#ModalInvoice").modal("show");
+                });
+                //#endregion
+
                 //#region SignOut
                 $("#BTNSignOut").on("click", function() {
+
+
+
+
 
                     $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/SignOut",
@@ -537,6 +634,10 @@
                         },
                         error: function() {}
                     });
+
+
+
+
 
                 });
                 //#endregion
@@ -651,12 +752,12 @@
                     var GoodsPrice = $(this).attr("data-GoodsPrice");
                     var GoodsItemName = $(this).attr("data-GoodsItemName");
                     var Total = $(this).attr("data-Total");
-                    
+
                     if (GoodsItemAmount == 0) {
                         notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
                         return false;
-                    } 
-                    if(Total < GoodsItemAmount){
+                    }
+                    if (Total < GoodsItemAmount) {
                         notification('notification-warning', "แจ้งเตือน", "จำนวนสินค้าไม่พอให้สั่งซื้อ", 1000);
                         return false;
                     }
@@ -672,52 +773,52 @@
                             ItemID,
                             ItemAmount,
                             ItemPrice
-                        } = currentItem; 
+                        } = currentItem;
                         const existingItem = accumulator.find((item) => item.ItemID === ItemID);
 
-                        if (existingItem) { 
-                            existingItem.ItemAmountSum += ItemAmount*1;
+                        if (existingItem) {
+                            existingItem.ItemAmountSum += ItemAmount * 1;
                             existingItem.TotalCost += ItemAmount * ItemPrice;
-                        } else { 
+                        } else {
                             accumulator.push({
                                 ItemID,
-                                ItemAmountSum: ItemAmount*1,
+                                ItemAmountSum: ItemAmount * 1,
                                 TotalCost: ItemAmount * ItemPrice,
                             });
-                        } 
+                        }
                         return accumulator;
-                    }, []); 
+                    }, []);
                     // console.log(GroupedItemsCart);
                     $(this).parent().find(".StepperItem").val(0);
-                    
+
                     CartAccusumAmount = 0;
                     CartTotalPrice = 0;
-                    for (var i = 0; i < GroupedItemsCart.length; i++) { 
+                    for (var i = 0; i < GroupedItemsCart.length; i++) {
                         CartAccusumAmount += GroupedItemsCart[i].ItemAmountSum;
-                        CartTotalPrice += GroupedItemsCart[i].TotalCost; 
-                    } 
+                        CartTotalPrice += GroupedItemsCart[i].TotalCost;
+                    }
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
 
-                    notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม "+GoodsItemName+" จำนวน "+GoodsItemAmount+" ชิ้น สำเร็จ", 3000);
+                    notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม " + GoodsItemName + " จำนวน " + GoodsItemAmount + " ชิ้น สำเร็จ", 3000);
 
-                     
- 
+
+
                 });
                 /// AddItemtoCart ///
 
                 /// SendOrder ///
-                $("#ModalOrderGoods").find("#SendOrder").on("click",async function(){
- 
+                $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
+
                     // var data = new FormData();
                     // data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>"); 
                     // data.append('Data', GroupedItemsCart); 
                     var data = {
-                        BookingSessionID : "<?php echo $BookingSessionID; ?>",
-                        Data : GroupedItemsCart
+                        BookingSessionID: "<?php echo $BookingSessionID; ?>",
+                        Data: GroupedItemsCart
                     };
 
-                    $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",data,function(res){
+                    $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
 
                         console.log(res);
                         LoadPendingOrder();
@@ -725,8 +826,8 @@
                         $("#ModalOrderGoods").modal("hide");
 
                     });
- 
-                }); 
+
+                });
                 /// SendOrder ///
 
 
@@ -746,6 +847,7 @@
 
 
         });
+
         function LoadSaleOrder() {
             $.ajax({
                 url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataSaleOrderDetail",
@@ -757,14 +859,15 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
-                        $("#CardStatusChange").find("#SalePrice").text(((obj.SalePrice == null)? 0:obj.SalePrice) +" บาท");
-                        $("#CardStatusChange").find("#SaleAmount").text(obj.SaleAmount+" รายการ");
-                         
+                        $("#CardStatusChange").find("#SalePrice").text(((obj.SalePrice == null) ? 0 : obj.SalePrice) + " บาท");
+                        $("#CardStatusChange").find("#SaleAmount").text(obj.SaleAmount + " รายการ");
+
                     } catch (error) {}
                 },
                 error: function() {}
             });
         }
+
         function LoadPendingOrder() {
             $.ajax({
                 url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataPendingOrderDetail",
@@ -776,9 +879,9 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
-                        $("#CardStatusPendingOrder").find("#OrderPending").text(obj.OrderPending+" คำสั่งซื้อ");
-                        $("#CardStatusPendingOrder").find("#OrderQuantity").text(obj.OrderQuantity+" รายการ");
-                         
+                        $("#CardStatusPendingOrder").find("#OrderPending").text(obj.OrderPending + " คำสั่งซื้อ");
+                        $("#CardStatusPendingOrder").find("#OrderQuantity").text(obj.OrderQuantity + " รายการ");
+
                     } catch (error) {}
                 },
                 error: function() {}
@@ -825,7 +928,7 @@
 
                             var OperationButton = '';
                             if (obj[i].IsAvaliable == "1") {
-                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Total="'+obj[i].Total+'">เพิ่ม</a>';
+                                OperationButton = '<a href="#" class="btn btn-outline-warning btn-lg AddCart" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsPrice="' + obj[i].PricePerUnit + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Total="' + obj[i].Total + '">เพิ่ม</a>';
                             } else {
                                 OperationButton = '<a href="#" class="btn btn-danger btn-lg" disabled>สินค้าหมด</a>';
                             }
@@ -837,7 +940,7 @@
                             html += '<div class="text">';
                             html += '<h3 class="title">' + obj[i].GoodsItemName + '</h3>';
                             html += '<p class="detail">' + obj[i].GoodsItemName + '</p>';
-                            html += '<strong class="price">' + obj[i].PricePerUnit + ' ฿/' + obj[i].Unit + ' คงเหลือ '+((obj[i].Total == null)? obj[i].StockAmount:obj[i].Total)+' ' + obj[i].Unit + '</strong>';
+                            html += '<strong class="price">' + obj[i].PricePerUnit + ' ฿/' + obj[i].Unit + ' คงเหลือ ' + ((obj[i].Total == null) ? obj[i].StockAmount : obj[i].Total) + ' ' + obj[i].Unit + '</strong>';
                             html += '</div>';
                             html += '</div>';
                             html += '<div class="cart-item-footer">';
