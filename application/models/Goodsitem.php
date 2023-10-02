@@ -43,10 +43,25 @@ class Goodsitem extends CI_Model
 	{
 		$QueryString = " 
 		SELECT GoodsItemID, GoodsItemName, Unit, PricePerUnit, StockAmount
-		,(case when ((StockAmount - (SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID)) = 0) then '0' else '1'  end) as IsAvaliable 
+		,(case when ((StockAmount - 
+		(
+			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
+			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
+			where a.MemberID = 9999 and b.GoodsItemID = ItemMaster.GoodsItemID group by b.GoodsItemID
+		)) = 0) then '0' else '1'  end) as IsAvaliable 
 		,Image
-		,(StockAmount - (SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID)) as Used
-		,(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID) as Total
+		,(StockAmount - (
+			
+			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
+			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
+			where a.MemberID = 9999 and b.GoodsItemID = ItemMaster.GoodsItemID group by b.GoodsItemID
+			
+			)) as Used
+		,(
+			SELECT sum(b.Amount) as aa FROM tbl_GoodsOrder a
+			join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID 
+			where a.MemberID = 9999 and b.GoodsItemID = ItemMaster.GoodsItemID group by b.GoodsItemID  
+			) as Total
 		FROM tbl_GoodsItem ItemMaster
         ";
 		$query = $this->mysql->query($QueryString);
