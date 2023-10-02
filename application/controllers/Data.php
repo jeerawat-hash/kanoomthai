@@ -15,6 +15,16 @@ class Data extends CI_Controller {
 	}
     public function SendOrder()
     { 
+        $BookingSessionID = $this->session->userdata("BookingSessionID"); 
+        $CustomerID = $this->session->userdata("CustomerID"); 
+        $CustomerName = $this->session->userdata("CustomerName"); 
+        $TableID = $this->session->userdata("TableID"); 
+        $TableName = $this->session->userdata("TableName"); 
+
+        foreach ($items as $_POST["Data"]) {
+            echo $items["ItemID"]."<br>";
+        }
+
         print_r($_POST);
     }
     public function GetDataAllGoodsItemForSale()
