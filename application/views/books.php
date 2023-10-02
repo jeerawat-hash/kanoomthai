@@ -134,8 +134,8 @@
             <div id="CardColor" class="card text-white mb-2 bg-success">
                 <div class="card-header">ค่าใช้จ่ายเรียกเก็บ</div>
                 <div class="card-body">
-                    <h5 class="card-title">0 บาท</h5>
-                    <p class="card-text">0 รายการ</p>
+                    <h5 class="card-title" id="SalePrice">0 บาท</h5>
+                    <p class="card-text" id="SaleAmount">0 รายการ</p>
                 </div>
             </div>
         </div>
@@ -485,6 +485,7 @@
                                         var obj = JSON.parse(data);
                                         console.log(obj);
                                         if (obj.Status == "Success") {
+                                            LoadSaleOrder();
                                             LoadPendingOrder();
                                             notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                             $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
@@ -595,6 +596,7 @@
                                 if (obj.Status == "Success") {
                                     socket.emit("SetID", obj.Data.BookingSessionID);
                                     $("#ModalLogin").modal("hide");
+                                    LoadSaleOrder();
                                     LoadPendingOrder();
                                     notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                     $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
@@ -722,6 +724,7 @@
 
                         console.log(res);
                         LoadPendingOrder();
+                        LoadSaleOrder();
                         $("#ModalOrderGoods").modal("hide");
 
                     });
@@ -746,7 +749,25 @@
 
 
         });
-
+        function LoadSaleOrder() {
+            $.ajax({
+                url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataSaleOrderDetail",
+                type: "POST",
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    try {
+                        var obj = JSON.parse(data);
+                        console.log(obj);
+                        $("#CardStatusChange").find("#SalePrice").text(obj.SalePrice+" บาท");
+                        $("#CardStatusChange").find("#SaleAmount").text(obj.SaleAmount+" รายการ");
+                         
+                    } catch (error) {}
+                },
+                error: function() {}
+            });
+        }
         function LoadPendingOrder() {
             $.ajax({
                 url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataPendingOrderDetail",
