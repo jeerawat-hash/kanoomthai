@@ -21,8 +21,9 @@ class Data extends CI_Controller {
         $TableID = $this->session->userdata("TableID"); 
         $TableName = $this->session->userdata("TableName"); 
 
-        foreach ($items as $_POST["Data"]) {
-            echo $items["ItemID"]."<br>";
+  
+        for ($i=0; $i < count($_POST["Data"]); $i++) { 
+            echo $items["Data"][$i]["ItemID"]."<br>";
         }
 
         print_r($_POST);
