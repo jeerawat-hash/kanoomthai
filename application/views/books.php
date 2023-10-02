@@ -882,15 +882,15 @@
 
                                 TableInvoice.row.add([
                                     Item.GoodsItemName,
-                                    Item.PricePerUnit,
-                                    Item.Amount,
+                                    Item.PricePerUnit+" บาท",
+                                    Item.Amount+" "+Item.Unit,
                                     Item.TotalChange + " บาท",
                                 ]).draw(false);
                                 SumAmount += parseFloat(Item.TotalChange); 
 
                             });
 
-                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount);
+                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount+" บาท");
                         }
                   
                     } catch (error) {}
