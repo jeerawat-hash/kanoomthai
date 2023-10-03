@@ -142,8 +142,8 @@
                                     "ID": ID,
                                     "Table": obj[i].TableName,
                                     "CustomerName": obj[i].CustomerName,
-                                    "PendingOrder": obj[i].OrderPending,
-                                    "SuccessOrder": obj[i].OrderSuccess, 
+                                    "PendingOrder": obj[i].OrderPending+" รายการ",
+                                    "SuccessOrder": obj[i].OrderSuccess+" รายการ", 
                                     "Option": Option,
                                 });
                             }
