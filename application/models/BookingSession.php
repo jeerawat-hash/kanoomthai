@@ -35,7 +35,7 @@ class BookingSession extends CI_Model
     public function GetDataOrderPendingDetail($BookingSessionID)
 	{ 
 		$QueryString = " 
-        SELECT f.TableName,e.CustomerName,a.GoodsOrderID,a.BookingSessionID,c.GoodsItemID,c.GoodsItemName,c.Unit,c.PricePerUnit,(b.Amount * c.PricePerUnit) as TotalChange FROM tbl_GoodsOrder a
+        SELECT f.TableName,e.CustomerName,a.GoodsOrderID,a.BookingSessionID,c.GoodsItemID,c.GoodsItemName,c.Unit,c.PricePerUnit,b.Amount,(b.Amount * c.PricePerUnit) as TotalChange FROM tbl_GoodsOrder a
         join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID
         join tbl_GoodsItem c on b.GoodsItemID = c.GoodsItemID 
         join tbl_BookingSession d on a.BookingSessionID = d.BookingSessionID

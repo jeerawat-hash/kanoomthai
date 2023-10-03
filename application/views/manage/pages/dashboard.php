@@ -110,7 +110,7 @@
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-12"> 
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label>ข้อความแนบถึงลูกค้า</label>
                                             <textarea class="form-control" rows="3" placeholder="แนบข้อความ"></textarea>
@@ -195,7 +195,7 @@
                         "title": "#"
                     },
                     {
-                        "data": "BookingID",
+                        "data": "OrderID",
                         "title": "รายการสั่งซื้อ"
                     },
                     {
@@ -205,7 +205,7 @@
                     {
                         "data": "OrderAmount",
                         "title": "จำนวน"
-                    }, 
+                    },
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",
@@ -216,14 +216,68 @@
 
             GetDataOrderPending();
 
+            var BookingSessionID = "";
+            var TableName = "";
+            var CustomerName = "";
+            var OrderPending = "";
+            var OrderSuccess = "";
 
-            $("#TableCustomerOrder").on("click",".BTNOpenOrder",function(){
+            $("#TableCustomerOrder").on("click", ".BTNOpenOrder", function() {
+
+                BookingSessionID = $(this).attr("data-BookingSessionID");
+                TableName = $(this).attr("data-TableName");
+                CustomerName = $(this).attr("data-CustomerName");
+                OrderPending = $(this).attr("data-OrderPending");
+                OrderSuccess = $(this).attr("data-OrderSuccess");
 
                 $("#Modal_ConfirmOrder").modal("show");
-
+                $("#Modal_ConfirmOrder").find(".modal-title").text(CustomerName + " - " + TableName);
+                $("#Modal_ConfirmOrder").find("#CustomerName").text(CustomerName);
+                $("#Modal_ConfirmOrder").find("#Table").text(TableName);
+                GetDataOrderPendingDetail(BookingSessionID);
+ 
             });
 
 
+            //#region GetDataOrderPendingDetail
+            function GetDataOrderPendingDetail(BookingSessionID) {
+                var data = new FormData();
+                data.append('BookingSessionID', BookingSessionID);
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataOrderPendingDetail",
+                    type: "POST",
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+
+                        var Data = [];
+                        try {
+                            var obj = JSON.parse(data);
+                            for (var i = 0; i < obj.length; i++) {
+                                var ID = i + 1;
+                                var Option = "";
+                                // if (obj[i].OrderPending == "1") {
+                                //     Option = '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
+                                // } else {
+                                //     Option = '<button class="btn btn-secondary" disabled>กำลังสั่งอาหาร</button>';
+                                // }
+                                Data.push({
+                                    "ID": ID,
+                                    "OrderID": obj[i].GoodsOrderID,
+                                    "GoodsName": obj[i].GoodsItemName,
+                                    "OrderAmount": obj[i].Amount + " "+obj[i].Unit,
+                                    "Option": Option,
+                                });
+                            }
+                            TableBookingOrderDetail.clear().rows.add(Data).draw(false);
+                        } catch (error) {}
+                    },
+                    error: function() {}
+                });
+            }
+            //#endregion 
             //#region GetDataOrderPending
             function GetDataOrderPending() {
                 $.ajax({
@@ -242,7 +296,7 @@
                                 var ID = i + 1;
                                 var Option = "";
                                 if (obj[i].OrderPending == "1") {
-                                    Option = '<button class="btn btn-warning BTNOpenOrder">รับรายการ</button>';
+                                    Option = '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
                                 } else {
                                     Option = '<button class="btn btn-secondary" disabled>กำลังสั่งอาหาร</button>';
                                 }

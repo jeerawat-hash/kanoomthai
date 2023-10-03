@@ -26,9 +26,9 @@ class Data extends CI_Controller {
         $result = $this->BookingSession->GetDataAllOrderPending();
         echo json_encode($result);
     }
-    public function GetDataOrderPending()
+    public function GetDataOrderPendingDetail()
     {  
-        $result = $this->BookingSession->GetDataOrderPending(70);
+        $result = $this->BookingSession->GetDataOrderPendingDetail($_POST["BookingSessionID"]);
         echo json_encode($result);
     }
  
