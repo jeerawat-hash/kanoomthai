@@ -853,10 +853,14 @@
                 /// SendOrder ///
                 $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
 
+                    if(GroupedItemsCart.length == 0){
+                        notification('notification-danger', "ผิดพลาด", "กรุณาเลือกสินค้า", 1000);
+                        return false;
+                    }
                     var data = {
                         BookingSessionID: "<?php echo $BookingSessionID; ?>",
                         Data: GroupedItemsCart
-                    };
+                    }; 
 
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
 
