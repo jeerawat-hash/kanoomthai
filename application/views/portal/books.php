@@ -620,6 +620,7 @@
                     switch (obj.Header) {
                         case "ReceiveOrder":
                             /// OpenAlert obj.Msg ///
+                            notification('notification-warning', "รับรายการอาหาร", obj.Msg, 5000);
                             break;
                         case "SendInvoice":
                             /// OpenOrder ///
