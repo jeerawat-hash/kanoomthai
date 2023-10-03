@@ -232,10 +232,26 @@
  
             });
 
-            $("#Modal_ConfirmOrder").find("#SaveData").on("click",function(){
+            $("#Modal_ConfirmOrder").find("#SaveData").on("click",function(){ 
 
-                alert(BookingSessionID);
+                var data = new FormData();
+                data.append('BookingSessionID', BookingSessionID);
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/SetReceiveOrder",
+                    type: "POST",
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) { 
+                        /// Emit Event ///
 
+                        /// Emit Event ///
+                        GetDataOrderPending();
+                        $("#Modal_ConfirmOrder").modal("hide");
+                    },
+                    error: function() {}
+                });
 
             });
 
