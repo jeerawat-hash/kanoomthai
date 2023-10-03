@@ -35,18 +35,19 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">ลงทะเบียนกล่องสำหรับกล่องเปิดช่องเดียว</h3>
+                                <h3 class="card-title">จัดการรายการสั่งซื้อ</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="TableAndroidBoxRegister" class="table table-bordered table-striped">
+                                <table id="TableCustomerOrder" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>ลำดับ</th>
-                                            <th>รหัส AndroidID</th>
-                                            <th>ตำแหน่งติดตั้ง</th>
-                                            <th>ออกอากาศช่อง</th>
-                                            <th>สถานะ</th>
+                                            <th>โต๊ะ</th>
+                                            <th>ชื่อลูกค้า</th>
+                                            <th>อยู่ระหว่างสั่งสินค้า</th>
+                                            <th>เสริฟแล้ว</th>
+                                            <th>ยอดสั่งซื้อ</th>
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -127,7 +128,7 @@
               tags: true
             });
 
-            var TableAndroidBoxRegister = $("#TableAndroidBoxRegister").DataTable({
+            var TableCustomerOrder = $("#TableCustomerOrder").DataTable({
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": false,
@@ -142,20 +143,24 @@
                         "title": "#"
                     },
                     {
-                        "data": "AndroidID",
-                        "title": "รหัส AndroidID"
+                        "data": "Table",
+                        "title": "โต๊ะ"
                     },
                     {
-                        "data": "SetupLocation",
-                        "title": "ตำแหน่งติดตั้ง"
+                        "data": "CustomerName",
+                        "title": "ชื่อลูกค้า"
                     },
                     {
-                        "data": "Onair",
-                        "title": "ออกอากาศช่อง"
+                        "data": "PendingOrder",
+                        "title": "อยู่ระหว่างสั่งสินค้า"
                     },
                     {
-                        "data": "Status",
-                        "title": "สถานะ"
+                        "data": "SuccessOrder",
+                        "title": "เสริฟแล้ว"
+                    },
+                    {
+                        "data": "OrderChange",
+                        "title": "ยอดสั่งซื้อ"
                     },
                     {
                         "data": "Option",
@@ -165,124 +170,124 @@
                 ]
             });
 
-            var DataID = "";
-            var AndroidID = "";
-            var SetupLocation = "";
+            // var DataID = "";
+            // var AndroidID = "";
+            // var SetupLocation = "";
 
-            $("#TableAndroidBoxRegister").on("click", ".BTNApproveRegister", function() {
+            // $("#TableCustomerOrder").on("click", ".BTNApproveRegister", function() {
 
-                DataID = $(this).attr("data-ID");
-                AndroidID = $(this).attr("data-AndroidID");
-                SetupLocation = $(this).attr("data-SetupLocation");
-                $("#ModalRegisterAndroidBox").modal("show");
-                $("#ModalRegisterAndroidBox").find(".modal-title").text("ลงทะเบียน " + AndroidID);
+            //     DataID = $(this).attr("data-ID");
+            //     AndroidID = $(this).attr("data-AndroidID");
+            //     SetupLocation = $(this).attr("data-SetupLocation");
+            //     $("#ModalRegisterAndroidBox").modal("show");
+            //     $("#ModalRegisterAndroidBox").find(".modal-title").text("ลงทะเบียน " + AndroidID);
 
-            });
+            // });
 
-            $("#ModalRegisterAndroidBox").find("#Save").on("click",async function() {
+            // $("#ModalRegisterAndroidBox").find("#Save").on("click",async function() {
 
-                var SetupPosition = $("#ModalRegisterAndroidBox").find("#INP_SetupPosition").val();
-                var StreamChannel = $("#ModalRegisterAndroidBox").find("#INP_StreamChannel option:selected").val();
-                var StreamName = $("#ModalRegisterAndroidBox").find("#INP_StreamChannel option:selected").text();
-                var Description = $("#ModalRegisterAndroidBox").find("#CommentDescription").val();
+            //     var SetupPosition = $("#ModalRegisterAndroidBox").find("#INP_SetupPosition").val();
+            //     var StreamChannel = $("#ModalRegisterAndroidBox").find("#INP_StreamChannel option:selected").val();
+            //     var StreamName = $("#ModalRegisterAndroidBox").find("#INP_StreamChannel option:selected").text();
+            //     var Description = $("#ModalRegisterAndroidBox").find("#CommentDescription").val();
 
-                if (SetupPosition == "") {
+            //     if (SetupPosition == "") {
 
-                    return false;
-                }
-                if (StreamChannel == "None") {
+            //         return false;
+            //     }
+            //     if (StreamChannel == "None") {
 
-                    return false;
-                }
-                if (Description == "") {
+            //         return false;
+            //     }
+            //     if (Description == "") {
 
-                    return false;
-                }
-
-
-                var data = new FormData();
-                data.append('AndroidID', AndroidID);
-                data.append('VideoTitle', StreamName);
-                data.append('VideoDescript', StreamName);
-                data.append('VideoURL', StreamChannel);
-                data.append('SetupLocation', SetupPosition);
-
-                await $.ajax({
-                    url: "/Data/SetDataAndroidBoxRTMPPlayerRegister",
-                    type: "POST",
-                    data: data,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function(data) {
-                        try {
-                            var obj = JSON.parse(data);
-                            console.log(obj);
-                            $("#ModalRegisterAndroidBox").modal("hide");
-                        } catch (error) {
-
-                        }
-                    },
-                    error: function() {}
-                });
+            //         return false;
+            //     }
 
 
-                console.log(SetupPosition);
-                console.log(StreamChannel);
-                console.log(Description);
+            //     var data = new FormData();
+            //     data.append('AndroidID', AndroidID);
+            //     data.append('VideoTitle', StreamName);
+            //     data.append('VideoDescript', StreamName);
+            //     data.append('VideoURL', StreamChannel);
+            //     data.append('SetupLocation', SetupPosition);
 
-            });
+            //     await $.ajax({
+            //         url: "/Data/SetDataAndroidBoxRTMPPlayerRegister",
+            //         type: "POST",
+            //         data: data,
+            //         contentType: false,
+            //         cache: false,
+            //         processData: false,
+            //         success: function(data) {
+            //             try {
+            //                 var obj = JSON.parse(data);
+            //                 console.log(obj);
+            //                 $("#ModalRegisterAndroidBox").modal("hide");
+            //             } catch (error) {
+
+            //             }
+            //         },
+            //         error: function() {}
+            //     });
+
+
+            //     console.log(SetupPosition);
+            //     console.log(StreamChannel);
+            //     console.log(Description);
+
+            // });
 
 
 
 
-            LoadDataCustomerRegisterWaitApprove();
+            // LoadDataCustomerRegisterWaitApprove();
 
-            setInterval(function() {
-                LoadDataCustomerRegisterWaitApprove();
-            }, 3000);
+            // setInterval(function() {
+            //     LoadDataCustomerRegisterWaitApprove();
+            // }, 3000);
 
-            //#region LoadDataPayLogWaitApprove
-            function LoadDataCustomerRegisterWaitApprove() {
-                $.ajax({
-                    url: "/Data/GetDataAndroidBoxRTMPPlayerRegister",
-                    type: "POST",
-                    // data: data,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function(data) {
-                        var Data = [];
-                        try {
-                            var obj = JSON.parse(data);
-                            //console.log(obj);
-                            for (var i = 0; i < obj.Data.length; i++) {
-                                var ID = i + 1;
+            // //#region LoadDataPayLogWaitApprove
+            // function LoadDataCustomerRegisterWaitApprove() {
+            //     $.ajax({
+            //         url: "/Data/GetDataAndroidBoxRTMPPlayerRegister",
+            //         type: "POST",
+            //         // data: data,
+            //         contentType: false,
+            //         cache: false,
+            //         processData: false,
+            //         success: function(data) {
+            //             var Data = [];
+            //             try {
+            //                 var obj = JSON.parse(data);
+            //                 //console.log(obj);
+            //                 for (var i = 0; i < obj.Data.length; i++) {
+            //                     var ID = i + 1;
 
-                                var Option = "";
+            //                     var Option = "";
 
-                                if (obj.Data[i].IsEnable == "0") {
-                                    Option = '<button class="btn btn-warning BTNApproveRegister" data-ID="' + obj.Data[i].ID + '" data-AndroidID="' + obj.Data[i].AndroidID + '" data-SetupLocation="' + obj.Data[i].SetupLocation + '">ดำเนินการ</button>';
-                                } else {
+            //                     if (obj.Data[i].IsEnable == "0") {
+            //                         Option = '<button class="btn btn-warning BTNApproveRegister" data-ID="' + obj.Data[i].ID + '" data-AndroidID="' + obj.Data[i].AndroidID + '" data-SetupLocation="' + obj.Data[i].SetupLocation + '">ดำเนินการ</button>';
+            //                     } else {
 
-                                }
-                                Data.push({
-                                    "ID": ID,
-                                    "AndroidID": obj.Data[i].AndroidID,
-                                    "SetupLocation": obj.Data[i].SetupLocation,
-                                    "Onair": obj.Data[i].VideoTitle,
-                                    "Status": obj.Data[i].Status,
-                                    "Option": Option,
-                                });
-                            }
-                            TableAndroidBoxRegister.clear().rows.add(Data).draw(false);
-                        } catch (error) {
+            //                     }
+            //                     Data.push({
+            //                         "ID": ID,
+            //                         "AndroidID": obj.Data[i].AndroidID,
+            //                         "SetupLocation": obj.Data[i].SetupLocation,
+            //                         "Onair": obj.Data[i].VideoTitle,
+            //                         "Status": obj.Data[i].Status,
+            //                         "Option": Option,
+            //                     });
+            //                 }
+            //                 TableCustomerOrder.clear().rows.add(Data).draw(false);
+            //             } catch (error) {
 
-                        }
-                    },
-                    error: function() {}
-                });
-            }
+            //             }
+            //         },
+            //         error: function() {}
+            //     });
+            // }
             //#endregion 
 
 
