@@ -325,7 +325,7 @@
                                 } else {
                                     Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
                                     if (obj[i].OrderSuccess != "0") {
-                                        Option += '<button class="btn btn-danger BTNSendInvoice" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >แจ้งยอดชำระ</button>';
+                                        Option += ' <button class="btn btn-danger BTNSendInvoice" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >แจ้งยอดชำระ</button>';
                                     }
                                 }
                                 Data.push({
