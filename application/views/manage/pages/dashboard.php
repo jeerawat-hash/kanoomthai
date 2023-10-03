@@ -226,6 +226,7 @@
                 const socket = io("http://203.156.9.157:8081");
                 socket.on("connect", function() {
                     console.log("Connected");
+                    GetDataOrderPending();
                 });
 
                 socket.on("Dashboard", function(Data) {
