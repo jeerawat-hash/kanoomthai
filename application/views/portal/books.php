@@ -561,16 +561,6 @@
                 socket.on("connect", async function() {
                     console.log("Connected");
 
-                    if (socket.connected == true) {
-                        var Data = JSON.stringify({
-                            "Source": "<?php echo $BookingSessionID; ?>",
-                            "Dest": "Dashboard",
-                            "Header": "SignIn",
-                            "Msg": "<?php echo $BookingSessionID; ?>",
-                        });
-                        socket.emit("MSGServer", Data);
-                    }
-
                     if ("<?php echo $BookingSessionID; ?>" != "") {
                         await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
                         setTimeout(function() {
@@ -746,6 +736,15 @@
                                             "Msg": "Booking",
                                         });
                                         socket.emit("MSGServer", PayLoad);
+                                    }
+                                    if (socket.connected == true) {
+                                        var Data = JSON.stringify({
+                                            "Source": obj.Data.BookingSessionID,
+                                            "Dest": "Dashboard",
+                                            "Header": "SignIn",
+                                            "Msg": obj.Data.CustomerName,
+                                        });
+                                        socket.emit("MSGServer", Data);
                                     }
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
