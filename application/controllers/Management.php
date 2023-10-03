@@ -40,7 +40,7 @@ class Management extends CI_Controller
                 $data['page_name'] = $header['page_name'];
 
                 $this->load->view("manage/template/header.php", $header);
-                // $this->load->view("/Pages/CustomerMaintenance/Maintenance.php", $data);
+                $this->load->view("manage/pages/dashboard.php", $data);
                 $this->load->view("manage/template/footer.php");
         }
         public function Maintain()
