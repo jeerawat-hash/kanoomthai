@@ -232,8 +232,8 @@
 
                 $("#Modal_ConfirmOrder").modal("show");
                 $("#Modal_ConfirmOrder").find(".modal-title").text(CustomerName + " - " + TableName);
-                $("#Modal_ConfirmOrder").find("#CustomerName").text(CustomerName);
-                $("#Modal_ConfirmOrder").find("#Table").text(TableName);
+                $("#Modal_ConfirmOrder").find("#CustomerName").val(CustomerName);
+                $("#Modal_ConfirmOrder").find("#Table").val(TableName);
                 GetDataOrderPendingDetail(BookingSessionID);
  
             });
