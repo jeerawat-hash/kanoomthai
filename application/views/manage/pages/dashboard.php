@@ -180,6 +180,40 @@
                 ]
             });
 
+            var TableBookingOrderDetail = $("#TableBookingOrderDetail").DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                // "pageLength": 10,
+                // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                // "buttons": ["copy", "csv", "excel", "pdf", "print"],
+                dom: "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                columns: [{
+                        "data": "ID",
+                        "title": "#"
+                    },
+                    {
+                        "data": "BookingID",
+                        "title": "รายการสั่งซื้อ"
+                    },
+                    {
+                        "data": "GoodsName",
+                        "title": "สินค้า"
+                    },
+                    {
+                        "data": "OrderAmount",
+                        "title": "จำนวน"
+                    }, 
+                    {
+                        "data": "Option",
+                        "title": "ดำเนินการ",
+                        "className": "text-center"
+                    },
+                ]
+            });
+
             GetDataOrderPending();
 
 
