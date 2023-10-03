@@ -617,6 +617,16 @@
                     console.log(data);
                     var obj = JSON.parse(data);
 
+                    switch (obj.Header) {
+                        case "ReceiveOrder":
+                            /// OpenAlert obj.Msg ///
+                            break;
+                        case "SendInvoice":
+                            /// OpenOrder ///
+                            LoadSaleInvoice();
+                            break;
+                    }
+
                 });
 
 
