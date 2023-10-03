@@ -1,12 +1,5 @@
 <?php
-
-//$AccountPermit = array("Dashboard","Maintain","Account","Customers","News","Employee");
-//$AccountPermit = array("Dashboard","Maintain");
-
-// $page_name = 'หน้าแรก';
-// $page_focus = 'Maintain';
-// $page_menu = 1;
-
+  
 $Dashboard = array("", "", array("", "", "", "", "", "", "", "", "", ""));
 $Maintain = array("", "", array("", "", "", "", "", "", "", "", "", ""));
 $Account = array("", "", array("", "", "", "", "", "", "", "", "", ""));
@@ -190,11 +183,11 @@ switch ($page_focus) {
     </nav>
     <!-- /.navbar -->
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-light-success elevation-4">
+    <aside class="main-sidebar sidebar-black-success elevation-4">
       <!-- Brand Logo -->
       <a href="#" class="brand-link text-center">
         <!-- <img src="http://203.156.9.157/kanoomthai/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-        <span class="brand-text font-weight-light">จัดการสาครเคเบิล</span>
+        <span class="brand-text font-weight-light">จัดการร้านเท้งขนมไทย</span>
       </a>
 
       <!-- Sidebar -->
@@ -214,12 +207,12 @@ switch ($page_focus) {
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column nav-legacy nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
 
-            <!-- รายงาน-->
+            <!-- บริการหน้าร้าน-->
             <li class="nav-item <?php echo $Dashboard[0]; ?>" <?php echo $DashboardMenu; ?>>
               <a href="#" class="nav-link <?php echo $Dashboard[1]; ?>">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <p>
-                  รายงานผล
+                    บริการหน้าร้าน
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -227,19 +220,19 @@ switch ($page_focus) {
                 <li class="nav-item">
                   <a href="#" class="nav-link <?php echo $Dashboard[2][0]; ?>">
                     <i class="nav-icon fas fa-arrow-circle-right"></i>
-                    <p>สรุปผลการปฏิบัติงาน</p>
+                    <p>จัดการรายการสั่งซื้อ</p>
                   </a>
                 </li>
 
               </ul>
             </li>
-            <!-- รายงาน-->
-            <!-- สมาชิกสัมพันธ์ -->
+            <!-- บริการหน้าร้าน-->
+            <!-- จัดการข้อมูลสินค้า -->
             <li class="nav-item <?php echo $Maintain[0]; ?>" <?php echo $MaintainMenu; ?>>
               <a href="#" class="nav-link <?php echo $Maintain[1]; ?>">
                 <i class="nav-icon ion ion-person-add"></i>
                 <p>
-                  สมาชิกสัมพันธ์ (PR)
+                    ข้อมูลสินค้า
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -247,47 +240,31 @@ switch ($page_focus) {
                 <li class="nav-item">
                   <a href="/CustomerMaintenance" class="nav-link <?php echo $Maintain[2][0]; ?>">
                     <i class="nav-icon fas fa-cog"></i>
-                    <p>ตารางงานซ่อมบำรุง</p>
+                    <p>คลังสินค้า/ราคาขาย</p>
                   </a>
                 </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link <?php echo $Maintain[2][1]; ?>">
-                    <i class="nav-icon fas fa-sync-alt"></i>
-                    <p>ระบบดิจิตอลสาคร</p>
-                  </a>
-                </li>
-              </ul>
-              <!-- <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/ChatSystem" class="nav-link <?php echo $Maintain[2][2]; ?>">
-                    <i class="nav-icon far fa-comments"></i>
-                    <p>ระบบสนทนากับสมาชิก</p>
-                  </a>
-                </li>
-              </ul> -->
+              </ul> 
             </li>
-            <!-- สมาชิกสัมพันธ์ -->
-            <!-- รายได้สวัสดิการ -->
+            <!-- จัดการข้อมูลสินค้า -->
+            <!-- บัญชีผู้ใช้ -->
             <li hidden class="nav-item <?php echo $Account[0]; ?>" <?php echo $AccountMenu; ?>>
               <a href="#" class="nav-link <?php echo $Account[1]; ?>">
                 <i class="nav-icon far fa-flag"></i>
                 <p>
-                  รายได้สวัสดิการ
+                    บัญชีผู้ใช้
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                   <a href="/CustomerPayment" class="nav-link <?php echo $Account[2][0]; ?>">
                     <i class="nav-icon fas fa-user-plus"></i>
-                    <p>รับใบเสร็จโอนเงิน</p>
+                    <p>บัญชีผู้ใช้ระบบ</p>
                   </a>
-                </li> -->
+                </li>
               </ul>
             </li>
-            <!-- รายได้สวัสดิการ --> 
+            <!-- บัญชีผู้ใช้ --> 
 
 
           </ul>
