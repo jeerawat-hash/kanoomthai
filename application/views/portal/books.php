@@ -620,10 +620,14 @@
                     switch (obj.Header) {
                         case "ReceiveOrder":
                             /// OpenAlert obj.Msg ///
+                            LoadSaleOrder();
+                            LoadPendingOrder();
                             notification('notification-warning', "รับรายการอาหาร", obj.Msg, 5000);
                             break;
                         case "SendInvoice":
                             /// OpenOrder ///
+                            LoadSaleOrder();
+                            LoadPendingOrder();
                             $("#BTNCheckOut").click();
                             break;
                     }
