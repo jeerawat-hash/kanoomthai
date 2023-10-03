@@ -10,7 +10,8 @@ class BookingSession extends CI_Model
     public function GetDataAllOrderPending()
 	{ 
 		$QueryString = " 
-        select a.BookingSessionID,
+        select 
+        a.BookingSessionID,
         c.TableName,
         b.CustomerName,
         (
@@ -21,7 +22,7 @@ class BookingSession extends CI_Model
                 select count(*) as OrderSuccess from tbl_GoodsOrder 
         where BookingSessionID = a.BookingSessionID and MemberID != 9999 and IsCancel = 0
         ) as OrderSuccess
-         from tbl_BookingSession a 
+        from tbl_BookingSession a 
         join tbl_Customer b on a.CustomerID = b.CustomerID
         join tbl_Table c on a.TableID = c.TableID
         where a.IsCheckOut = 0

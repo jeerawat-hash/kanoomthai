@@ -46,8 +46,7 @@
                                             <th>โต๊ะ</th>
                                             <th>ชื่อลูกค้า</th>
                                             <th>อยู่ระหว่างสั่งสินค้า</th>
-                                            <th>สั่งสินค้าแล้ว</th>
-                                            <th>ยอดสั่งซื้อ</th>
+                                            <th>สั่งสินค้าแล้ว</th> 
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -103,11 +102,7 @@
                     {
                         "data": "SuccessOrder",
                         "title": "สั่งสินค้าแล้ว"
-                    },
-                    {
-                        "data": "OrderChange",
-                        "title": "ยอดสั่งซื้อ"
-                    },
+                    }, 
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",
@@ -131,36 +126,30 @@
                     cache: false,
                     processData: false,
                     success: function(data) {
-                        var obj = JSON.parse(data);
-                        console.log(obj);
-
-                        // var Data = [];
-                        // try {
-                        //     var obj = JSON.parse(data);
-                        //     //console.log(obj);
-                        //     for (var i = 0; i < obj.Data.length; i++) {
-                        //         var ID = i + 1;
-
-                        //         var Option = "";
-
-                        //         if (obj.Data[i].IsEnable == "0") {
-                        //             Option = '<button class="btn btn-warning BTNApproveRegister" data-ID="' + obj.Data[i].ID + '" data-AndroidID="' + obj.Data[i].AndroidID + '" data-SetupLocation="' + obj.Data[i].SetupLocation + '">ดำเนินการ</button>';
-                        //         } else {
-
-                        //         }
-                        //         Data.push({
-                        //             "ID": ID,
-                        //             "AndroidID": obj.Data[i].AndroidID,
-                        //             "SetupLocation": obj.Data[i].SetupLocation,
-                        //             "Onair": obj.Data[i].VideoTitle,
-                        //             "Status": obj.Data[i].Status,
-                        //             "Option": Option,
-                        //         });
-                        //     }
-                        //     TableAndroidBoxRegister.clear().rows.add(Data).draw(false);
-                        // } catch (error) {
-
-                        // }
+                    
+                        var Data = [];
+                        try {
+                            var obj = JSON.parse(data); 
+                            for (var i = 0; i < obj.length; i++) {
+                                var ID = i + 1; 
+                                var Option = ""; 
+                                if (obj[i].OrderPending == "1") {
+                                    Option = '<button class="btn btn-warning BTNOpenOrder">รับรายการ</button>';
+                                }else{
+                                    Option = '<button class="btn btn-secondary" disabled>กำลังสั่งอาหาร</button>';
+                                } 
+                                Data.push({
+                                    "ID": ID,
+                                    "Table": obj[i].TableName,
+                                    "CustomerName": obj[i].CustomerName,
+                                    "PendingOrder": obj[i].OrderPending,
+                                    "SuccessOrder": obj[i].OrderSuccess, 
+                                    "Option": Option,
+                                });
+                            }
+                            TableCustomerOrder.clear().rows.add(Data).draw(false);
+                        } catch (error) { 
+                        }
                     },
                     error: function() {}
                 });
