@@ -239,8 +239,10 @@
                 CustomerName = $(this).attr("data-CustomerName");
                 OrderPending = $(this).attr("data-OrderPending");
                 OrderSuccess = $(this).attr("data-OrderSuccess"); 
+                /// Emit Event To OpenInvoice Page ///
 
 
+                /// Emit Event To OpenInvoice Page ///
 
             });
 
