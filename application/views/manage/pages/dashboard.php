@@ -124,7 +124,7 @@
             //#region GetDataOrderPending
             function GetDataOrderPending() {
                 $.ajax({
-                    url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataOrderPending",
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAllOrderPending",
                     type: "POST",
                     // data: data,
                     contentType: false,

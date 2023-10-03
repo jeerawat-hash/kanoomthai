@@ -7,7 +7,31 @@ class BookingSession extends CI_Model
         $this->mysql = $this->load->database("mysql", true);
         $this->load->library("session");
     }
-    public function GetDataOrderPending()
+    public function GetDataAllOrderPending()
+	{ 
+		$QueryString = " 
+        select a.BookingSessionID,
+        c.TableName,
+        b.CustomerName,
+        (
+            select count(*) as OrderPending from tbl_GoodsOrder 
+        where BookingSessionID = a.BookingSessionID and MemberID = 9999 and IsCancel = 0
+        ) as OrderPending,
+        (
+                select count(*) as OrderSuccess from tbl_GoodsOrder 
+        where BookingSessionID = a.BookingSessionID and MemberID != 9999 and IsCancel = 0
+        ) as OrderSuccess
+         from tbl_BookingSession a 
+        join tbl_Customer b on a.CustomerID = b.CustomerID
+        join tbl_Table c on a.TableID = c.TableID
+        where a.IsCheckOut = 0
+        ";
+		$query = $this->mysql->query($QueryString);
+		$Sale = $query->result_array();
+		$this->mysql->close();
+		return $Sale;
+	}
+    public function GetDataOrderPendingDetail($BookingSessionID)
 	{ 
 		$QueryString = " 
         SELECT f.TableName,e.CustomerName,a.GoodsOrderID,a.BookingSessionID,c.GoodsItemID,c.GoodsItemName,c.Unit,c.PricePerUnit,(b.Amount * c.PricePerUnit) as TotalChange FROM tbl_GoodsOrder a
@@ -16,9 +40,9 @@ class BookingSession extends CI_Model
         join tbl_BookingSession d on a.BookingSessionID = d.BookingSessionID
         join tbl_Customer e on d.CustomerID = e.CustomerID
         join tbl_Table f on d.TableID = f.TableID
-        where a.MemberID = 9999 and a.IsCancel = 0
+        where a.BookingSessionID = ? and a.MemberID = 9999 and a.IsCancel = 0
         ";
-		$query = $this->mysql->query($QueryString);
+		$query = $this->mysql->query($QueryString,array($BookingSessionID));
 		$Sale = $query->result_array();
 		$this->mysql->close();
 		return $Sale;

@@ -20,11 +20,15 @@ class Data extends CI_Controller {
 
 
 
-
-
+    
+    public function GetDataAllOrderPending()
+    {  
+        $result = $this->BookingSession->GetDataAllOrderPending();
+        echo json_encode($result);
+    }
     public function GetDataOrderPending()
     {  
-        $result = $this->BookingSession->GetDataOrderPending();
+        $result = $this->BookingSession->GetDataOrderPending(70);
         echo json_encode($result);
     }
  
