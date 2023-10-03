@@ -46,7 +46,7 @@
                                             <th>โต๊ะ</th>
                                             <th>ชื่อลูกค้า</th>
                                             <th>อยู่ระหว่างสั่งสินค้า</th>
-                                            <th>สั่งสินค้าแล้ว</th> 
+                                            <th>สั่งสินค้าแล้ว</th>
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -61,6 +61,75 @@
 
 
 
+
+                <!-- Modal_ConfirmOrder -->
+                <div class="modal fade" id="Modal_ConfirmOrder">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-warning">
+                                <h5 class="modal-title">Extra Large Modal</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4>ลูกค้า</h4>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4>โต๊ะ</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" id="CustomerName" placeholder="ลูกค้า" disabled>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" id="Table" placeholder="โต๊ะ" disabled>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <table id="TableBookingOrderDetail" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>รายการสั่งซื้อ</th>
+                                                    <th>สินค้า</th>
+                                                    <th>จำนวน</th>
+                                                    <th>ดำเนินการ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-12"> 
+                                        <div class="form-group">
+                                            <label>ข้อความแนบถึงลูกค้า</label>
+                                            <textarea class="form-control" rows="3" placeholder="แนบข้อความ"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="SaveData">ยืนยันคำสั่งซื้อ</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- Modal_ConfirmOrder  -->
 
 
 
@@ -102,7 +171,7 @@
                     {
                         "data": "SuccessOrder",
                         "title": "สั่งสินค้าแล้ว"
-                    }, 
+                    },
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",
@@ -110,8 +179,15 @@
                     },
                 ]
             });
- 
+
             GetDataOrderPending();
+
+
+            $("#TableCustomerOrder").on("click",".BTNOpenOrder",function(){
+
+                $("#Modal_ConfirmOrder").modal("show");
+
+            });
 
 
             //#region GetDataOrderPending
@@ -124,30 +200,29 @@
                     cache: false,
                     processData: false,
                     success: function(data) {
-                    
+
                         var Data = [];
                         try {
-                            var obj = JSON.parse(data); 
+                            var obj = JSON.parse(data);
                             for (var i = 0; i < obj.length; i++) {
-                                var ID = i + 1; 
-                                var Option = ""; 
+                                var ID = i + 1;
+                                var Option = "";
                                 if (obj[i].OrderPending == "1") {
                                     Option = '<button class="btn btn-warning BTNOpenOrder">รับรายการ</button>';
-                                }else{
+                                } else {
                                     Option = '<button class="btn btn-secondary" disabled>กำลังสั่งอาหาร</button>';
-                                } 
+                                }
                                 Data.push({
                                     "ID": ID,
                                     "Table": obj[i].TableName,
                                     "CustomerName": obj[i].CustomerName,
-                                    "PendingOrder": obj[i].OrderPending+" รายการ",
-                                    "SuccessOrder": obj[i].OrderSuccess+" รายการ", 
+                                    "PendingOrder": obj[i].OrderPending + " รายการ",
+                                    "SuccessOrder": obj[i].OrderSuccess + " รายการ",
                                     "Option": Option,
                                 });
                             }
                             TableCustomerOrder.clear().rows.add(Data).draw(false);
-                        } catch (error) { 
-                        }
+                        } catch (error) {}
                     },
                     error: function() {}
                 });
