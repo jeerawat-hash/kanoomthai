@@ -322,13 +322,11 @@
                                 var Option = "";
                                 if (obj[i].OrderPending == "1") {
                                     Option += '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
-
+                                } else {
+                                    Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
                                     if (obj[i].OrderSuccess != "0") {
                                         Option += '<button class="btn btn-danger BTNSendInvoice" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >แจ้งยอดชำระ</button>';
                                     }
-
-                                } else {
-                                    Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
                                 }
                                 Data.push({
                                     "ID": ID,
