@@ -35,19 +35,18 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">จัดการรายการสั่งซื้อ</h3>
+                                <h3 class="card-title">จัดการคลังสินค้าและราคาขาย</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="TableCustomerOrder" class="table table-bordered table-striped">
+                                <table id="TableGoodsItems" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>ลำดับ</th>
-                                            <th>โต๊ะ</th>
-                                            <th>ชื่อลูกค้า</th>
-                                            <th>อยู่ระหว่างสั่งสินค้า</th>
-                                            <th>เสริฟแล้ว</th>
-                                            <th>ยอดสั่งซื้อ</th>
+                                            <th>ชื่อ</th>
+                                            <th>ราคาต่อหน่วย</th>
+                                            <th>ยอดคงเหลือ</th>
+                                            <th>ภาพ</th> 
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -74,7 +73,7 @@
     <script>
         $(function() {
   
-            var TableCustomerOrder = $("#TableCustomerOrder").DataTable({
+            var TableGoodsItems = $("#TableGoodsItems").DataTable({
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": false,
@@ -89,25 +88,21 @@
                         "title": "#"
                     },
                     {
-                        "data": "Table",
-                        "title": "โต๊ะ"
+                        "data": "GoodsName",
+                        "title": "ชื่อ"
                     },
                     {
-                        "data": "CustomerName",
-                        "title": "ชื่อลูกค้า"
+                        "data": "UnitPerPrice",
+                        "title": "ราคาต่อหน่วย"
                     },
                     {
-                        "data": "PendingOrder",
-                        "title": "อยู่ระหว่างสั่งสินค้า"
+                        "data": "StockAmount",
+                        "title": "ยอดคงเหลือ"
                     },
                     {
-                        "data": "SuccessOrder",
-                        "title": "เสริฟแล้ว"
-                    },
-                    {
-                        "data": "OrderChange",
-                        "title": "ยอดสั่งซื้อ"
-                    },
+                        "data": "Image",
+                        "title": "ภาพ"
+                    }, 
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",

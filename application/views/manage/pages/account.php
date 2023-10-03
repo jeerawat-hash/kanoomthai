@@ -35,19 +35,17 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">จัดการรายการสั่งซื้อ</h3>
+                                <h3 class="card-title">จัดการบัญชีผู้ใช้งานระบบ</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="TableCustomerOrder" class="table table-bordered table-striped">
+                                <table id="TableMembers" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>ลำดับ</th>
-                                            <th>โต๊ะ</th>
-                                            <th>ชื่อลูกค้า</th>
-                                            <th>อยู่ระหว่างสั่งสินค้า</th>
-                                            <th>เสริฟแล้ว</th>
-                                            <th>ยอดสั่งซื้อ</th>
+                                            <th>ชื่อ</th>
+                                            <th>ตำแหน่ง</th>
+                                            <th>Username</th> 
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -74,7 +72,7 @@
     <script>
         $(function() {
   
-            var TableCustomerOrder = $("#TableCustomerOrder").DataTable({
+            var TableMembers = $("#TableMembers").DataTable({
                 "responsive": true,
                 "lengthChange": true,
                 "autoWidth": false,
@@ -89,25 +87,17 @@
                         "title": "#"
                     },
                     {
-                        "data": "Table",
-                        "title": "โต๊ะ"
+                        "data": "MemberName",
+                        "title": "ชื่อ"
                     },
                     {
-                        "data": "CustomerName",
-                        "title": "ชื่อลูกค้า"
+                        "data": "Position",
+                        "title": "ตำแหน่ง"
                     },
                     {
-                        "data": "PendingOrder",
-                        "title": "อยู่ระหว่างสั่งสินค้า"
-                    },
-                    {
-                        "data": "SuccessOrder",
-                        "title": "เสริฟแล้ว"
-                    },
-                    {
-                        "data": "OrderChange",
-                        "title": "ยอดสั่งซื้อ"
-                    },
+                        "data": "Username",
+                        "title": "Username"
+                    }, 
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",

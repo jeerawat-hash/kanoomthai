@@ -56,7 +56,7 @@ class Management extends CI_Controller
                 $data['page_name'] = $header['page_name'];
 
                 $this->load->view("manage/template/header.php", $header);
-                // $this->load->view("/Pages/CustomerMaintenance/Maintenance.php", $data);
+                $this->load->view("manage/pages/manage.php", $data); 
                 $this->load->view("manage/template/footer.php");
         }
         public function Account()
@@ -72,7 +72,7 @@ class Management extends CI_Controller
                 $data['page_name'] = $header['page_name'];
 
                 $this->load->view("manage/template/header.php", $header);
-                // $this->load->view("/Pages/CustomerMaintenance/Maintenance.php", $data);
+                $this->load->view("manage/pages/account.php", $data); 
                 $this->load->view("manage/template/footer.php");
         }
 }
