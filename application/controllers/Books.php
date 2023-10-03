@@ -21,7 +21,7 @@ class Books extends CI_Controller {
 		$Header["TableID"] = $TableID;
 		$Header["TableName"] = $TableName;
 
-		$this->load->view('books',$Header);
+		$this->load->view('portal/books',$Header);
 	}
 	public function Logout()
     {
