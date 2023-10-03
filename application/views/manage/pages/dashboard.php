@@ -96,10 +96,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>รายการสั่งซื้อ</th>
+                                                    <th>รหัสสั่งซื้อ</th>
                                                     <th>สินค้า</th>
-                                                    <th>จำนวน</th>
-                                                    <th>ดำเนินการ</th>
+                                                    <th>จำนวน</th> 
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -196,7 +195,7 @@
                     },
                     {
                         "data": "OrderID",
-                        "title": "รายการสั่งซื้อ"
+                        "title": "รหัสสั่งซื้อ"
                     },
                     {
                         "data": "GoodsName",
@@ -205,11 +204,6 @@
                     {
                         "data": "OrderAmount",
                         "title": "จำนวน"
-                    },
-                    {
-                        "data": "Option",
-                        "title": "ดำเนินการ",
-                        "className": "text-center"
                     },
                 ]
             });
@@ -257,18 +251,11 @@
                             var obj = JSON.parse(data);
                             for (var i = 0; i < obj.length; i++) {
                                 var ID = i + 1;
-                                var Option = "";
-                                // if (obj[i].OrderPending == "1") {
-                                //     Option = '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
-                                // } else {
-                                //     Option = '<button class="btn btn-secondary" disabled>กำลังสั่งอาหาร</button>';
-                                // }
                                 Data.push({
                                     "ID": ID,
                                     "OrderID": obj[i].GoodsOrderID,
                                     "GoodsName": obj[i].GoodsItemName,
-                                    "OrderAmount": obj[i].Amount + " "+obj[i].Unit,
-                                    "Option": Option,
+                                    "OrderAmount": obj[i].Amount + " "+obj[i].Unit, 
                                 });
                             }
                             TableBookingOrderDetail.clear().rows.add(Data).draw(false);
