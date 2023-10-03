@@ -528,15 +528,15 @@
 
 
         var TableInvoice = $('#ModalInvoice').find("#TableInvoice").DataTable({
-                    dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
-                        "<'row'<'col-sm-12'tr>>" +
-                        "<'row'<'col-sm-5'><'col-sm-7'>>",
-                    pageLength: -1,
-                    order: [
-                        [2, 'asc'],
-                        [3, 'asc']
-                    ],
-                });
+            dom: "<'row'<'col-sm-6'><'col-sm-6'>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'><'col-sm-7'>>",
+            pageLength: -1,
+            order: [
+                [2, 'asc'],
+                [3, 'asc']
+            ],
+        });
 
 
         $(function() {
@@ -606,15 +606,19 @@
                 });
 
                 socket.on("AllEvent", function(data) {
-
                     console.log(data);
                     var obj = JSON.parse(data);
                     if (obj.Msg == "Booking") {
                         LoadDataSelectTable();
                     }
+                });
+
+                socket.on("<?php echo $BookingSessionID; ?>", function(data) {
+                    console.log(data);
+                    var obj = JSON.parse(data);
 
                 });
- 
+
 
 
 
@@ -627,9 +631,9 @@
 
                 //#region SignOut
                 $("#ModalInvoice").find("#BTNSignOut").on("click", function() {
-                    $("#ModalInvoice").modal("hide");       
-                    $("#ModalInvoice").find("#TotalPrice").text(0+" บาท");
- 
+                    $("#ModalInvoice").modal("hide");
+                    $("#ModalInvoice").find("#TotalPrice").text(0 + " บาท");
+
                     $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/SignOut",
                         type: "POST",
@@ -645,7 +649,7 @@
                         },
                         error: function() {}
                     });
- 
+
                 });
                 //#endregion
 
@@ -819,9 +823,6 @@
                 /// SendOrder ///
                 $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
 
-                    // var data = new FormData();
-                    // data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>"); 
-                    // data.append('Data', GroupedItemsCart); 
                     var data = {
                         BookingSessionID: "<?php echo $BookingSessionID; ?>",
                         Data: GroupedItemsCart
@@ -833,6 +834,15 @@
                         LoadPendingOrder();
                         LoadSaleOrder();
                         $("#ModalOrderGoods").modal("hide");
+                        if (socket.connected == true) {
+                            var Data = JSON.stringify({
+                                "Source": "<?php echo $BookingSessionID; ?>",
+                                "Dest": "Dashboard",
+                                "Header": "SendOrder",
+                                "Msg": "",
+                            });
+                            socket.emit("MSGServer", Data);
+                        }
 
                     });
 
@@ -872,23 +882,23 @@
                     try {
                         var obj = JSON.parse(data);
                         console.log(obj);
-                        
-                        if (obj.length != 0) { 
+
+                        if (obj.length != 0) {
                             obj.forEach(function(Item) {
 
                                 TableInvoice.row.add([
                                     Item.GoodsItemName,
-                                    Item.PricePerUnit+" บาท",
-                                    Item.Amount+" "+Item.Unit,
+                                    Item.PricePerUnit + " บาท",
+                                    Item.Amount + " " + Item.Unit,
                                     Item.TotalChange + " บาท",
                                 ]).draw(false);
-                                SumAmount += parseFloat(Item.TotalChange); 
+                                SumAmount += parseFloat(Item.TotalChange);
 
                             });
 
-                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount+" บาท"); 
+                            $("#ModalInvoice").find("#TotalPrice").text(SumAmount + " บาท");
                         }
-                  
+
                     } catch (error) {}
                 },
                 error: function() {}

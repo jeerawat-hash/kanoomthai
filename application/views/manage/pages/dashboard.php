@@ -112,7 +112,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>ข้อความแนบถึงลูกค้า</label>
-                                            <textarea class="form-control" rows="3" placeholder="แนบข้อความ"></textarea>
+                                            <textarea class="form-control" id="Comment" rows="3" placeholder="แนบข้อความ"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -140,6 +140,19 @@
 
     <script>
         $(function() {
+
+            var header = "";
+            var Source = "";
+            var Dest = "";
+            var Msg = ""
+
+
+            var BookingSessionID = "";
+            var TableName = "";
+            var CustomerName = "";
+            var OrderPending = "";
+            var OrderSuccess = "";
+
 
             var TableCustomerOrder = $("#TableCustomerOrder").DataTable({
                 "responsive": true,
@@ -208,66 +221,96 @@
                 ]
             });
 
-            GetDataOrderPending();
 
-            var BookingSessionID = "";
-            var TableName = "";
-            var CustomerName = "";
-            var OrderPending = "";
-            var OrderSuccess = "";
-
-            $("#TableCustomerOrder").on("click", ".BTNOpenOrder", function() {
-
-                BookingSessionID = $(this).attr("data-BookingSessionID");
-                TableName = $(this).attr("data-TableName");
-                CustomerName = $(this).attr("data-CustomerName");
-                OrderPending = $(this).attr("data-OrderPending");
-                OrderSuccess = $(this).attr("data-OrderSuccess");
-
-                $("#Modal_ConfirmOrder").modal("show");
-                $("#Modal_ConfirmOrder").find(".modal-title").text(CustomerName + " - " + TableName);
-                $("#Modal_ConfirmOrder").find("#CustomerName").val(CustomerName);
-                $("#Modal_ConfirmOrder").find("#Table").val(TableName);
-                GetDataOrderPendingDetail(BookingSessionID);
-
-            });
-
-            $("#TableCustomerOrder").on("click", ".BTNSendInvoice", function() {
-
-                BookingSessionID = $(this).attr("data-BookingSessionID");
-                TableName = $(this).attr("data-TableName");
-                CustomerName = $(this).attr("data-CustomerName");
-                OrderPending = $(this).attr("data-OrderPending");
-                OrderSuccess = $(this).attr("data-OrderSuccess"); 
-                /// Emit Event To OpenInvoice Page ///
-
-
-                /// Emit Event To OpenInvoice Page ///
-
-            });
-
-            $("#Modal_ConfirmOrder").find("#SaveData").on("click", function() {
-
-                var data = new FormData();
-                data.append('BookingSessionID', BookingSessionID);
-                $.ajax({
-                    url: "http://203.156.9.157/kanoomthai/index.php/Data/SetReceiveOrder",
-                    type: "POST",
-                    data: data,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function(data) {
-                        /// Emit Event ///
-
-                        /// Emit Event ///
-                        GetDataOrderPending();
-                        $("#Modal_ConfirmOrder").modal("hide");
-                    },
-                    error: function() {}
+            try {
+                const socket = io("http://203.156.9.157:8081");
+                socket.on("connect", function() {
+                    console.log("Connected");
                 });
 
-            });
+                socket.on("Dashboard", function(Data) {
+                    console.log("From : " + Data);
+                    GetDataOrderPending();
+                });
+
+                $("#TableCustomerOrder").on("click", ".BTNOpenOrder", function() {
+
+                    BookingSessionID = $(this).attr("data-BookingSessionID");
+                    TableName = $(this).attr("data-TableName");
+                    CustomerName = $(this).attr("data-CustomerName");
+                    OrderPending = $(this).attr("data-OrderPending");
+                    OrderSuccess = $(this).attr("data-OrderSuccess");
+
+                    $("#Modal_ConfirmOrder").modal("show");
+                    $("#Modal_ConfirmOrder").find(".modal-title").text(CustomerName + " - " + TableName);
+                    $("#Modal_ConfirmOrder").find("#CustomerName").val(CustomerName);
+                    $("#Modal_ConfirmOrder").find("#Table").val(TableName);
+                    GetDataOrderPendingDetail(BookingSessionID);
+
+                });
+
+                $("#TableCustomerOrder").on("click", ".BTNSendInvoice", function() {
+
+                    BookingSessionID = $(this).attr("data-BookingSessionID");
+                    TableName = $(this).attr("data-TableName");
+                    CustomerName = $(this).attr("data-CustomerName");
+                    OrderPending = $(this).attr("data-OrderPending");
+                    OrderSuccess = $(this).attr("data-OrderSuccess");
+                    /// Emit Event To OpenInvoice Page ///
+
+                    if (socket.connected == true) {
+                        var Data = JSON.stringify({
+                            "Source": "Dashboard",
+                            "Dest": BookingSessionID,
+                            "Header": "SendInvoice",
+                            "Msg": "",
+                        });
+                        socket.emit("MSGServer", Data);
+                    }
+
+                    /// Emit Event To OpenInvoice Page /// 
+                });
+
+                $("#Modal_ConfirmOrder").find("#SaveData").on("click", function() {
+
+                    var data = new FormData();
+                    data.append('BookingSessionID', BookingSessionID);
+                    $.ajax({
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/SetReceiveOrder",
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            /// Emit Event ///
+                            if (socket.connected == true) {
+                                var Data = JSON.stringify({
+                                    "Source": "Dashboard",
+                                    "Dest": BookingSessionID,
+                                    "Header": "ReceiveOrder",
+                                    "Msg": $("#Modal_ConfirmOrder").find("#Comment").val(),
+                                });
+                                socket.emit("MSGServer", Data);
+                            }
+                            /// Emit Event ///
+                            GetDataOrderPending();
+                            $("#Modal_ConfirmOrder").modal("hide");
+                        },
+                        error: function() {}
+                    });
+
+                });
+
+            } catch (error) {
+                console.log(error);
+            }
+
+
+
+
+
+
 
 
 
