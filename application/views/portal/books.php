@@ -644,6 +644,16 @@
                     $("#ModalInvoice").modal("hide");
                     $("#ModalInvoice").find("#TotalPrice").text(0 + " บาท");
 
+                    if (socket.connected == true) {
+                        var Data = JSON.stringify({
+                            "Source": "<?php echo $BookingSessionID; ?>",
+                            "Dest": "Dashboard",
+                            "Header": "SignOut",
+                            "Msg": "<?php echo $BookingSessionID; ?>",
+                        });
+                        socket.emit("MSGServer", Data);
+                    }
+
                     $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/SignOut",
                         type: "POST",
