@@ -218,7 +218,7 @@ switch ($page_focus) {
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php/Management/Dashboard" class="nav-link <?php echo $Dashboard[2][0]; ?>">
+                  <a href="Management/Dashboard" class="nav-link <?php echo $Dashboard[2][0]; ?>">
                     <i class="nav-icon fas fa-arrow-circle-right"></i>
                     <p>จัดการรายการสั่งซื้อ</p>
                   </a>
@@ -238,7 +238,7 @@ switch ($page_focus) {
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php/Management/Maintain" class="nav-link <?php echo $Maintain[2][0]; ?>">
+                  <a href="Management/Maintain" class="nav-link <?php echo $Maintain[2][0]; ?>">
                     <i class="nav-icon fas fa-cog"></i>
                     <p>คลังสินค้า/ราคาขาย</p>
                   </a>
@@ -257,7 +257,7 @@ switch ($page_focus) {
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php/Management/Account" class="nav-link <?php echo $Account[2][0]; ?>">
+                  <a href="Management/Account" class="nav-link <?php echo $Account[2][0]; ?>">
                     <i class="nav-icon fas fa-user-plus"></i>
                     <p>บัญชีผู้ใช้ระบบ</p>
                   </a>
