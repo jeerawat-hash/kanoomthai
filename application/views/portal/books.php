@@ -623,7 +623,7 @@
                             break;
                         case "SendInvoice":
                             /// OpenOrder ///
-                            LoadSaleInvoice();
+                            $("#BTNCheckOut").click();
                             break;
                     }
 
