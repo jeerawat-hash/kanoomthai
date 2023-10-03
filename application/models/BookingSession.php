@@ -7,6 +7,20 @@ class BookingSession extends CI_Model
         $this->mysql = $this->load->database("mysql", true);
         $this->load->library("session");
     }
+    public function SetReceiveOrder($BookingSessionID,$MemberID)
+    {  
+        $this->mysql->trans_start();
+        $QueryString = " 
+        UPDATE tbl_GoodsOrder SET 
+        MemberID = ?
+        WHERE BookingSessionID = ?
+        ";
+        $query = $this->mysql->query($QueryString, array($MemberID,$BookingSessionID));
+        $Transaction = $this->mysql->trans_complete(); 
+        $Data = array("Status" => (($Transaction == true) ? 1 : 0));
+        $this->mysql->close();
+        return $Data;
+    }
     public function GetDataAllOrderPending()
 	{ 
 		$QueryString = " 

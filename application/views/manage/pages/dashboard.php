@@ -232,7 +232,17 @@
  
             });
 
+            $("#Modal_ConfirmOrder").find("#SaveData").on("click",function(){
 
+                alert(BookingSessionID);
+
+
+            });
+
+
+
+
+            
             //#region GetDataOrderPendingDetail
             function GetDataOrderPendingDetail(BookingSessionID) {
                 var data = new FormData();
