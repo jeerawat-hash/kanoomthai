@@ -145,6 +145,8 @@ switch ($page_focus) {
   <!-- sweetalert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.js"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed layout-navbar-fixed">
