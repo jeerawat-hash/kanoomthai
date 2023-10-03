@@ -118,11 +118,11 @@
 
 
 
+            GetDataOrderPending();
 
 
-
-            //#region LoadDataPayLogWaitApprove
-            function LoadDataCustomerRegisterWaitApprove() {
+            //#region GetDataOrderPending
+            function GetDataOrderPending() {
                 $.ajax({
                     url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataOrderPending",
                     type: "POST",
@@ -133,7 +133,7 @@
                     success: function(data) {
                         var obj = JSON.parse(data);
                         console.log(obj);
-                        
+
                         // var Data = [];
                         // try {
                         //     var obj = JSON.parse(data);
