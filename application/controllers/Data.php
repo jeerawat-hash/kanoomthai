@@ -14,8 +14,24 @@ class Data extends CI_Controller {
 		echo "1";
 	}
  
+    //// Backend ////
 
-     
+
+
+
+
+
+
+    public function GetDataOrderPending()
+    {  
+        $result = $this->BookingSession->GetDataOrderPending();
+        echo json_encode($result);
+    }
+ 
+    //// Backend ////
+
+
+
     public function GetDataSaleFullInvoice()
     { 
         $BookingSessionID = $this->session->userdata("BookingSessionID"); 

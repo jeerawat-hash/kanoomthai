@@ -63,7 +63,7 @@
 
 
 
- 
+
 
 
             </div><!-- /.container-fluid -->
@@ -73,7 +73,7 @@
 
     <script>
         $(function() {
-  
+
             var TableCustomerOrder = $("#TableCustomerOrder").DataTable({
                 "responsive": true,
                 "lengthChange": true,
@@ -115,10 +115,61 @@
                     },
                 ]
             });
- 
 
 
-            
+
+
+
+
+            //#region LoadDataPayLogWaitApprove
+            function LoadDataCustomerRegisterWaitApprove() {
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataOrderPending",
+                    type: "POST",
+                    // data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+                        var obj = JSON.parse(data);
+                        console.log(obj);
+                        
+                        // var Data = [];
+                        // try {
+                        //     var obj = JSON.parse(data);
+                        //     //console.log(obj);
+                        //     for (var i = 0; i < obj.Data.length; i++) {
+                        //         var ID = i + 1;
+
+                        //         var Option = "";
+
+                        //         if (obj.Data[i].IsEnable == "0") {
+                        //             Option = '<button class="btn btn-warning BTNApproveRegister" data-ID="' + obj.Data[i].ID + '" data-AndroidID="' + obj.Data[i].AndroidID + '" data-SetupLocation="' + obj.Data[i].SetupLocation + '">ดำเนินการ</button>';
+                        //         } else {
+
+                        //         }
+                        //         Data.push({
+                        //             "ID": ID,
+                        //             "AndroidID": obj.Data[i].AndroidID,
+                        //             "SetupLocation": obj.Data[i].SetupLocation,
+                        //             "Onair": obj.Data[i].VideoTitle,
+                        //             "Status": obj.Data[i].Status,
+                        //             "Option": Option,
+                        //         });
+                        //     }
+                        //     TableAndroidBoxRegister.clear().rows.add(Data).draw(false);
+                        // } catch (error) {
+
+                        // }
+                    },
+                    error: function() {}
+                });
+            }
+            //#endregion 
+
+
+
+
 
         });
     </script>

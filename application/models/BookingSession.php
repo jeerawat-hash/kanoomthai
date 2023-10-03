@@ -7,6 +7,22 @@ class BookingSession extends CI_Model
         $this->mysql = $this->load->database("mysql", true);
         $this->load->library("session");
     }
+    public function GetDataOrderPending()
+	{ 
+		$QueryString = " 
+        SELECT f.TableName,e.CustomerName,a.GoodsOrderID,a.BookingSessionID,c.GoodsItemID,c.GoodsItemName,c.Unit,c.PricePerUnit,(b.Amount * c.PricePerUnit) as TotalChange FROM tbl_GoodsOrder a
+        join tbl_GoodsOrderDetail b on a.GoodsOrderID = b.GoodsOrderID
+        join tbl_GoodsItem c on b.GoodsItemID = c.GoodsItemID 
+        join tbl_BookingSession d on a.BookingSessionID = d.BookingSessionID
+        join tbl_Customer e on d.CustomerID = e.CustomerID
+        join tbl_Table f on d.TableID = f.TableID
+        where a.MemberID = 9999 and a.IsCancel = 0
+        ";
+		$query = $this->mysql->query($QueryString);
+		$Sale = $query->result_array();
+		$this->mysql->close();
+		return $Sale;
+	}
     public function GetDataSaleFullInvoice($BookingSessionID)
 	{ 
 		$QueryString = " 
