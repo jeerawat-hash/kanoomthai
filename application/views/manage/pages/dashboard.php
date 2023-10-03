@@ -98,7 +98,7 @@
                                                     <th>#</th>
                                                     <th>รหัสสั่งซื้อ</th>
                                                     <th>สินค้า</th>
-                                                    <th>จำนวน</th> 
+                                                    <th>จำนวน</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -229,10 +229,22 @@
                 $("#Modal_ConfirmOrder").find("#CustomerName").val(CustomerName);
                 $("#Modal_ConfirmOrder").find("#Table").val(TableName);
                 GetDataOrderPendingDetail(BookingSessionID);
- 
+
             });
 
-            $("#Modal_ConfirmOrder").find("#SaveData").on("click",function(){ 
+            $("#TableCustomerOrder").on("click", ".BTNSendInvoice", function() {
+
+                BookingSessionID = $(this).attr("data-BookingSessionID");
+                TableName = $(this).attr("data-TableName");
+                CustomerName = $(this).attr("data-CustomerName");
+                OrderPending = $(this).attr("data-OrderPending");
+                OrderSuccess = $(this).attr("data-OrderSuccess"); 
+
+
+
+            });
+
+            $("#Modal_ConfirmOrder").find("#SaveData").on("click", function() {
 
                 var data = new FormData();
                 data.append('BookingSessionID', BookingSessionID);
@@ -243,7 +255,7 @@
                     contentType: false,
                     cache: false,
                     processData: false,
-                    success: function(data) { 
+                    success: function(data) {
                         /// Emit Event ///
 
                         /// Emit Event ///
@@ -258,7 +270,7 @@
 
 
 
-            
+
             //#region GetDataOrderPendingDetail
             function GetDataOrderPendingDetail(BookingSessionID) {
                 var data = new FormData();
@@ -281,7 +293,7 @@
                                     "ID": ID,
                                     "OrderID": obj[i].GoodsOrderID,
                                     "GoodsName": obj[i].GoodsItemName,
-                                    "OrderAmount": obj[i].Amount + " "+obj[i].Unit, 
+                                    "OrderAmount": obj[i].Amount + " " + obj[i].Unit,
                                 });
                             }
                             TableBookingOrderDetail.clear().rows.add(Data).draw(false);
@@ -309,9 +321,14 @@
                                 var ID = i + 1;
                                 var Option = "";
                                 if (obj[i].OrderPending == "1") {
-                                    Option = '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
+                                    Option += '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
+
+                                    if (obj[i].OrderSuccess != "0") {
+                                        Option += '<button class="btn btn-danger BTNSendInvoice" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >แจ้งยอดชำระ</button>';
+                                    }
+
                                 } else {
-                                    Option = '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
+                                    Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
                                 }
                                 Data.push({
                                     "ID": ID,
