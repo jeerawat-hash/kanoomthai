@@ -247,7 +247,7 @@ switch ($page_focus) {
             </li>
             <!-- จัดการข้อมูลสินค้า -->
             <!-- บัญชีผู้ใช้ -->
-            <li hidden class="nav-item <?php echo $Account[0]; ?>" <?php echo $AccountMenu; ?>>
+            <li class="nav-item <?php echo $Account[0]; ?>" <?php echo $AccountMenu; ?>>
               <a href="#" class="nav-link <?php echo $Account[1]; ?>">
                 <i class="nav-icon far fa-flag"></i>
                 <p>
