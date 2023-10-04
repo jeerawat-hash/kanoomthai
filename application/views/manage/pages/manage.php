@@ -78,6 +78,13 @@
                 "lengthChange": true,
                 "autoWidth": false,
                 "pageLength": -1,
+                "buttons": [{
+                    text: 'เพิ่มสินค้า',
+                    attr: {
+                        id: 'BTNAddDataGoodsItem'
+                    },
+                    className: 'btn btn-success'
+                }, ],
                 // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
                 "buttons": ["copy", "excel"],
                 dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
