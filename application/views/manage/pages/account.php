@@ -78,7 +78,13 @@
                 "autoWidth": false,
                 "pageLength": -1,
                 // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                "buttons": ["copy", "excel"],
+                "buttons": [{
+                    text: 'เพิ่มผู้ใช้',
+                    attr: {
+                        id: 'BTNAddDataAccount'
+                    },
+                    className: 'btn btn-success'
+                },"copy", "excel" ],
                 dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-5'i><'col-sm-7'p>>",
