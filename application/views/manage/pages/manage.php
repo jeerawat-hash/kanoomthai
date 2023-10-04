@@ -104,8 +104,8 @@
                                  </div>
                                  <div class="col-6">
                                      <div class="custom-file">
-                                         <input type="file" class="custom-file-input" id="GoodsImage">
-                                         <label class="custom-file-label" for="GoodsImage"></label>
+                                         <input type="file" class="custom-file-input" id="GoodsImageUpload">
+                                         <label class="custom-file-label" for="GoodsImageUpload"></label>
                                      </div>
                                  </div>
                              </div>
@@ -113,7 +113,7 @@
                              <div class="row">
                                  <div class="col-12">
                                      <center>
-                                         <img src="http://203.156.9.157/kanoomthai/Upload/thubnail.svg" width="500px" class="img-fluid img-thumbnail">
+                                         <img id="GoodsImagePreview" width="500px" class="img-fluid img-thumbnail">
                                      </center>
                                  </div>
                              </div>
@@ -205,7 +205,8 @@
             $("#Modal_MaintainGoodsItem").find("#GoodsName").val("");
             $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val("");
             $("#Modal_MaintainGoodsItem").find("#StockAmount").val("");
-            $("#Modal_MaintainGoodsItem").find("#GoodsImage").val("");
+            $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
+            $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src","http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
 
             $("#Modal_MaintainGoodsItem").find("#SaveData").show();
             $("#Modal_MaintainGoodsItem").find("#EditData").hide();
