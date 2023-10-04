@@ -613,21 +613,22 @@
                     }
                 });
 
-                socket.on("<?php echo $BookingSessionID; ?>", function(data) {
+                socket.on("<?php echo $BookingSessionID; ?>",async function(data) {
                     console.log(data);
                     var obj = JSON.parse(data);
 
                     switch (obj.Header) {
                         case "ReceiveOrder":
                             /// OpenAlert obj.Msg ///
-                            LoadSaleOrder();
-                            LoadPendingOrder();
-                            notification('notification-warning', "รับรายการอาหาร", obj.Msg, 5000);
+                            await LoadSaleOrder();
+                            await LoadPendingOrder();
+                            await alert(obj.Msg);
+                            // notification('notification-warning', "รับรายการอาหาร", obj.Msg, 5000);
                             break;
                         case "SendInvoice":
                             /// OpenOrder ///
-                            LoadSaleOrder();
-                            LoadPendingOrder();
+                            await LoadSaleOrder();
+                            await LoadPendingOrder();
                             $("#BTNCheckOut").click();
                             break;
                     }
