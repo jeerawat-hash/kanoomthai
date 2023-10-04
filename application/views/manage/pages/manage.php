@@ -151,7 +151,7 @@
                                     "GoodsName": obj[i].GoodsItemName,
                                     "UnitPerPrice": obj[i].PricePerUnit+" บาท/"+obj[i].Unit,
                                     "StockAmount": obj[i].Available + " "+obj[i].Unit,
-                                    "Image": '<img src="'+obj[i].Image+'" class="img-thumbnail">',
+                                    "Image": '<img src="'+obj[i].Image+'" class="w-25 img-fluid img-thumbnail">',
                                     "Option": Option,
                                 });
                             }
