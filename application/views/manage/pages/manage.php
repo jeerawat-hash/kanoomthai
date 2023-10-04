@@ -111,23 +111,17 @@
                              </div>
                              <hr>
                              <div class="row">
-                                  <div class="col-12">
-                                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" width="250px" class="img-fluid img-thumbnail">
-                                  </div>
-                             </div>
-                             <hr>
-                             <div class="row">
                                  <div class="col-12">
-                                     <div class="form-group">
-                                         <label>ข้อความแนบถึงลูกค้า</label>
-                                         <textarea class="form-control" id="Comment" rows="3" placeholder="แนบข้อความ"></textarea>
-                                     </div>
+                                     <center>
+                                         <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" width="500px" class="img-fluid img-thumbnail">
+                                     </center>
                                  </div>
                              </div>
-
+                             <hr>
+                          
                          </div>
                          <div class="modal-footer">
-                             <button type="button" class="btn btn-primary" id="SaveData">ยืนยันคำสั่งซื้อ</button>
+                             <button type="button" class="btn btn-primary" id="SaveData">บันทึกข้อมูล</button>
                              <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
                          </div>
                      </div>
