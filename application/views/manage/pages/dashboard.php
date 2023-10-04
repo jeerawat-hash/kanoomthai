@@ -367,7 +367,7 @@
                             for (var i = 0; i < obj.length; i++) {
                                 var ID = i + 1;
                                 var Option = "";
-                                if (obj[i].OrderPending == "1") {
+                                if (obj[i].OrderPending > 0) {
                                     Option += '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
                                 } else {
                                     Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
