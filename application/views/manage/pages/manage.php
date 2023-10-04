@@ -199,6 +199,14 @@
          GetDataAllGoodsItemStock();
 
 
+         $("#TableGoodsItems").on("click",".BTNEditGoodsItem",function(){
+
+            var obj = $(this);
+            console.log(obj);
+            
+
+         });
+
 
          $("#BTNAddDataGoodsItem").on("click", function() {
 
@@ -214,6 +222,8 @@
              $("#Modal_MaintainGoodsItem").find("#EditData").hide();
 
          });
+
+
 
 
 
