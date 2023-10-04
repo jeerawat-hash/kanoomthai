@@ -623,7 +623,7 @@
                             await LoadSaleOrder();
                             await LoadPendingOrder();
                             await alert(obj.Msg);
-                            // notification('notification-warning', "รับรายการอาหาร", obj.Msg, 5000);
+                            Swal.fire('แจ้งเตือน', obj.Msg, 'success');
                             break;
                         case "SendInvoice":
                             /// OpenOrder ///
