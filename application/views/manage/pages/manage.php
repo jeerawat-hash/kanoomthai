@@ -113,7 +113,7 @@
                              <div class="row">
                                  <div class="col-12">
                                      <center>
-                                         <img src="http://203.156.9.157/Upload/thubnail.svg" width="500px" class="img-fluid img-thumbnail">
+                                         <img src="http://203.156.9.157/kanoomthai/Upload/thubnail.svg" width="500px" class="img-fluid img-thumbnail">
                                      </center>
                                  </div>
                              </div>
