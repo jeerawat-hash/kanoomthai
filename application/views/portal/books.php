@@ -621,8 +621,7 @@
                         case "ReceiveOrder":
                             /// OpenAlert obj.Msg ///
                             await LoadSaleOrder();
-                            await LoadPendingOrder();
-                            await alert(obj.Msg);
+                            await LoadPendingOrder(); 
                             Swal.fire('แจ้งเตือน', obj.Msg, 'success');
                             break;
                         case "SendInvoice":
