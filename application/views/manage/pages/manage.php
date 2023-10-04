@@ -143,7 +143,7 @@
                             for (var i = 0; i < obj.length; i++) {
                                 var ID = i + 1;
                                 var Option = "";
-                                
+
                                 Option += '<button class="btn btn-warning BTNEditGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >แก้ไข</button>'; 
 
                                 Data.push({
@@ -151,7 +151,7 @@
                                     "GoodsName": obj[i].GoodsItemName,
                                     "UnitPerPrice": obj[i].PricePerUnit+" บาท/"+obj[i].Unit,
                                     "StockAmount": obj[i].Available + " "+obj[i].Unit,
-                                    "Image": obj[i].Image,
+                                    "Image": '<img src="'+obj[i].Image+'" class="img-thumbnail">',
                                     "Option": Option,
                                 });
                             }
