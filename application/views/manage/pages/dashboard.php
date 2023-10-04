@@ -242,6 +242,7 @@
                     OrderPending = $(this).attr("data-OrderPending");
                     OrderSuccess = $(this).attr("data-OrderSuccess");
 
+                    $("#Modal_ConfirmOrder").find("#Comment").val("");
                     $("#Modal_ConfirmOrder").modal("show");
                     $("#Modal_ConfirmOrder").find(".modal-title").text(CustomerName + " - " + TableName);
                     $("#Modal_ConfirmOrder").find("#CustomerName").val(CustomerName);
