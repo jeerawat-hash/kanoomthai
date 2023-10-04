@@ -8,7 +8,22 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
-	
+	public function GetDataAllGoodsItemStock()
+	{ 
+		$QueryString = "  
+        SELECT GoodsItemID
+        ,GoodsItemName
+        ,Unit
+        ,PricePerUnit
+        ,StockAmount
+        ,(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID) as Used
+        ,Image FROM tbl_GoodsItem ItemMaster
+        ";
+		$query = $this->mysql->query($QueryString);
+		$Sale = $query->result_array();
+		$this->mysql->close();
+		return $Sale;
+	}
 	public function InsertDataOrder($BookingSessionID,$DataItem)
 	{
 		$this->mysql->trans_start();

@@ -7,6 +7,7 @@ class BookingSession extends CI_Model
         $this->mysql = $this->load->database("mysql", true);
         $this->load->library("session");
     }
+   
     public function SetReceiveOrder($BookingSessionID,$MemberID)
     {  
         $this->mysql->trans_start();

@@ -16,9 +16,12 @@ class Data extends CI_Controller {
  
     //// Backend ////
 
-
-
-    
+ 
+    public function GetDataAllGoodsItemStock()
+    {  
+        $result = $this->Goodsitem->GetDataAllGoodsItemStock();
+        echo json_encode($result);
+    } 
     public function SetReceiveOrder()
     {  
         $result = $this->BookingSession->SetReceiveOrder($_POST["BookingSessionID"],"1");
