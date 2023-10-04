@@ -12,12 +12,13 @@ class Goodsitem extends CI_Model
 	{ 
 		$QueryString = "  
         SELECT GoodsItemID
-        ,GoodsItemName
-        ,Unit
-        ,PricePerUnit
-        ,StockAmount
-        ,(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID) as Used
-        ,Image FROM tbl_GoodsItem ItemMaster
+		,GoodsItemName
+		,Unit
+		,PricePerUnit
+		,StockAmount
+		,(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID) as Used
+		,(StockAmount-(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID)) as Available
+		,Image FROM tbl_GoodsItem ItemMaster
         ";
 		$query = $this->mysql->query($QueryString);
 		$Sale = $query->result_array();

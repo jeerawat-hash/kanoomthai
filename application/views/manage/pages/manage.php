@@ -46,7 +46,7 @@
                                             <th>ชื่อ</th>
                                             <th>ราคาต่อหน่วย</th>
                                             <th>ยอดคงเหลือ</th>
-                                            <th>ภาพ</th> 
+                                            <th>ภาพ</th>
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -62,7 +62,7 @@
 
 
 
- 
+
 
 
             </div><!-- /.container-fluid -->
@@ -72,7 +72,7 @@
 
     <script>
         $(function() {
-  
+
             var TableGoodsItems = $("#TableGoodsItems").DataTable({
                 "responsive": true,
                 "lengthChange": true,
@@ -84,7 +84,7 @@
                         id: 'BTNAddDataGoodsItem'
                     },
                     className: 'btn btn-success'
-                },"copy", "excel" ],
+                }, "copy", "excel"],
                 // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
                 // "buttons": ["copy", "excel"],
                 dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
@@ -109,7 +109,7 @@
                     {
                         "data": "Image",
                         "title": "ภาพ"
-                    }, 
+                    },
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",
@@ -117,12 +117,61 @@
                     },
                 ]
             });
- 
-
-            
 
 
-            
+
+            GetDataAllGoodsItemStock();
+
+
+
+
+
+            //#region GetDataAllGoodsItemStock
+            function GetDataAllGoodsItemStock() {
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAllGoodsItemStock",
+                    type: "POST",
+                    // data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+
+                        var Data = [];
+                        try {
+                            var obj = JSON.parse(data);
+                            for (var i = 0; i < obj.length; i++) {
+                                var ID = i + 1;
+                                var Option = "";
+                                // if (obj[i].OrderPending == "1") {
+                                //     Option += '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
+                                // } else {
+                                //     Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
+                                //     if (obj[i].OrderSuccess != "0") {
+                                //         Option += ' <button class="btn btn-danger BTNSendInvoice" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >แจ้งยอดชำระ</button>';
+                                //     }
+                                // }
+                                Data.push({
+                                    "ID": ID,
+                                    "GoodsName": obj[i].GoodsItemName,
+                                    "UnitPerPrice": obj[i].PricePerUnit,
+                                    "StockAmount": obj[i].Available + " "+obj[i].Unit,
+                                    "Image": obj[i].Image,
+                                    "Option": Option,
+                                });
+                            }
+                            TableCustomerOrder.clear().rows.add(Data).draw(false);
+                        } catch (error) {}
+                    },
+                    error: function() {}
+                });
+            }
+            //#endregion 
+
+
+
+
+
 
         });
     </script>
