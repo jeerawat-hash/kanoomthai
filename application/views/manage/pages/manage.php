@@ -210,6 +210,7 @@
 
          GetDataAllGoodsItemStock();
 
+         $("#Modal_MaintainGoodsItem").modal("show");
 
 
 
