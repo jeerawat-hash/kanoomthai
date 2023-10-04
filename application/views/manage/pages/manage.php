@@ -143,14 +143,9 @@
                             for (var i = 0; i < obj.length; i++) {
                                 var ID = i + 1;
                                 var Option = "";
-                                // if (obj[i].OrderPending == "1") {
-                                //     Option += '<button class="btn btn-warning BTNOpenOrder" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >รับรายการ</button>';
-                                // } else {
-                                //     Option += '<button class="btn btn-secondary" disabled>รอรายการสั่งสินค้า</button>';
-                                //     if (obj[i].OrderSuccess != "0") {
-                                //         Option += ' <button class="btn btn-danger BTNSendInvoice" data-BookingSessionID="' + obj[i].BookingSessionID + '" data-TableName="' + obj[i].TableName + '" data-CustomerName="' + obj[i].CustomerName + '" data-OrderPending="' + obj[i].OrderPending + '" data-OrderSuccess="' + obj[i].OrderSuccess + '"  >แจ้งยอดชำระ</button>';
-                                //     }
-                                // }
+                                
+                                Option += '<button class="btn btn-warning BTNEditGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >แก้ไข</button>'; 
+
                                 Data.push({
                                     "ID": ID,
                                     "GoodsName": obj[i].GoodsItemName,
