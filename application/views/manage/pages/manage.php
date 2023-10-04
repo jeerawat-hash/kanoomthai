@@ -163,6 +163,9 @@
  <script>
      $(function() {
 
+         bsCustomFileInput.init();
+
+
          var TableGoodsItems = $("#TableGoodsItems").DataTable({
              "responsive": true,
              "lengthChange": true,

@@ -142,6 +142,8 @@ switch ($page_focus) {
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="http://203.156.9.157/kanoomthai/dist/js/pages/dashboard.js"></script>
 
+  <script src="http://203.156.9.157/kanoomthai/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
   <!-- sweetalert2 -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
