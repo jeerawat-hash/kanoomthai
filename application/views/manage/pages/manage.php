@@ -202,7 +202,7 @@
          $("#TableGoodsItems").on("click",".BTNEditGoodsItem",function(){
 
             var obj = $(this);
-            console.log(obj);
+            console.log(obj.parent());
             
 
          });
