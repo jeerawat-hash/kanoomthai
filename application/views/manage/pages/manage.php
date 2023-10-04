@@ -201,8 +201,17 @@
          $("#BTNAddDataGoodsItem").on("click",function(){
 
             $("#Modal_MaintainGoodsItem").modal("show");
+            $("#Modal_MaintainGoodsItem").find(".modal-title").text("CreateGoodsItem");
+            $("#Modal_MaintainGoodsItem").find("#GoodsName").val("");
+            $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val("");
+            $("#Modal_MaintainGoodsItem").find("#StockAmount").val("");
+            $("#Modal_MaintainGoodsItem").find("#GoodsImage").val("");
+
+            $("#Modal_MaintainGoodsItem").find("#SaveData").show();
+            $("#Modal_MaintainGoodsItem").find("#EditData").hide();
              
          });
+
 
 
 
