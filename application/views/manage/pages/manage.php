@@ -113,7 +113,7 @@
                              <div class="row">
                                  <div class="col-12">
                                      <center>
-                                         <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" width="500px" class="img-fluid img-thumbnail">
+                                         <img src="http://203.156.9.157/Upload/thubnail.svg" width="500px" class="img-fluid img-thumbnail">
                                      </center>
                                  </div>
                              </div>
@@ -122,6 +122,7 @@
                          </div>
                          <div class="modal-footer">
                              <button type="button" class="btn btn-primary" id="SaveData">บันทึกข้อมูล</button>
+                             <button type="button" class="btn btn-warning" id="EditData">แก้ไขข้อมูล</button>
                              <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
                          </div>
                      </div>
@@ -195,8 +196,13 @@
 
          GetDataAllGoodsItemStock();
 
-         $("#Modal_MaintainGoodsItem").modal("show");
 
+
+         $("#BTNAddDataGoodsItem").on("click",function(){
+
+            $("#Modal_MaintainGoodsItem").modal("show");
+             
+         });
 
 
 
