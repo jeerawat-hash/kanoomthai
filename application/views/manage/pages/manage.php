@@ -160,16 +160,14 @@
                                     "Option": Option,
                                 });
                             }
-                            TableCustomerOrder.clear().rows.add(Data).draw(false);
+                            TableGoodsItems.clear().rows.add(Data).draw(false);
                         } catch (error) {}
                     },
                     error: function() {}
                 });
             }
             //#endregion 
-
-
-
+ 
 
 
 
