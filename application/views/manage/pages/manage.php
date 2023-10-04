@@ -100,7 +100,7 @@
                              </div>
                              <div class="row">
                                  <div class="col-6">
-                                     <input type="text" class="form-control" id="StockAmount" placeholder="ยอดคงเหลือ" disabled>
+                                     <input type="text" class="form-control" id="StockAmount" placeholder="ยอดคงเหลือ">
                                  </div>
                                  <div class="col-6">
                                      <div class="custom-file">
@@ -111,21 +111,9 @@
                              </div>
                              <hr>
                              <div class="row">
-                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                     <table id="TableBookingOrderDetail" class="table table-bordered table-striped">
-                                         <thead>
-                                             <tr>
-                                                 <th>#</th>
-                                                 <th>รหัสสั่งซื้อ</th>
-                                                 <th>สินค้า</th>
-                                                 <th>จำนวน</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-
-                                         </tbody>
-                                     </table>
-                                 </div>
+                                  <div class="col-12">
+                                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" width="250px" class="img-fluid img-thumbnail">
+                                  </div>
                              </div>
                              <hr>
                              <div class="row">
