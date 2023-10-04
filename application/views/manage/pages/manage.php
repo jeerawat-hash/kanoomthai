@@ -154,7 +154,7 @@
                                 Data.push({
                                     "ID": ID,
                                     "GoodsName": obj[i].GoodsItemName,
-                                    "UnitPerPrice": obj[i].PricePerUnit,
+                                    "UnitPerPrice": obj[i].PricePerUnit+" บาท/"+obj[i].Unit,
                                     "StockAmount": obj[i].Available + " "+obj[i].Unit,
                                     "Image": obj[i].Image,
                                     "Option": Option,
