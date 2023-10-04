@@ -67,7 +67,7 @@
              <div class="modal fade" id="Modal_MaintainGoodsItem">
                  <div class="modal-dialog modal-lg">
                      <div class="modal-content">
-                         <div class="modal-header bg-warning">
+                         <div class="modal-header bg-success">
                              <h5 class="modal-title">Extra Large Modal</h5>
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                  <span aria-hidden="true">&times;</span>
