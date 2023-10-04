@@ -92,7 +92,7 @@
                              </div>
                              <div class="row">
                                  <div class="col-6">
-                                     <h4>ยอดคงเหลือ</h4>
+                                     <h4>จำนวนสินค้า</h4>
                                  </div>
                                  <div class="col-6">
                                      <h4>แนบภาพ</h4>
@@ -100,7 +100,7 @@
                              </div>
                              <div class="row">
                                  <div class="col-6">
-                                     <input type="text" class="form-control" id="StockAmount" placeholder="ยอดคงเหลือ">
+                                     <input type="text" class="form-control" id="StockAmount" placeholder="จำนวนสินค้า">
                                  </div>
                                  <div class="col-6">
                                      <div class="custom-file">
