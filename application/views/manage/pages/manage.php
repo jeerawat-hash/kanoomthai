@@ -102,11 +102,9 @@
                                  <div class="col-6">
                                      <input type="text" class="form-control" id="StockAmount" placeholder="จำนวนสินค้า">
                                  </div>
-                                 <div class="col-6">
-                                     <div class="custom-file">
-                                         <input type="file" class="custom-file-input" id="GoodsImageUpload">
-                                         <label class="custom-file-label" for="GoodsImageUpload"></label>
-                                     </div>
+                                 <div class="col-6"> 
+                                     <input type="file" class="custom-file-input" id="GoodsImageUpload" name="filename">
+                                     <label class="custom-file-label" for="GoodsImageUpload">Choose file</label>
                                  </div>
                              </div>
                              <hr>
@@ -118,7 +116,7 @@
                                  </div>
                              </div>
                              <hr>
-                          
+
                          </div>
                          <div class="modal-footer">
                              <button type="button" class="btn btn-primary" id="SaveData">บันทึกข้อมูล</button>
@@ -146,7 +144,11 @@
  <script>
      $(function() {
 
-         bsCustomFileInput.init();
+         // Add the following code if you want the name of the file appear on select
+         $(".custom-file-input").on("change", function() {
+             var fileName = $(this).val().split("\\").pop();
+             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+         });
 
 
          var TableGoodsItems = $("#TableGoodsItems").DataTable({
@@ -198,19 +200,19 @@
 
 
 
-         $("#BTNAddDataGoodsItem").on("click",function(){
+         $("#BTNAddDataGoodsItem").on("click", function() {
 
-            $("#Modal_MaintainGoodsItem").modal("show");
-            $("#Modal_MaintainGoodsItem").find(".modal-title").text("CreateGoodsItem");
-            $("#Modal_MaintainGoodsItem").find("#GoodsName").val("");
-            $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val("");
-            $("#Modal_MaintainGoodsItem").find("#StockAmount").val("");
-            $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
-            $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src","http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
+             $("#Modal_MaintainGoodsItem").modal("show");
+             $("#Modal_MaintainGoodsItem").find(".modal-title").text("CreateGoodsItem");
+             $("#Modal_MaintainGoodsItem").find("#GoodsName").val("");
+             $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val("");
+             $("#Modal_MaintainGoodsItem").find("#StockAmount").val("");
+             $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
+             $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
 
-            $("#Modal_MaintainGoodsItem").find("#SaveData").show();
-            $("#Modal_MaintainGoodsItem").find("#EditData").hide();
-             
+             $("#Modal_MaintainGoodsItem").find("#SaveData").show();
+             $("#Modal_MaintainGoodsItem").find("#EditData").hide();
+
          });
 
 
