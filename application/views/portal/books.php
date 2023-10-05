@@ -872,17 +872,20 @@
                     console.log(data);
 
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
-                        console.log(res); 
+                        console.log(res);
+                        LoadPendingOrder();
+                        LoadSaleOrder();
                         $("#ModalOrderGoods").modal("hide");
-                        if (socket.connected == true) {
-                            var Data = JSON.stringify({
-                                "Source": "<?php echo $BookingSessionID; ?>",
-                                "Dest": "Dashboard",
-                                "Header": "SendOrder",
-                                "Msg": "",
-                            });
-                            socket.emit("MSGServer", Data);
-                        }
+                        // if (socket.connected == true) {
+                        //     var Data = JSON.stringify({
+                        //         "Source": "<?php echo $BookingSessionID; ?>",
+                        //         "Dest": "Dashboard",
+                        //         "Header": "SendOrder",
+                        //         "Msg": "",
+                        //     });
+                        //     socket.emit("MSGServer", Data);
+                        // }
+
                     });
 
                 });
