@@ -16,6 +16,29 @@ class Data extends CI_Controller {
  
     //// Backend ////
 
+    public function EditGoodsItems()
+	{  
+		$UploadFile = $_FILES;
+		$UpLoadFile_Name = $UploadFile['GoodsImageUpload']['name'];
+		$UpLoadFile_Type = $UploadFile['GoodsImageUpload']['type'];
+		$UpLoadFile_Tmp_Name = $UploadFile['GoodsImageUpload']['tmp_name'];
+		$UpLoadFile_Size = $UploadFile['GoodsImageUpload']['size']; 
+		$GoodsImageUpload = $_SERVER['DOCUMENT_ROOT']."/Upload/Files/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
+		$PostData = $_POST;  
+		$IsSuccess = 0;
+		if($UpLoadFile_Type == "image/jpeg"){ 
+			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg");
+		}
+		if($UpLoadFile_Type == "image/jpg"){ 
+			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
+		}
+		if($UpLoadFile_Type == "image/png"){
+			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
+		} 
+        $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsImageUpload);
+
+		echo json_encode(array("IsSuccess" => $IsSuccess )); 
+	}
  
     public function GetDataAllGoodsItemStock()
     {  

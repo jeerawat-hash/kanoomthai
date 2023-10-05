@@ -8,6 +8,26 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
+
+	public function EditGoodsItems($GoodsItemID,$GoodsItemName,$StockAmount,$PricePerUnit,$Unit,$GoodsImageUpload)
+	{
+		$this->mysql->trans_start();
+        $QueryString = " 
+        UPDATE tbl_GoodsItem SET
+		GoodsItemName = ?,
+		Unit = ?,
+		PricePerUnit = ?,
+		StockAmount = ?,
+		Image = ?
+		WHERE GoodsItemID = ?
+        ";
+        $query = $this->mysql->query($QueryString, array($GoodsItemName,$Unit,$PricePerUnit,$StockAmount,$GoodsImageUpload,$GoodsItemID ));
+        $Transaction = $this->mysql->trans_complete(); 
+		$Data = array("Status" => (($Transaction == true) ? 1 : 0));
+        $this->mysql->close();
+        return $Data;
+	}
+
 	public function GetDataAllGoodsItemStock()
 	{ 
 		$QueryString = "  

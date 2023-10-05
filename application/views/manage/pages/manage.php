@@ -213,6 +213,7 @@
          var Unit = "";
          var Used = "";
          var StockSub = 0;
+         var GoodsImageUpload;
 
          $("#TableGoodsItems").on("click", ".BTNEditGoodsItem", function() {
 
@@ -225,14 +226,14 @@
              Unit = $(this).attr("data-unit");
              Used = $(this).attr("data-used");
 
-             StockSub = (StockAmount-Used);
+             StockSub = (StockAmount - Used);
 
              $("#Modal_MaintainGoodsItem").modal("show");
              $("#Modal_MaintainGoodsItem").find(".modal-title").text("แก้ไข " + GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#GoodsName").val(GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
-             $("#Modal_MaintainGoodsItem").find("#Unit").val(Unit); 
-             $("#Modal_MaintainGoodsItem").find("#StockAmount").val( StockAmount );
+             $("#Modal_MaintainGoodsItem").find("#Unit").val(Unit);
+             $("#Modal_MaintainGoodsItem").find("#StockAmount").val(StockAmount);
              $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
              //  $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
              $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", Image);
@@ -241,41 +242,70 @@
 
          });
 
-         $("#Modal_MaintainGoodsItem").find("#EditData").on("click",function(){
+         $("#Modal_MaintainGoodsItem").find("#EditData").on("click", function() {
 
-            StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
-            // GoodsItemID
-            // GoodsItemName 
-            // $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
-            // $("#Modal_MaintainGoodsItem").find("#Unit").val(); 
+             StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+             GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
+             Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
+             PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
 
+             if (StockAmount <= StockSub) {
+                 alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน " + StockSub + " " + Unit);
+                 return false;
+             }
 
-            if(StockAmount <= StockSub){
-                alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน "+StockSub+" "+Unit);
-                return false;
-            }
+             var data = new FormData();
+             data.append('GoodsItemID', GoodsItemID);
+             data.append('GoodsItemName', GoodsItemName);
+             data.append('StockAmount', StockAmount);
+             data.append('PricePerUnit', PricePerUnit);
+             data.append('GoodsImageUpload', GoodsImageUpload);
+             data.append('Unit', Unit);
 
+             $.ajax({
+                 url: "http://203.156.9.157/kanoomthai/index.php/Data/EditGoodsItems",
+                 type: "POST",
+                 data: data,
+                 contentType: false,
+                 cache: false,
+                 processData: false,
+                 success: function(data) {
+                     try {
+                         var obj = JSON.parse(data);
+                         console.log(obj);
+                         $("#Modal_MaintainGoodsItem").modal("hide");
 
-
-
-
+                     } catch (error) { 
+                     }
+                 },
+                 error: function() {}
+             });
 
 
          });
 
 
          $("#BTNAddDataGoodsItem").on("click", function() {
-
              $("#Modal_MaintainGoodsItem").modal("show");
              $("#Modal_MaintainGoodsItem").find(".modal-title").text("CreateGoodsItem");
              $("#Modal_MaintainGoodsItem").find("#GoodsName").val("");
              $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val("");
+             $("#Modal_MaintainGoodsItem").find("#Unit").val("");
              $("#Modal_MaintainGoodsItem").find("#StockAmount").val("");
              $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
              $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
 
              $("#Modal_MaintainGoodsItem").find("#SaveData").show();
              $("#Modal_MaintainGoodsItem").find("#EditData").hide();
+         });
+
+         $("#Modal_MaintainGoodsItem").find("#SaveData").on("click", function() {
+
+             var GoodsName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
+             var PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
+             var Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
+             var StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+             var GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
 
          });
 
