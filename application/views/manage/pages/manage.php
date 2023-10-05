@@ -135,7 +135,7 @@
                  <!-- /.modal-dialog -->
              </div>
              <!-- /.modal -->
-             <!-- Modal_ConfirmOrder  -->
+             <!-- Modal_MaintainGoodsItem  -->
 
 
 

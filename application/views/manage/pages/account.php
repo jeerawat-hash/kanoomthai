@@ -61,6 +61,69 @@
 
 
 
+                <!-- Modal_MaintainMember -->
+                <div class="modal fade" id="Modal_MaintainMember">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success">
+                                <h5 class="modal-title">Extra Large Modal</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h4>ชื่อ</h4>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4>Username</h4>
+                                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" id="MemberName" placeholder="ชื่อพนักงาน">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" id="Username" placeholder="Username">
+                                    </div> 
+                                </div>  
+                                <div class="row"> 
+                                    <div class="col-6">
+                                        <h4>Password</h4>
+                                    </div> 
+                                    <div class="col-6">
+                                        <h4>สิทธิ์</h4>
+                                    </div> 
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-6">
+                                        <input type="password" class="form-control" id="Password" >
+                                    </div> 
+                                    <div class="col-6">
+                                        <select id="IsAdmin" class="form-control">
+                                            <option value="0">พนักงาน</option>
+                                            <option value="1">เจ้าของร้าน</option>
+                                        </select> 
+                                    </div> 
+                                </div>  
+                                <hr>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="SaveData">บันทึกข้อมูล</button>
+                                <button type="button" class="btn btn-warning" id="EditData">แก้ไขข้อมูล</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- Modal_MaintainGoodsItem  -->
+
+
 
 
 
@@ -118,6 +181,7 @@
 
             $("#BTNAddDataAccount").on("click", function() {
 
+                $("#Modal_MaintainMember").modal("show");
 
             });
 
@@ -128,21 +192,21 @@
             function GetDataAllGoodsItemStock() {
                 $.ajax({
                     url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAllSystemMember",
-                    type: "POST", 
+                    type: "POST",
                     contentType: false,
                     cache: false,
                     processData: false,
-                    success: function(data) { 
+                    success: function(data) {
 
                         var Data = [];
                         try {
                             var obj = JSON.parse(data);
                             for (var i = 0; i < obj.length; i++) {
                                 var ID = i + 1;
-                                var Option = ""; 
+                                var Option = "";
                                 Option += '<button class="btn btn-warning BTNEditMember" data-MemberID="' + obj[i].MemberID + '" data-MemberName="' + obj[i].MemberName + '" data-Username="' + obj[i].Username + '" data-IsAdmin="' + obj[i].IsAdmin + '" >แก้ไข</button> ';
-                                var Position = "เจ้าของร้าน"; 
-                                if(obj[i].IsAdmin == "0"){
+                                var Position = "เจ้าของร้าน";
+                                if (obj[i].IsAdmin == "0") {
                                     Position = "พนักงาน";
                                 }
                                 Data.push({
