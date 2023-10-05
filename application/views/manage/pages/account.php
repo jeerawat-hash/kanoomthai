@@ -198,12 +198,17 @@
 
             });
 
+            var MemberID = "";
+            var MemberName = "";
+            var Username = "";
+            var IsAdmin = "";
+
             $("#TableMembers").on("click", ".BTNEditMember", function() {
 
-                var MemberID = $(this).attr("data-MemberID");
-                var MemberName = $(this).attr("data-MemberName");
-                var Username = $(this).attr("data-Username");
-                var IsAdmin = $(this).attr("data-IsAdmin");
+                MemberID = $(this).attr("data-MemberID");
+                MemberName = $(this).attr("data-MemberName");
+                Username = $(this).attr("data-Username");
+                IsAdmin = $(this).attr("data-IsAdmin");
 
                 $("#Modal_MaintainMember").modal("show");
                 $("#Modal_MaintainMember").find(".modal-title").text("แก้ไขข้อมูล : "+MemberName);
@@ -218,7 +223,11 @@
                 $("#Modal_MaintainMember").find("#MemberName").val();
                 $("#Modal_MaintainMember").find("#Password").val();
                 $("#Modal_MaintainMember").find("#IsAdmin").val();
-                
+
+                console.log(MemberID);
+                console.log(MemberName);
+                console.log(Username);
+                console.log(IsAdmin);
 
 
             });
