@@ -244,6 +244,7 @@
 
          $("#Modal_MaintainGoodsItem").find("#EditData").on("click", function() {
 
+             GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
              StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
              GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
              Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
@@ -254,7 +255,7 @@
                  return false;
              }
 
-             if (GoodsImageUpload == undefined) { 
+             if (GoodsImageUpload == undefined) {
                  alert("กรุณาแนบภาพสินค้า");
                  return false;
              }

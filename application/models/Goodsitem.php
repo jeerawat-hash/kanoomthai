@@ -14,14 +14,14 @@ class Goodsitem extends CI_Model
 		$this->mysql->trans_start();
         $QueryString = " 
         UPDATE tbl_GoodsItem SET
-		GoodsItemName = '".$GoodsItemName."',
-		Unit = '".$Unit."',
-		PricePerUnit = '".$PricePerUnit."',
-		StockAmount = '".$StockAmount."',
-		Image = '".$GoodsImageUpload."'
-		WHERE GoodsItemID = '".$GoodsItemID."'
+		GoodsItemName = ?,
+		Unit = ?,
+		PricePerUnit = ?,
+		StockAmount = ?,
+		Image = ?
+		WHERE GoodsItemID = ?
         ";
-        $query = $this->mysql->query($QueryString);
+        $query = $this->mysql->query($QueryString, array($GoodsItemName,$Unit,$PricePerUnit,$StockAmount,$GoodsImageUpload,$GoodsItemID ));
         $Transaction = $this->mysql->trans_complete(); 
 		$Data = array("Status" => (($Transaction == true) ? 1 : 0));
         $this->mysql->close();
