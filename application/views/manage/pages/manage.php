@@ -238,9 +238,12 @@
 
             StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
             if(StockAmount <= StockSub){
-                alert("น้อยกว่ายอดใช้ปัจจุบันจำนวน "+StockSub+" "+Unit);
+                alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน "+StockSub+" "+Unit);
                 return false;
             }
+
+
+            
 
 
 
