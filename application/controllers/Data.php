@@ -14,7 +14,17 @@ class Data extends CI_Controller {
 	{
 		echo "1";
 	}
-   
+    public function ManagementLogin()
+	{  
+		$ResponseData = array("IsSuccess" => 0, "Data" => null);
+		$ResponseData["Data"] = $this->Member->ManagementLogin($_POST["Username"],$_POST["Password"]);
+		if( $ResponseData["Data"]["MemberID"] != "" ){
+			$ResponseData["IsSuccess"] = 1;
+			$this->session->set_userdata($ResponseData["Data"]);
+		}
+		echo json_encode($ResponseData);
+	}
+
     public function InsertSystemMember()
 	{    
         $result = $this->Member->InsertSystemMember($_POST["MemberName"],$_POST["Username"],$_POST["Password"],$_POST["IsAdmin"]);

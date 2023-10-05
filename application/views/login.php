@@ -77,33 +77,36 @@
     <script>
         $(function() {
  
-            // $("#BTNLogin").on("click", async function() { 
-            //     var Telephone = $("#Password").val();
-            //     var data = new FormData();
-            //     data.append('Telephone', Telephone);
-            //     $.ajax({
-            //         url: "/Data/GetDataEmployeeForAuthenticationByTelephone",
-            //         type: "POST",
-            //         data: data,
-            //         contentType: false,
-            //         cache: false,
-            //         processData: false,
-            //         success: function(data) {
-            //             try {
-            //                 var obj = JSON.parse(data);
-            //                 console.log(obj);
-            //                 if(obj.IsSuccess == 0){
-            //                     Swal.fire('ไม่พบข้อมูลบัญชี', '', 'error');
-            //                 }else{
-            //                     location.reload();
-            //                 }
-                             
-            //             } catch (error) {}
-            //         },
-            //         error: function() {}
-            //     });
+            $("#BTNLogin").on("click", async function() { 
 
-            // });
+                var Username = $("#Username").val();
+                var Password = $("#Password").val();
+                var data = new FormData();
+                data.append('Username', Username);
+                data.append('Password', Password);
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/ManagementLogin",
+                    type: "POST",
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+                        try {
+                            var obj = JSON.parse(data);
+                            console.log(obj);
+                            if(obj.IsSuccess == 0){
+                                Swal.fire('ไม่พบข้อมูลบัญชี', '', 'error');
+                            }else{
+                                location.reload();
+                            }
+                             
+                        } catch (error) {}
+                    },
+                    error: function() {}
+                });
+
+            });
 
 
 

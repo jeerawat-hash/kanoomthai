@@ -8,6 +8,28 @@ class Member extends CI_Model
 		$this->load->library("session"); 
 	}
 
+    public function ManagementLogin($Username,$Password)
+    {
+        $ReturnArray = array(); 
+        $QueryString1 = " 
+        SELECT MemberID,MemberName,Username,Password,IsAdmin FROM tbl_Member where Username = ? and Password = ?
+            ";
+        $query1 = $this->mssql->query($QueryString1, array($Username,md5($Password)));
+        $Data1 = $query1->result_array();
+   
+        $DataAuthorize = array();
+        $DataAuthorize[] = "Dashboard";
+        $DataAuthorize[] = "Maintain";
+        if($Data1[0]["IsAdmin"] == "1"){
+            $DataAuthorize[] = "Account";
+        } 
+        $ReturnArray["MemberID"] = $Data1[0]["MemberID"];
+        $ReturnArray["MemberName"] = $Data1[0]["MemberName"];
+        $ReturnArray["MemberAuthorize"] = $DataAuthorize; 
+        $this->mssql->close();
+        return $ReturnArray;
+    }
+
     public function InsertSystemMember($MemberName,$Username,$Password,$IsAdmin)
 	{
 		$this->mysql->trans_start();

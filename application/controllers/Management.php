@@ -2,17 +2,44 @@
 class Management extends CI_Controller
 {
 
-
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->library("session");
+        } 
         public function index()
         {
-                $this->load->view("login.php");   
+                $this->load->view("login.php");    
+
+                $MemberID = $this->session->userdata("MemberID");
+                $MemberName = $this->session->userdata("MemberName");
+                $MemberAuthorize = $this->session->userdata("MemberAuthorize");
+        
+                switch ($MemberAuthorize[0]) { 
+                    case 'Dashboard':
+                        redirect("Dashboard");
+                        break; 
+                    case 'Maintain':
+                        redirect("Maintain");
+                        break; 
+                }
         } 
+        public function Logout()
+        {
+                $this->session->sess_destroy();
+                redirect("index");
+        }
         public function Dashboard()
         {
-                $header["AccountPermit"] = array("Dashboard", "Maintain", "Account");
-                $header['EmployeeName'] = "TEST";
-                $header['EmployeeIMG'] = "";
-                $header['EmployeePosition'] = "-";
+
+                $MemberID = $this->session->userdata("MemberID");
+                $MemberName = $this->session->userdata("MemberName");
+                $MemberAuthorize = $this->session->userdata("MemberAuthorize");
+                if($MemberID == ""){
+                    redirect("Logout");
+                } 
+                $header["AccountPermit"] = $MemberAuthorize;
+                $header['EmployeeName'] = $MemberName; 
 
                 $header['page_name'] = 'จัดการรายการสั่งซื้อ';
                 $header['page_focus'] = 'Dashboard';
@@ -25,10 +52,14 @@ class Management extends CI_Controller
         }
         public function Maintain()
         {
-                $header["AccountPermit"] = array("Dashboard", "Maintain", "Account");
-                $header['EmployeeName'] = "TEST";
-                $header['EmployeeIMG'] = "";
-                $header['EmployeePosition'] = "-";
+                $MemberID = $this->session->userdata("MemberID");
+                $MemberName = $this->session->userdata("MemberName");
+                $MemberAuthorize = $this->session->userdata("MemberAuthorize");
+                if($MemberID == ""){
+                    redirect("Logout");
+                } 
+                $header["AccountPermit"] = $MemberAuthorize;
+                $header['EmployeeName'] = $MemberName; 
 
                 $header['page_name'] = 'คลังสินค้าและราคาขาย';
                 $header['page_focus'] = 'Maintain';
@@ -41,10 +72,14 @@ class Management extends CI_Controller
         }
         public function Account()
         {
-                $header["AccountPermit"] = array("Dashboard", "Maintain", "Account");
-                $header['EmployeeName'] = "TEST";
-                $header['EmployeeIMG'] = "";
-                $header['EmployeePosition'] = "-";
+                $MemberID = $this->session->userdata("MemberID");
+                $MemberName = $this->session->userdata("MemberName");
+                $MemberAuthorize = $this->session->userdata("MemberAuthorize");
+                if($MemberID == ""){
+                    redirect("Logout");
+                } 
+                $header["AccountPermit"] = $MemberAuthorize;
+                $header['EmployeeName'] = $MemberName; 
 
                 $header['page_name'] = 'บัญชีผู้ใช้ระบบ';
                 $header['page_focus'] = 'Account';
