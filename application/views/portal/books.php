@@ -628,7 +628,7 @@
                         LoadSaleOrder();
                         LoadPendingOrder();
                         $("#BTNCheckOut").click();
-                    } 
+                    }
 
                 });
 
@@ -857,36 +857,65 @@
                 /// AddItemtoCart ///
 
                 /// SendOrder ///
-                $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
+                $("#ModalOrderGoods").find("#SendOrder").on("click", function() {
 
                     if (GroupedItemsCart.length == 0) {
                         notification('notification-danger', "ผิดพลาด", "กรุณาเลือกสินค้า", 1000);
                         // Swal.fire('ผิดพลาด', "กรุณาเลือกสินค้า", 'danger');
                         return false;
                     }
-                    var data = {
-                        BookingSessionID: "<?php echo $BookingSessionID; ?>",
-                        Data: GroupedItemsCart
-                    };
+                    // var data = {
+                    //     BookingSessionID: "<?php echo $BookingSessionID; ?>",
+                    //     Data: GroupedItemsCart
+                    // };
 
-                    console.log(data);
+                    // console.log(data);
 
-                    await $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
-                        console.log(res);
-                        LoadPendingOrder();
-                        LoadSaleOrder();
-                        $("#ModalOrderGoods").modal("hide");
-                        if (socket.connected == true) {
-                            var Data = JSON.stringify({
-                                "Source": "<?php echo $BookingSessionID; ?>",
-                                "Dest": "Dashboard",
-                                "Header": "SendOrder",
-                                "Msg": "",
-                            });
-                            socket.emit("MSGServer", Data);
-                        }
+                    var data = new FormData();
+                    data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>");
+                    data.append('Data', GroupedItemsCart);
 
+                    $.ajax({
+                        url: "http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success: function(data) {
+                            console.log(res);
+                            $("#ModalOrderGoods").modal("hide");
+                            if (socket.connected == true) {
+                                var Data = JSON.stringify({
+                                    "Source": "<?php echo $BookingSessionID; ?>",
+                                    "Dest": "Dashboard",
+                                    "Header": "SendOrder",
+                                    "Msg": "",
+                                });
+                                socket.emit("MSGServer", Data);
+                            }
+                            LoadPendingOrder();
+                            LoadSaleOrder(); 
+                        },
+                        error: function() {}
                     });
+
+                    // $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
+                    //     console.log(res); 
+                    //     $("#ModalOrderGoods").modal("hide");
+                    //     if (socket.connected == true) {
+                    //         var Data = JSON.stringify({
+                    //             "Source": "<?php echo $BookingSessionID; ?>",
+                    //             "Dest": "Dashboard",
+                    //             "Header": "SendOrder",
+                    //             "Msg": "",
+                    //         });
+                    //         socket.emit("MSGServer", Data);
+                    //     }
+                    //     LoadPendingOrder();
+                    //     LoadSaleOrder();
+
+                    // });
 
                 });
                 /// SendOrder ///
