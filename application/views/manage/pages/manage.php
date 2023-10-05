@@ -198,31 +198,52 @@
 
          GetDataAllGoodsItemStock();
 
+         var GoodsItemID = "";
+         var GoodsItemName = "";
+         var Available = "";
+         var Image = "";
+         var StockAmount = "";
+         var PricePerUnit = "";
+         var Unit = "";
+         var Used = "";
+         var StockSub = 0;
 
          $("#TableGoodsItems").on("click", ".BTNEditGoodsItem", function() {
 
-             var GoodsItemID = $(this).attr("data-GoodsItemID");
-             var GoodsItemName = $(this).attr("data-GoodsItemName");
-             var Available = $(this).attr("data-Available");
-             var Image = $(this).attr("data-Image");
-             var StockAmount = $(this).attr("data-StockAmount");
-             var PricePerUnit = $(this).attr("data-PricePerUnit");
-             var Unit = $(this).attr("data-Unit");
-             var Used = $(this).attr("data-Used");
+             GoodsItemID = $(this).attr("data-GoodsItemID");
+             GoodsItemName = $(this).attr("data-GoodsItemName");
+             Available = $(this).attr("data-Available");
+             Image = $(this).attr("data-Image");
+             StockAmount = $(this).attr("data-StockAmount");
+             PricePerUnit = $(this).attr("data-PricePerUnit");
+             Unit = $(this).attr("data-Unit");
+             Used = $(this).attr("data-Used");
+
+             StockSub = (StockAmount-Used);
 
              $("#Modal_MaintainGoodsItem").modal("show");
-             $("#Modal_MaintainGoodsItem").find(".modal-title").text("แก้ไข "+GoodsItemName);
+             $("#Modal_MaintainGoodsItem").find(".modal-title").text("แก้ไข " + GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#GoodsName").val(GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
-             $("#Modal_MaintainGoodsItem").find("#StockAmount").val(StockAmount);
+             $("#Modal_MaintainGoodsItem").find("#StockAmount").val( StockSub );
              $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
-            //  $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
+             //  $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
              $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", Image);
-
              $("#Modal_MaintainGoodsItem").find("#SaveData").hide();
              $("#Modal_MaintainGoodsItem").find("#EditData").show();
 
-             // console.log(obj.parent().parent().find("img").attr("src"));
+         });
+
+         $("#Modal_MaintainGoodsItem").find("#EditData").on("click",function(){
+
+            StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+            if(StockSub < StockAmount){
+                alert("น้อยกว่ายอดใช้จริง");
+                return false;
+            }
+            
+
+
 
          });
 
