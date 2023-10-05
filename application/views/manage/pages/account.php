@@ -228,7 +228,20 @@
                 MemberName = $("#Modal_MaintainMember").find("#MemberName").val();
                 Password = $("#Modal_MaintainMember").find("#Password").val();
                 IsAdmin = $("#Modal_MaintainMember").find("#IsAdmin").val();
-  
+
+                if (Username.length == 0) {
+
+                    return false;
+                }
+                if (MemberName.length == 0) {
+
+                    return false;
+                }
+                if (Password.length == 0) {
+
+                    return false;
+                }
+
                 var data = new FormData();
                 data.append('MemberID', MemberID);
                 data.append('MemberName', MemberName);
