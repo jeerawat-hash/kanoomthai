@@ -864,21 +864,21 @@
                         // Swal.fire('ผิดพลาด', "กรุณาเลือกสินค้า", 'danger');
                         return false;
                     }
-                    // var data = {
-                    //     BookingSessionID: "<?php echo $BookingSessionID; ?>",
-                    //     Data: GroupedItemsCart
-                    // };
+                    var data = {
+                        BookingSessionID: "<?php echo $BookingSessionID; ?>",
+                        Data: GroupedItemsCart
+                    };
 
                     // console.log(data);
 
-                    var data = new FormData();
-                    data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>");
-                    data.append('Data', GroupedItemsCart);
+                    // var data = new FormData();
+                    // data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>");
+                    // data.append('Data', GroupedItemsCart);
 
                     $.ajax({
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",
                         type: "POST",
-                        data: data,
+                        data: JSON.stringify(data),
                         contentType: false,
                         cache: false,
                         processData: false,
