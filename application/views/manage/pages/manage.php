@@ -247,7 +247,7 @@
              StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
              GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
              Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
-             PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
+             PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
 
              if (StockAmount <= StockSub) {
                  alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน " + StockSub + " " + Unit);
