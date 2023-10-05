@@ -74,19 +74,19 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-6">
+                                        <h4>Username</h4>
+                                    </div>  
+                                    <div class="col-6">
                                         <h4>ชื่อ</h4>
                                     </div>
-                                    <div class="col-6">
-                                        <h4>Username</h4>
-                                    </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
+                                        <input type="text" class="form-control" id="Username" placeholder="Username">
+                                    </div>  
+                                    <div class="col-6">
                                         <input type="text" class="form-control" id="MemberName" placeholder="ชื่อพนักงาน">
                                     </div>
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" id="Username" placeholder="Username">
-                                    </div> 
                                 </div>  
                                 <div class="row"> 
                                     <div class="col-6">
