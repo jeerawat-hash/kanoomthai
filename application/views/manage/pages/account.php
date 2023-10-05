@@ -75,7 +75,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <h4>Username</h4>
-                                    </div>  
+                                    </div>
                                     <div class="col-6">
                                         <h4>ชื่อ</h4>
                                     </div>
@@ -83,30 +83,30 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <input type="text" class="form-control" id="Username" placeholder="Username">
-                                    </div>  
+                                    </div>
                                     <div class="col-6">
                                         <input type="text" class="form-control" id="MemberName" placeholder="ชื่อพนักงาน">
                                     </div>
-                                </div>  
-                                <div class="row"> 
+                                </div>
+                                <div class="row">
                                     <div class="col-6">
                                         <h4>Password</h4>
-                                    </div> 
+                                    </div>
                                     <div class="col-6">
                                         <h4>สิทธิ์</h4>
-                                    </div> 
+                                    </div>
                                 </div>
-                                <div class="row"> 
+                                <div class="row">
                                     <div class="col-6">
-                                        <input type="password" class="form-control" id="Password" >
-                                    </div> 
+                                        <input type="password" class="form-control" id="Password">
+                                    </div>
                                     <div class="col-6">
                                         <select id="IsAdmin" class="form-control">
                                             <option value="0">พนักงาน</option>
                                             <option value="1">เจ้าของร้าน</option>
-                                        </select> 
-                                    </div> 
-                                </div>  
+                                        </select>
+                                    </div>
+                                </div>
                                 <hr>
 
                             </div>
@@ -182,6 +182,44 @@
             $("#BTNAddDataAccount").on("click", function() {
 
                 $("#Modal_MaintainMember").modal("show");
+                $("#Modal_MaintainMember").find(".modal-title").text("เพิ่มข้อมูลผู้ใช้");
+                $("#Modal_MaintainMember").find("#SaveData").show();
+                $("#Modal_MaintainMember").find("#EditData").hide();
+
+            });
+
+            $("#Modal_MaintainMember").find("#SaveData").on("click", function() {
+
+                $("#Modal_MaintainMember").find("#Username").val();
+                $("#Modal_MaintainMember").find("#MemberName").val();
+                $("#Modal_MaintainMember").find("#Password").val();
+                $("#Modal_MaintainMember").find("#IsAdmin").val();
+
+
+            });
+
+            $("#TableMembers").on("click", ".BTNEditMember", function() {
+
+                var MemberID = $(this).attr("data-MemberID");
+                var MemberName = $(this).attr("data-MemberName");
+                var Username = $(this).attr("data-Username");
+                var IsAdmin = $(this).attr("data-IsAdmin");
+
+                $("#Modal_MaintainMember").modal("show");
+                $("#Modal_MaintainMember").find(".modal-title").text("แก้ไขข้อมูล : "+MemberName);
+                $("#Modal_MaintainMember").find("#SaveData").hide();
+                $("#Modal_MaintainMember").find("#EditData").show();
+
+            });
+
+            $("#Modal_MaintainMember").find("#EditData").on("click", function() {
+
+                $("#Modal_MaintainMember").find("#Username").val();
+                $("#Modal_MaintainMember").find("#MemberName").val();
+                $("#Modal_MaintainMember").find("#Password").val();
+                $("#Modal_MaintainMember").find("#IsAdmin").val();
+                
+
 
             });
 
