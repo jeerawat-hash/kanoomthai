@@ -615,24 +615,19 @@
                     }
                 });
 
-                socket.on("<?php echo $BookingSessionID; ?>",async function(data) {
+                socket.on("<?php echo $BookingSessionID; ?>", function(data) {
                     console.log(data);
                     var obj = JSON.parse(data);
-
-                    switch (obj.Header) {
-                        case "ReceiveOrder":
-                            /// OpenAlert obj.Msg ///
-                            await LoadSaleOrder();
-                            await LoadPendingOrder(); 
-                            Swal.fire('แจ้งเตือน', obj.Msg, 'success');
-                            break;
-                        case "SendInvoice":
-                            /// OpenOrder ///
-                            await LoadSaleOrder();
-                            await LoadPendingOrder();
-                            $("#BTNCheckOut").click();
-                            break;
+                    if (obj.Header == "ReceiveOrder") {
+                        LoadSaleOrder();
+                        LoadPendingOrder();
+                        Swal.fire('แจ้งเตือน', obj.Msg, 'success');
                     }
+                    if (obj.Header == "ReceiveOrder") {
+                        LoadSaleOrder();
+                        LoadPendingOrder();
+                        $("#BTNCheckOut").click();
+                    } 
 
                 });
 
@@ -765,7 +760,7 @@
                         },
                         error: function() {}
                     });
- 
+
                 });
                 //#region Login
 
@@ -863,7 +858,7 @@
                 /// SendOrder ///
                 $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
 
-                    if(GroupedItemsCart.length == 0){
+                    if (GroupedItemsCart.length == 0) {
                         // notification('notification-danger', "ผิดพลาด", "กรุณาเลือกสินค้า", 1000);
                         Swal.fire('ผิดพลาด', "กรุณาเลือกสินค้า", 'danger');
                         return false;
@@ -871,7 +866,7 @@
                     var data = {
                         BookingSessionID: "<?php echo $BookingSessionID; ?>",
                         Data: GroupedItemsCart
-                    }; 
+                    };
 
                     console.log(data);
 
