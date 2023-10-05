@@ -607,13 +607,13 @@
 
                 });
 
-                socket.on("AllEvent", function(data) {
-                    console.log(data);
-                    var obj = JSON.parse(data);
-                    if (obj.Msg == "Booking") {
-                        LoadDataSelectTable();
-                    }
-                });
+                // socket.on("AllEvent", function(data) {
+                //     console.log(data);
+                //     var obj = JSON.parse(data);
+                //     if (obj.Msg == "Booking") {
+                //         LoadDataSelectTable();
+                //     }
+                // });
 
                 socket.on("<?php echo $BookingSessionID; ?>", function(data) {
                     console.log(data);
@@ -734,24 +734,24 @@
                                     notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                     // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
                                     $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
-                                    if (socket.connected == true) {
-                                        var PayLoad = JSON.stringify({
-                                            "Source": obj.Data.BookingSessionID,
-                                            "Dest": "AllEvent",
-                                            "Header": obj.Data.CustomerName,
-                                            "Msg": "Booking",
-                                        });
-                                        socket.emit("MSGServer", PayLoad);
-                                    }
-                                    if (socket.connected == true) {
-                                        var Data = JSON.stringify({
-                                            "Source": obj.Data.BookingSessionID,
-                                            "Dest": "Dashboard",
-                                            "Header": "SignIn",
-                                            "Msg": obj.Data.CustomerName,
-                                        });
-                                        socket.emit("MSGServer", Data);
-                                    }
+                                    // if (socket.connected == true) {
+                                    //     var PayLoad = JSON.stringify({
+                                    //         "Source": obj.Data.BookingSessionID,
+                                    //         "Dest": "AllEvent",
+                                    //         "Header": obj.Data.CustomerName,
+                                    //         "Msg": "Booking",
+                                    //     });
+                                    //     socket.emit("MSGServer", PayLoad);
+                                    // }
+                                    // if (socket.connected == true) {
+                                    //     var Data = JSON.stringify({
+                                    //         "Source": obj.Data.BookingSessionID,
+                                    //         "Dest": "Dashboard",
+                                    //         "Header": "SignIn",
+                                    //         "Msg": obj.Data.CustomerName,
+                                    //     });
+                                    //     socket.emit("MSGServer", Data);
+                                    // }
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้ ", 'danger');
