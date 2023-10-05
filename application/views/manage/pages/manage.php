@@ -372,6 +372,7 @@
                              var Option = "";
 
                              Option += '<button class="btn btn-warning BTNEditGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >แก้ไข</button>';
+                             Option += ' <button class="btn btn-danger BTNDeleteGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >ลบ</button>';
 
                              Data.push({
                                  "ID": ID,
