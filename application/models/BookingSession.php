@@ -151,7 +151,7 @@ class BookingSession extends CI_Model
         return $TableID;
     }
     public function SignInAndBookingTable($CustomerName, $TableID)
-    {  
+    { 
         $QueryString = " 
         INSERT INTO tbl_Customer (CustomerName, CreateDate)
         values(?,?)
@@ -163,7 +163,7 @@ class BookingSession extends CI_Model
         ";
         $queryLastID = $this->mysql->query($QueryLastID);
         $LastInsertID = $queryLastID->result_array();
- 
+
         $QueryString = " 
         INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
         SELECT ?,TableID,0 FROM tbl_Table 
@@ -172,11 +172,7 @@ class BookingSession extends CI_Model
         ";
         $query = $this->mysql->query($QueryString, array($LastInsertID[0]["CustomerID"], $TableID));
 
-        $QueryLastID = " 
-        INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
-        SELECT ?,TableID,0 FROM tbl_Table 
-        where TableID not in (SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID != 21) 
-        and TableID = ?
+        $QueryLastID = "  
         SELECT BookingSessionID FROM tbl_BookingSession order by BookingSessionID desc limit 1
         ";
         $queryLastID = $this->mysql->query($QueryLastID);
