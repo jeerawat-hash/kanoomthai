@@ -28,14 +28,16 @@ class Data extends CI_Controller {
 		$IsSuccess = 0;
 		if($UpLoadFile_Type == "image/jpeg"){ 
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg");
+            $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsImageUpload.".jpeg");
 		}
 		if($UpLoadFile_Type == "image/jpg"){ 
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
+            $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsImageUpload.".jpg");
 		}
 		if($UpLoadFile_Type == "image/png"){
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
+            $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsImageUpload.".png");
 		} 
-        $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsImageUpload);
 
 		echo json_encode(array("IsSuccess" => $IsSuccess )); 
 	}
