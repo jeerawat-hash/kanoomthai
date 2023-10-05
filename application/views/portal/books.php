@@ -870,12 +870,13 @@
                     };
 
                     console.log(data);
-
+                    $("#ModalOrderGoods").find("#SendOrder").attr("disabled",true);
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
                         console.log(res);
                         LoadPendingOrder();
-                        LoadSaleOrder();
+                        LoadSaleOrder(); 
                         $("#ModalOrderGoods").modal("hide");
+                        $("#ModalOrderGoods").find("#SendOrder").attr("disabled",false); 
                         // if (socket.connected == true) {
                         //     var Data = JSON.stringify({
                         //         "Source": "<?php echo $BookingSessionID; ?>",
