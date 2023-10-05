@@ -876,6 +876,8 @@
                         Data: GroupedItemsCart
                     }; 
 
+                    console.log(data);
+
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
 
                         console.log(res);
