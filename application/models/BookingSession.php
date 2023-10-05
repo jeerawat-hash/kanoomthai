@@ -182,7 +182,7 @@ class BookingSession extends CI_Model
         $queryLastID = $this->mysql->query($QueryLastID);
         $LastInsertID = $queryLastID->result_array();
 
-        $Data = array("Status" => (($Transaction == true) ? 1 : 0), "BookingSessionID" => $LastInsertID[0]["BookingSessionID"]);
+        $Data = array("Status" => 1, "BookingSessionID" => $LastInsertID[0]["BookingSessionID"]);
         $this->mysql->close();
         return $Data;
     }
