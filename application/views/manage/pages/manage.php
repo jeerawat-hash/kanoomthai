@@ -268,7 +268,7 @@
                      data.append('GoodsItemID', GoodsItemID);
 
                      $.ajax({
-                         url: "http://203.156.9.157/kanoomthai/index.php/Data/GoodsItemID",
+                         url: "http://203.156.9.157/kanoomthai/index.php/Data/DeleteGoodsItems",
                          type: "POST",
                          data: data,
                          contentType: false,
