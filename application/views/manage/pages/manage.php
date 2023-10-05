@@ -254,6 +254,11 @@
                  return false;
              }
 
+             if (GoodsImageUpload == undefined) { 
+                 alert("กรุณาแนบภาพสินค้า");
+                 return false;
+             }
+
              var data = new FormData();
              data.append('GoodsItemID', GoodsItemID);
              data.append('GoodsItemName', GoodsItemName);
@@ -275,8 +280,7 @@
                          console.log(obj);
                          $("#Modal_MaintainGoodsItem").modal("hide");
 
-                     } catch (error) { 
-                     }
+                     } catch (error) {}
                  },
                  error: function() {}
              });
