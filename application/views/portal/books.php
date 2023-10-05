@@ -689,17 +689,16 @@
 
                     if (CustomerName == "") {
                         notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
+                        $("#ModalLogin").find("#BTNLogin").show();
                         // Swal.fire('แจ้งเตือน', "กรุณาระบุชื่อ", 'danger');
                         return false;
                     }
                     if (TableID == "None") {
                         notification('notification-danger', "แจ้งเตือน", "กรุณาทำการจอง", 1000);
+                        $("#ModalLogin").find("#BTNLogin").show();
                         // Swal.fire('แจ้งเตือน', "กรุณาทำการจอง", 'danger');
                         return false;
-                    }
-                    $("#ModalLogin").find("#BTNLogin").hide();
-
-                    location.reload();
+                    }  
 
                     var data = new FormData();
                     data.append('CustomerName', CustomerName);
