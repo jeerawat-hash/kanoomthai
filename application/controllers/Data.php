@@ -24,9 +24,9 @@ class Data extends CI_Controller {
 		$UpLoadFile_Type = $UploadFile['GoodsImageUpload']['type'];
 		$UpLoadFile_Tmp_Name = $UploadFile['GoodsImageUpload']['tmp_name'];
 		$UpLoadFile_Size = $UploadFile['GoodsImageUpload']['size']; 
-		$GoodsImageUpload = "/var/www/html/kanoomthai/Upload/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
+		$GoodsImageUpload = "/var/www/html/UploadFiles/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
 		$PostData = $_POST;  
-        $GoodsFiles = "http://203.156.9.157/kanoomthai/Upload/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
+        $GoodsFiles = "http://203.156.9.157/UploadFiles/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
 		$IsSuccess = 0;
 
         move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
