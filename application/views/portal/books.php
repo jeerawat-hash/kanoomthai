@@ -883,7 +883,7 @@
                         cache: false,
                         processData: false,
                         success: function(data) {
-                            console.log(res);
+                            console.log(data);
                             $("#ModalOrderGoods").modal("hide");
                             if (socket.connected == true) {
                                 var Data = JSON.stringify({
