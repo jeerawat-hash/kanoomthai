@@ -74,13 +74,13 @@ class Data extends CI_Controller {
     }
     public function SendOrder()
     { 
-        // $BookingSessionID = $this->session->userdata("BookingSessionID"); 
-        // $CustomerID = $this->session->userdata("CustomerID"); 
-        // $CustomerName = $this->session->userdata("CustomerName"); 
-        // $TableID = $this->session->userdata("TableID"); 
-        // $TableName = $this->session->userdata("TableName");  
-        // $result = $this->Goodsitem->InsertDataOrder($BookingSessionID,$_POST);  
-        echo json_encode($_POST);
+        $BookingSessionID = $this->session->userdata("BookingSessionID"); 
+        $CustomerID = $this->session->userdata("CustomerID"); 
+        $CustomerName = $this->session->userdata("CustomerName"); 
+        $TableID = $this->session->userdata("TableID"); 
+        $TableName = $this->session->userdata("TableName");  
+        $result = $this->Goodsitem->InsertDataOrder($BookingSessionID,$_POST);  
+        echo json_encode($result);
     }
     public function GetDataAllGoodsItemForSale()
 	{

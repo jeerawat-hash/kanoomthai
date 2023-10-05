@@ -628,7 +628,7 @@
                         LoadSaleOrder();
                         LoadPendingOrder();
                         $("#BTNCheckOut").click();
-                    }
+                    } 
 
                 });
 
@@ -869,53 +869,21 @@
                         Data: GroupedItemsCart
                     };
 
-                    // console.log(data);
+                    console.log(data);
 
-                    // var data = new FormData();
-                    // data.append('BookingSessionID', "<?php echo $BookingSessionID; ?>");
-                    // data.append('Data', GroupedItemsCart);
-
-                    $.ajax({
-                        url: "http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",
-                        type: "POST",
-                        data: JSON.stringify(data),
-                        contentType: "application/json",
-                        cache: false,
-                        processData: false,
-                        success: function(data) {
-                            console.log(data);
-                            $("#ModalOrderGoods").modal("hide");
-                            if (socket.connected == true) {
-                                var Data = JSON.stringify({
-                                    "Source": "<?php echo $BookingSessionID; ?>",
-                                    "Dest": "Dashboard",
-                                    "Header": "SendOrder",
-                                    "Msg": "",
-                                });
-                                socket.emit("MSGServer", Data);
-                            }
-                            LoadPendingOrder();
-                            LoadSaleOrder(); 
-                        },
-                        error: function() {}
+                    $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
+                        console.log(res); 
+                        $("#ModalOrderGoods").modal("hide");
+                        if (socket.connected == true) {
+                            var Data = JSON.stringify({
+                                "Source": "<?php echo $BookingSessionID; ?>",
+                                "Dest": "Dashboard",
+                                "Header": "SendOrder",
+                                "Msg": "",
+                            });
+                            socket.emit("MSGServer", Data);
+                        }
                     });
-
-                    // $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
-                    //     console.log(res); 
-                    //     $("#ModalOrderGoods").modal("hide");
-                    //     if (socket.connected == true) {
-                    //         var Data = JSON.stringify({
-                    //             "Source": "<?php echo $BookingSessionID; ?>",
-                    //             "Dest": "Dashboard",
-                    //             "Header": "SendOrder",
-                    //             "Msg": "",
-                    //         });
-                    //         socket.emit("MSGServer", Data);
-                    //     }
-                    //     LoadPendingOrder();
-                    //     LoadSaleOrder();
-
-                    // });
 
                 });
                 /// SendOrder ///
