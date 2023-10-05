@@ -27,7 +27,7 @@ class Management extends CI_Controller
         public function Logout()
         {
                 $this->session->sess_destroy();
-                redirect("Management/index");
+                redirect("Management");
         }
         public function Dashboard()
         {
