@@ -9,7 +9,8 @@ class Member extends CI_Model
 	}
 
     public function ManagementLogin($Username,$Password)
-    {
+    { 
+        error_reporting(0);
         $ReturnArray = array(); 
         $QueryString1 = " 
         SELECT MemberID,MemberName,Username,Password,IsAdmin FROM tbl_Member where Username = ? and Password = ?
@@ -22,7 +23,7 @@ class Member extends CI_Model
         $DataAuthorize[] = "Maintain";
         if($Data1[0]["IsAdmin"] == "1"){
             $DataAuthorize[] = "Account";
-        } 
+        }
         $ReturnArray["MemberID"] = $Data1[0]["MemberID"];
         $ReturnArray["MemberName"] = $Data1[0]["MemberName"];
         $ReturnArray["MemberAuthorize"] = $DataAuthorize; 
