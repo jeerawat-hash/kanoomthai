@@ -102,7 +102,7 @@
                                  <div class="col-6">
                                      <input type="text" class="form-control" id="StockAmount" placeholder="จำนวนสินค้า">
                                  </div>
-                                 <div class="col-6"> 
+                                 <div class="col-6">
                                      <input type="file" class="custom-file-input" id="GoodsImageUpload" name="filename">
                                      <label class="custom-file-label" for="GoodsImageUpload">Choose file</label>
                                  </div>
@@ -199,11 +199,30 @@
          GetDataAllGoodsItemStock();
 
 
-         $("#TableGoodsItems").on("click",".BTNEditGoodsItem",function(){
+         $("#TableGoodsItems").on("click", ".BTNEditGoodsItem", function() {
 
-            var obj = $(this);
-            // console.log(obj.parent().parent().find("img").attr("src"));
-            
+             var GoodsItemID = $(this).attr("data-GoodsItemID");
+             var GoodsItemName = $(this).attr("data-GoodsItemName");
+             var Available = $(this).attr("data-Available");
+             var Image = $(this).attr("data-Image");
+             var StockAmount = $(this).attr("data-StockAmount");
+             var PricePerUnit = $(this).attr("data-PricePerUnit");
+             var Unit = $(this).attr("data-Unit");
+             var Used = $(this).attr("data-Used");
+
+             $("#Modal_MaintainGoodsItem").modal("show");
+             $("#Modal_MaintainGoodsItem").find(".modal-title").text("แก้ไข "+GoodsItemName);
+             $("#Modal_MaintainGoodsItem").find("#GoodsName").val(GoodsItemName);
+             $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
+             $("#Modal_MaintainGoodsItem").find("#StockAmount").val(StockAmount);
+             $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
+            //  $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
+             $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", Image);
+
+             $("#Modal_MaintainGoodsItem").find("#SaveData").hide();
+             $("#Modal_MaintainGoodsItem").find("#EditData").show();
+
+             // console.log(obj.parent().parent().find("img").attr("src"));
 
          });
 
