@@ -8,6 +8,18 @@ class Member extends CI_Model
 		$this->load->library("session"); 
 	}
 
+    public function InsertSystemMember($MemberName,$Username,$Password,$IsAdmin)
+	{
+		$this->mysql->trans_start();
+        $QueryString = " 
+        INSERT INTO tbl_Member (MemberName, Username, Password, IsAdmin) VALUES (?, ?, ?, ?);
+        ";
+        $query = $this->mysql->query($QueryString, array($MemberName,$Username,md5($Password),$IsAdmin));
+        $Transaction = $this->mysql->trans_complete(); 
+		$Data = array("Status" => (($Transaction == true) ? 1 : 0));
+        $this->mysql->close();
+        return $Data;
+	}
     public function EditSystemMember($MemberID,$MemberName,$Username,$Password,$IsAdmin)
 	{
 		$this->mysql->trans_start();

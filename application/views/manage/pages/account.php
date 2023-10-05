@@ -178,11 +178,19 @@
 
             GetDataAllSystemMember();
 
+            var MemberID = "";
+            var MemberName = "";
+            var Username = "";
+            var IsAdmin = "";
 
             $("#BTNAddDataAccount").on("click", function() {
 
                 $("#Modal_MaintainMember").modal("show");
                 $("#Modal_MaintainMember").find(".modal-title").text("เพิ่มข้อมูลผู้ใช้");
+                $("#Modal_MaintainMember").find("#Username").val("");
+                $("#Modal_MaintainMember").find("#MemberName").val("");
+                $("#Modal_MaintainMember").find("#Password").val("");
+                $("#Modal_MaintainMember").find("#IsAdmin").val(0);
                 $("#Modal_MaintainMember").find("#SaveData").show();
                 $("#Modal_MaintainMember").find("#EditData").hide();
 
@@ -190,19 +198,48 @@
 
             $("#Modal_MaintainMember").find("#SaveData").on("click", function() {
 
-                $("#Modal_MaintainMember").find("#Username").val();
-                $("#Modal_MaintainMember").find("#MemberName").val();
-                $("#Modal_MaintainMember").find("#Password").val();
-                $("#Modal_MaintainMember").find("#IsAdmin").val();
+                Username = $("#Modal_MaintainMember").find("#Username").val();
+                MemberName = $("#Modal_MaintainMember").find("#MemberName").val();
+                Password = $("#Modal_MaintainMember").find("#Password").val();
+                IsAdmin = $("#Modal_MaintainMember").find("#IsAdmin").val();
+                if (Username.length == 0) {
 
+                    return false;
+                }
+                if (MemberName.length == 0) {
 
+                    return false;
+                }
+                if (Password.length == 0) {
+
+                    return false;
+                }
+                var data = new FormData(); 
+                data.append('MemberName', MemberName);
+                data.append('Username', Username);
+                data.append('Password', Password);
+                data.append('IsAdmin', IsAdmin);
+
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/InsertSystemMember",
+                    type: "POST",
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+                        try {
+                            var obj = JSON.parse(data);
+                            console.log(obj);
+                            $("#Modal_MaintainMember").modal("hide");
+                            GetDataAllSystemMember();
+
+                        } catch (error) {}
+                    },
+                    error: function() {}
+                });  
             });
-
-            var MemberID = "";
-            var MemberName = "";
-            var Username = "";
-            var IsAdmin = "";
-
+ 
             $("#TableMembers").on("click", ".BTNEditMember", function() {
 
                 MemberID = $(this).attr("data-MemberID");
