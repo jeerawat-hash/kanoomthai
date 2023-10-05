@@ -26,34 +26,22 @@ class Data extends CI_Controller {
 		$GoodsImageUpload = "/var/www/html/UploadFiles/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
 		$PostData = $_POST;
         $GoodsFiles = "http://203.156.9.157/UploadFiles/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
-		$IsSuccess = 0; 
-         
-        if($UpLoadFile_Type == "image/jpeg"){ 
+		$IsSuccess = 0;  
+
+		if($UpLoadFile_Type == "image/jpeg"){ 
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg"); 
-            // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpeg"); 
+            $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpeg");
 		}else
 		if($UpLoadFile_Type == "image/jpg"){ 
             move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
-            // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
+            $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
 		}else
 		if($UpLoadFile_Type == "image/png"){
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
-            // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".png");
+            $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".png");
 		}  
-
-		// if($UpLoadFile_Type == "image/jpeg"){ 
-		// 	move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg"); 
-        //     // $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
-		// }else
-		// if($UpLoadFile_Type == "image/jpg"){ 
-        //     move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
-        //     // $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
-		// }else
-		// if($UpLoadFile_Type == "image/png"){
-		// 	move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
-        //     // $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
-		// }  
-		echo json_encode(array("IsSuccess" => $IsSuccess,"GoodsFiles"=>$GoodsFiles ));  
+        
+		echo json_encode(array("IsSuccess" => $IsSuccess ));  
 
 	}
     public function EditGoodsItems()
