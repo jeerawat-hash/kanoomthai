@@ -14,7 +14,7 @@ class Member extends CI_Model
         $QueryString1 = " 
         SELECT MemberID,MemberName,Username,Password,IsAdmin FROM tbl_Member where Username = ? and Password = ?
             ";
-        $query1 = $this->mssql->query($QueryString1, array($Username,md5($Password)));
+        $query1 = $this->mysql->query($QueryString1, array($Username,md5($Password)));
         $Data1 = $query1->result_array();
    
         $DataAuthorize = array();
@@ -26,7 +26,7 @@ class Member extends CI_Model
         $ReturnArray["MemberID"] = $Data1[0]["MemberID"];
         $ReturnArray["MemberName"] = $Data1[0]["MemberName"];
         $ReturnArray["MemberAuthorize"] = $DataAuthorize; 
-        $this->mssql->close();
+        $this->mysql->close();
         return $ReturnArray;
     }
 
