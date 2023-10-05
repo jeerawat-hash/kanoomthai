@@ -562,7 +562,7 @@
                     console.log("Connected");
 
                     if ("<?php echo $BookingSessionID; ?>" != "") {
-                        await socket.emit("SetID", <?php echo $BookingSessionID; ?>);
+                        await socket.emit("SetID", "<?php echo $BookingSessionID; ?>");
                         setTimeout(function() {
                             $.ajax({
                                 url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
@@ -765,10 +765,7 @@
                         },
                         error: function() {}
                     });
-
-
-
-
+ 
                 });
                 //#region Login
 
@@ -878,8 +875,7 @@
 
                     console.log(data);
 
-                    $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
-
+                    await $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
                         console.log(res);
                         LoadPendingOrder();
                         LoadSaleOrder();
