@@ -249,8 +249,8 @@
              Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
              PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
 
-             if (StockAmount <= StockSub) {
-                 alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน " + StockSub + " " + Unit);
+             if (StockAmount <= Used) {
+                 alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน " + Used + " " + Unit);
                  return false;
              }
 
