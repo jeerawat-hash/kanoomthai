@@ -577,8 +577,8 @@
                                         if (obj.Status == "Success") {
                                             LoadSaleOrder();
                                             LoadPendingOrder();
-                                            // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
-                                            Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
+                                            notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
+                                            // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
                                             $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
                                             socket.emit("SetID", obj.Data.BookingSessionID);
 
@@ -594,8 +594,8 @@
 
                                             $("#ModalLogin").modal("hide");
                                         } else {
-                                            // notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
-                                            Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้", 'danger');
+                                            notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
+                                            // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้", 'danger');
                                             return false;
                                         }
                                     } catch (error) {}
@@ -622,6 +622,7 @@
                         LoadSaleOrder();
                         LoadPendingOrder();
                         Swal.fire('แจ้งเตือน', obj.Msg, 'success');
+                        // notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
                     }
                     if (obj.Header == "SendInvoice") {
                         LoadSaleOrder();
@@ -664,8 +665,8 @@
                         processData: false,
                         success: function(data) {
                             $("#ModalLogin").modal("show");
-                            // notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
-                            Swal.fire('สำเร็จ', "ทำการออกจากระบบแล้ว", 'success');
+                            notification('notification-success', "สำเร็จ", "ทำการออกจากระบบแล้ว", 1000);
+                            // Swal.fire('สำเร็จ', "ทำการออกจากระบบแล้ว", 'success');
                             $("#ModalLogin").find("#Inp_CustomerName").val("");
                             $("#ModalLogin").find("#Inp_Booktable").val("None");
                             LoadDataSelectTable();
@@ -686,13 +687,13 @@
                     var TableID = $("#ModalLogin").find("#Inp_Booktable option:selected").val();
 
                     if (CustomerName == "") {
-                        // notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
-                        Swal.fire('แจ้งเตือน', "กรุณาระบุชื่อ", 'danger');
+                        notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
+                        // Swal.fire('แจ้งเตือน', "กรุณาระบุชื่อ", 'danger');
                         return false;
                     }
                     if (TableID == "None") {
-                        // notification('notification-danger', "แจ้งเตือน", "กรุณาทำการจอง", 1000);
-                        Swal.fire('แจ้งเตือน', "กรุณาทำการจอง", 'danger');
+                        notification('notification-danger', "แจ้งเตือน", "กรุณาทำการจอง", 1000);
+                        // Swal.fire('แจ้งเตือน', "กรุณาทำการจอง", 'danger');
                         return false;
                     }
 
@@ -730,8 +731,8 @@
                                     $("#ModalLogin").modal("hide");
                                     LoadSaleOrder();
                                     LoadPendingOrder();
-                                    // notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
-                                    Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
+                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
+                                    // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
                                     $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
                                     if (socket.connected == true) {
                                         var PayLoad = JSON.stringify({
@@ -752,8 +753,8 @@
                                         socket.emit("MSGServer", Data);
                                     }
                                 } else {
-                                    // notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
-                                    Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้ ", 'danger');
+                                    notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
+                                    // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้ ", 'danger');
                                     return false;
                                 }
                             } catch (error) {}
@@ -800,13 +801,13 @@
                     var Total = $(this).attr("data-Total");
 
                     if (GoodsItemAmount == 0) {
-                        // notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
-                        Swal.fire('แจ้งเตือน', "กรุณาเลือกจำนวนสินค้าที่ต้องการ ", 'warning');
+                        notification('notification-warning', "แจ้งเตือน", "กรุณาเลือกจำนวนสินค้าที่ต้องการ", 1000);
+                        // Swal.fire('แจ้งเตือน', "กรุณาเลือกจำนวนสินค้าที่ต้องการ ", 'warning');
                         return false;
                     }
                     if (parseFloat(Total) < parseFloat(GoodsItemAmount)) {
-                        // notification('notification-warning', "แจ้งเตือน", "จำนวนสินค้าไม่พอให้สั่งซื้อ", 1000);
-                        Swal.fire('แจ้งเตือน', "จำนวนสินค้าไม่พอให้สั่งซื้อ ", 'warning');
+                        notification('notification-warning', "แจ้งเตือน", "จำนวนสินค้าไม่พอให้สั่งซื้อ", 1000);
+                        // Swal.fire('แจ้งเตือน', "จำนวนสินค้าไม่พอให้สั่งซื้อ ", 'warning');
                         return false;
                     }
 
@@ -848,8 +849,8 @@
                     $("#CartSumItem").text(CartAccusumAmount);
                     $("#CartSumPrice").text(CartTotalPrice);
 
-                    // notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม " + GoodsItemName + " จำนวน " + GoodsItemAmount + " ชิ้น สำเร็จ", 3000);
-                    Swal.fire('เพิ่มสินค้าลงตะกร้า', "เพิ่ม " + GoodsItemName + " จำนวน " + GoodsItemAmount + " ชิ้น สำเร็จ", 'success');
+                    notification('notification-success', "เพิ่มสินค้าลงตะกร้า", "เพิ่ม " + GoodsItemName + " จำนวน " + GoodsItemAmount + " ชิ้น สำเร็จ", 3000);
+                    // Swal.fire('เพิ่มสินค้าลงตะกร้า', "เพิ่ม " + GoodsItemName + " จำนวน " + GoodsItemAmount + " ชิ้น สำเร็จ", 'success');
 
 
                 });
@@ -859,8 +860,8 @@
                 $("#ModalOrderGoods").find("#SendOrder").on("click", async function() {
 
                     if (GroupedItemsCart.length == 0) {
-                        // notification('notification-danger', "ผิดพลาด", "กรุณาเลือกสินค้า", 1000);
-                        Swal.fire('ผิดพลาด', "กรุณาเลือกสินค้า", 'danger');
+                        notification('notification-danger', "ผิดพลาด", "กรุณาเลือกสินค้า", 1000);
+                        // Swal.fire('ผิดพลาด', "กรุณาเลือกสินค้า", 'danger');
                         return false;
                     }
                     var data = {
