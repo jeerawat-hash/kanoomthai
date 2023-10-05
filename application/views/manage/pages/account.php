@@ -45,7 +45,7 @@
                                             <th>ลำดับ</th>
                                             <th>ชื่อ</th>
                                             <th>ตำแหน่ง</th>
-                                            <th>Username</th> 
+                                            <th>Username</th>
                                             <th>ดำเนินการ</th>
                                         </tr>
                                     </thead>
@@ -61,7 +61,7 @@
 
 
 
- 
+
 
 
             </div><!-- /.container-fluid -->
@@ -71,7 +71,7 @@
 
     <script>
         $(function() {
-  
+
             var TableMembers = $("#TableMembers").DataTable({
                 "responsive": true,
                 "lengthChange": true,
@@ -84,7 +84,7 @@
                         id: 'BTNAddDataAccount'
                     },
                     className: 'btn btn-success'
-                },"copy", "excel" ],
+                }, "copy", "excel"],
                 dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
                     "<'row'<'col-sm-12'tr>>" +
                     "<'row'<'col-sm-5'i><'col-sm-7'p>>",
@@ -103,7 +103,7 @@
                     {
                         "data": "Username",
                         "title": "Username"
-                    }, 
+                    },
                     {
                         "data": "Option",
                         "title": "ดำเนินการ",
@@ -111,10 +111,56 @@
                     },
                 ]
             });
- 
 
 
-            
+            GetDataAllGoodsItemStock();
+
+
+            $("#BTNAddDataAccount").on("click", function() {
+
+
+            });
+
+
+
+
+            //#region GetDataAllGoodsItemStock
+            function GetDataAllGoodsItemStock() {
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAllSystemMember",
+                    type: "POST", 
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) { 
+
+                        var Data = [];
+                        try {
+                            var obj = JSON.parse(data);
+                            for (var i = 0; i < obj.length; i++) {
+                                var ID = i + 1;
+                                var Option = ""; 
+                                Option += '<button class="btn btn-warning BTNEditMember" data-MemberID="' + obj[i].MemberID + '" data-MemberName="' + obj[i].MemberName + '" data-Username="' + obj[i].Username + '" data-IsAdmin="' + obj[i].IsAdmin + '" >แก้ไข</button> ';
+                                var Position = "เจ้าของร้าน"; 
+                                if(obj[i].IsAdmin == "0"){
+                                    Position = "พนักงาน";
+                                }
+                                Data.push({
+                                    "ID": ID,
+                                    "MemberName": obj[i].MemberName,
+                                    "Position": Position,
+                                    "Username": obj[i].Username,
+                                    "Option": Option,
+                                });
+                            }
+                            TableMembers.clear().rows.add(Data).draw(false);
+                        } catch (error) {}
+                    },
+                    error: function() {}
+                });
+            }
+            //#endregion 
+
 
         });
     </script>
