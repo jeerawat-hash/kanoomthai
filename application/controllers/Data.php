@@ -28,19 +28,22 @@ class Data extends CI_Controller {
 		$PostData = $_POST;  
         $GoodsFiles = "http://203.156.9.157/kanoomthai/Upload/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
 		$IsSuccess = 0;
-		if($UpLoadFile_Type == "image/jpeg"){ 
-			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg");
+
+        move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
+
+		// if($UpLoadFile_Type == "image/jpeg"){ 
+		// 	move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg");
         
-            // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpeg");
-		} 
-		if($UpLoadFile_Type == "image/jpg"){ 
-			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
-            // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
-		}
-		if($UpLoadFile_Type == "image/png"){
-			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
-            // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".png");
-		} 
+        //     // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpeg");
+		// } 
+		// if($UpLoadFile_Type == "image/jpg"){ 
+
+        //     // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
+		// }
+		// if($UpLoadFile_Type == "image/png"){
+		// 	move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
+        //     // $this->Goodsitem->EditGoodsItems($PostData["GoodsItemID"],$PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".png");
+		// } 
 
 		// echo json_encode(array("IsSuccess" => $IsSuccess )); 
         echo json_encode($_FILES);
