@@ -93,7 +93,7 @@
                                      <input type="number" class="form-control" id="PricePerUnit" placeholder="ราคาต่อหน่วย">
                                  </div>
                                  <div class="col-4">
-                                     <input type="number" class="form-control" id="Unit" placeholder="หน่วย">
+                                     <input type="text" class="form-control" id="Unit" placeholder="หน่วย">
                                  </div>
                              </div>
                              <div class="row">
