@@ -30,15 +30,15 @@ class Data extends CI_Controller {
          
 		if($UpLoadFile_Type == "image/jpeg"){ 
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg"); 
-            $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
+            // $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
 		}else
 		if($UpLoadFile_Type == "image/jpg"){ 
             move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
-            $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
+            // $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
 		}else
 		if($UpLoadFile_Type == "image/png"){
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
-            $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
+            // $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
 		}  
 		echo json_encode(array("IsSuccess" => $IsSuccess ));  
 
