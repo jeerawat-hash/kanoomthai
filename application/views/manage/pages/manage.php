@@ -216,14 +216,14 @@
 
          $("#TableGoodsItems").on("click", ".BTNEditGoodsItem", function() {
 
-             GoodsItemID = $(this).attr("data-GoodsItemID");
-             GoodsItemName = $(this).attr("data-GoodsItemName");
-             Available = $(this).attr("data-Available");
-             Image = $(this).attr("data-Image");
-             StockAmount = $(this).attr("data-StockAmount");
-             PricePerUnit = $(this).attr("data-PricePerUnit");
-             Unit = $(this).attr("data-Unit");
-             Used = $(this).attr("data-Used");
+             GoodsItemID = $(this).attr("data-goodsItemID");
+             GoodsItemName = $(this).attr("data-goodsItemName");
+             Available = $(this).attr("data-available");
+             Image = $(this).attr("data-image");
+             StockAmount = $(this).attr("data-stockAmount");
+             PricePerUnit = $(this).attr("data-pricePerUnit");
+             Unit = $(this).attr("data-unit");
+             Used = $(this).attr("data-used");
 
              StockSub = (StockAmount-Used);
 
