@@ -17,17 +17,17 @@ class Management extends CI_Controller
         
                 switch ($MemberAuthorize[0]) { 
                     case 'Dashboard':
-                        redirect("Dashboard");
+                        redirect("Management/Dashboard");
                         break; 
                     case 'Maintain':
-                        redirect("Maintain");
+                        redirect("Management/Maintain");
                         break; 
                 }
         } 
         public function Logout()
         {
                 $this->session->sess_destroy();
-                redirect("index");
+                redirect("Management/index");
         }
         public function Dashboard()
         {
@@ -36,7 +36,7 @@ class Management extends CI_Controller
                 $MemberName = $this->session->userdata("MemberName");
                 $MemberAuthorize = $this->session->userdata("MemberAuthorize");
                 if($MemberID == ""){
-                    redirect("Logout");
+                    redirect("Management/Logout");
                 } 
                 $header["AccountPermit"] = $MemberAuthorize;
                 $header['EmployeeName'] = $MemberName; 
@@ -56,7 +56,7 @@ class Management extends CI_Controller
                 $MemberName = $this->session->userdata("MemberName");
                 $MemberAuthorize = $this->session->userdata("MemberAuthorize");
                 if($MemberID == ""){
-                    redirect("Logout");
+                    redirect("Management/Logout");
                 } 
                 $header["AccountPermit"] = $MemberAuthorize;
                 $header['EmployeeName'] = $MemberName; 
@@ -76,7 +76,7 @@ class Management extends CI_Controller
                 $MemberName = $this->session->userdata("MemberName");
                 $MemberAuthorize = $this->session->userdata("MemberAuthorize");
                 if($MemberID == ""){
-                    redirect("Logout");
+                    redirect("Management/Logout");
                 } 
                 $header["AccountPermit"] = $MemberAuthorize;
                 $header['EmployeeName'] = $MemberName; 
