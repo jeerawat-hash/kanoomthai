@@ -7,13 +7,24 @@ class Data extends CI_Controller {
         parent::__construct();
         $this->load->model("BookingSession");
         $this->load->model("Goodsitem");
+        $this->load->model("Member");
         $this->load->library("session");
     }
 	public function index()
 	{
 		echo "1";
 	}
+  
+    
+    public function GetDataAllSystemMember()
+	{     
+        $result = $this->Member->GetDataAllSystemMember();
+        echo json_encode($result);
+    }
  
+
+
+
     //// Backend ////
     public function DeleteGoodsItems()
 	{    
