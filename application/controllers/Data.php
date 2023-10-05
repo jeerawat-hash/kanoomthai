@@ -24,7 +24,7 @@ class Data extends CI_Controller {
 		$UpLoadFile_Tmp_Name = $UploadFile['GoodsImageUpload']['tmp_name'];
 		$UpLoadFile_Size = $UploadFile['GoodsImageUpload']['size']; 
 		$GoodsImageUpload = "/var/www/html/UploadFiles/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
-		$PostData = $_POST;  
+		$PostData = $_POST;
         $GoodsFiles = "http://203.156.9.157/UploadFiles/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
 		$IsSuccess = 0; 
          
@@ -41,7 +41,7 @@ class Data extends CI_Controller {
             $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
 		}  
 		echo json_encode(array("IsSuccess" => $IsSuccess ));  
-        
+
 	}
     public function EditGoodsItems()
 	{   
