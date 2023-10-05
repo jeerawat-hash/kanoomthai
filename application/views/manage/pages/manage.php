@@ -307,11 +307,11 @@
 
          $("#Modal_MaintainGoodsItem").find("#SaveData").on("click", function() {
  
-             GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
-             StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
-             GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
-             Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
-             PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
+            var GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
+            var StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+            var GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
+            var Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
+            var PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
   
              if (GoodsImageUpload == undefined) {
                  alert("กรุณาแนบภาพสินค้า");

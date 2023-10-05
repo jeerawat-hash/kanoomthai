@@ -41,6 +41,7 @@ class Data extends CI_Controller {
             $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".jpg");
 		}  
 		echo json_encode(array("IsSuccess" => $IsSuccess ));  
+        
 	}
     public function EditGoodsItems()
 	{   
