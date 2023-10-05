@@ -879,7 +879,7 @@
                         url: "http://203.156.9.157/kanoomthai/index.php/Data/SendOrder",
                         type: "POST",
                         data: JSON.stringify(data),
-                        contentType: false,
+                        contentType: "application/json",
                         cache: false,
                         processData: false,
                         success: function(data) {
