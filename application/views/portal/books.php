@@ -617,18 +617,19 @@
 
                 socket.on("<?php echo $BookingSessionID; ?>", function(data) {
                     console.log(data);
-                    var obj = JSON.parse(data);
-                    if (obj.Header == "ReceiveOrder") {
-                        LoadSaleOrder();
-                        LoadPendingOrder();
-                        Swal.fire('แจ้งเตือน', obj.Msg, 'success');
-                        // notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
-                    }
-                    if (obj.Header == "SendInvoice") {
-                        LoadSaleOrder();
-                        LoadPendingOrder();
-                        $("#BTNCheckOut").click();
-                    } 
+                    
+                    // var obj = JSON.parse(data);
+                    // if (obj.Header == "ReceiveOrder") {
+                    //     LoadSaleOrder();
+                    //     LoadPendingOrder();
+                    //     Swal.fire('แจ้งเตือน', obj.Msg, 'success');
+                    //     // notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
+                    // }
+                    // if (obj.Header == "SendInvoice") {
+                    //     LoadSaleOrder();
+                    //     LoadPendingOrder();
+                    //     $("#BTNCheckOut").click();
+                    // } 
 
                 });
 

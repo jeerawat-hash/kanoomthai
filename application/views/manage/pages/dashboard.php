@@ -272,6 +272,7 @@
                             "Msg": "",
                         });
                         socket.emit("MSGServer", Data);
+                        console.log(Data);
                     }
 
                     /// Emit Event To OpenInvoice Page /// 
