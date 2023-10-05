@@ -279,6 +279,7 @@
                          var obj = JSON.parse(data);
                          console.log(obj);
                          $("#Modal_MaintainGoodsItem").modal("hide");
+                         GetDataAllGoodsItemStock();
 
                      } catch (error) {}
                  },
