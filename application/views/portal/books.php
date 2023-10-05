@@ -724,6 +724,7 @@
                         processData: false,
                         success: function(data) {
                             try {
+                                location.reload();
                                 var obj = JSON.parse(data);
                                 console.log(obj);
                                 if (obj.Status == "Success") {
