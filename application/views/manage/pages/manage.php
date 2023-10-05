@@ -225,7 +225,7 @@
              $("#Modal_MaintainGoodsItem").find(".modal-title").text("แก้ไข " + GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#GoodsName").val(GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
-             $("#Modal_MaintainGoodsItem").find("#StockAmount").val( StockSub );
+             $("#Modal_MaintainGoodsItem").find("#StockAmount").val( StockAmount );
              $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
              //  $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
              $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", Image);
@@ -237,11 +237,11 @@
          $("#Modal_MaintainGoodsItem").find("#EditData").on("click",function(){
 
             StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
-            if(StockSub < StockAmount){
-                alert("น้อยกว่ายอดใช้จริง");
+            if(StockAmount <= StockSub){
+                alert("น้อยกว่ายอดใช้ปัจจุบันจำนวน "+StockSub+" "+Unit);
                 return false;
             }
-            
+
 
 
 
