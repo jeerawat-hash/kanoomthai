@@ -141,6 +141,10 @@
     <script>
         $(function() {
 
+            setInterval(function () { 
+                GetDataOrderPending(); 
+            }, 2500);
+
             var header = "";
             var Source = "";
             var Dest = "";
@@ -229,10 +233,10 @@
                     GetDataOrderPending();
                 });
 
-                socket.on("Dashboard", function(Data) {
-                    console.log("From : " + Data);
-                    GetDataOrderPending();
-                });
+                // socket.on("Dashboard", function(Data) {
+                //     console.log("From : " + Data);
+                //     GetDataOrderPending();
+                // });
 
                 $("#TableCustomerOrder").on("click", ".BTNOpenOrder", function() {
 
