@@ -558,78 +558,77 @@
             var Receive = "";
             try {
                 const socket = io("http://203.156.9.157:8081");
-                socket.on("connect", function() {
+                socket.on("connect", async function() {
                     console.log("Connected");
 
-                    // if ("<?php echo $BookingSessionID; ?>" != "") {
-                    //     await socket.emit("SetID", "<?php echo $BookingSessionID; ?>");
-                    //     setTimeout(function() {
-                    //         $.ajax({
-                    //             url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
-                    //             type: "POST",
-                    //             contentType: false,
-                    //             cache: false,
-                    //             processData: false,
-                    //             success: function(data) {
-                    //                 try {
-                    //                     var obj = JSON.parse(data);
-                    //                     console.log(obj);
-                    //                     if (obj.Status == "Success") {
-                    //                         LoadSaleOrder();
-                    //                         LoadPendingOrder();
-                    //                         notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
-                    //                         // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
-                    //                         $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
-                    //                         socket.emit("SetID", obj.Data.BookingSessionID);
+                    if ("<?php echo $BookingSessionID; ?>" != "") {
+                        await socket.emit("SetID", "<?php echo $BookingSessionID; ?>");
+                        setTimeout(function() {
+                            $.ajax({
+                                url: "http://203.156.9.157/kanoomthai/index.php/Data/CheckLogin",
+                                type: "POST",
+                                contentType: false,
+                                cache: false,
+                                processData: false,
+                                success: function(data) {
+                                    try {
+                                        var obj = JSON.parse(data);
+                                        console.log(obj);
+                                        if (obj.Status == "Success") {
+                                            LoadSaleOrder();
+                                            LoadPendingOrder();
+                                            notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
+                                            // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
+                                            $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
+                                            socket.emit("SetID", obj.Data.BookingSessionID);
 
-                    //                         if (socket.connected == true) {
-                    //                             var PayLoad = JSON.stringify({
-                    //                                 "Source": obj.Data.BookingSessionID,
-                    //                                 "Dest": "AllEvent",
-                    //                                 "Header": obj.Data.CustomerName,
-                    //                                 "Msg": "Booking",
-                    //                             });
-                    //                             socket.emit("MSGServer", PayLoad);
-                    //                         }
+                                            if (socket.connected == true) {
+                                                var PayLoad = JSON.stringify({
+                                                    "Source": obj.Data.BookingSessionID,
+                                                    "Dest": "AllEvent",
+                                                    "Header": obj.Data.CustomerName,
+                                                    "Msg": "Booking",
+                                                });
+                                                socket.emit("MSGServer", PayLoad);
+                                            }
 
-                    //                         $("#ModalLogin").modal("hide");
-                    //                     } else {
-                    //                         notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
-                    //                         // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้", 'danger');
-                    //                         return false;
-                    //                     }
-                    //                 } catch (error) {}
-                    //             },
-                    //             error: function() {}
-                    //         });
-                    //     }, 1000);
-                    // }
+                                            $("#ModalLogin").modal("hide");
+                                        } else {
+                                            notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
+                                            // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้", 'danger');
+                                            return false;
+                                        }
+                                    } catch (error) {}
+                                },
+                                error: function() {}
+                            });
+                        }, 1000);
+                    }
 
                 });
 
-                // socket.on("AllEvent", function(data) {
-                //     console.log(data);
-                //     var obj = JSON.parse(data);
-                //     if (obj.Msg == "Booking") {
-                //         LoadDataSelectTable();
-                //     }
-                // });
+                socket.on("AllEvent", function(data) {
+                    console.log(data);
+                    var obj = JSON.parse(data);
+                    if (obj.Msg == "Booking") {
+                        LoadDataSelectTable();
+                    }
+                });
 
                 socket.on("<?php echo $BookingSessionID; ?>", function(data) {
                     console.log(data);
-                    
-                    // var obj = JSON.parse(data);
-                    // if (obj.Header == "ReceiveOrder") {
-                    //     LoadSaleOrder();
-                    //     LoadPendingOrder();
-                    //     Swal.fire('แจ้งเตือน', obj.Msg, 'success');
-                    //     // notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
-                    // }
-                    // if (obj.Header == "SendInvoice") {
-                    //     LoadSaleOrder();
-                    //     LoadPendingOrder();
-                    //     $("#BTNCheckOut").click();
-                    // } 
+                    var obj = JSON.parse(data);
+                    if (obj.Header == "ReceiveOrder") {
+                        LoadSaleOrder();
+                        LoadPendingOrder();
+                        Swal.fire('แจ้งเตือน', obj.Msg, 'success');
+                        // notification('notification-danger', "แจ้งเตือน", "กรุณาระบุชื่อ", 1000);
+                    }
+                    if (obj.Header == "SendInvoice") {
+                        LoadSaleOrder();
+                        LoadPendingOrder();
+                        $("#BTNCheckOut").click();
+                    } 
 
                 });
 
@@ -735,24 +734,24 @@
                                     notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
                                     // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
                                     $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
-                                    // if (socket.connected == true) {
-                                    //     var PayLoad = JSON.stringify({
-                                    //         "Source": obj.Data.BookingSessionID,
-                                    //         "Dest": "AllEvent",
-                                    //         "Header": obj.Data.CustomerName,
-                                    //         "Msg": "Booking",
-                                    //     });
-                                    //     socket.emit("MSGServer", PayLoad);
-                                    // }
-                                    // if (socket.connected == true) {
-                                    //     var Data = JSON.stringify({
-                                    //         "Source": obj.Data.BookingSessionID,
-                                    //         "Dest": "Dashboard",
-                                    //         "Header": "SignIn",
-                                    //         "Msg": obj.Data.CustomerName,
-                                    //     });
-                                    //     socket.emit("MSGServer", Data);
-                                    // }
+                                    if (socket.connected == true) {
+                                        var PayLoad = JSON.stringify({
+                                            "Source": obj.Data.BookingSessionID,
+                                            "Dest": "AllEvent",
+                                            "Header": obj.Data.CustomerName,
+                                            "Msg": "Booking",
+                                        });
+                                        socket.emit("MSGServer", PayLoad);
+                                    }
+                                    if (socket.connected == true) {
+                                        var Data = JSON.stringify({
+                                            "Source": obj.Data.BookingSessionID,
+                                            "Dest": "Dashboard",
+                                            "Header": "SignIn",
+                                            "Msg": obj.Data.CustomerName,
+                                        });
+                                        socket.emit("MSGServer", Data);
+                                    }
                                 } else {
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้ ", 'danger');
@@ -875,7 +874,8 @@
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
                         console.log(res);
                         LoadPendingOrder();
-                        LoadSaleOrder(); 
+                        LoadSaleOrder();
+
                         $("#ModalOrderGoods").modal("hide");
                         $("#ModalOrderGoods").find("#SendOrder").attr("disabled",false); 
                         if (socket.connected == true) {
@@ -894,11 +894,7 @@
                 /// SendOrder ///
 
 
-
-
-
-
-
+ 
             } catch (error) {
                 console.log(error);
             }
