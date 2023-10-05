@@ -111,7 +111,11 @@ class Data extends CI_Controller {
     } 
     public function SetReceiveOrder()
     {  
-        $result = $this->BookingSession->SetReceiveOrder($_POST["BookingSessionID"],"1");
+        $MemberID = $this->session->userdata("MemberID");
+        $MemberName = $this->session->userdata("MemberName");
+        $MemberAuthorize = $this->session->userdata("MemberAuthorize");
+
+        $result = $this->BookingSession->SetReceiveOrder($_POST["BookingSessionID"],$MemberID);
         echo json_encode($result);
     } 
     public function GetDataAllOrderPending()
