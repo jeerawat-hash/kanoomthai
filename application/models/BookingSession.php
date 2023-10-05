@@ -151,30 +151,26 @@ class BookingSession extends CI_Model
         return $TableID;
     }
     public function SignInAndBookingTable($CustomerName, $TableID)
-    { 
-        $this->mysql->trans_start();
+    {  
         $QueryString = " 
         INSERT INTO tbl_Customer (CustomerName, CreateDate)
         values(?,?)
         ";
         $query = $this->mysql->query($QueryString, array($CustomerName, date("Y-m-d H:i:s")));
-        $Transaction = $this->mysql->trans_complete();
  
         $QueryLastID = " 
         SELECT CustomerID FROM tbl_Customer order by CustomerID desc limit 1
         ";
         $queryLastID = $this->mysql->query($QueryLastID);
         $LastInsertID = $queryLastID->result_array();
-
-        // $this->mysql->trans_start();
-        // $QueryString = " 
-        // INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
-        // SELECT ?,TableID,0 FROM tbl_Table 
-        // where TableID not in (SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID != 21) 
-        // and TableID = ?
-        // ";
-        // $query = $this->mysql->query($QueryString, array($LastInsertID[0]["CustomerID"], $TableID));
-        // $Transaction = $this->mysql->trans_complete();
+ 
+        $QueryString = " 
+        INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
+        SELECT ?,TableID,0 FROM tbl_Table 
+        where TableID not in (SELECT TableID FROM tbl_BookingSession where IsCheckOut = 0 and TableID != 21) 
+        and TableID = ?
+        ";
+        $query = $this->mysql->query($QueryString, array($LastInsertID[0]["CustomerID"], $TableID));
 
         $QueryLastID = " 
         INSERT INTO tbl_BookingSession (CustomerID, TableID, IsCheckOut)
@@ -183,7 +179,7 @@ class BookingSession extends CI_Model
         and TableID = ?
         SELECT BookingSessionID FROM tbl_BookingSession order by BookingSessionID desc limit 1
         ";
-        $queryLastID = $this->mysql->query($QueryLastID, array($LastInsertID[0]["CustomerID"], $TableID));
+        $queryLastID = $this->mysql->query($QueryLastID);
         $LastInsertID = $queryLastID->result_array();
 
         $Data = array("Status" => (($Transaction == true) ? 1 : 0), "BookingSessionID" => $LastInsertID[0]["BookingSessionID"]);
