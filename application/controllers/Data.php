@@ -29,8 +29,8 @@ class Data extends CI_Controller {
         $GoodsFiles = "http://203.156.9.157/kanoomthai/Upload/".date("d-m-Y-H-i-s")."-".$UpLoadFile_Size;
 		$IsSuccess = 0;
 
-        move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
-
+        // move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpg");
+        copy($UpLoadFile_Tmp_Name,$GoodsImageUpload.".jpg");
 		// if($UpLoadFile_Type == "image/jpeg"){ 
 		// 	move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".jpeg");
         
