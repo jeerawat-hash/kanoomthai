@@ -242,6 +242,57 @@
 
          });
 
+         $("#TableGoodsItems").on("click", ".BTNDeleteGoodsItem", function() {
+
+             GoodsItemID = $(this).attr("data-goodsItemID");
+             GoodsItemName = $(this).attr("data-goodsItemName");
+             Available = $(this).attr("data-available");
+             Image = $(this).attr("data-image");
+             StockAmount = $(this).attr("data-stockAmount");
+             PricePerUnit = $(this).attr("data-pricePerUnit");
+             Unit = $(this).attr("data-unit");
+             Used = $(this).attr("data-used");
+
+             Swal.fire({
+                 title: 'ต้องการลบ ' + GoodsItemName + ' ?',
+                 text: "หากลบแล้วไม่สามารถเรียกคืนได้!",
+                 icon: 'warning',
+                 showCancelButton: true,
+                 confirmButtonColor: '#3085d6',
+                 cancelButtonColor: '#d33',
+                 confirmButtonText: 'Yes'
+             }).then((result) => {
+                 if (result.isConfirmed) {
+
+                     var data = new FormData();
+                     data.append('GoodsItemID', GoodsItemID);
+
+                     $.ajax({
+                         url: "http://203.156.9.157/kanoomthai/index.php/Data/GoodsItemID",
+                         type: "POST",
+                         data: data,
+                         contentType: false,
+                         cache: false,
+                         processData: false,
+                         success: function(data) {
+                             try { 
+                                GetDataAllGoodsItemStock();
+                                 Swal.fire(
+                                     'สำเร็จ!',
+                                     'ลบสินค้า ' + GoodsItemName + ' แล้ว',
+                                     'success'
+                                 )
+                             } catch (error) {}
+                         },
+                         error: function() {}
+                     });
+
+
+                 }
+             })
+
+         });
+
          $("#Modal_MaintainGoodsItem").find("#EditData").on("click", function() {
 
              GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
@@ -306,19 +357,19 @@
          });
 
          $("#Modal_MaintainGoodsItem").find("#SaveData").on("click", function() {
- 
-            var GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
-            var StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
-            var GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
-            var Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
-            var PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
-  
+
+             var GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
+             var StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+             var GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
+             var Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
+             var PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
+
              if (GoodsImageUpload == undefined) {
                  alert("กรุณาแนบภาพสินค้า");
                  return false;
              }
 
-             var data = new FormData(); 
+             var data = new FormData();
              data.append('GoodsItemName', GoodsItemName);
              data.append('StockAmount', StockAmount);
              data.append('PricePerUnit', PricePerUnit);
@@ -344,7 +395,7 @@
                  error: function() {}
              });
 
- 
+
 
          });
 
@@ -371,7 +422,7 @@
                              var ID = i + 1;
                              var Option = "";
 
-                             Option += '<button class="btn btn-warning BTNEditGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >แก้ไข</button>';
+                             Option += '<button class="btn btn-warning BTNEditGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >แก้ไข</button> ';
                              Option += ' <button class="btn btn-danger BTNDeleteGoodsItem" data-GoodsItemID="' + obj[i].GoodsItemID + '" data-GoodsItemName="' + obj[i].GoodsItemName + '" data-Available="' + obj[i].Available + '" data-Image="' + obj[i].Image + '" data-PricePerUnit="' + obj[i].PricePerUnit + '" data-StockAmount="' + obj[i].StockAmount + '" data-Unit="' + obj[i].Unit + '" data-Used="' + obj[i].Used + '"  >ลบ</button>';
 
                              Data.push({

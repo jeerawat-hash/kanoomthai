@@ -8,6 +8,18 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
+	public function DeleteGoodsItems($GoodsItemID)
+	{
+		$this->mysql->trans_start();
+        $QueryString = " 
+		delete from tbl_GoodsItem where GoodsItemID = ?
+        ";
+        $query = $this->mysql->query($QueryString, array($GoodsItemID));
+        $Transaction = $this->mysql->trans_complete(); 
+		$Data = array("Status" => (($Transaction == true) ? 1 : 0));
+        $this->mysql->close();
+        return $Data;
+	}
 	public function InsertGoodsItems($GoodsItemName,$StockAmount,$PricePerUnit,$Unit,$GoodsImageUpload)
 	{
 		$this->mysql->trans_start();

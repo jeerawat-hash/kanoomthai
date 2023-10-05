@@ -15,7 +15,11 @@ class Data extends CI_Controller {
 	}
  
     //// Backend ////
-
+    public function DeleteGoodsItems()
+	{    
+        $this->Goodsitem->DeleteGoodsItems($_POST["GoodsItemID"]);
+		echo json_encode(array("IsSuccess" => 1 ));  
+    }
     public function InsertGoodsItems()
 	{   
 		$UploadFile = $_FILES;
@@ -40,7 +44,7 @@ class Data extends CI_Controller {
 			move_uploaded_file($UpLoadFile_Tmp_Name, $GoodsImageUpload.".png"); 
             $this->Goodsitem->InsertGoodsItems($PostData["GoodsItemName"],$PostData["StockAmount"],$PostData["PricePerUnit"],$PostData["Unit"],$GoodsFiles.".png");
 		}  
-        
+
 		echo json_encode(array("IsSuccess" => $IsSuccess ));  
 
 	}
