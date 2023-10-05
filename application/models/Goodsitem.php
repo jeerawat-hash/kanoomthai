@@ -48,8 +48,8 @@ class Goodsitem extends CI_Model
 		,Unit
 		,PricePerUnit
 		,StockAmount
-		,ifnull((SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID),0) as Used
-		,ifnull((StockAmount-(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID)),0) as Available
+		,ifnull((SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID),'ยังไม่มีการซื้อ') as Used
+		,ifnull((StockAmount-(SELECT sum(Amount) as Used FROM tbl_GoodsOrderDetail where GoodsItemID = ItemMaster.GoodsItemID group by GoodsItemID)),'ยังไม่มีการซื้อ') as Available
 		,Image FROM tbl_GoodsItem ItemMaster
         ";
 		$query = $this->mysql->query($QueryString);
