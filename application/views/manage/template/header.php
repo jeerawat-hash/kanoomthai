@@ -202,7 +202,7 @@ switch ($page_focus) {
             <img src="http://203.156.9.157/kanoomthai/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info text-center">
-            <a href="/Management/Logout" class="d-block"><?php echo $EmployeeName; ?></a>
+            <a href="http://203.156.9.157/kanoomthai/index.php/Management/Logout" class="d-block"><?php echo $EmployeeName; ?> (ลงชื่อออก)</a>
           </div>
         </div>
 
