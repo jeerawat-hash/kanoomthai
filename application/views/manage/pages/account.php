@@ -210,6 +210,11 @@
                 Username = $(this).attr("data-Username");
                 IsAdmin = $(this).attr("data-IsAdmin");
 
+                $("#Modal_MaintainMember").find("#Username").val(Username);
+                $("#Modal_MaintainMember").find("#MemberName").val(MemberName);
+                $("#Modal_MaintainMember").find("#Password").val("");
+                $("#Modal_MaintainMember").find("#IsAdmin").val(IsAdmin);
+
                 $("#Modal_MaintainMember").modal("show");
                 $("#Modal_MaintainMember").find(".modal-title").text("แก้ไขข้อมูล : " + MemberName);
                 $("#Modal_MaintainMember").find("#SaveData").hide();
