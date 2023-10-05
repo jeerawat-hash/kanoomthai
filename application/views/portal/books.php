@@ -379,6 +379,23 @@
                     </div>
                     <div class="modal-body">
 
+                        <div class="section mt-2 mb-2">
+                            <div class="card">
+                                <ul class="listview flush transparent simple-listview">
+                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold">
+                                            <font id="CartSumItem"></font> ชิ้น
+                                        </span></li>
+                                    <li>ยอดรวม<span class="text-primary font-weight-bold">
+                                            <font id="CartSumPrice"></font> บาท
+                                        </span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section mb-2">
+                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button>
+                        </div>
+
                         <div class="section mt-2">
 
 
@@ -410,22 +427,7 @@
 
                         </div>
 
-                        <div class="section mt-2 mb-2">
-                            <div class="card">
-                                <ul class="listview flush transparent simple-listview">
-                                    <li>จำนวนสั่งซื้อ<span class="text-primary font-weight-bold">
-                                            <font id="CartSumItem"></font> ชิ้น
-                                        </span></li>
-                                    <li>ยอดรวม<span class="text-primary font-weight-bold">
-                                            <font id="CartSumPrice"></font> บาท
-                                        </span></li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="section mb-2">
-                            <button class="btn btn-warning btn-block btn-lg" id="SendOrder">สั่งซื้อ</button>
-                        </div>
 
 
 
@@ -628,7 +630,7 @@
                         LoadSaleOrder();
                         LoadPendingOrder();
                         $("#BTNCheckOut").click();
-                    } 
+                    }
 
                 });
 
@@ -698,7 +700,7 @@
                         $("#ModalLogin").find("#BTNLogin").show();
                         // Swal.fire('แจ้งเตือน', "กรุณาทำการจอง", 'danger');
                         return false;
-                    }  
+                    }
 
                     var data = new FormData();
                     data.append('CustomerName', CustomerName);
@@ -726,7 +728,7 @@
                         cache: false,
                         processData: false,
                         success: function(data) {
-                            try { 
+                            try {
                                 var obj = JSON.parse(data);
                                 console.log(obj);
                                 if (obj.Status == "Success") {
@@ -742,7 +744,7 @@
                         error: function() {}
                     });
 
-                    
+
 
                 });
                 //#region Login
@@ -852,14 +854,14 @@
                     };
 
                     console.log(data);
-                    $("#ModalOrderGoods").find("#SendOrder").attr("disabled",true);
+                    $("#ModalOrderGoods").find("#SendOrder").attr("disabled", true);
                     $.post("http://203.156.9.157/kanoomthai/index.php/Data/SendOrder", data, function(res) {
                         console.log(res);
                         LoadPendingOrder();
                         LoadSaleOrder();
 
                         $("#ModalOrderGoods").modal("hide");
-                        $("#ModalOrderGoods").find("#SendOrder").attr("disabled",false); 
+                        $("#ModalOrderGoods").find("#SendOrder").attr("disabled", false);
                         if (socket.connected == true) {
                             var Data = JSON.stringify({
                                 "Source": "<?php echo $BookingSessionID; ?>",
@@ -876,7 +878,7 @@
                 /// SendOrder ///
 
 
- 
+
             } catch (error) {
                 console.log(error);
             }
