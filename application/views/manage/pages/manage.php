@@ -75,19 +75,25 @@
                          </div>
                          <div class="modal-body">
                              <div class="row">
-                                 <div class="col-6">
+                                 <div class="col-4">
                                      <h4>ชื่อ</h4>
                                  </div>
-                                 <div class="col-6">
+                                 <div class="col-4">
                                      <h4>ราคาต่อหน่วย</h4>
+                                 </div>
+                                 <div class="col-4">
+                                     <h4>หน่วย</h4>
                                  </div>
                              </div>
                              <div class="row">
-                                 <div class="col-6">
+                                 <div class="col-4">
                                      <input type="text" class="form-control" id="GoodsName" placeholder="ชื่อสินค้า">
                                  </div>
-                                 <div class="col-6">
+                                 <div class="col-4">
                                      <input type="number" class="form-control" id="PricePerUnit" placeholder="ราคาต่อหน่วย">
+                                 </div>
+                                 <div class="col-4">
+                                     <input type="number" class="form-control" id="Unit" placeholder="หน่วย">
                                  </div>
                              </div>
                              <div class="row">
@@ -225,6 +231,7 @@
              $("#Modal_MaintainGoodsItem").find(".modal-title").text("แก้ไข " + GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#GoodsName").val(GoodsItemName);
              $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val(PricePerUnit);
+             $("#Modal_MaintainGoodsItem").find("#Unit").val(Unit); 
              $("#Modal_MaintainGoodsItem").find("#StockAmount").val( StockAmount );
              $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
              //  $("#Modal_MaintainGoodsItem").find("#GoodsImagePreview").attr("src", "http://203.156.9.157/kanoomthai/Upload/thubnail.svg");
@@ -237,13 +244,19 @@
          $("#Modal_MaintainGoodsItem").find("#EditData").on("click",function(){
 
             StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+            // GoodsItemID
+            // GoodsItemName 
+            // $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").val("").trigger("change");
+            // $("#Modal_MaintainGoodsItem").find("#Unit").val(); 
+
+
             if(StockAmount <= StockSub){
                 alert("ไม่ควรกำหนดน้อยกว่ายอดคงเหลือปัจจุบัน "+StockSub+" "+Unit);
                 return false;
             }
 
 
-            
+
 
 
 
