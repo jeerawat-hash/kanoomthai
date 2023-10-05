@@ -176,7 +176,7 @@
             });
 
 
-            GetDataAllGoodsItemStock();
+            GetDataAllSystemMember();
 
 
             $("#BTNAddDataAccount").on("click", function() {
@@ -211,7 +211,7 @@
                 IsAdmin = $(this).attr("data-IsAdmin");
 
                 $("#Modal_MaintainMember").modal("show");
-                $("#Modal_MaintainMember").find(".modal-title").text("แก้ไขข้อมูล : "+MemberName);
+                $("#Modal_MaintainMember").find(".modal-title").text("แก้ไขข้อมูล : " + MemberName);
                 $("#Modal_MaintainMember").find("#SaveData").hide();
                 $("#Modal_MaintainMember").find("#EditData").show();
 
@@ -219,15 +219,36 @@
 
             $("#Modal_MaintainMember").find("#EditData").on("click", function() {
 
-                $("#Modal_MaintainMember").find("#Username").val();
-                $("#Modal_MaintainMember").find("#MemberName").val();
-                $("#Modal_MaintainMember").find("#Password").val();
-                $("#Modal_MaintainMember").find("#IsAdmin").val();
+                Username = $("#Modal_MaintainMember").find("#Username").val();
+                MemberName = $("#Modal_MaintainMember").find("#MemberName").val();
+                Password = $("#Modal_MaintainMember").find("#Password").val();
+                IsAdmin = $("#Modal_MaintainMember").find("#IsAdmin").val();
+  
+                var data = new FormData();
+                data.append('MemberID', MemberID);
+                data.append('MemberName', MemberName);
+                data.append('Username', Username);
+                data.append('Password', Password);
+                data.append('IsAdmin', IsAdmin);
 
-                console.log(MemberID);
-                console.log(MemberName);
-                console.log(Username);
-                console.log(IsAdmin);
+                $.ajax({
+                    url: "http://203.156.9.157/kanoomthai/index.php/Data/EditSystemMember",
+                    type: "POST",
+                    data: data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(data) {
+                        try {
+                            var obj = JSON.parse(data);
+                            console.log(obj);
+                            $("#Modal_MaintainMember").modal("hide");
+                            GetDataAllSystemMember();
+
+                        } catch (error) {}
+                    },
+                    error: function() {}
+                });
 
 
             });
@@ -235,8 +256,8 @@
 
 
 
-            //#region GetDataAllGoodsItemStock
-            function GetDataAllGoodsItemStock() {
+            //#region GetDataAllSystemMember
+            function GetDataAllSystemMember() {
                 $.ajax({
                     url: "http://203.156.9.157/kanoomthai/index.php/Data/GetDataAllSystemMember",
                     type: "POST",

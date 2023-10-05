@@ -15,14 +15,18 @@ class Data extends CI_Controller {
 		echo "1";
 	}
   
-    
+
+    public function EditSystemMember()
+	{    
+        $result = $this->Member->EditSystemMember($_POST["MemberID"],$_POST["MemberName"],$_POST["Username"],$_POST["Password"],$_POST["IsAdmin"]);
+		echo json_encode(array("IsSuccess" => 1 ));  
+	}
     public function GetDataAllSystemMember()
 	{     
         $result = $this->Member->GetDataAllSystemMember();
         echo json_encode($result);
     }
- 
-
+  
 
 
     //// Backend ////
