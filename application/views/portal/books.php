@@ -681,6 +681,7 @@
                 //#region Login
                 $("#ModalLogin").find("#BTNLogin").on("click", async function() {
 
+                    $("#ModalLogin").find("#BTNLogin").hide();
                     $("#ModalInvoice").find("#TotalPrice").text(0);
                     TableInvoice.clear();
                     var CustomerName = $("#ModalLogin").find("#Inp_CustomerName").val();
@@ -696,6 +697,9 @@
                         // Swal.fire('แจ้งเตือน', "กรุณาทำการจอง", 'danger');
                         return false;
                     }
+                    $("#ModalLogin").find("#BTNLogin").hide();
+
+                    location.reload();
 
                     var data = new FormData();
                     data.append('CustomerName', CustomerName);
@@ -723,37 +727,13 @@
                         cache: false,
                         processData: false,
                         success: function(data) {
-                            try {
-                                location.reload();
+                            try { 
                                 var obj = JSON.parse(data);
                                 console.log(obj);
                                 if (obj.Status == "Success") {
-                                    socket.emit("SetID", obj.Data.BookingSessionID);
-                                    $("#ModalLogin").modal("hide");
-                                    LoadSaleOrder();
-                                    LoadPendingOrder();
-                                    notification('notification-success', "สำเร็จ", "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 1000);
-                                    // Swal.fire('สำเร็จ', "ยินดีต้อนรับคุณ " + obj.Data.CustomerName, 'success');
-                                    $("#WelcomeTitle").text("ยินดีต้อนรับคุณ " + obj.Data.CustomerName);
-                                    if (socket.connected == true) {
-                                        var PayLoad = JSON.stringify({
-                                            "Source": obj.Data.BookingSessionID,
-                                            "Dest": "AllEvent",
-                                            "Header": obj.Data.CustomerName,
-                                            "Msg": "Booking",
-                                        });
-                                        socket.emit("MSGServer", PayLoad);
-                                    }
-                                    if (socket.connected == true) {
-                                        var Data = JSON.stringify({
-                                            "Source": obj.Data.BookingSessionID,
-                                            "Dest": "Dashboard",
-                                            "Header": "SignIn",
-                                            "Msg": obj.Data.CustomerName,
-                                        });
-                                        socket.emit("MSGServer", Data);
-                                    }
+                                    location.reload();
                                 } else {
+                                    $("#ModalLogin").find("#BTNLogin").show();
                                     notification('notification-danger', "ผิดพลาด", "ไม่สามารถเข้าสู่ระบบได้", 1000);
                                     // Swal.fire('ผิดพลาด', "ไม่สามารถเข้าสู่ระบบได้ ", 'danger');
                                     return false;
@@ -762,6 +742,8 @@
                         },
                         error: function() {}
                     });
+
+                    
 
                 });
                 //#region Login
