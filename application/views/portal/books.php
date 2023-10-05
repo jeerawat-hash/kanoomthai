@@ -623,7 +623,7 @@
                         LoadPendingOrder();
                         Swal.fire('แจ้งเตือน', obj.Msg, 'success');
                     }
-                    if (obj.Header == "ReceiveOrder") {
+                    if (obj.Header == "SendInvoice") {
                         LoadSaleOrder();
                         LoadPendingOrder();
                         $("#BTNCheckOut").click();
