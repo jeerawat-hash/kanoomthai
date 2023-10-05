@@ -306,12 +306,48 @@
          });
 
          $("#Modal_MaintainGoodsItem").find("#SaveData").on("click", function() {
+ 
+             GoodsItemName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
+             StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
+             GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
+             Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
+             PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
+  
+             if (GoodsImageUpload == undefined) {
+                 alert("กรุณาแนบภาพสินค้า");
+                 return false;
+             }
 
-             var GoodsName = $("#Modal_MaintainGoodsItem").find("#GoodsName").val();
-             var PricePerUnit = $("#Modal_MaintainGoodsItem").find("#PricePerUnit").val();
-             var Unit = $("#Modal_MaintainGoodsItem").find("#Unit").val();
-             var StockAmount = $("#Modal_MaintainGoodsItem").find("#StockAmount").val();
-             var GoodsImageUpload = $("#Modal_MaintainGoodsItem").find("#GoodsImageUpload").prop('files')[0];
+             var data = new FormData(); 
+             data.append('GoodsItemName', GoodsItemName);
+             data.append('StockAmount', StockAmount);
+             data.append('PricePerUnit', PricePerUnit);
+             data.append('GoodsImageUpload', GoodsImageUpload);
+             data.append('Unit', Unit);
+
+             $.ajax({
+                 url: "http://203.156.9.157/kanoomthai/index.php/Data/InsertGoodsItems",
+                 type: "POST",
+                 data: data,
+                 contentType: false,
+                 cache: false,
+                 processData: false,
+                 success: function(data) {
+                     try {
+                         var obj = JSON.parse(data);
+                         console.log(obj);
+                         $("#Modal_MaintainGoodsItem").modal("hide");
+                         GetDataAllGoodsItemStock();
+
+                     } catch (error) {}
+                 },
+                 error: function() {}
+             });
+
+
+
+
+
 
          });
 

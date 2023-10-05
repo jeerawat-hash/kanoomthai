@@ -8,7 +8,19 @@ class Goodsitem extends CI_Model
 		$this->load->library("session"); 
 	}
 
-
+	public function InsertGoodsItems($GoodsItemName,$StockAmount,$PricePerUnit,$Unit,$GoodsImageUpload)
+	{
+		$this->mysql->trans_start();
+        $QueryString = " 
+		INSERT INTO tbl_GoodsItem (GoodsItemName, Unit, PricePerUnit, StockAmount, Image)
+		VALUES (?, ?, ?, ?, ?)
+        ";
+        $query = $this->mysql->query($QueryString, array($GoodsItemName,$Unit,$PricePerUnit,$StockAmount,$GoodsImageUpload ));
+        $Transaction = $this->mysql->trans_complete(); 
+		$Data = array("Status" => (($Transaction == true) ? 1 : 0));
+        $this->mysql->close();
+        return $Data;
+	}
 	public function EditGoodsItems($GoodsItemID,$GoodsItemName,$StockAmount,$PricePerUnit,$Unit,$GoodsImageUpload)
 	{
 		$this->mysql->trans_start();
